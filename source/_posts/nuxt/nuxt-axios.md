@@ -85,7 +85,7 @@ export default {
 }
 ```
 
-axios 提供以下方法進行事件捕捉：
+**axios 提供以下方法進行事件捕捉：**
 
 - onRequest(config)
 - onResponse(response)
@@ -138,7 +138,9 @@ export default ({ $axios, redirect, store }) => {
 };
 ```
 
-> 💡 如果全域設定 resolve promise，在 axios 發生錯誤時，都不會進到 catch error 歐！
+{% colorquote info %}
+如果全域設定 resolve promise，在 axios 發生錯誤時，都不會進到 catch error 歐！
+{% endcolorquote %}
 
 **自訂 Error Page**
 
@@ -168,9 +170,11 @@ export default {
     }
 };
 </script>
-```
+``` 
 
-> 💡 雖然 error.vue 檔置於 layouts 資料夾，但視為 pages 頁面，因此如果沒有配置 layout，預設會讀取 layouts/default.vue 樣板
+{% colorquote info %}
+雖然 error.vue 檔置於 layouts 資料夾，但視為 pages 頁面，因此如果沒有配置 layout，預設會讀取 layouts/default.vue 樣板
+{% endcolorquote %}
 
 這樣就完成了，在 Nuxt 發生錯誤時，都會進到我們自訂錯誤頁面，如果要手動進到錯誤頁，呼叫 context 內的 error 方法即可，在 Nuxt 生命週期：
 

@@ -73,13 +73,13 @@ export const actions = {
 
 ![](https://i.imgur.com/qj8ViHd.png)
 
-# Route Middleware
+# **Route Middleware**
 
 中間組件，在頁面渲染前執行，有三種定義方式，執行順序為：**Global → Layout → Page**
 
 接下來分別說明該如何定義
 
-**Global Middleware**
+#### **Global Middleware**
 
 在 middleware 資料夾內建立檔案，這裡命名為 global.js
 
@@ -105,7 +105,7 @@ export default {
 }
 ```
 
-**Layout Middleware**
+#### **Layout Middleware**
 
 建立 middleware 檔案，這裡命名為 middleware/layout.js，然後配置到任一 layouts 檔案，範例使用 layouts/default.vue
 
@@ -129,7 +129,7 @@ export default {
 };
 ```
 
-**Page Middleware**
+#### **Page Middleware**
 
 概念同 layouts middleware，配置於任一 pages 檔案，範例使用 pages/about.vue，這裡使用匿名配置來說明
 
@@ -147,7 +147,7 @@ export default {
 
 ![](https://i.imgur.com/mT4lCpY.png)
 
-# validate
+# **validate**
 
 於 pages 檔案配置此方法，用來驗證動態路由參數有效性，範例使用 pages/about/_userId.vue
 
@@ -162,9 +162,11 @@ export default {
 }
 ```
 
-> 💡 驗證通過必須 return `true`，否則會自動轉跳 404 error page
+{% colorquote info %}
+驗證通過必須 return `true`，否則會自動轉跳 404 error page
+{% endcolorquote %}
 
-# asyncData
+# **asyncData**
 
 於 server 端處理非同步的生命週期，在此傳入的內容可以被搜尋引擎爬蟲取得，是提升 SEO 效能的重點生命週期。
 
@@ -208,15 +210,21 @@ export default {
 </script>
 ```
 
-> 💡 data 如果有相同變數名稱，會在 asyncData 生命週期被複寫，所以除非需要再次修改變數，否則請避免重複命名變數
+{% colorquote info %}
+data 如果有相同變數名稱，會在 asyncData 生命週期被複寫，所以除非需要再次修改變數，否則請避免重複命名變數
+{% endcolorquote %}
 
-> 💡 asyncData 是在 server 端、路由更新前即調用，由於是在瀏覽器渲染前的生命週期，因此無法使用 loading placeholder，也不能使用瀏覽器相關 API
+{% colorquote info %}
+asyncData 是在 server 端、路由更新前即調用，由於是在瀏覽器渲染前的生命週期，因此無法使用 loading placeholder，也不能使用瀏覽器相關 API
+{% endcolorquote %}
 
-# fetch
+# **fetch**
 
 Nuxt v2.12 新增功能，功能類似 `asyncData` ，在畫面渲染前，同時於 server 端跟 client 端的生命週期，可以使用於任一 .vue 頁面，由於是在 Vue created 之後，因此可以取得 `this`，初次載入頁面時，fetch 會在 server 端執行，如果是透過 `<nuxt-link>` 進行路由切換，fetch 在 client 端執行，因此可以在此生命週期加入 loading 效果
 
-> 💡 `<nuxt-link>` 為 Nuxt 的路由切換元件，相當於 Vue.js 的 `<router-link>` ，因此我們只能使用內部連結，外部連結必須使用 `<a>` 標籤，透過 `<nuxt-link>` 切換路由，會被視為 SPA 頁面跳轉
+{% colorquote info %}
+`<nuxt-link>` 為 Nuxt 的路由切換元件，相當於 Vue.js 的 `<router-link>` ，因此我們只能使用內部連結，外部連結必須使用 `<a>` 標籤，透過 `<nuxt-link>` 切換路由，會被視為 SPA 頁面跳轉
+{% endcolorquote %}
 
 以下說明使用方式
 

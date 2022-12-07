@@ -114,3 +114,14 @@ search:
   field: post
   format: html
   limit: 10000
+
+# sitemap
+sitemap:
+  path: sitemap.xml
+
+# seo nofollow
+nofollow:
+    enable: true
+    # exclude:  # 不加上 nofollow 的友情連結可以放在這邊
+    # - exclude1.com
+    # - exclude2.com

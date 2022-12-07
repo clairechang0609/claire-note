@@ -13,7 +13,7 @@ category: Nuxt
 
 <!-- more -->
 
-# alias
+# **alias**
 
 路徑別名，大家還記得在 Vue 專案內，如果沒有設定路徑別名，則需要寫相對路徑（例如：../components/Navbar.vue），對於維護和開發都很不方便，一些程式碼檢核工具，甚至會視為 bad smell，因此我們會在 vue.config.js 檔內統一設定路徑別名。
 
@@ -44,11 +44,13 @@ export default {
 }
 ```
 
-# ssr
+# **ssr**
 
-server side render，預設為 true，如果不需 SEO，只要 spa 操作，設定 `ssr: false` 即可
+server side render，預設為 true，如果不需 SEO，只要 spa 操作，設定 `ssr: false` 即可 
 
-> 💡 舊版會使用 `mode: 'spa'` 來進行設定，但[官方文件](https://nuxtjs.org/docs/configuration-glossary/configuration-mode/)有說明 [v2.14.5](https://github.com/nuxt/nuxt.js/pull/8044) 版本開始已棄用，改用 `ssr: false`
+{% colorquote info %}
+舊版會使用 `mode: 'spa'` 來進行設定，但[官方文件](https://nuxtjs.org/docs/configuration-glossary/configuration-mode/)有說明 [v2.14.5](https://github.com/nuxt/nuxt.js/pull/8044) 版本開始已棄用，改用 `ssr: false`
+{% endcolorquote %}
 
 ```jsx
 export default {
@@ -56,7 +58,7 @@ export default {
 }
 ```
 
-# server
+# **server**
 
 用來設定 port（預設 3000） 跟 host（預設 localhost）
 
@@ -69,7 +71,7 @@ export default {
 }
 ```
 
-# router
+# **router**
 
 配置 Nuxt 路由（vue-router），這裡以設定 base url 舉例，其他請參考[官方文件](https://nuxtjs.org/docs/configuration-glossary/configuration-router)
 
@@ -81,11 +83,11 @@ export default {
 }
 ```
 
-# head
+# **head**
 
 在 Vue 專案，我們要設定 head 內容，只要在 public/index.html 檔設定就好了，但 Nuxt 專案又該怎麼設定呢？
 
-**全域設定**
+##### **全域設定**
 
 在 nuxt.config.js 檔 head 內即可全域設定，通常在建立專案會預先帶入
 
@@ -111,7 +113,7 @@ export default {
 
 這樣所有頁面都可以讀到 head 設定
 
-**單頁設定**
+##### **單頁設定**
 
 Nuxt 專案很重要的一點是 SEO 效能優化，基於這點，通常會需要依照各頁設定自己的 SEO，例如pages/about.vue 頁面的 title 和 description 要單獨設定，方法也很簡單
 
@@ -132,7 +134,7 @@ export default {
 
 在各頁面設定的內容**優先度較高**，會覆寫全域設定的 head 內容，因此當我們開啟 about 頁面，會看到 **title** 變成 **關於我們**、**description** 變成 **這是關於我們頁面**，其他配置則依照 nuxt.config.js 檔
 
-# css
+# **css**
 
 引入全域使用的 css 檔，像是外部套件，或是自訂檔，如果要使用 sass，必須安裝 sass-loader
 
@@ -149,7 +151,7 @@ export default {
 }
 ```
 
-# plugins
+# **plugins**
 
 全局引入外部套件，以 vue-notification 舉例，在 plugins 新增 notification.js 檔
 
@@ -173,7 +175,7 @@ export default {
 
 就可以在所有頁面中使用該套件 `<Notifications></Notifications>`
 
-# components
+# **components**
 
 如設定為 true，會全局引入元件，使用方式只要遵循資料夾結構輸入元件名稱就可以了
 
@@ -189,7 +191,7 @@ export default {
 
 使用元件：`<HomeBanner></HomeBanner>`
 
-# buildModules
+# **buildModules**
 
 用來配置只在開發環境使用的模組，註冊在此可以讓專案在生產環境部署速度提升，並減少 node_modules 容量，詳情可以參考各套件的配置建議
 
@@ -203,9 +205,11 @@ export default {
 }
 ```
 
-> 💡 使用條件：Nuxt 版本必須大於 v2.9
+{% colorquote info %}
+使用條件：Nuxt 版本必須大於 v2.9
+{% endcolorquote %}
 
-# modules
+# **modules**
 
 用來配置開發環境與生產環境共用模組，buildModules 及 modules 配置位置詳請參考各套件建議
 
@@ -217,7 +221,7 @@ export default {
 }
 ```
 
-# styleResources
+# **styleResources**
 
 用來注入全域共用 sass, scss，如果不引入，在各頁面（.vue）內的 style 會無法使用像是 mixin 等的常用變數，或是要在各頁面單獨 @import scss 檔
 
@@ -241,11 +245,13 @@ export default {
 }
 ```
 
-這樣就可以達到變數共用了
+這樣就可以達到變數共用了 
 
-> 💡 [官方文件](https://github.com/nuxt-community/style-resources-module/) 提到，請勿引入實際的 css 樣式，因為每個頁面跟元件都會重複編譯，造成系統極大負擔（筆者踩坑過OQ），建議只注入變數, mixins，因為這些值在編譯後就會消失了。
+{% colorquote info %}
+[官方文件](https://github.com/nuxt-community/style-resources-module/) 提到，請勿引入實際的 css 樣式，因為每個頁面跟元件都會重複編譯，造成系統極大負擔（筆者踩坑過OQ），建議只注入變數, mixins，因為這些值在編譯後就會消失了。
+{% endcolorquote %}
 
-# build
+# **build**
 
 客製化 webpack 設定，這裡舉例，在開發時，發現在 Vue 樣板無法使用可選串連 Optional Chaining（es2020語法），研究後發現必須需安裝擴充套件
 
@@ -265,7 +271,7 @@ export default {
 }
 ```
 
-# Loading
+# **Loading**
 
 Loading 效果，基礎設定如下（[參數選項](https://nuxtjs.org/docs/features/loading)）
 
@@ -287,13 +293,13 @@ export default {
 }
 ```
 
-# env
+# **env**
 
 用來定義全局共用的環境變數，Nuxt 專案預設只有 nuxt.config.js 檔內可以讀取環境變數，
 
 因此如果要讓 .vue 檔或是 .js 檔讀到變數，這裡提供以下兩個做法：
 
-**方法一：直接在 nuxt.config.js 檔內配置屬性**
+##### **方法一：直接在 nuxt.config.js 檔內配置屬性**
 
 ```jsx
 export default {
@@ -305,7 +311,7 @@ export default {
 
 但有時變數多，不想各別配置，可以採用方法二
 
-**方法二：安裝套件 `@nuxtjs/dotenv`**
+##### **方法二：安裝套件 `@nuxtjs/dotenv`**
 
 執行：`npm i @nuxtjs/dotenv`，在 modules 內設定：
 
@@ -329,11 +335,13 @@ export default {
 }
 ```
 
-> 💡 使用方法二需注意，變數如果內含變數，會讀取不到第二層的變數（饒口），直接提供範例，假設在 .env 檔內有兩個變數
+{% colorquote info %}
+使用方法二需注意，變數如果內含變數，會讀取不到第二層的變數（饒口），直接提供範例，假設在 .env 檔內有兩個變數
 `BASE_DOMAIN=my-websites`
 `BASE_URL="http://${BASE_DOMAIN}"`
 在 .vue 檔直接使用 process.env.BASE_URL，取得值為 http://${BASE_DOMAIN}，
 無法解析成 http://my-websites，此情況還是需搭配方法一使用
+{% endcolorquote %}
 
 ---
 

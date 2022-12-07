@@ -57,8 +57,9 @@ export default {
 
 但如果我們想擴充功能，像是新增下底線 `@ckeditor/ckeditor5-basic-styles/src/underline`，專案會直接報錯：
 
-> Uncaught CKEditorError: ckeditor-duplicated-modules
-> 
+{% colorquote danger %}
+Uncaught CKEditorError: ckeditor-duplicated-modules
+{% endcolorquote %}
 
 原因是 `@ckeditor/ckeditor5-build-classic` 為包裝好的內容，試著進到 node_modules/@ckeditor/ckeditor5-build-classic/package.json 可以看到相依套件已經安裝進去：
 
@@ -144,7 +145,9 @@ npm install --save \
     @ckeditor/ckeditor5-paragraph \
 ```
 
-> 💡 所有 ckeditor 所有套件**版本**必須相同，否則會發生錯誤（@ckeditor/ckeditor5-dev-* 跟 @ckeditor/ckeditor5-vue2 除外）
+{% colorquote info %}
+所有 ckeditor 所有套件**版本**必須相同，否則會發生錯誤（@ckeditor/ckeditor5-dev-* 跟 @ckeditor/ckeditor5-vue2 除外）
+{% endcolorquote %}
 
 **基礎設定介紹：**
 
@@ -195,13 +198,15 @@ export default {
 </script>
 ```
 
-這樣就可以成功看到畫面囉 🫶
+這樣就可以成功看到畫面囉 🙌
 
 ![](https://i.imgur.com/q950cN2.png)
 
-> 💡 是否覺得功能安裝跟配置有點麻煩呢？官方貼心的提供 [online-builder](https://ckeditor.com/ckeditor-5/online-builder/) ，可以先挑選功能並配置好 toolbar，確認畫面後再安裝
+{% colorquote info %}
+是否覺得功能安裝跟配置有點麻煩呢？官方貼心的提供 [online-builder](https://ckeditor.com/ckeditor-5/online-builder/) ，可以先挑選功能並配置好 toolbar，確認畫面後再安裝
+{% endcolorquote %}
 
-## 全域註冊
+## **全域註冊**
 
 當專案有很多地方會使用到編輯器，我們也可以全域引入
 
@@ -226,7 +231,7 @@ export default {
 }
 ```
 
-## CSS style
+## **CSS style**
 
 實務應用上會在後台使用編輯器來設計內容，然後將 HTML 內容儲存到資料庫，於前台取回資料並渲染在畫面上，所以會需要配置相關的 CSS，確保前後台樣式一致。
 

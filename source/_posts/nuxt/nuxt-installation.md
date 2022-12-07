@@ -2,16 +2,17 @@
 title: Nuxt.js 2.x 專案架設
 date: 2022-12-02
 tags: [ nuxt, nuxt.js, vue, vue.js, ssr, create-nuxt-app ]
+# description: Nuxt.js 2.x 專案架設
 category: Nuxt
 ---
 > **版本：nuxt 2.15.8**
-> 
+>
 
 說到 Nuxt，必須先從 Vue.js 說起，Vue.js 為專注在視圖層(View) 的 JS 框架，為 SPA（Single Page Application）應用程式，簡而言之整個網站應用只有單一頁面，一但頁面被加載進來後，就不會再進行該頁面請求，由於 Vue 是利用 JS 載入資料，並動態產生元件，SEO 只能抓取到 HTML 內容，因此 SEO 表現趨近於零。
 
-<!-- more -->
-
 而 Nuxt 是基於 Vue.js、Node.js、Webpack 以及 Badel.js 的輕量框架，可以同時創建 SSR（Server Side Render）及 SPA，在頁面載入前即渲染（伺服器回傳完整 HTML 檔，每次跳轉頁面，瀏覽器都需要刷新），搜尋引擎爬蟲可以取得資料，大幅解決 SEO 的問題。
+
+<!-- more -->
 
 以下圖片說明：
 
@@ -25,8 +26,9 @@ category: Nuxt
 
 `npx create-nuxt-app <project-name>`
 
-> 💡 使用 npx 安裝，安裝的套件在執行完後就會被移除 [npx介紹](https://hoyis-note.coderbridge.io/2021/07/20/npm-npx-%E5%B7%AE%E5%88%A5/)
->
+{% colorquote info %}
+使用 npx 安裝，安裝的套件在執行完後就會被移除 [npx介紹](https://hoyis-note.coderbridge.io/2021/07/20/npm-npx-%E5%B7%AE%E5%88%A5/)
+{% endcolorquote %}
 
 **接著會跑出一些選項：**
 

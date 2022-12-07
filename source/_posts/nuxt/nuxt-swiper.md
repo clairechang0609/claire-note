@@ -11,14 +11,16 @@ category: Nuxt
 
 <!-- more -->
 
-### 套件安裝
+**套件安裝：**
 
 `npm i swiper@6.8.4`
 
 `npm i vue-awesome-swiper@4.1.1`
 
-> 💡 官方文件版本說明：Vue2 搭配 Swiper 5-6 ＆ vue-awesome-swiper@4.1.1
+{% colorquote info %}
+官方文件版本說明：Vue2 搭配 Swiper 5-6 ＆ vue-awesome-swiper@4.1.1
 如果是 Vue3 此套件已不支援，可以直接使用 [Swiper Vue 版本](https://swiperjs.com/vue)
+{% endcolorquote %}
 
 接下來全域註冊 Swiper 元件，在 plugins 資料夾新增檔案（範例命名 swiper.js）
 
@@ -53,7 +55,7 @@ export default {
 
 重頭戲來了，我們可以透過兩種方式在頁面上使用：
 
-### swiper components 元件
+### **swiper components 元件**
 
 ```jsx
 <template>
@@ -89,8 +91,9 @@ export default {
 
 swiper 設定項目請見[文件](https://swiperjs.com/swiper-api)，如果專案為 server-side render，使用此方式外層需加上 `<client-only />` ，否則在 server 端會因為 dom 元素無法被解析而報錯
 
-> [Vue warn]: The client-side rendered virtual DOM tree is not matching server-rendered content. This is likely caused by incorrect HTML markup, for example nesting block-level elements inside <p>, or missing <tbody>. Bailing hydration and performing full client-side render.
-> 
+{% colorquote danger %}
+[Vue warn]: The client-side rendered virtual DOM tree is not matching server-rendered content. This is likely caused by incorrect HTML markup, for example nesting block-level elements inside `<p>`, or missing `<tbody>`. Bailing hydration and performing full client-side render.
+{% endcolorquote %}
 
 我們可以使用 `this.$refs.bannerSwiper.$swiper` 來取得 Swiper 實體並使用[相關方法](https://swiperjs.com/swiper-api#methods-and-properties)
 
@@ -115,7 +118,7 @@ export default {
 }
 ```
 
-### directive 指令
+### **directive 指令**
 
 如果 Swiper 內容需要被搜尋引擎爬蟲讀取，可以利用 [Vue directive](https://vuejs.org/guide/reusability/custom-directives.html#introduction) 方法，這樣就可以使用能被瀏覽器解析的 dom 元素來包裝 swiper，見以下範例
 

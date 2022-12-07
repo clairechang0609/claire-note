@@ -17,11 +17,11 @@ category: Nuxt
 
 依照順序介紹各資料夾功能：
 
-# assets
+# **assets**
 
 跟 Vue 專案相同，用來存放像是 css, scss, images 需要被 webpack 編譯的靜態資源，如不需被編譯，則存放於 static。
 
-# components
+# **components**
 
 自訂的元件檔，例如我們常會建立共用的 Navbar.vue, Sidebar.vue …，通常為**大寫命名**，然後在需要的頁面引入該檔案即可使用，使用方式基本上跟 Vue 專案相同。
 
@@ -42,7 +42,7 @@ export default {
 
 使用元件：`<HomeBanner></HomeBanner>`
 
-# layouts
+# **layouts**
 
 共用模板。
 
@@ -97,7 +97,7 @@ export default {
 
 但如果說我們想要使用 **路由守衛(Navigation Guards)** 來進行路由監聽，像是 Vue router 內的 beforeEach callback，該怎麼做呢？
 
-**Vue 專案：**
+##### **Vue 專案：**
 
 ```jsx
 // pages/food.vue
@@ -116,7 +116,7 @@ router.beforeEach(async (to, from, next) => {
 export default router;
 ```
 
-**Nuxt 專案：**
+##### **Nuxt 專案：**
 
 我們可以手動建立一個 middleware 資料夾，在裡面新增要進行路由監聽的檔案 routeAuth.js
 
@@ -155,7 +155,7 @@ export default {
 }
 ```
 
-# mixins
+# **mixins**
 
 mixins 提供彈性方式讓頁面可以重複使用方法，可以包含任何 Vue 組件項目(data, computed, watch, 生命週期)，將共用方法包裝進去，首先在 mixins 新增檔案 mixins/utils.js
 
@@ -175,7 +175,7 @@ export default {
 };
 ```
 
-**全域註冊：**
+##### **全域註冊：**
 
 全域宣告 mixin 務必小心使用，因為會影響到所有 Vue 檔(pages, components)
 
@@ -204,7 +204,7 @@ export default {
 }
 ```
 
-**局部註冊：**
+##### **局部註冊：**
 
 局部註冊很簡單，只要在欲使用檔案引入即可，這裡假設在 pages/about.vue
 
@@ -265,7 +265,7 @@ export default {
 }
 ```
 
-# plugins
+# **plugins**
 
 Nuxt 插件，於 Vue.js 執行前引入第三方套件，以 [vue-notification](https://www.npmjs.com/package/vue-notification) 為例
 
@@ -294,11 +294,11 @@ export default {
 
 就可以在所有頁面中使用該套件 `<Notifications></Notifications>`
 
-# static
+# **static**
 
 靜態資源資料夾，用來存放不需要被編譯的檔案，像是圖片檔，或是可以供使用者下載的範例檔等，如需被編譯，則存放於 assets。
 
-# store
+# **store**
 
 放置 Vuex 狀態管理工具，用來存放全域共用的方法、資料，使用方式與 Vue 大致相同，Vuex 在使用時會碰到一個問題，當頁面重新整理，其會被還原為初始狀態，至於要怎麼解決這個問題，後續會單獨介紹。
 
