@@ -17,9 +17,9 @@
             <span class="column is-narrow">｜</span>
         <% } %>
         <span class="column is-narrow">
-            <!-- <% if (has_config('article.date_format') && get_config('article.date_format') === 'relative' ) { %>
+            <% if (has_config('article.date_format') && get_config('article.date_format') === 'relative' ) { %>
                 <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
-            <% } else if (has_config('article.date_format') && get_config('article.date_format') === 'full' ) { %>
+            <% } else if (has_config('article.date_format') && get_config('article.date_format') === 'full' && !post.hideDate ) { %>
                 <span><%= format_date_full(post.date) %></span>
             <% } else if (has_config('article.date_format') && get_config('article.date_format') === 'relative_full' ) { %>
                 <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
@@ -28,17 +28,8 @@
                 <span><%= format_date_full(post.date) %></span>
                 <span class="second-date-block"> (<time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>)</span>
             <% } else { %>
-                <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
-            <% } %> -->
-            <span><%= format_date_full(post.date) %></span>
+            <% } %>
         </span>
-        <!-- <% if (!has_config('article.readtime') || get_config('article.readtime') === true) { %>
-        <span class="column is-narrow">
-            <% let words = word_count(post._content); %>
-            <% let time = duration((words / 150.0) * 60, 'seconds') %>
-            <%= `${ time.humanize() } ${ __('article.read')} (${ __('article.about') } ${ words } ${ __('article.words') })` %>
-        </span>
-        <% } %> -->
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     <% if (post.excerpt && index){ %>
@@ -46,8 +37,39 @@
         <p class="article-more-link">
             <a href="<%- url_for(post.path) %>#more"><%= __('article.read_more') %></a>
         </p>
-    <% } else { %>
+    <% } else if (page.permalink.includes('/about/') || page.permalink.includes('/404')) { %>
         <%- post.content %>
+    <% } else { %>
+        <%- post.excerpt %>
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <%- post.more %>
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     <% } %>
     </div>
     <% if (!index && post.tags && post.tags.length){ %>
@@ -73,7 +95,7 @@
     <% } %>
 </article>
 
-<% if (!index && has_config('share.type')) { %>
+<% if (!index && has_config('share.type') && !post.hideShare) { %>
 <div class="sharebox">
     <%- partial('share/' + get_config('share.type')) %>
 </div>
@@ -94,4 +116,20 @@
         async>
     </script>
 </div>
+<% if (!page.permalink.includes('/about/')) { %>
+    <div class="ad-wrap">
+        <small class="ad-label">廣告</small>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+            crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-9074862371923542"
+            data-ad-slot="8939590248"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+<% } %>
 <% } %>

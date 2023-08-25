@@ -14,16 +14,10 @@ if (languages.length > 1) {
     });
 } %>
 
-<% if (has_config('description')) { %>
-<meta name="description" content="<%- get_config('description') %>">
-<% } %>
-
-<% if (has_config('keywords')) { %>
-<meta name="keywords" content="<%= get_config('keywords') %>">
-<% } %>
-
 <% if (has_config('open_graph')) { %>
     <%- open_graph({
+        description: get_config('description') || get_config('open_graph.description'),
+        image: get_config('image') || get_config('open_graph.image'),
         twitter_id: get_config('open_graph.twitter_id', ''),
         twitter_site: get_config('open_graph.twitter_site', ''),
         google_plus: get_config('open_graph.google_plus', ''),
@@ -48,11 +42,33 @@ if (languages.length > 1) {
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
 <% } %>
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/<%= get_config('article.highlight', 'atom-one-light') %>.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/<%= get_config('article.highlight', 'atom-one-light') %>.min.css">
 
 <%- css('css/style') %>
 
 <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DCNTXCLVWT"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DCNTXCLVWT');
+</script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "i5mty254i4");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&family=Open+Sans:wght@400;700&family=Raleway:wght@200;400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
 
 <% if (has_config('plugins')) { %>
     <% for (let plugin in get_config('plugins')) { %>

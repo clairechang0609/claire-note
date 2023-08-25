@@ -1,13 +1,19 @@
 ---
-title: Nuxt.js 2.x nuxt.config.js 設定檔
-date: 2022-12-03 17:10:00
-tags: [ nuxt, nuxt.js, vue, vue.js, ssr ]
+title: Nuxt.js nuxt.config.js 設定檔
+date: 2022-11-19
+tags: [ nuxt2 ]
 category: Nuxt
+description: 說明 nuxt.config.js 如何進行配置。nuxt.config.js 功能同 Vue 專案內 vue.config.js 檔，在此設定的內容會全域讀取設定
+image: https://imgur.com/XkEjWdO.png
 ---
 > **版本：nuxt 2.15.8**
-> 
+>
 
-全名為 ****Nuxt configuration file****，功能同 Vue 專案內 vue.config.js 檔，如果我們使用 create-nuxt-app 來建置專案，會自動產生這支檔案，在此配置的內容，會全域讀取設定。
+<div style="display: flex; justify-content: center; margin: 0;">
+    <img style="width: 100%; max-width: 700px;" src="https://imgur.com/XkEjWdO.png">
+</div>
+
+全名為 **Nuxt configuration file**，功能同 Vue 專案內 vue.config.js 檔，如果我們使用 create-nuxt-app 來建置專案，會自動產生這支檔案，在此配置的內容，會全域讀取設定。
 
 接下來介紹一下一些常用的設定：
 

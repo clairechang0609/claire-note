@@ -1,17 +1,21 @@
 ---
-title: Nuxt.js 2.x VueX Store 搭配 vuex-persistedstate 狀態保存工具
-date: 2022-12-04 12:55:00
-tags: [ nuxt, nuxt.js, vue, vue.js, ssr, vuex, nuxt-vuex ]
+title: Nuxt.js VueX Store 搭配 vuex-persistedstate 狀態保存工具
+date: 2022-11-22
+tags: [ nuxt2 ]
 category: Nuxt
+description: VueX 狀態管理工具適合處理專案內複雜度高的溝通，本篇說明如何在 Nuxt 專案安裝與應用
+image: https://i.imgur.com/2y1jUjQ.png
 ---
 > **版本：nuxt 2.15.8**
 >
 
 前情提要一下，在 Vue 的專案下，常會需要做父子元件或是頁面之間的溝通傳值，如果說只是單層（ex：父元件 → 子元件、子元件 → 父元件、頁面 → 頁面），我們可以很簡單的使用 `props` 、 `emit` 或 `event bus` 即可，但在大型專案，共用資料就不是如此單純，可能會有元件內含元件、多層級的溝通，如果只用上述方法，對於開發及除錯都不便利，如下圖範例，**元件 1-1** 跟**元件 2-1** 的溝通相對複雜。
 
-<!-- more -->
+<div style="display: flex; justify-content: center; margin: 20px 0;">
+    <img style="width: 100%; max-width: 600px;" src="https://i.imgur.com/2y1jUjQ.png">
+</div>
 
-![](https://i.imgur.com/2y1jUjQ.png)
+<!-- more -->
 
 為了處理高難度溝通，VueX 狀態管理工具就誕生了，那麼在 Nuxt 專案下又該怎麼使用呢？
 

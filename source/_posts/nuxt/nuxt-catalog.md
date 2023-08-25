@@ -1,21 +1,25 @@
 ---
-title: Nuxt.js 2.x 目錄結構
-date: 2022-12-03 17:00:00
-tags: [ nuxt, nuxt.js, vue, vue.js, ssr ]
+title: Nuxt.js 目錄結構
+date: 2022-11-17
+tags: [ nuxt2 ]
 category: Nuxt
+description: Nuxt.js 的目錄結構提供了組織和管理專案的標準化方式。除了有結構清晰、自動路由生成、預設配置和優化等優點，幫助開發者更容易開發和維護應用程式。同時也能自定義和擴展，以滿足不同專案的需求
+image: https://i.imgur.com/jPvQ66l.png
 ---
 > **版本：nuxt 2.15.8**
 >
 
 使用 create-nuxt-app 安裝完成後，可以看到以下的資料夾結構：
 
-<!-- more -->
-
-![](https://i.imgur.com/jPvQ66l.png)
+<div style="display: flex; justify-content: left; margin: 20px 0;">
+    <img style="width: 100%; max-width: 350px;" src="https://i.imgur.com/jPvQ66l.png">
+</div>
 
 **assets, layouts, middleware, mixins, plugins** 以上資料夾在當前版本是需要手動建置的，
 
 依照順序介紹各資料夾功能：
+
+<!-- more -->
 
 # **assets**
 

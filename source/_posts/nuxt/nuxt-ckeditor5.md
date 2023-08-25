@@ -1,11 +1,19 @@
 ---
-title: Nuxt.js 2.x 套件應用-CKEditor 5
-date: 2022-12-04 13:20:00
-tags: [ nuxt, nuxt.js, vue, vue.js, ssr, ckeditor, ckeditor 5 ]
+title: Nuxt.js 套件應用：CKEditor 5 文字編輯器
+date: 2022-12-01
+tags: [ nuxt2, ckeditor ]
 category: Nuxt
+description: CKEditor 是一套歷史悠久且功能完整、輕量的富文本編輯器（rich text editor），提供所見即所得的編輯區域，CKEditor 5 使用 MVC 架構、ES6 編寫、UI 簡潔，並與前端框架 Vue.js、React、Angular 做整合，讓我們可以更便利的開發應用
+image: https://i.imgur.com/gjZEQ2A.png
 ---
-> **版本：nuxt 2.15.8**
+> **版本：
+nuxt 2.15.8
+ckeditor: 38.0.1**
 >
+
+<div style="display: flex; justify-content: center; margin: 20px 0;">
+    <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/gjZEQ2A.png">
+</div>
 
 CKEditor 是一套歷史悠久且功能完整、輕量的富文本編輯器（rich text editor），為使用者提供所見即所得（WYSIWYG）的編輯區域，CKEditor 5 與舊版不同，使用 MVC 架構、ES6 編寫、UI 簡潔，且因應現在的前後端分離趨勢，與前端框架 React、Angular、and Vue.js 做整合，讓我們可以更便利的開發應用。
 
@@ -63,7 +71,9 @@ Uncaught CKEditorError: ckeditor-duplicated-modules
 
 原因是 `@ckeditor/ckeditor5-build-classic` 為包裝好的內容，試著進到 node_modules/@ckeditor/ckeditor5-build-classic/package.json 可以看到相依套件已經安裝進去：
 
-![](https://i.imgur.com/0JNnw2N.png)
+<div style="display: flex; justify-content: center; margin: 20px 0;">
+    <img style="width: 100%; max-width: 500px;" src="https://i.imgur.com/0JNnw2N.png">
+</div>
 
 因此 CKeditor 在初始化時會因為模組重複執行導致錯誤，可以改用以下方法
 
@@ -104,12 +114,14 @@ export default {
             })
         ],
         // If you don't add postcss, the CKEditor css will not work.
-        postcss: styles.getPostCssConfig({
-            themeImporter: {
-                themePath: require.resolve('@ckeditor/ckeditor5-theme-lark')
-            },
-            minify: true
-        }),
+        postcss: {
+            postcssOptions: styles.getPostCssConfig({
+                themeImporter: {
+                    themePath: require.resolve('@ckeditor/ckeditor5-theme-lark')
+                },
+                minify: true
+            })
+        },
         extend(config) {
             // If you do not exclude and use raw-loader to load svg, the following errors will be caused.
             // Cannot read property 'getAttribute' of null
@@ -146,7 +158,7 @@ npm install --save \
 ```
 
 {% colorquote info %}
-所有 ckeditor 所有套件**版本**必須相同，否則會發生錯誤（@ckeditor/ckeditor5-dev-* 跟 @ckeditor/ckeditor5-vue2 除外）
+所有 ckeditor 套件**版本**必須相同，否則會發生錯誤（@ckeditor/ckeditor5-dev-* 跟 @ckeditor/ckeditor5-vue2 除外）
 {% endcolorquote %}
 
 **基礎設定介紹：**
@@ -251,9 +263,6 @@ export default {
 參考文章：
 
 [https://github.com/changemyminds/nuxtjs-integrate-ckeditor5?ref=vuejsexamples.com](https://github.com/changemyminds/nuxtjs-integrate-ckeditor5?ref=vuejsexamples.com)
-
 [https://ithelp.ithome.com.tw/articles/10198816](https://ithelp.ithome.com.tw/articles/10198816)
-
 [https://medium.com/@charming_rust_oyster_221/ckeditor-5-文字編輯器-研究心得-519c97f20a4](https://medium.com/@charming_rust_oyster_221/ckeditor-5-%E6%96%87%E5%AD%97%E7%B7%A8%E8%BC%AF%E5%99%A8-%E7%A0%94%E7%A9%B6%E5%BF%83%E5%BE%97-519c97f20a4)
-
 [https://ckeditor.com/docs/ckeditor5/latest/installation/frameworks/vuejs-v2.html](https://ckeditor.com/docs/ckeditor5/latest/installation/frameworks/vuejs-v2.html)

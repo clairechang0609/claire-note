@@ -1,17 +1,19 @@
 ---
-title: Nuxt.js 2.x Lifecycle 生命週期
-date: 2022-12-03 17:54:00
-tags: [ nuxt, nuxt.js, vue, vue.js, ssr ]
+title: Nuxt.js Lifecycle 生命週期
+date: 2022-11-24
+tags: [ nuxt2 ]
 category: Nuxt
+description: Nuxt 最大的特點就是 Server Side Render，因此他有獨立的生命週期，本篇將說明每個生命週期的特點，以及應用時機
+image: https://i.imgur.com/W4ZLvrJ.png
 ---
 > **版本：nuxt 2.15.8**
 > 
 
 Nuxt 最大的特點就是 Server Side Render，因此他有獨立的[生命週期](https://nuxtjs.org/docs/concepts/nuxt-lifecycle#lifecycle)，來看一下官方提供的圖片：
 
-<!-- more -->
-
 ![](https://i.imgur.com/W4ZLvrJ.png)
+
+<!-- more -->
 
 # **nuxtServerInit**
 
@@ -39,7 +41,9 @@ export const actions = {
 
 這樣就可以在 Nuxt 初始化時，觸發 nuxtServerInit 方法，將值傳入 state，我們可以從瀏覽器 Vue 開發者工具看到內容：
 
-![](https://i.imgur.com/tm2jMnC.png)
+<div style="display: flex; justify-content: left; margin: 20px 0;">
+    <img style="width: 100%; max-width: 400px;" src="https://i.imgur.com/tm2jMnC.png">
+</div>
 
 如果想將資料傳給其他 VueX modules，可以這樣做：
 
@@ -71,7 +75,9 @@ export const actions = {
 
 這樣就可以觸發 store/greeting.js setMessage 方法，見下圖開發者工具
 
-![](https://i.imgur.com/qj8ViHd.png)
+<div style="display: flex; justify-content: left; margin: 20px 0;">
+    <img style="width: 100%; max-width: 400px;" src="https://i.imgur.com/qj8ViHd.png">
+</div>
 
 # **Route Middleware**
 
@@ -145,7 +151,9 @@ export default {
 
 接著我們從開發者工具查看 console 結果依序為下圖，因此我們可以透過 layout 跟 page middleware 來覆寫 global middleware
 
-![](https://i.imgur.com/mT4lCpY.png)
+<div style="display: flex; justify-content: left; margin: 20px 0;">
+    <img style="width: 100%; max-width: 300px;" src="https://i.imgur.com/mT4lCpY.png">
+</div>
 
 # **validate**
 

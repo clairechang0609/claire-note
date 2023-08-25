@@ -74,6 +74,11 @@
         }
     });
 
+    $('.archive .btn').on('click', function (e) {
+        $(this).toggleClass('hide');
+        $(this).siblings('.articles').slideToggle(200);
+    });
+
     if (typeof(moment) === 'function') {
         $('.article-meta time').each(function () {
             $(this).text(moment($(this).attr('datetime')).fromNow());

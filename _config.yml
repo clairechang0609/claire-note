@@ -4,16 +4,16 @@
 
 # Site
 title: Claire's Notes
-subtitle: 學習筆記
-description: 學習筆記
-keywords:
+subtitle: 程式學習筆記
+description: 分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！
+keywords: 
 author: Claire Chang
 language: zh-tw
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://clairechang0609.github.io/
+url: https://clairechang.tw
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -30,6 +30,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - googlea5cce94082e78d02.html
 
 # Writing
 new_post_name: :title.md # File name of new posts

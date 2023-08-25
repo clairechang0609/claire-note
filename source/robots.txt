@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /ads.txt
+Disallow: /CNAME
+Disallow: /page/
+Disallow: /googlea5cce94082e78d02.html
+Sitemap: https://clairechang.tw/sitemap.xml

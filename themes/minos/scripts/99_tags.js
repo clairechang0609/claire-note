@@ -49,5 +49,6 @@ function patchCodeHighlight(content) {
 hexo.extend.filter.register('after_post_render', function (data) {
     data.content = data.content ? patchCodeHighlight(data.content) : data.content;
     data.excerpt = data.excerpt ? patchCodeHighlight(data.excerpt) : data.excerpt;
+    data.more = data.more ? patchCodeHighlight(data.more) : data.more;
     return data;
 });

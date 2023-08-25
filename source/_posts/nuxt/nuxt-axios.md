@@ -1,11 +1,17 @@
 ---
-title: Nuxt.js 2.x 搭配 Axios 與自訂 Error Page
-date: 2022-12-04 12:41:00
-tags: [ nuxt, nuxt.js, vue, vue.js, ssr, axios ]
+title: Nuxt.js 搭配 Axios 與自訂 Error Page
+date: 2022-11-21
+tags: [ nuxt2, axios ]
 category: Nuxt
+description: 本篇介紹如何使用 nuxt/axios 整合套件，協助我們在 Nuxt 專案發送 HTTP 請求。並說明如何在 Nuxt 專案客製 Error Page
+image: https://imgur.com/2mzqLI1.png
 ---
 > **版本：nuxt 2.15.8**
 >
+
+<div style="display: flex; justify-content: center; margin: 0;">
+    <img style="width: 100%; max-width: 500px;" src="https://imgur.com/2mzqLI1.png">
+</div>
 
 Axios 是一套相當便利的 Promise Base Ajax 套件，而 Nuxt 又有 Axios 整合套件 [@nuxtjs/axios](https://axios.nuxtjs.org/)，此篇範例會使用到 Async、Await，如果對於 Promise 尚不熟悉，可以參考 [Promise 介紹文章](https://www.casper.tw/development/2020/02/16/all-new-promise/)
 
