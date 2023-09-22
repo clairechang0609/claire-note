@@ -7,18 +7,11 @@ description: 說明 Nuxt3 專案如何安裝 Stylelint CSS 程式碼檢查工具
 image: https://imgur.com/JBaER3w.png
 ---
 
-> **Stylelint 版本：v15**
->
-
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 600px;" src="https://imgur.com/JBaER3w.png">
+  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/JBaER3w.png">
 </div>
 
-先前說明了 **[Nuxt.js 3.x TypeScript 搭配 ESLint 自動排版](https://clairechang.tw/2023/06/30/nuxt3/nuxt-v3-typescript-and-eslint/)** ，ESLint 為 JavaScript 程式碼檢查工具。
-
-[Stylelint](https://stylelint.io/) 則是用於檢查 CSS 和 CSS 預處理器（SCSS、Less 等）程式碼的工具，幫助我們維持程式碼的品質和風格。Stylelint 進行檢查時，會根據指定的規則來發現潛在的錯誤、不一致的風格和不推薦的模式。
-
-<!-- more -->
+[Stylelint](https://stylelint.io/) 是一套用於規範 CSS 和 CSS 預處理器（SCSS、Less 等）程式碼的工具，幫助我們維持程式碼的品質和風格。Stylelint 進行檢查時，會根據指定的規則來發現潛在的錯誤、不一致的風格和不推薦的模式。
 
 以 `*.vue` 檔為例，檔案內包含三種主要的程式碼：`<template>`、`<script>` 和 `<style>`：
 
@@ -26,7 +19,13 @@ image: https://imgur.com/JBaER3w.png
 2. `<script>`：JavaScript 區塊，由 ESLint 進行程式碼檢查
 3. `<style>`：CSS 區塊，用於定義元件樣式，由 Stylelint 進行程式碼檢查
 
-由上述可知，ESLint 搭配 Stylelint，專案內大部分程式碼都能進行檢核，並且達到自動排版。那麼就接著進行實作吧！
+ESLint 搭配 Stylelint，讓專案保持良好的 Coding Style。本篇將說明如何在 Nuxt3 專案搭配 Stylelint 工具。
+
+{% colorquote info %}
+ESLint JavaScript 程式碼檢查工具參考 [這篇文章](https://clairechang.tw/2023/06/30/nuxt3/nuxt-v3-typescript-and-eslint/)
+{% endcolorquote %}
+
+<!-- more -->
 
 ## **套件安裝**
 
@@ -47,12 +46,12 @@ image: https://imgur.com/JBaER3w.png
 - **postcss、postcss-scss、postcss-html：**擴展 CSS 和 SCSS 的**後處理器**工具
 
 ```bash
-npm install -D @nuxtjs/stylelint-module
-npm install -D stylelint
-npm install -D stylelint-config-standard-vue
-npm install -D stylelint-config-standard-scss
-npm install -D stylelint-order
-npm install -D postcss postcss-scss postcss-html
+npm install -D @nuxtjs/stylelint-module \
+  stylelint \
+  stylelint-config-standard-vue \
+  stylelint-config-standard-scss \
+  stylelint-order \
+  postcss postcss-scss postcss-html
 ```
 
 ---
@@ -62,15 +61,16 @@ npm install -D postcss postcss-scss postcss-html
 stylelint 配置選項參考 [官方文件](https://github.com/nuxt-modules/stylelint)
 
 ```jsx
+// nuxt.config.js
 export default defineNuxtConfig({
-    modules: [
-        ...
-        '@nuxtjs/stylelint-module'
-    ],
-    stylelint: {
-        lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
-        chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
-    }
+  modules: [
+    ...
+    '@nuxtjs/stylelint-module'
+  ],
+  stylelint: {
+    lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
+    chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
+  }
 })
 ```
 
@@ -81,105 +81,106 @@ export default defineNuxtConfig({
 目錄新增 `.stylelintrc.js`，配置如下：
 
 - **extends：**擴展 stylelint 配置
-- **overrides：**定義特定文件或文件類型覆蓋配置，會覆寫 rules 定義的全域規則
+- **overrides：**定義特定文件或文件類型覆蓋配置，會覆寫 `rules` 定義的全域規則
 - **plugins：**配置 stylelint 插件
-- **rules：**定義全域 stylelint 規則，範例不一一列舉，依實際使用需求調整
+- **rules：**定義全域 stylelint 規則，選項參考 [官方文件](https://stylelint.io/user-guide/rules/)
 
 ```jsx
+// .stylelintrc.js
 module.exports = {
-    extends: [
-        'stylelint-config-standard-scss',
-        'stylelint-config-standard-vue/scss'
-    ],
-    plugins: [
-        'stylelint-order'
-    ],
-    overrides: [
-        {
-            files: [ '*.scss', '**/*.scss' ], // 指定 .scss 檔
-            rules: {
-                'scss/no-global-function-names': null // 關閉此規則
-            }
-        }
-    ],
-    rules: {
-        ...
-        'unit-allowed-list': [ 'em', 'rem', 'deg', 'px' ], // 可使用的單位
-        'order/properties-order': [ // 設定排序順序（plugins 必須先定義 stylelint-order）
-            'position',
-            'top',
-            'bottom',
-            'right',
-            'left',
-            'display',
-            'align-items',
-            'justify-content',
-            'float',
-            'clear',
-            'overflow',
-            'overflow-x',
-            'overflow-y',
-            'margin',
-            'margin-top',
-            'margin-right',
-            'margin-bogttom',
-            'margin-left',
-            'padding',
-            'padding-top',
-            'padding-right',
-            'padding-bottom',
-            'padding-left',
-            'width',
-            'min-width',
-            'max-width',
-            'height',
-            'min-height',
-            'max-height',
-            'font-size',
-            'font-family',
-            'font-weight',
-            'text-align',
-            'text-justify',
-            'text-indent',
-            'text-overflow',
-            'text-decoration',
-            'white-space',
-            'color',
-            'background',
-            'background-position',
-            'background-repeat',
-            'background-size',
-            'background-color',
-            'background-clip',
-            'border',
-            'border-style',
-            'border-width',
-            'border-color',
-            'border-top-style',
-            'border-top-width',
-            'border-top-color',
-            'border-right-style',
-            'border-right-width',
-            'border-right-color',
-            'border-bottom-style',
-            'border-bottom-width',
-            'border-bottom-color',
-            'border-left-style',
-            'border-left-width',
-            'border-left-color',
-            'border-radius',
-            'opacity',
-            'filter',
-            'list-style',
-            'outline',
-            'visibility',
-            'z-index',
-            'box-shadow',
-            'text-shadow',
-            'resize',
-            'transition'
-        ]
+  extends: [
+    'stylelint-config-standard-scss',
+    'stylelint-config-standard-vue/scss'
+  ],
+  plugins: [
+    'stylelint-order'
+  ],
+  overrides: [
+    {
+      files: [ '*.scss', '**/*.scss' ], // 指定 .scss 檔
+      rules: {
+        'scss/no-global-function-names': null // 關閉此規則
+      }
     }
+  ],
+  rules: {
+    // ...
+    'unit-allowed-list': [ 'em', 'rem', 'deg', 'px' ], // 可使用的單位
+    'order/properties-order': [ // 設定排序順序（plugins 必須先定義 stylelint-order）
+      'position',
+      'top',
+      'bottom',
+      'right',
+      'left',
+      'display',
+      'align-items',
+      'justify-content',
+      'float',
+      'clear',
+      'overflow',
+      'overflow-x',
+      'overflow-y',
+      'margin',
+      'margin-top',
+      'margin-right',
+      'margin-bogttom',
+      'margin-left',
+      'padding',
+      'padding-top',
+      'padding-right',
+      'padding-bottom',
+      'padding-left',
+      'width',
+      'min-width',
+      'max-width',
+      'height',
+      'min-height',
+      'max-height',
+      'font-size',
+      'font-family',
+      'font-weight',
+      'text-align',
+      'text-justify',
+      'text-indent',
+      'text-overflow',
+      'text-decoration',
+      'white-space',
+      'color',
+      'background',
+      'background-position',
+      'background-repeat',
+      'background-size',
+      'background-color',
+      'background-clip',
+      'border',
+      'border-style',
+      'border-width',
+      'border-color',
+      'border-top-style',
+      'border-top-width',
+      'border-top-color',
+      'border-right-style',
+      'border-right-width',
+      'border-right-color',
+      'border-bottom-style',
+      'border-bottom-width',
+      'border-bottom-color',
+      'border-left-style',
+      'border-left-width',
+      'border-left-color',
+      'border-radius',
+      'opacity',
+      'filter',
+      'list-style',
+      'outline',
+      'visibility',
+      'z-index',
+      'box-shadow',
+      'text-shadow',
+      'resize',
+      'transition'
+    ]
+  }
 }
 ```
 
@@ -189,7 +190,7 @@ module.exports = {
 
 #### **1. 安裝擴充**
 
-首先需在 VSCode 內安裝相關擴充：[Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+首先需在 VSCode 安裝擴充：[Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 
 #### **2. 設定自動格式化**
 
@@ -197,14 +198,13 @@ module.exports = {
 
 
 ```
-.vscode
-    |—— settings.json
-my-app
-    |—— .nuxt
-    |—— assets
-    |—— pages
-    |—— .stylelintrc.js
-    |—— ...
+|——.vscode/
+  |—— settings.json
+|——my-app/
+  |—— .nuxt/
+  |—— .stylelintrc.js
+  |—— app.vue
+  |—— ...
 ```
 
 接著配置如下：
@@ -214,11 +214,11 @@ my-app
 
 ```jsx
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll": false,
-        "source.fixAll.stylelint": true
-    },
-    "stylelint.validate": [ "css", "scss", "vue" ]
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.validate": [ "css", "scss", "vue" ]
 }
 ```
 

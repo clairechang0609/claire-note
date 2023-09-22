@@ -17,7 +17,8 @@ image: https://imgur.com/KgU7DNp.png
     <img style="width: 100%; max-width: 600px;" src="https://i.imgur.com/1l46aJb.png">
 </div>
 
-圖片參考：[MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity#the_entire_exchange_in_a_complicated_diagram)
+<small>圖片參考：[MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity#the_entire_exchange_in_a_complicated_diagram)
+</small>
 
 
 ### **流程解析（搭配 STUN 協定）**

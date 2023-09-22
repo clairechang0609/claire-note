@@ -19,15 +19,11 @@ image: https://i.imgur.com/t4LX3EU.png
 
 ## **安裝 NVM**
 
-打開「Terminal 終端機」輸入指令安裝 NVM
+打開「Terminal 終端機」輸入指令安裝 NVM（v0.39.3 為版本號）
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/**v0.39.3**/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
-
-{% colorquote info %}
-v0.39.3 版本號可以調整
-{% endcolorquote %}
 
 如果我們是使用其他的 shell 指令工具，輸入 `nvm` 可能會報錯，像是：
 

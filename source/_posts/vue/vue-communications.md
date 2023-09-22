@@ -21,7 +21,7 @@ image: https://i.imgur.com/VEoagNF.png
 
 ```
 Root.vue
-    |-- Child.vue
+    |—— Child.vue
 ```
 
 <!-- more -->
@@ -243,8 +243,8 @@ export default {
 
 ```
 Root.vue
-    |-- Header.vue
-        |-- DeepChild.vue
+    |—— Header.vue
+        |—— DeepChild.vue
 ```
 
 要從 <Root> 傳遞資料到 <DeepChild>，我們必須要 `props` 傳遞兩層才能順利將資料傳入，當層級越來越多，要再往下傳遞就更困難了…

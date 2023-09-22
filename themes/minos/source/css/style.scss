@@ -532,6 +532,7 @@ figure.highlight {
     padding: 0;
     width: 100%;
     margin: 0 0 1.5rem !important;
+    overflow: auto;
 
     pre,
     table tr:hover {
@@ -685,7 +686,7 @@ figure.highlight {
 .gallery-item {
     position: relative;
     display: inline-block;
-    overflow: hidden;
+    // overflow: hidden;
     margin: 0;
     padding: 0;
     line-height: 0;

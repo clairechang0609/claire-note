@@ -1,7 +1,7 @@
 ---
 title: Nuxt.js 3.x 套件應用－VeeValidate v4.x 表單驗證
 date: 2023-07-24
-tags: [ nuxt3 ]
+tags: [ nuxt3, vee-validate ]
 category: Nuxt3
 description: 本篇說明 Nuxt3 專案如何使用 VeeValidate 客製表單驗證
 image: https://imgur.com/n3NS3CQ.png

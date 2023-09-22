@@ -100,7 +100,7 @@ Nuxt3 內建 Component，在 **頁面切換時觸發**
 效果如下：
 
 <video controls width="100%">
-    <source src="https://i.imgur.com/jFNxZJJ.mp4" type="video/mp4" />
+    <source src="https://imgur.com/mvcCSLb.mp4" type="video/mp4" />
 </video>
 
 ---

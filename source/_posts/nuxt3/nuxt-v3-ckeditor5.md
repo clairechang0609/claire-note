@@ -11,7 +11,7 @@ image: https://imgur.com/M9DJSpE.png
 >
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/M9DJSpE.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/M9DJSpE.png">
 </div>
 
 {% colorquote info %}
@@ -49,8 +49,8 @@ CKEditor 是一套歷史悠久且功能完整、輕量的富文本編輯器（ri
 
 ```bash
 npm install --save \ 
-    @ckeditor/ckeditor5-vue \ 
-    @ckeditor/ckeditor5-build-classic
+  @ckeditor/ckeditor5-vue \ 
+  @ckeditor/ckeditor5-build-classic
 ```
 
 ### **使用元件與組合功能**
@@ -63,9 +63,9 @@ npm install --save \
 
 ```jsx
 <template>
-    <div>
-        <ckeditor :editor="ClassicEditor" v-model="editorData" :config="editorConfig"></ckeditor>
-    </div>
+  <div>
+    <ckeditor :editor="ClassicEditor" v-model="editorData" :config="editorConfig"></ckeditor>
+  </div>
 </template>
 
 <script setup>
@@ -75,7 +75,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 const ckeditor = defineComponent(CKEditor.component);
 const editorData = ref('content of the editor');
 const editorConfig = {
-    placeholder: 'type the content here'
+  placeholder: 'type the content here'
 }
 </script>
 ```
@@ -104,8 +104,8 @@ CKEditor 在初始化時因模組重複執行導致錯誤，需改用以下**「
 
 ```bash
 npm install --save \
-    @ckeditor/vite-plugin-ckeditor5 \
-    @ckeditor/ckeditor5-vue
+  @ckeditor/vite-plugin-ckeditor5 \
+  @ckeditor/ckeditor5-vue
 ```
 
 - **安裝預設主題樣式**
@@ -116,23 +116,23 @@ npm install --save @ckeditor/ckeditor5-theme-lark
 
 - **自選功能（功能眾多不一一說明）**
     
-    以下舉例：
-    
-    - `@ckeditor/ckeditor5-editor-classic`：toolbar style
-    - `@ckeditor/ckeditor5-paragraph`：paragraph style
-    - `@ckeditor/ckeditor5-essentials`：selectAll、undo、redo ...
-    - `@ckeditor/ckeditor5-font`：fontSize、fontFamily、fontColor、fontBackgroundColor
-    - `@ckeditor/ckeditor5-basic-styles`：bold、italic、underline、strikethrough、code …
-    - `@ckeditor/ckeditor5-link`：link、linkImage
+  以下舉例：
+  
+  - `@ckeditor/ckeditor5-editor-classic`：toolbar style
+  - `@ckeditor/ckeditor5-paragraph`：paragraph style
+  - `@ckeditor/ckeditor5-essentials`：selectAll、undo、redo ...
+  - `@ckeditor/ckeditor5-font`：fontSize、fontFamily、fontColor、fontBackgroundColor
+  - `@ckeditor/ckeditor5-basic-styles`：bold、italic、underline、strikethrough、code …
+  - `@ckeditor/ckeditor5-link`：link、linkImage
 
 ```bash
 npm install --save \
-    @ckeditor/ckeditor5-editor-classic \
-    @ckeditor/ckeditor5-paragraph \
-    @ckeditor/ckeditor5-essentials \
-    @ckeditor/ckeditor5-font \
-    @ckeditor/ckeditor5-basic-styles \
-    @ckeditor/ckeditor5-link
+  @ckeditor/ckeditor5-editor-classic \
+  @ckeditor/ckeditor5-paragraph \
+  @ckeditor/ckeditor5-essentials \
+  @ckeditor/ckeditor5-font \
+  @ckeditor/ckeditor5-basic-styles \
+  @ckeditor/ckeditor5-link
 ```
 
 ### **nuxt.config 配置**
@@ -141,11 +141,11 @@ npm install --save \
 import ckeditor5 from '@ckeditor/vite-plugin-ckeditor5';
 
 export default defineNuxtConfig({
-    vite: {
-        plugins: [
-            ckeditor5({ theme: require.resolve('@ckeditor/ckeditor5-theme-lark') })
-        ]
-    }
+  vite: {
+    plugins: [
+      ckeditor5({ theme: require.resolve('@ckeditor/ckeditor5-theme-lark') })
+    ]
+  }
 });
 ```
 
@@ -156,15 +156,15 @@ export default defineNuxtConfig({
 - **editor：**定義編輯器使用的組件
 - **v-model：**資料雙向綁定
 - **config：**定義設定檔
-    - **placeholder：**編輯器佔位符
-    - **plugins：**使用插件
-    - **toolbar：**配置工具列，可以加插入分隔符號 `|`
+  - **placeholder：**編輯器佔位符
+  - **plugins：**使用插件
+  - **toolbar：**配置工具列，可以加插入分隔符號 `|`
 
 ```jsx
 <template>
-    <div>
-        <ckeditor :editor="ClassicEditor" v-model="editorData" :config="editorConfig"></ckeditor>
-    </div>
+  <div>
+    <ckeditor :editor="ClassicEditor" v-model="editorData" :config="editorConfig"></ckeditor>
+  </div>
 </template>
 
 <script setup>
@@ -179,30 +179,30 @@ import { Essentials } from '@ckeditor/ckeditor5-essentials';
 const ckeditor = defineComponent(CKEditor.component);
 const editorData = ref('content of the editor');
 const editorConfig = {
-    placeholder: 'type the content here',
-    plugins: [
-    FontSize, FontFamily, FontColor, FontBackgroundColor,
-        Bold, Italic, Underline, Strikethrough,
-        Link, Paragraph, Essentials
+  placeholder: 'type the content here',
+  plugins: [
+  FontSize, FontFamily, FontColor, FontBackgroundColor,
+    Bold, Italic, Underline, Strikethrough,
+    Link, Paragraph, Essentials
+  ],
+  toolbar: {
+    items: [
+      'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+      'bold', 'italic', 'underline', 'strikethrough', '|',
+      'link', '|',
+      'undo', 'redo', '|'
     ],
-    toolbar: {
-        items: [
-            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
-            'bold', 'italic', 'underline', 'strikethrough', '|',
-            'link', '|',
-            'undo', 'redo', '|'
-        ],
-        // RWD 自動換行
-        shouldNotGroupWhenFull: true
-    },
-    fontSize: {
-        // 自訂義字級選項
-        options: [ 12, 14, 16, 18, 20, 24, 28, 30, 32 ]
-    },
-    link: {
-        // 點擊連結另起新分頁
-        addTargetToExternalLinks: true
-    }
+    // RWD 自動換行
+    shouldNotGroupWhenFull: true
+  },
+  fontSize: {
+    // 自訂義字級選項
+    options: [ 12, 14, 16, 18, 20, 24, 28, 30, 32 ]
+  },
+  link: {
+    // 點擊連結另起新分頁
+    addTargetToExternalLinks: true
+  }
 };
 </script>
 ```
@@ -210,7 +210,7 @@ const editorConfig = {
 畫面呈現如下：
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/M9DJSpE.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/M9DJSpE.png">
 </div>
 
 ## **自訂 CSS 樣式**
@@ -220,104 +220,104 @@ const editorConfig = {
 ```jsx
 <style>
 :root {
-    /* Overrides the border radius setting in the theme. */
-    --ck-border-radius: 4px;
+  /* Overrides the border radius setting in the theme. */
+  --ck-border-radius: 4px;
 
-    /* Overrides the default font size in the theme. */
-    --ck-font-size-base: 14px;
+  /* Overrides the default font size in the theme. */
+  --ck-font-size-base: 14px;
 
-    /* Helper variables to avoid duplication in the colors. */
-    --ck-custom-background: hsl(177, 16%, 49%);
-    --ck-custom-foreground: hsl(166, 21%, 65%);
-    --ck-custom-border: hsl(161, 18%, 28%);
-    --ck-custom-white: hsl(0, 0%, 100%);
+  /* Helper variables to avoid duplication in the colors. */
+  --ck-custom-background: hsl(177, 16%, 49%);
+  --ck-custom-foreground: hsl(166, 21%, 65%);
+  --ck-custom-border: hsl(161, 18%, 28%);
+  --ck-custom-white: hsl(0, 0%, 100%);
 
-    /* -- Overrides generic colors. ------------------------------------------------------------- */
-    --ck-color-base-foreground: var(--ck-custom-background);
-    --ck-color-focus-border: hsl(177, 16%, 49%);
-    --ck-color-text: hsl(0, 0%, 98%);
-    --ck-color-shadow-drop: hsla(0, 0%, 0%, 0.2);
-    --ck-color-shadow-inner: hsla(0, 0%, 0%, 0.1);
-    --ck-color-button-on-color: hsl(0, 0%, 100%);
-    --ck-color-base-active: hsl(0, 0%, 100%);
-    --ck-color-base-active-focus: hsl(0, 0%, 100%);
+  /* -- Overrides generic colors. ------------------------------------------------------------- */
+  --ck-color-base-foreground: var(--ck-custom-background);
+  --ck-color-focus-border: hsl(177, 16%, 49%);
+  --ck-color-text: hsl(0, 0%, 98%);
+  --ck-color-shadow-drop: hsla(0, 0%, 0%, 0.2);
+  --ck-color-shadow-inner: hsla(0, 0%, 0%, 0.1);
+  --ck-color-button-on-color: hsl(0, 0%, 100%);
+  --ck-color-base-active: hsl(0, 0%, 100%);
+  --ck-color-base-active-focus: hsl(0, 0%, 100%);
 
-    /* -- Overrides the default .ck-button class colors. ---------------------------------------- */
-    --ck-color-button-default-background: var(--ck-custom-background);
-    --ck-color-button-default-hover-background: hsl(177, 16%, 49%);
-    --ck-color-button-default-active-background: hsl(177, 16%, 49%);
-    --ck-color-button-default-active-shadow: hsl(177, 16%, 49%);
-    --ck-color-button-default-disabled-background: var(--ck-custom-background);
-    --ck-color-button-on-background: var(--ck-custom-foreground);
-    --ck-color-button-on-hover-background: var(--ck-custom-foreground);
-    --ck-color-button-on-active-background: var(--ck-custom-foreground);
-    --ck-color-button-on-active-shadow: hsl(177, 16%, 49%);
-    --ck-color-button-on-disabled-background: var(--ck-custom-foreground);
-    --ck-color-button-action-background: hsl(168deg 76% 42%);
-    --ck-color-button-action-hover-background: hsl(168deg 76% 38%);
-    --ck-color-button-action-active-background: hsl(168deg 76% 36%);
-    --ck-color-button-action-active-shadow: hsl(168deg 75% 34%);
-    --ck-color-button-action-disabled-background: hsl(168deg 76% 42%);
-    --ck-color-button-action-text: var(--ck-custom-white);
-    --ck-color-button-save: hsl(120deg 100% 46%);
-    --ck-color-button-cancel: hsl(15deg 100% 56%);
+  /* -- Overrides the default .ck-button class colors. ---------------------------------------- */
+  --ck-color-button-default-background: var(--ck-custom-background);
+  --ck-color-button-default-hover-background: hsl(177, 16%, 49%);
+  --ck-color-button-default-active-background: hsl(177, 16%, 49%);
+  --ck-color-button-default-active-shadow: hsl(177, 16%, 49%);
+  --ck-color-button-default-disabled-background: var(--ck-custom-background);
+  --ck-color-button-on-background: var(--ck-custom-foreground);
+  --ck-color-button-on-hover-background: var(--ck-custom-foreground);
+  --ck-color-button-on-active-background: var(--ck-custom-foreground);
+  --ck-color-button-on-active-shadow: hsl(177, 16%, 49%);
+  --ck-color-button-on-disabled-background: var(--ck-custom-foreground);
+  --ck-color-button-action-background: hsl(168deg 76% 42%);
+  --ck-color-button-action-hover-background: hsl(168deg 76% 38%);
+  --ck-color-button-action-active-background: hsl(168deg 76% 36%);
+  --ck-color-button-action-active-shadow: hsl(168deg 75% 34%);
+  --ck-color-button-action-disabled-background: hsl(168deg 76% 42%);
+  --ck-color-button-action-text: var(--ck-custom-white);
+  --ck-color-button-save: hsl(120deg 100% 46%);
+  --ck-color-button-cancel: hsl(15deg 100% 56%);
 
-    /* -- Overrides the default .ck-dropdown class colors. -------------------------------------- */
-    --ck-color-dropdown-panel-background: var(--ck-custom-background);
-    --ck-color-dropdown-panel-border: var(--ck-custom-foreground);
+  /* -- Overrides the default .ck-dropdown class colors. -------------------------------------- */
+  --ck-color-dropdown-panel-background: var(--ck-custom-background);
+  --ck-color-dropdown-panel-border: var(--ck-custom-foreground);
 
-    /* -- Overrides the default .ck-splitbutton class colors. ----------------------------------- */
-    --ck-color-split-button-hover-background: var(--ck-color-button-default-hover-background);
-    --ck-color-split-button-hover-border: var(--ck-custom-foreground);
+  /* -- Overrides the default .ck-splitbutton class colors. ----------------------------------- */
+  --ck-color-split-button-hover-background: var(--ck-color-button-default-hover-background);
+  --ck-color-split-button-hover-border: var(--ck-custom-foreground);
 
-    /* -- Overrides the default .ck-input class colors. ----------------------------------------- */
-    --ck-color-input-background: var(--ck-custom-background);
-    --ck-color-input-border: hsl(257deg 3% 43%);
-    --ck-color-input-text: hsl(24deg 21% 31%);
-    --ck-color-input-disabled-background: hsl(255deg 4% 21%);
-    --ck-color-input-disabled-border: hsl(250deg 3% 38%);
-    --ck-color-input-disabled-text: hsl(0deg 0% 78%);
+  /* -- Overrides the default .ck-input class colors. ----------------------------------------- */
+  --ck-color-input-background: var(--ck-custom-background);
+  --ck-color-input-border: hsl(257deg 3% 43%);
+  --ck-color-input-text: hsl(24deg 21% 31%);
+  --ck-color-input-disabled-background: hsl(255deg 4% 21%);
+  --ck-color-input-disabled-border: hsl(250deg 3% 38%);
+  --ck-color-input-disabled-text: hsl(0deg 0% 78%);
 
-    /* -- Overrides the default .ck-labeled-field-view class colors. ---------------------------- */
-    --ck-color-labeled-field-label-background: var(--ck-custom-background);
+  /* -- Overrides the default .ck-labeled-field-view class colors. ---------------------------- */
+  --ck-color-labeled-field-label-background: var(--ck-custom-background);
 
-    /* -- Overrides the default .ck-list class colors. ------------------------------------------ */
-    --ck-color-list-background: var(--ck-custom-background);
-    --ck-color-list-button-hover-background: hsl(24deg 27% 54% / 20%);
-    --ck-color-list-button-on-background: var(--ck-color-base-active);
-    --ck-color-list-button-on-background-focus: var(--ck-color-base-active-focus);
-    --ck-color-list-button-on-text: var(--ck-color-base-background);
+  /* -- Overrides the default .ck-list class colors. ------------------------------------------ */
+  --ck-color-list-background: var(--ck-custom-background);
+  --ck-color-list-button-hover-background: hsl(24deg 27% 54% / 20%);
+  --ck-color-list-button-on-background: var(--ck-color-base-active);
+  --ck-color-list-button-on-background-focus: var(--ck-color-base-active-focus);
+  --ck-color-list-button-on-text: var(--ck-color-base-background);
 
-    /* -- Overrides the default .ck-balloon-panel class colors. --------------------------------- */
-    --ck-color-panel-background: var(--ck-custom-background);
-    --ck-color-panel-border: var(--ck-custom-border);
+  /* -- Overrides the default .ck-balloon-panel class colors. --------------------------------- */
+  --ck-color-panel-background: var(--ck-custom-background);
+  --ck-color-panel-border: var(--ck-custom-border);
 
-    /* -- Overrides the default .ck-toolbar class colors. --------------------------------------- */
-    --ck-color-toolbar-background: var(--ck-custom-background);
-    --ck-color-toolbar-border: var(--ck-custom-border);
+  /* -- Overrides the default .ck-toolbar class colors. --------------------------------------- */
+  --ck-color-toolbar-background: var(--ck-custom-background);
+  --ck-color-toolbar-border: var(--ck-custom-border);
 
-    /* -- Overrides the default .ck-tooltip class colors. --------------------------------------- */
-    --ck-color-tooltip-background: hsl(252deg 7% 14%);
-    --ck-color-tooltip-text: hsl(0deg 0% 93%);
+  /* -- Overrides the default .ck-tooltip class colors. --------------------------------------- */
+  --ck-color-tooltip-background: hsl(252deg 7% 14%);
+  --ck-color-tooltip-text: hsl(0deg 0% 93%);
 
-    /* -- Overrides the default colors used by the ckeditor5-image package. --------------------- */
-    --ck-color-image-caption-background: hsl(0deg 0% 97%);
-    --ck-color-image-caption-text: hsl(0deg 0% 20%);
+  /* -- Overrides the default colors used by the ckeditor5-image package. --------------------- */
+  --ck-color-image-caption-background: hsl(0deg 0% 97%);
+  --ck-color-image-caption-text: hsl(0deg 0% 20%);
 
-    /* -- Overrides the default colors used by the ckeditor5-widget package. -------------------- */
-    --ck-color-widget-blurred-border: hsl(0deg 0% 87%);
-    --ck-color-widget-hover-border: hsl(43deg 100% 68%);
-    --ck-color-widget-editable-focus-background: var(--ck-custom-white);
+  /* -- Overrides the default colors used by the ckeditor5-widget package. -------------------- */
+  --ck-color-widget-blurred-border: hsl(0deg 0% 87%);
+  --ck-color-widget-hover-border: hsl(43deg 100% 68%);
+  --ck-color-widget-editable-focus-background: var(--ck-custom-white);
 
-    /* -- Overrides the default colors used by the ckeditor5-link package. ---------------------- */
-    --ck-color-link-default: hsl(190deg 100% 75%);
+  /* -- Overrides the default colors used by the ckeditor5-link package. ---------------------- */
+  --ck-color-link-default: hsl(190deg 100% 75%);
 
-    /* -- Overrides the default content border. -------------------- */
-    --ck-color-base-border: var(--ck-custom-border);
+  /* -- Overrides the default content border. -------------------- */
+  --ck-color-base-border: var(--ck-custom-border);
 
-    /* Configure the z-index of the editor UI, so when inside a Bootstrap modal, it will be rendered over the modal. */
-    --ck-z-default: 100 !important;
-    --ck-z-modal: calc( var(--ck-z-default) + 2000 ) !important;
+  /* Configure the z-index of the editor UI, so when inside a Bootstrap modal, it will be rendered over the modal. */
+  --ck-z-default: 100 !important;
+  --ck-z-modal: calc( var(--ck-z-default) + 2000 ) !important;
 }
 </style>
 ```
@@ -325,7 +325,7 @@ const editorConfig = {
 調整後畫面：
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/IcBoiGi.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/IcBoiGi.png">
 </div>
 
 ---

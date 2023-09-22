@@ -8,18 +8,18 @@ image: https://imgur.com/pInwjQh.png
 ---
 
 <div style="display: flex; justify-content: center; margin: 0 0 30px;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/pInwjQh.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/pInwjQh.png">
 </div>
 
 除了 **for...in** 方法**，**還有許多迴圈方法可以協助處理陣列資料，但物件並不支援這些方法，以下為例
 
 ```jsx
 const fruits = {
-    apple: { price: 45 },
-    strawberry: { price: 100 },
-    banana: { price: 30 },
-    papaya: { price: 60 },
-    watermelon: { price: 75 }
+  apple: { price: 45 },
+  strawberry: { price: 100 },
+  banana: { price: 30 },
+  papaya: { price: 60 },
+  watermelon: { price: 75 }
 }
 ```
 
@@ -27,7 +27,7 @@ const fruits = {
 
 ```jsx
 fruits.forEach(item => {
-    console.log(item.price);
+  console.log(item.price);
 });
 
 // output: Uncaught TypeError: fruits.forEach is not a function
@@ -35,7 +35,7 @@ fruits.forEach(item => {
 
 <!-- more -->
 
-# **將物件轉為陣列**
+## **將物件轉為陣列**
 
 - **Object.keys()**
 - **Object.values()**
@@ -43,7 +43,7 @@ fruits.forEach(item => {
 
 ---
 
-## **Object.keys()**
+### **Object.keys()**
 
 取得一個物件的所有可枚舉屬性名稱（key），並回傳陣列
 
@@ -54,7 +54,7 @@ console.log(Object.keys(fruits));
 
 ```jsx
 Object.keys(fruits).forEach(key => {
-    console.log(fruits[key].price);
+  console.log(fruits[key].price);
 });
 // output:
 // 45
@@ -64,24 +64,26 @@ Object.keys(fruits).forEach(key => {
 // 75
 ```
 
-## **Object.values()**
+---
+
+### **Object.values()**
 
 取得一個物件的所有可枚舉屬性的值（value），並回傳陣列
 
 ```jsx
 console.log(Object.values(fruits));
 // output: [
-//     { "price": 45 },
-//     { "price": 100 },
-//     { "price": 30 },
-//     { "price": 60 },
-//     { "price": 75 }
+//   { "price": 45 },
+//   { "price": 100 },
+//   { "price": 30 },
+//   { "price": 60 },
+//   { "price": 75 }
 // ]
 ```
 
 ```jsx
 Object.values(fruits).forEach(item => {
-    console.log(item.price);
+  console.log(item.price);
 });
 // output:
 // 45
@@ -91,18 +93,20 @@ Object.values(fruits).forEach(item => {
 // 75
 ```
 
-## **Object.entries()**
+---
+
+### **Object.entries()**
 
 可以取得最完整的資訊，將一個物件的所有可枚舉屬性（key）與值（value）組合一個陣列，第一個值為 key，第二個值為 value
 
 ```jsx
 console.log(Object.entries(fruits));
 // output: [
-//     [ "apple", { "price": 45 } ],
-//     [ "strawberry", { "price": 100 } ],
-//     [ "banana", { "price": 30 } ],
-//     [ "papaya", { "price": 60 } ],
-//     [ "watermelon", { "price": 75 } ]
+//   [ "apple", { "price": 45 } ],
+//   [ "strawberry", { "price": 100 } ],
+//   [ "banana", { "price": 30 } ],
+//   [ "papaya", { "price": 60 } ],
+//   [ "watermelon", { "price": 75 } ]
 // ]
 ```
 
@@ -118,15 +122,45 @@ Object.entries(fruits).forEach(item => {
 // 75
 ```
 
+---
+
+### **Object.fromEntries()**
+
+`Object.fromEntries()` 為 `Object.entries()` 的反向操作，將 **陣列轉物件**
+
+```jsx
+const fruits = [
+  [ 'apple', { price: 45 } ],
+  [ 'strawberry', { price: 100 } ],
+  [ 'banana', { price: 30 } ]
+];
+
+console.log(Object.fromEntries(fruits));
+// output: {
+//  "apple": {
+//    "price": 45
+//  },
+//  "strawberry": {
+//    "price": 100
+//  },
+//  "banana": {
+//    "price": 30
+//  }
+// }
+```
+
+## 小結
+
 - `Object.keys()` 跟 `Object.entries()` 可以用來取得物件的屬性名稱跟值
 - `Object.values()` 適合適合用來取得物件各元素值
+- `Object.fromEntries()` 為 `Object.entries()` 的逆向操作
 
-以上三個方法在處理物件時提供了不同的優點和功能，常會搭配陣列方法使用（[參考文章](https://clairechang.tw/2023/05/25/javascript/js-array-methods/)），可以根據需求選擇適合的方法
+以上方法在處理物件時提供了不同的優點和功能，常會搭配陣列方法使用（[參考文章](https://clairechang0609.github.io/2023/05/25/javascript/js-array-methods/)），可以根據需求選擇最適方法
+
 
 ---
 
 參考資源：
 
 https://ithelp.ithome.com.tw/articles/10239942
-
 https://www.casper.tw/development/2022/03/10/object-for-each/
