@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://clairechang.tw/2023/09/18/nuxt3/nuxt-v3-sitemap/</loc>
+    
+    <lastmod>2023-09-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://clairechang.tw/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/</loc>
     
     <lastmod>2023-09-23</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://clairechang.tw/2023/09/01/nuxt3/nuxt-v3-layouts/</loc>
-    
-    <lastmod>2023-09-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/2023/09/18/nuxt3/nuxt-v3-sitemap/</loc>
     
     <lastmod>2023-09-18</lastmod>
     
@@ -775,13 +775,6 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/tags/typescript/</loc>
-    <lastmod>2023-09-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://clairechang.tw/tags/nuxt3/</loc>
     <lastmod>2023-09-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -790,6 +783,13 @@
   
   <url>
     <loc>https://clairechang.tw/tags/nuxt/</loc>
+    <lastmod>2023-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/typescript/</loc>
     <lastmod>2023-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -854,14 +854,14 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/Typescript/</loc>
+    <loc>https://clairechang.tw/categories/Nuxt3/</loc>
     <lastmod>2023-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/Nuxt3/</loc>
+    <loc>https://clairechang.tw/categories/Typescript/</loc>
     <lastmod>2023-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
