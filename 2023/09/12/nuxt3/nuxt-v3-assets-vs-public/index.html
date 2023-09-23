@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://imgur.com/5VRbaV1.png">
 <meta property="article:published_time" content="2023-09-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-13T16:01:56.651Z">
+<meta property="article:modified_time" content="2023-09-23T02:14:36.181Z">
 <meta property="article:author" content="Claire Chang">
 <meta property="article:tag" content="nuxt3">
 <meta name="twitter:card" content="summary">
@@ -203,7 +203,7 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
-        <html><head></head><body><h2 id="public-目錄"><a href="#public-目錄" class="headerlink" title="public 目錄"></a><strong>public 目錄</strong></h2><p>靜態資源資料夾（同 Nuxt2 的&nbsp;<code>static/</code>），用來存放不需被編譯的靜態檔，可以透過根目錄 <code>/</code> 直接使用檔案</p>
+        <html><head></head><body><h2 id="Public"><a href="#Public" class="headerlink" title="Public"></a><strong>Public</strong></h2><p>靜態資源資料夾（同 Nuxt2 的&nbsp;<code>static/</code>），用來存放不需被編譯的靜態檔，可以透過根目錄 <code>/</code> 直接使用檔案</p>
 <h3 id="適合檔案性質"><a href="#適合檔案性質" class="headerlink" title="適合檔案性質"></a><strong>適合檔案性質</strong></h3><ul>
 <li><strong>不需經由 Vite / Webpack 等打包工具編譯：</strong>像是 <code>sitemap.xml</code> 通常不需另外壓縮處理</li>
 <li><strong>檔案固定性高 / 檔名不能被更改：</strong>經過編譯後的檔案，檔名後會加上一組 hash，像是 <code>robots.txt</code> 必須固定檔名，搜尋引擎爬蟲才能正確解析，適合放在 <code>public/</code></li>
@@ -231,7 +231,7 @@
 
 <p><small style="display: block; margin-bottom: 30px;">圖片來源：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://unsplash.com/">https://unsplash.com/</a></small></p>
 <hr>
-<h2 id="assets-目錄"><a href="#assets-目錄" class="headerlink" title="assets 目錄"></a><strong>assets 目錄</strong></h2><p>用來存放像是 CSS、Sass、圖片等需要被 webpack 或是 Vite 編譯的靜態資源。一般來說，<code>assets/</code> 的使用率較 <code>public/</code> 高</p>
+<h2 id="Assets"><a href="#Assets" class="headerlink" title="Assets"></a><strong>Assets</strong></h2><p>用來存放像是 CSS、Sass、圖片等需要被 webpack 或是 Vite 編譯的靜態資源。一般來說，<code>assets/</code> 的使用率較 <code>public/</code> 高</p>
 <h3 id="適合檔案性質-1"><a href="#適合檔案性質-1" class="headerlink" title="適合檔案性質"></a><strong>適合檔案性質</strong></h3><ul>
 <li><strong>需要透過 Vite / Webpack 打包工具編譯（壓縮、最佳化）：</strong>像是 JS 或是 CSS、圖片等，希望在專案發佈前，預先對檔案進行壓縮和最佳化處理，提升網站載入速度與效能</li>
 <li><strong>檔案較常更新，避免被快取影響：</strong>經過編譯後的檔案，檔名會加上依據文件內容產生的 hash，每次更新編譯後 hash 會變更，能避免受瀏覽器快取影響，強制瀏覽器讀取更新後的檔案。例如：<code>img.png</code> 編譯後變成 <code>img.2d8efhg.png</code></li>
@@ -252,7 +252,7 @@
 <p><strong>使用 <code>image/picture.jpg</code>：</strong></p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/index.vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"~/assets/image/picture.jpg"</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>透過 <code>nuxt build</code> (<code>npm run build</code>) 編譯後，可以看到檔名加上了 hash</p>
+<p>執行生產環境編譯 <code>nuxt build</code> (<code>npm run build</code>) 後，可以看到檔名加上了 hash</p>
 <div style="display: flex; justify-content: center; margin: 30px 0 10px; border: 1px solid rgb(200, 200, 200);">
   <img style="width: 100%; max-width: 100%;" src="https://imgur.com/i68fewf.png">
 </div>
