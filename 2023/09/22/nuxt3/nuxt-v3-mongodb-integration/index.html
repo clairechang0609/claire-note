@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>文章: 2023/9 - Claire&#39;s Notes</title>
+<title>Nuxt.js 3.x Server API 整合 MongoDB 實作，邁向全端第一步 - Claire&#39;s Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,15 +10,22 @@
 
 
 
-    <meta name="description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Claire&#39;s Notes">
-<meta property="og:url" content="https://clairechang.tw/archives/2023/09/index.html">
+    <meta name="description" content="本篇說明 Nuxt3 Plugins 目錄功能，包含擴充插件、搭配 Composables、Provide 定義全局變數以及 Directive 自訂指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt.js 3.x Server API 整合 MongoDB 實作，邁向全端第一步">
+<meta property="og:url" content="https://clairechang.tw/2023/09/22/nuxt3/nuxt-v3-mongodb-integration/index.html">
 <meta property="og:site_name" content="Claire&#39;s Notes">
-<meta property="og:description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
+<meta property="og:description" content="本篇說明 Nuxt3 Plugins 目錄功能，包含擴充插件、搭配 Composables、Provide 定義全局變數以及 Directive 自訂指令">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://imgur.com/qhirT5r.png">
+<meta property="article:published_time" content="2023-09-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-24T04:28:15.756Z">
 <meta property="article:author" content="Claire Chang">
+<meta property="article:tag" content="nuxt3">
+<meta property="article:tag" content="node.js">
+<meta property="article:tag" content="mongodb">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgur.com/qhirT5r.png">
 
 
 
@@ -167,64 +174,209 @@
 </nav>
     <section class="section">
     <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Nuxt.js 3.x Server API 整合 MongoDB 實作，邁向全端第一步
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-09-22</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-    
-        <div class="archive content">
-            <h4 class="title is-4" id="2023">2023</h4>
-            <div class="articles">
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-21T16:00:00.000Z" itemprop="datePublished">
-                        09-22</time>
-                    <h6 class="title is-6"><a href="/2023/09/22/nuxt3/nuxt-v3-mongodb-integration/">Nuxt.js 3.x Server API 整合 MongoDB 實作，邁向全端第一步</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-17T16:00:00.000Z" itemprop="datePublished">
-                        09-18</time>
-                    <h6 class="title is-6"><a href="/2023/09/18/nuxt3/nuxt-v3-sitemap/">Nuxt.js 3.x 替網站增加 Sitemap 網站地圖</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-11T16:00:00.000Z" itemprop="datePublished">
-                        09-12</time>
-                    <h6 class="title is-6"><a href="/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/">Nuxt.js 3.x Assets vs Public 目錄－靜態資源管理</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-10T16:00:00.000Z" itemprop="datePublished">
-                        09-11</time>
-                    <h6 class="title is-6"><a href="/2023/09/11/nuxt3/nuxt-v3-components/">Nuxt.js 3.x Components 目錄－建立共用元件</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-06T16:00:00.000Z" itemprop="datePublished">
-                        09-07</time>
-                    <h6 class="title is-6"><a href="/2023/09/07/nuxt3/nuxt-v3-error-page/">Nuxt.js 3.x 自訂 Error Page 與錯誤處理</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-04T16:00:00.000Z" itemprop="datePublished">
-                        09-05</time>
-                    <h6 class="title is-6"><a href="/2023/09/05/nuxt3/nuxt-v3-middleware/">Nuxt.js 3.x Middleware 目錄－監聽路由變化</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-03T16:00:00.000Z" itemprop="datePublished">
-                        09-04</time>
-                    <h6 class="title is-6"><a href="/2023/09/04/nuxt3/nuxt-v3-server/">Nuxt.js 3.x Server 目錄－建立 API</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-08-31T16:00:00.000Z" itemprop="datePublished">
-                        09-01</time>
-                    <h6 class="title is-6"><a href="/2023/09/01/nuxt3/nuxt-v3-layouts/">Nuxt.js 3.x Layouts 目錄－自訂模板</a></h6>
-                </div>
-            
-            </div>
+        <html><head></head><body><div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 500px;" src="https://imgur.com/qhirT5r.png">
+</div>
+
+<p>Nuxt3 搭配了新的伺服器引擎 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nitro.unjs.io/">Nitro</a>，讓我們能輕鬆建立 Server API，並在 Nuxt3 專案內使用。Nitro 的優點包含跨平台支援 Node.js 與瀏覽器、支援 HMR、自動生成 API 路由等。</p>
+<p>實務上 API 開發常會搭配資料庫連接，本篇將說明如何結合 MongoDB，實作後端 API 開發與前端串接，讓我們的 Nuxt 專案具備全端功能。</p>
+<blockquote class="colorquote info"><p>本文重點在 Nuxt 與 MongoDB 整合，需先具備以下知識：</p>
+<ul>
+<li>Nuxt Server API，可以參考 <a href="https://clairechang.tw/2023/09/04/nuxt3/nuxt-v3-server/">這篇文章</a></li>
+<li>Nuxt <code>$fetch</code> 方法，可以參考&nbsp;<a href="https://clairechang.tw/2023/07/19/nuxt3/nuxt-v3-data-fetching/">這篇文章</a></li>
+<li>MongoDB 應用（本文僅簡單說明）</li>
+</ul>
+</blockquote></body></html>
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <html><head></head><body><hr>
+<p>開始前先簡單介紹一下 <strong>MongoDB</strong> 跟 <strong>Mongoose</strong></p>
+<h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a><strong>MongoDB</strong></h3><p>MongoDB 是一個 NoSQL 資料庫，以 BSON（Binary JSON）格式儲存，適合彈性和變化性高的資料儲存，一個 Database 是由一個或多個 Collection 組成，一個 Collection 則是由一個或多個 Document 組成，每一筆資料為一個 Document，裡面可以有多個欄位 Field</p>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 500px;" src="https://imgur.com/gITcY9e.png">
+</div>
+
+<h3 id="Mongoose"><a href="#Mongoose" class="headerlink" title="Mongoose"></a><strong>Mongoose</strong></h3><p>Mongoose 是 MongoDB 的 ODM（Object Data Modeling）套件，在 Node.js 透過 MongoDB driver 跟資料庫溝通，執行 CRUD（新增、刪除、更新、查詢）操作</p>
+<hr>
+<h3 id="實作分為以下步驟"><a href="#實作分為以下步驟" class="headerlink" title="實作分為以下步驟"></a><strong>實作分為以下步驟</strong></h3><ol>
+<li>MongoDB 前置環境準備</li>
+<li>安裝 Mongoose</li>
+<li>建立 Database</li>
+<li>透過 Mongoose 連接 Database</li>
+<li>建立 Model 與 Collection</li>
+<li>建立 Server API</li>
+<li>前端串接 API：實作新增</li>
+</ol>
+<h2 id="Step1：MongoDB-前置環境準備"><a href="#Step1：MongoDB-前置環境準備" class="headerlink" title="Step1：MongoDB 前置環境準備"></a><strong>Step1：MongoDB 前置環境準備</strong></h2><ul>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.mongodb.com/try/download/community">MongoDB 安裝</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.mongodb.com/try/download/compass">Compass 安裝</a>：mongoDB 的 GUI</li>
+</ul>
+<h2 id="Step2：安裝-Mongoose"><a href="#Step2：安裝-Mongoose" class="headerlink" title="Step2：安裝 Mongoose"></a><strong>Step2：安裝 Mongoose</strong></h2><p>在專案內執行指令安裝</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">npm i -D mongoose<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="Step3：透過-Mongoose-連接-Database"><a href="#Step3：透過-Mongoose-連接-Database" class="headerlink" title="Step3：透過 Mongoose 連接 Database"></a><strong>Step3：透過 Mongoose 連接 Database</strong></h2><p>新增 <code>server/index.js</code></p>
+<ul>
+<li>透過 <code>mongoose.connect(URI)</code> 連接 database</li>
+<li>URI 格式：<code>mongodb://[username:password@][host][:port]/dbName</code>，<code>dbName</code> 資料庫名稱自訂</li>
+</ul>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// server/index.js</span><br><span class="hljs-keyword">import</span> mongoose <span class="hljs-keyword">from</span> <span class="hljs-string">'mongoose'</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> () =&gt; {<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">await</span> mongoose.<span class="hljs-title function_">connect</span>(<span class="hljs-string">'mongodb://localhost:27017/nuxt_app'</span>);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'DB connection established'</span>);<br>  } <span class="hljs-keyword">catch</span> (err) {<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'DB connection failed'</span>, err);<br>  }<br>};<br></code></pre></td></tr></tbody></table></figure>
+
+<p>URI 通常會定義為 env 變數，在根目錄新增 <code>.env</code></p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">// .env<br>MONGODB_URI="mongodb://localhost:27017/nuxt_app"<br></code></pre></td></tr></tbody></table></figure>
+
+<p>透過 <code>process.env.MONGODB_URI</code> 取得變數</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">mongoose.<span class="hljs-title function_">connect</span>(process.<span class="hljs-property">env</span>.<span class="hljs-property">MONGODB_URI</span>);<br></code></pre></td></tr></tbody></table></figure>
+
+<p>將 <code>server/index.js</code> 註冊為 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nitro.unjs.io/guide/plugins">Server Plugins</a>，在伺服器初始化時執行資料庫連接</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineNuxtConfig</span>({<br>  <span class="hljs-attr">nitro</span>: {<br>    <span class="hljs-attr">plugins</span>: [<br>      <span class="hljs-string">'@/server/index'</span><br>    ]<br>  }<br>});<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="Step4：建立-Model-與-Collection"><a href="#Step4：建立-Model-與-Collection" class="headerlink" title="Step4：建立 Model 與 Collection"></a><strong>Step4：建立 Model 與 Collection</strong></h2><p><strong>範例：</strong></p>
+<p>新增 <code>server/models/userModel.js</code> 定義模型</p>
+<ul>
+<li>建立 Schema，透過 Schema 規範 Document 資料內容、型別、預設值等</li>
+<li>建立 Model 模型，連接資料庫 Collection 與上一步的 Schema。當建立的模型資料庫沒有相對應 Collection，Mongoose 會自動建立</li>
+</ul>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// server/models/userModel.js</span><br><span class="hljs-keyword">import</span> mongoose <span class="hljs-keyword">from</span> <span class="hljs-string">'mongoose'</span>;<br><br><span class="hljs-comment">// 建立 Schema</span><br><span class="hljs-keyword">const</span> userSchema = <span class="hljs-keyword">new</span> mongoose.<span class="hljs-title class_">Schema</span>({<br>  <span class="hljs-attr">name</span>: {<br>    <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,<br>    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span><br>  },<br>  <span class="hljs-attr">email</span>: {<br>    <span class="hljs-attr">type</span>: <span class="hljs-string">'string'</span>,<br>    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">unique</span>: <span class="hljs-literal">true</span><br>  }<br>}, {<br>  <span class="hljs-attr">versionKey</span>: <span class="hljs-literal">false</span><br>});<br><br><span class="hljs-comment">// 建立 Model</span><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">User</span> = mongoose.<span class="hljs-title function_">model</span>(<span class="hljs-string">'User'</span>, userSchema);<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">User</span>;<br></code></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote info"><p><code>mongoose.model()</code> 第一個參數為 Collection 名稱、第二個參數為 Schema。其中第一個餐褲 Collection 名稱為大寫開頭單數，會對應到資料庫內小寫開頭複數 Collection</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">mongoose.<span class="hljs-title function_">model</span>(<span class="hljs-string">'User'</span>, userSchema);<br></code></pre></td></tr></tbody></table></figure>
+
+<p>對應到 Collection 名稱為 <code>users</code></p>
+</blockquote>
+
+<p>執行編譯後，這時候開啟 Compass，應該可以看到 <code>nuxt_app</code> Database 跟 <code>users</code> Collection，接下來就可以對資料庫進行操作囉</p>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/mJrFHLK.png">
+</div>
+
+<hr>
+<h2 id="Step5：建立-Server-API"><a href="#Step5：建立-Server-API" class="headerlink" title="Step5：建立 Server API"></a><strong>Step5：建立 Server API</strong></h2><p>建立一支 POST API ****<code>server/api/user.post.js</code></p>
+<ul>
+<li>使用&nbsp;<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/unjs/h3">unjs/h3</a>&nbsp;提供 <code>readBody()</code>&nbsp;輔助函式，取得 request body 內容</li>
+<li>透過 Model 對 Collection 進行溝通與操作，使用 Ｍongoose <code>create()</code> 方法新增一筆資料</li>
+</ul>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// server/api/user.post.js</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">User</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'@/server/models/userModel'</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineEventHandler</span>(<span class="hljs-keyword">async</span> event =&gt; {<br>  <span class="hljs-keyword">try</span> {<br>    <span class="hljs-keyword">const</span> { name, email } = <span class="hljs-keyword">await</span> <span class="hljs-title function_">readBody</span>(event);<br>    <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">create</span>({ name, email });<br>    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findOne</span>({ email });<br>    <span class="hljs-keyword">return</span> user;<br>  } <span class="hljs-keyword">catch</span> (error) {<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">createError</span>(error);<br>  }<br>});<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="Step6：前端串接-API"><a href="#Step6：前端串接-API" class="headerlink" title="Step6：前端串接 API"></a><strong>Step6：前端串接 API</strong></h2><p>終於來到最後一步啦！</p>
+<p>在頁面上使用 Nuxt3 <code>$fetch</code> 方法發送請求，新增一筆資料</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/index.vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>name<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.name"</span> /&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>email<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.email"</span> /&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"addUser()"</span>&gt;</span>Add User<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">const</span> user = <span class="hljs-title function_">ref</span>({</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-attr">name</span>: <span class="hljs-string">''</span>,</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-attr">email</span>: <span class="hljs-string">''</span></span></span><br><span class="language-javascript"><span class="language-xml">});</span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">const</span> <span class="hljs-title function_">addUser</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> $fetch(<span class="hljs-string">'/api/user'</span>, {</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-attr">body</span>: {</span></span><br><span class="language-javascript"><span class="language-xml">      ...user.<span class="hljs-property">value</span></span></span><br><span class="language-javascript"><span class="language-xml">    }</span></span><br><span class="language-javascript"><span class="language-xml">  });</span></span><br><span class="language-javascript"><span class="language-xml">  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response);</span></span><br><span class="language-javascript"><span class="language-xml">};</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></tbody></table></figure>
+
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/tlgGdS3.png">
+</div>
+
+<p>回到 Compass 確認一下，如果有看到一筆資料，就代表串接成功囉！</p>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/LTxvKPv.png">
+</div>
+
+<hr>
+<p>參考資源：</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/@flanker72/nuxt3-complex-solutions-database-integration-8df941f0fb82">https://medium.com/@flanker72/nuxt3-complex-solutions-database-integration-8df941f0fb82</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.mongodb.com/">https://www.mongodb.com/</a></p></body></html>
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     
+    </div>
     
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/nuxt3/">#nuxt3</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/node-js/">#node.js</a></span>
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/mongodb/">#mongodb</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+            <a href="/2023/09/18/nuxt3/nuxt-v3-sitemap/">Nuxt.js 3.x 替網站增加 Sitemap 網站地圖</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+        </span>
+    </div>
+    
+</article>
+
+
+<div class="sharebox">
+    
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=638b091d4b058f001938c857&amp;product=sop" async="async"></script>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    <!-- 
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div> -->
+    <style>
+        .utterances{max-width: 100%;}
+    </style>
+    <script src="https://utteranc.es/client.js" repo="clairechang0609/hexo-board" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+    </script>
+</div>
+
+    <div class="ad-wrap">
+        <small class="ad-label">廣告</small>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+
     </div>
 </section>
     <footer class="footer">
