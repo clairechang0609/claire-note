@@ -171,6 +171,50 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/06/01/javascript/js-object-loop/" itemprop="url">Javascript 物件迴圈方法</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-06-01</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><div style="display: flex; justify-content: center; margin: 0 0 30px;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/pInwjQh.png">
+</div>
+
+<p>除了 <strong>for…in</strong> 方法<strong>，</strong>還有許多迴圈方法可以協助處理陣列資料，但物件並不支援這些方法，以下為例</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> fruits = {<br>  <span class="hljs-attr">apple</span>: { <span class="hljs-attr">price</span>: <span class="hljs-number">45</span> },<br>  <span class="hljs-attr">strawberry</span>: { <span class="hljs-attr">price</span>: <span class="hljs-number">100</span> },<br>  <span class="hljs-attr">banana</span>: { <span class="hljs-attr">price</span>: <span class="hljs-number">30</span> },<br>  <span class="hljs-attr">papaya</span>: { <span class="hljs-attr">price</span>: <span class="hljs-number">60</span> },<br>  <span class="hljs-attr">watermelon</span>: { <span class="hljs-attr">price</span>: <span class="hljs-number">75</span> }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>假設我們想取得每個元素的價格，直接使用陣列方法 <code>forEach()</code> 會產生錯誤，因為物件並沒有該寫法</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">fruits.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> {<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(item.<span class="hljs-property">price</span>);<br>});<br><br><span class="hljs-comment">// output: Uncaught TypeError: fruits.forEach is not a function</span><br></code></pre></td></tr></tbody></table></figure></body></html>
+        <p class="article-more-link">
+            <a href="/2023/06/01/javascript/js-object-loop/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/05/25/javascript/js-array-methods/" itemprop="url">Javascript 常用陣列方法</a>
         
     </h1>
@@ -565,47 +609,6 @@
 <p>WebRTC（Web Real-Time Communication）是一種用於瀏覽器之間進行即時通訊的技術。讓用戶可以透過瀏覽器建立視訊、音訊和資料傳輸的連線，並實現 P2P 點對點通訊，而無須透過中介服務。</p></body></html>
         <p class="article-more-link">
             <a href="/2023/04/25/webrtc/webrtc-intro/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/04/15/javascript/js-threejs-unrealbloompass/" itemprop="url">Three.js 3D Library (3) UnrealBloomPass 後製發光效果</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-04-15</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 0 0 30px;">
-    <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/GxGd20A.png">
-</div>
-
-<p>上一篇 <a href="https://clairechang.tw/2023/04/11/javascript/js-threejs-pattren/">Three.js 3D Library (2) 模型實作</a> 我們建立了行星動畫，接下來試著加入發光效果，讓畫面更吸睛～</p>
-<h2 id="UnrealBloomPass-發光效果"><a href="#UnrealBloomPass-發光效果" class="headerlink" title="UnrealBloomPass 發光效果"></a><strong>UnrealBloomPass 發光效果</strong></h2><p>Three.js 提供了強大的渲染引擎和豐富的功能，其中後製（Post-processing）是在渲染到螢幕前對畫面進行一些處理，再將畫面渲染到螢幕上，以達到特定的視覺效果，<strong>UnrealBloomPass</strong> 是其中一個後製功能，可以打造出逼真的發光效果。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/04/15/javascript/js-threejs-unrealbloompass/#more">閱讀更多</a>
         </p>
     
     </div>
