@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/r80Hush.png">
 <meta property="article:published_time" content="2023-10-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-04T14:40:05.206Z">
+<meta property="article:modified_time" content="2023-10-05T05:58:55.458Z">
 <meta property="article:author" content="Claire Chang">
 <meta property="article:tag" content="nuxt3">
 <meta name="twitter:card" content="summary">
@@ -217,7 +217,7 @@
 <h3 id="Step4：nuxt-config-配置"><a href="#Step4：nuxt-config-配置" class="headerlink" title="Step4：nuxt.config 配置"></a><strong>Step4：<code>nuxt.config</code> 配置</strong></h3><ul>
 <li><code>baseURL</code>：因部署上 GitHub 網址會加上 <code>/&lt;repository&gt;/</code>，因此須調整為 <code>/&lt;repository&gt;/</code><blockquote class="colorquote info"><p><code>process.env.NODE_ENV</code> 為 Node.js 環境變數，執行 <code>npm run dev</code> 開發模式下啟動專案，<code>process.env.NODE_ENV</code> 值為 “development”，在生產模式啟動專案，則為 “production”</p>
 </blockquote></li>
-<li><code>buildAssetsDir</code>：預設為 <code>/_nuxt/</code>，Github Pages 預設使用 Jekyll 靜態網站生成工具，Jekyll 會自動忽略所有下底線（<code>_</code>）前綴的資料夾與檔案，因此將 <code>_nuxt</code> 調整為其他名稱</li>
+<li><code>buildAssetsDir</code>：編譯後靜態資源目錄，預設為 <code>/_nuxt/</code>，Github Pages 預設使用 Jekyll 靜態網站生成工具，Jekyll 會自動忽略所有下底線（<code>_</code>）前綴的資料夾與檔案，因此將 <code>_nuxt</code> 調整為其他名稱</li>
 </ul>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineNuxtConfig</span>({<br>  <span class="hljs-attr">app</span>: {<br>    <span class="hljs-attr">baseURL</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">NODE_ENV</span> === <span class="hljs-string">'production'</span> ? <span class="hljs-string">'/nuxt3-generate/'</span> : <span class="hljs-string">'/'</span>,<br>    <span class="hljs-attr">buildAssetsDir</span>: <span class="hljs-string">'/static/'</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
