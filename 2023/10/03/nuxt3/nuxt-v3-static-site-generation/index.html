@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/r80Hush.png">
 <meta property="article:published_time" content="2023-10-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-05T05:58:55.458Z">
+<meta property="article:modified_time" content="2023-10-05T12:11:34.737Z">
 <meta property="article:author" content="Claire Chang">
 <meta property="article:tag" content="nuxt3">
 <meta name="twitter:card" content="summary">
@@ -204,7 +204,7 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
-        <html><head></head><body><h2 id="實作部署至-GitHub-Pages"><a href="#實作部署至-GitHub-Pages" class="headerlink" title="實作部署至 GitHub Pages"></a><strong>實作部署至 GitHub Pages</strong></h2><h3 id="Step1：建立-GitHub-Repository"><a href="#Step1：建立-GitHub-Repository" class="headerlink" title="Step1：建立 GitHub Repository"></a><strong>Step1：建立 GitHub Repository</strong></h3><p>在 Github 建立一個儲存庫 <code>&lt;username&gt;.github.io/&lt;repository&gt;</code>（<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/new">連結</a>）</p>
+        <html><head></head><body><h2 id="實作部署"><a href="#實作部署" class="headerlink" title="實作部署"></a><strong>實作部署</strong></h2><h3 id="Step1：建立-GitHub-Repository"><a href="#Step1：建立-GitHub-Repository" class="headerlink" title="Step1：建立 GitHub Repository"></a><strong>Step1：建立 GitHub Repository</strong></h3><p>在 Github 建立一個儲存庫 <code>&lt;username&gt;.github.io/&lt;repository&gt;</code>（<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/new">連結</a>）</p>
 <ul>
 <li><code>&lt;username&gt;</code>：自己的使用者名稱</li>
 <li><code>&lt;repository&gt;</code>：自訂專案名，本篇範例命名為 <strong>nuxt3-generate</strong></li>
@@ -217,7 +217,7 @@
 <h3 id="Step4：nuxt-config-配置"><a href="#Step4：nuxt-config-配置" class="headerlink" title="Step4：nuxt.config 配置"></a><strong>Step4：<code>nuxt.config</code> 配置</strong></h3><ul>
 <li><code>baseURL</code>：因部署上 GitHub 網址會加上 <code>/&lt;repository&gt;/</code>，因此須調整為 <code>/&lt;repository&gt;/</code><blockquote class="colorquote info"><p><code>process.env.NODE_ENV</code> 為 Node.js 環境變數，執行 <code>npm run dev</code> 開發模式下啟動專案，<code>process.env.NODE_ENV</code> 值為 “development”，在生產模式啟動專案，則為 “production”</p>
 </blockquote></li>
-<li><code>buildAssetsDir</code>：編譯後靜態資源目錄，預設為 <code>/_nuxt/</code>，Github Pages 預設使用 Jekyll 靜態網站生成工具，Jekyll 會自動忽略所有下底線（<code>_</code>）前綴的資料夾與檔案，因此將 <code>_nuxt</code> 調整為其他名稱</li>
+<li><code>buildAssetsDir</code>：<code>assets/</code> 編譯後的目錄名稱，預設為 <code>/_nuxt/</code>，Github Pages 預設使用 Jekyll 靜態網站生成工具，Jekyll 會自動忽略所有下底線（<code>_</code>）前綴的資料夾與檔案，因此將 <code>_nuxt</code> 調整為其他名稱</li>
 </ul>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineNuxtConfig</span>({<br>  <span class="hljs-attr">app</span>: {<br>    <span class="hljs-attr">baseURL</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">NODE_ENV</span> === <span class="hljs-string">'production'</span> ? <span class="hljs-string">'/nuxt3-generate/'</span> : <span class="hljs-string">'/'</span>,<br>    <span class="hljs-attr">buildAssetsDir</span>: <span class="hljs-string">'/static/'</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
@@ -225,16 +225,38 @@
 <h3 id="Step6：加入-gh-pages-指令"><a href="#Step6：加入-gh-pages-指令" class="headerlink" title="Step6：加入 gh-pages 指令"></a><strong>Step6：加入 <code>gh-pages</code> 指令</strong></h3><p><code>package.json</code> <code>scripts</code> 加入以下指令，以下指令會將編譯完成的 <code>.output/public</code> 靜態內容部署至 GitHub Pages</p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-string">"deploy"</span>: <span class="hljs-string">"gh-pages --dotfiles -d .output/public"</span><br></code></pre></td></tr></tbody></table></figure>
 
-<h3 id="Step7：執行部署"><a href="#Step7：執行部署" class="headerlink" title="Step7：執行部署"></a><strong>Step7：執行部署</strong></h3><p>執行以下指令，產生靜態檔並部署到 GitHub Pages</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">npm run generate<br>npm run deploy<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Step7：執行部署"><a href="#Step7：執行部署" class="headerlink" title="Step7：執行部署"></a><strong>Step7：執行部署</strong></h3><p>執行以下指令，產生靜態檔</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">npm run generate<br></code></pre></td></tr></tbody></table></figure>
 
-<p>回到 GitHub 切到 <code>gh-pages</code> 分支，檢查是否部署成功，順利的話，在瀏覽器輸入網址</p>
+<p>編譯完成後，專案根目錄會產生一個 <code>.output</code> 資料夾</p>
+<ul>
+<li><code>public</code> 為靜態資源檔，定義在 <code>public/</code> 與 <code>assets/</code> 的檔案都會被打包在這</li>
+<li><code>assets/</code> 編譯後的檔案又會被包在 <code>static/</code>，對應前面設定的 <code>buildAssetsDir</code> 目錄名稱</li>
+<li>每個靜態頁會各自編譯成 <code>_payload.json</code> 與 <code>index.html</code></li>
+</ul>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">.output/<br>|—— public/<br>  |—— static/<br>    |—— bg.7e80f349.png<br>    |—— index.3fc7cdc4.js<br>    |—— index.9c7e60ac.css<br>  |—— about/<br>    |—— _payload.json<br>    |—— index.html<br>  |—— _payload.json<br>  |—— index.html<br>  |—— favicon.ico<br>  |—— ...<br>|—— nitro.json<br></code></pre></td></tr></tbody></table></figure>
+
+<p>接著執行部署到 GitHub Pages</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">npm run deploy<br></code></pre></td></tr></tbody></table></figure>
+
+<p>部署完成後，回到 GitHub 切到 <code>gh-pages</code> 分支，順利的話，在瀏覽器輸入網址</p>
 <p><code>https://&lt;username&gt;.github.io/&lt;repository&gt;/</code> 就可以看到首頁畫面囉～</p>
 <p><img src="https://i.imgur.com/r80Hush.png"></p>
 <h3 id="範例檔"><a href="#範例檔" class="headerlink" title="範例檔"></a><strong>範例檔</strong></h3><ul>
 <li><strong>程式碼：</strong><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/clairechang0609/nuxt3-generate/tree/gh-pages">連結</a></li>
 <li><strong>頁面：</strong><a target="_blank" rel="external nofollow noopener noreferrer" href="https://clairechang0609.github.io/nuxt3-generate/about">連結</a></li>
 </ul>
+<hr>
+<h2 id="加入動態路由頁面"><a href="#加入動態路由頁面" class="headerlink" title="加入動態路由頁面"></a><strong>加入動態路由頁面</strong></h2><p>執行 <code>npm run generate</code> 時，Nitro 爬蟲會先抓取靜態頁面，以及有被連結到的動態路由，沒有被連結到的動態路由必須手動配置</p>
+<p><strong>範例：</strong>動態路由結構如下</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">pages/<br>｜—— user/<br>  ｜—— [id].vue<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在 <code>nuxt.config</code> 手動配置預渲染路由，也可以透過 <code>ignore/</code> 排除路由</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-title function_">defineNuxtConfig</span>({<br>  <span class="hljs-attr">nitro</span>: {<br>    <span class="hljs-attr">prerender</span>: {<br>      <span class="hljs-attr">routes</span>: [<span class="hljs-string">'/user/1'</span>, <span class="hljs-string">'/user/2'</span>],<br>      <span class="hljs-attr">ignore</span>: [<span class="hljs-string">'/dynamic'</span>]<br>    }<br>  }<br>});<br></code></pre></td></tr></tbody></table></figure>
+
+<p>執行 <code>npm run generate</code> 編譯後，在 <code>.output</code> 可以看到 <code>/user/1</code>、<code>/user/2</code> 也預先編譯為靜態頁</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">.output/<br>|—— public/<br>  |—— user/<br>    |—— 1/<br>      |—— _payload.json<br>      |—— index.html<br>    |—— 2/<br>      |—— _payload.json<br>      |—— index.html<br>  |—— ...<br></code></pre></td></tr></tbody></table></figure>
+
 <hr>
 <h2 id="延伸：自訂網域"><a href="#延伸：自訂網域" class="headerlink" title="延伸：自訂網域"></a><strong>延伸：自訂網域</strong></h2><p>除了使用 GitHub 提供的免費域名，也可以購買自己的網域，先前寫過一篇文章提供參考：<a href="https://clairechang.tw/2023/06/28/web/github-pages-with-custom-domain/">GitHub Pages 自訂域名與 HTTPS 設定</a></p>
 <hr>
