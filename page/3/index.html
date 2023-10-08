@@ -171,6 +171,55 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/08/04/nuxt3/nuxt-v3-stylelint/" itemprop="url">Nuxt.js 3.x Stylelint SCSS 程式碼檢查與自動排版</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-08-04</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/JBaER3w.png">
+</div>
+
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stylelint.io/">Stylelint</a> 是一套用於規範 CSS 和 CSS 預處理器（SCSS、Less 等）程式碼的工具，幫助我們維持程式碼的品質和風格。Stylelint 進行檢查時，會根據指定的規則來發現潛在的錯誤、不一致的風格和不推薦的模式。</p>
+<p>以 <code>*.vue</code> 檔為例，檔案內包含三種主要的程式碼：<code>&lt;template&gt;</code>、<code>&lt;script&gt;</code> 和 <code>&lt;style&gt;</code>：</p>
+<ol>
+<li><code>&lt;template&gt;</code>：Vue.js 模板語法，用以定義 HTML，例如插槽 <code>{{ }}</code>、條件判斷和迴圈等。雖然這不是嚴格的 JavaScript 語法，但 ESLint 也提供了相關規則對模板語法進行檢查</li>
+<li><code>&lt;script&gt;</code>：JavaScript 區塊，由 ESLint 進行程式碼檢查</li>
+<li><code>&lt;style&gt;</code>：CSS 區塊，用於定義元件樣式，由 Stylelint 進行程式碼檢查</li>
+</ol>
+<p>ESLint 搭配 Stylelint，讓專案保持良好的 Coding Style。本篇將說明如何在 Nuxt3 專案搭配 Stylelint 工具。</p>
+<blockquote class="colorquote info"><p>ESLint JavaScript 程式碼檢查工具參考 <a href="https://clairechang.tw/2023/06/30/nuxt3/nuxt-v3-typescript-and-eslint/">這篇文章</a></p>
+</blockquote></body></html>
+        <p class="article-more-link">
+            <a href="/2023/08/04/nuxt3/nuxt-v3-stylelint/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/26/nuxt3/nuxt-v3-meta-tags/" itemprop="url">Nuxt.js 3.x Meta Tags and SEO</a>
         
     </h1>
@@ -547,50 +596,6 @@
 </ul></body></html>
         <p class="article-more-link">
             <a href="/2023/06/27/web/dns-and-name-server/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/06/17/nuxt3/nuxt-v3-installation/" itemprop="url">Nuxt.js 3.x 專案架設</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-06-17</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p><strong>Nuxt 版本：v3.7.1</strong></p>
-</blockquote>
-<div style="display: flex; justify-content: center; margin: 0 0 20px;">
-  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/zvpIl61.png">
-</div>
-
-<p>先前寫了一系列 <a href="https://clairechang.tw/categories/Nuxt/">Nuxt.js 2.x 相關文章</a>，在 Vue 3 出了好一段時間後，Nuxt 3 終於在 2022 年底推出了穩定版本，除了支援 TypeScript，更徹底的進行重構，精簡了核心、編譯速度更快，提升開發體驗。</p>
-<p>接下來一起來建立一個 Nuxt 3 專案吧！</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/06/17/nuxt3/nuxt-v3-installation/#more">閱讀更多</a>
         </p>
     
     </div>

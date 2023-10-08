@@ -171,6 +171,57 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/08/29/nuxt3/nuxt-v3-i18n/" itemprop="url">Nuxt.js 3.x 導入 I18n 實作多國語系</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-08-29</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p><strong>@nuxtjs/i18n 版本：v8.0.0-rc.3</strong></p>
+</blockquote>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/l0zKfkP.png">
+</div>
+
+<p>多國語系讓我們的網站邁向國際市場，本篇將說明如何搭配 Nuxt3 整合模組 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://v8.i18n.nuxtjs.org/">@nuxtjs/i18n</a> 進行開發</p>
+<h3 id="nuxtjs-x2F-i18n-簡介"><a href="#nuxtjs-x2F-i18n-簡介" class="headerlink" title="@nuxtjs/i18n 簡介"></a><strong>@nuxtjs/i18n 簡介</strong></h3><ul>
+<li>整合 Vue I18n</li>
+<li>自動產生路由</li>
+<li>SEO 搜尋引擎最佳化</li>
+<li>Lazy Loading 延遲載入</li>
+<li>自動偵測語言並切換</li>
+<li>多國語言支援不同域名</li>
+</ul></body></html>
+        <p class="article-more-link">
+            <a href="/2023/08/29/nuxt3/nuxt-v3-i18n/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/08/25/nuxt3/nuxt-v3-styling/" itemprop="url">Nuxt.js 3.x 搭配 CSS Framework－以 Bootstrap 5 為例</a>
         
     </h1>
@@ -523,55 +574,6 @@
 <p>CKEditor 是一套歷史悠久且功能完整、輕量的富文本編輯器（rich text editor），為使用者提供所見即所得（WYSIWYG）的編輯區域。與舊版不同，CKEditor 5 使用 MVC 架構、ES6 編寫、UI 簡潔，且因應現在的前後端分離趨勢，與前端框架 React、Angular、and Vue.js 做整合，讓我們可以更便利的開發應用。</p></body></html>
         <p class="article-more-link">
             <a href="/2023/08/08/nuxt3/nuxt-v3-ckeditor5/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/04/nuxt3/nuxt-v3-stylelint/" itemprop="url">Nuxt.js 3.x Stylelint SCSS 程式碼檢查與自動排版</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-08-04</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 30px 0;">
-  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/JBaER3w.png">
-</div>
-
-<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stylelint.io/">Stylelint</a> 是一套用於規範 CSS 和 CSS 預處理器（SCSS、Less 等）程式碼的工具，幫助我們維持程式碼的品質和風格。Stylelint 進行檢查時，會根據指定的規則來發現潛在的錯誤、不一致的風格和不推薦的模式。</p>
-<p>以 <code>*.vue</code> 檔為例，檔案內包含三種主要的程式碼：<code>&lt;template&gt;</code>、<code>&lt;script&gt;</code> 和 <code>&lt;style&gt;</code>：</p>
-<ol>
-<li><code>&lt;template&gt;</code>：Vue.js 模板語法，用以定義 HTML，例如插槽 <code>{{ }}</code>、條件判斷和迴圈等。雖然這不是嚴格的 JavaScript 語法，但 ESLint 也提供了相關規則對模板語法進行檢查</li>
-<li><code>&lt;script&gt;</code>：JavaScript 區塊，由 ESLint 進行程式碼檢查</li>
-<li><code>&lt;style&gt;</code>：CSS 區塊，用於定義元件樣式，由 Stylelint 進行程式碼檢查</li>
-</ol>
-<p>ESLint 搭配 Stylelint，讓專案保持良好的 Coding Style。本篇將說明如何在 Nuxt3 專案搭配 Stylelint 工具。</p>
-<blockquote class="colorquote info"><p>ESLint JavaScript 程式碼檢查工具參考 <a href="https://clairechang.tw/2023/06/30/nuxt3/nuxt-v3-typescript-and-eslint/">這篇文章</a></p>
-</blockquote></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/04/nuxt3/nuxt-v3-stylelint/#more">閱讀更多</a>
         </p>
     
     </div>
