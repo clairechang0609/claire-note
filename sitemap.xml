@@ -739,63 +739,7 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/tags/nuxt2/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/axios/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/bootstrap/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/seo/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/gtag/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/ckeditor/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/sitemap/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/swiper/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/vee-validate/</loc>
+    <loc>https://clairechang.tw/tags/typescript/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -830,21 +774,7 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/tags/nuxt/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/typescript/</loc>
-    <lastmod>2023-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/vue3/</loc>
+    <loc>https://clairechang.tw/tags/vee-validate/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -858,7 +788,14 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/tags/github/</loc>
+    <loc>https://clairechang.tw/tags/nuxt/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/vue3/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -866,6 +803,69 @@
   
   <url>
     <loc>https://clairechang.tw/tags/webrtc/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/github/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/nuxt2/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/axios/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/bootstrap/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/ckeditor/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/seo/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/gtag/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/swiper/</loc>
+    <lastmod>2023-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/sitemap/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -895,7 +895,7 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/Nuxt/</loc>
+    <loc>https://clairechang.tw/categories/Typescript/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -909,7 +909,7 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/Typescript/</loc>
+    <loc>https://clairechang.tw/categories/Web/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -923,14 +923,14 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/Web/</loc>
+    <loc>https://clairechang.tw/categories/WebRTC/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/WebRTC/</loc>
+    <loc>https://clairechang.tw/categories/Nuxt/</loc>
     <lastmod>2023-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
