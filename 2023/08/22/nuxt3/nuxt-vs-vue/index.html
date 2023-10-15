@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://imgur.com/sCQuKXt.png">
 <meta property="article:published_time" content="2023-08-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-23T12:40:28.880Z">
+<meta property="article:modified_time" content="2023-10-15T06:11:42.749Z">
 <meta property="article:author" content="Claire Chang">
 <meta property="article:tag" content="nuxt3">
 <meta property="article:tag" content="nuxt">
@@ -195,8 +195,11 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/EyMJEAV.png">
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽</p>
+</blockquote>
+<div style="display: flex; justify-content: center; margin: 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/EyMJEAV.png">
 </div>
 
 <p>提到 Nuxt.js，必須先從 Vue.js 說起，Vue.js 為專注在視圖層（View）的 Javascript 框架，為 SPA（Single Page Application）單頁應用程式，搜尋引擎爬蟲未能抓取到渲染後的 HTML 內容，因此 SEO（Search Engine Optimization）表現趨近於零。</p>
@@ -210,16 +213,16 @@
             </script>
         </div>
         <html><head></head><body><h2 id="SPA-x2F-CSR-vs-MPA-x2F-SSR"><a href="#SPA-x2F-CSR-vs-MPA-x2F-SSR" class="headerlink" title="SPA / CSR vs MPA / SSR"></a><strong>SPA / CSR vs MPA / SSR</strong></h2><div class="column-wrap" style="margin: 30px 0">
-    <div>
-        <div style="display: flex; justify-content: left;">
-            <img style="width: 100%; max-width: 100%;" src="https://imgur.com/sCQuKXt.png">
-        </div>
+  <div>
+    <div style="display: flex; justify-content: left;">
+      <img style="width: 100%; max-width: 100%;" src="https://imgur.com/sCQuKXt.png">
     </div>
-    <div>
-        <div style="display: flex; justify-content: left;">
-            <img style="width: 100%; max-width: 100%;" src="https://imgur.com/BqLpa1p.png">
-        </div>
+  </div>
+  <div>
+    <div style="display: flex; justify-content: left;">
+      <img style="width: 100%; max-width: 100%;" src="https://imgur.com/BqLpa1p.png">
     </div>
+  </div>
 </div>
 
 <h3 id="SPA（Single-Page-Application）單頁式應用"><a href="#SPA（Single-Page-Application）單頁式應用" class="headerlink" title="SPA（Single Page Application）單頁式應用"></a><strong>SPA（Single Page Application）單頁式應用</strong></h3><p>使用 CSR（Client Side Render）用戶端渲染模式。整個網站應用只有單一 HTML 頁面，一但頁面被載入進來後，就不會再進行該頁面請求（Form Request），而是透過 AJAX&nbsp;從後端請求資料，並透過 Javascript 動態更新與渲染網頁內容。</p>
@@ -236,7 +239,7 @@
 <hr>
 <h2 id="Universal-Rendering"><a href="#Universal-Rendering" class="headerlink" title="Universal Rendering"></a><strong>Universal Rendering</strong></h2><p>通用渲染，<strong>Nuxt.js 使用的渲染模式</strong>，同時支援 SSR 與 CSR 技術，初次進到頁面時採用 SSR 模式，在伺服器中產生完整 HTML 內容，回傳給瀏覽器端。後續動態切換頁面時，則採用 CSR 模式，結合了 SSR 與 SPA 的優點，除了使用者體驗佳，同時保有良好的 SEO 表現。</p>
 <div style="display: flex; justify-content: center; margin: 30px 0 10px;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/KuL0KPL.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/KuL0KPL.png">
 </div>
 
 <p><small>圖片參考：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/docs/guide/concepts/rendering#universal-rendering">Nuxt 官網</a></small></p>
