@@ -7,11 +7,14 @@ description: Nuxt3 提供兩個資料夾 assets 以及 public，用來管理靜�
 image: https://imgur.com/5VRbaV1.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 Nuxt3 提供兩個資料夾 `assets/` 以及 `public/`，用來管理靜態資源，像是圖片、CSS 樣式、字體、icon 等，接下來說明兩個目錄適合存放的檔案類型與使用方式
 
 <!-- more -->
 
-## **public 目錄**
+## **Public**
 
 靜態資源資料夾（同 Nuxt2 的 `static/`），用來存放不需被編譯的靜態檔，可以透過根目錄 `/` 直接使用檔案
 
@@ -76,7 +79,7 @@ export default defineNuxtConfig({
 
 ---
 
-## **assets 目錄**
+## **Assets**
 
 用來存放像是 CSS、Sass、圖片等需要被 webpack 或是 Vite 編譯的靜態資源。一般來說，`assets/` 的使用率較 `public/` 高
 
@@ -128,7 +131,7 @@ export default defineNuxtConfig({
 </template>
 ```
 
-透過 `nuxt build` (`npm run build`) 編譯後，可以看到檔名加上了 hash
+執行生產環境編譯 `nuxt build` (`npm run build`) 後，可以看到檔名加上了 hash
 
 <div style="display: flex; justify-content: center; margin: 30px 0 10px; border: 1px solid rgb(200, 200, 200);">
   <img style="width: 100%; max-width: 100%;" src="https://imgur.com/i68fewf.png">

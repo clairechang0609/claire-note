@@ -7,6 +7,9 @@ description: 說明 Nuxt3 專案如何搭配 ESLint 程式碼規範工具，以�
 image: https://imgur.com/DyfmHP4.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 <div style="display: flex; justify-content: center;">
   <img style="width: 100%; max-width: 550px;" src="https://imgur.com/DyfmHP4.png">
 </div>

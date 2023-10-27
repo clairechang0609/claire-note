@@ -6,6 +6,10 @@ category: Nuxt3
 description: 網站開發常使用到輪播功能，Swiper 是一款基於 Javascript 開發、功能完整、實用性高的輪播套件，接下來說明在 Nuxt3 專案搭配 nuxt-swiper 實作
 image: https://imgur.com/n2e3W3Q.png
 ---
+
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 > **nuxt-swiper 版本：v1.2.0**
 >
 

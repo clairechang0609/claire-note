@@ -7,6 +7,9 @@ description: Nuxt 提供基於 Pages 的路由設定，當我們在 Pages 資料
 image: https://imgur.com/5VRbaV1.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 Pages 資料夾用來新增頁面，當我們在 Pages 資料夾建立檔案，Nuxt 會根據資料夾以及檔案結構自動生成基於 [Vue Router](https://router.vuejs.org/) 的路由，讓我們能更有效率的開發和管理
 
 <!-- more -->
@@ -146,7 +149,7 @@ pages/
 當我們輸入未被定義的頁面 `/hello/world`，顯示 `[…slug].vue` 畫面如下
 
 <div style="display: flex; justify-content: center; margin: 0 0 30px;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/QvLn5ZK.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/QvLn5ZK.png">
 </div>
 
 透過 `[…slug].vue`，我們可以簡單地捕捉特定路徑下不存在的頁面，全域的錯誤頁面（不只捕捉 404 錯誤），則由 `app.vue` 同層的 `error.vue` 處理

@@ -7,6 +7,9 @@ description: 在 Nuxt 專案中，我們可以自由選擇 CSS 預處理器、CS
 image: https://imgur.com/FHpABZ8.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 > **Bootstrap 版本：v5.3.1
 Sass 版本：v1.63.6**
 >
@@ -20,7 +23,7 @@ Sass 版本：v1.63.6**
 ## **Bootstrap 5 簡介**
 
 <div style="display: flex; justify-content: center; margin: 20px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/FHpABZ8.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/FHpABZ8.png">
 </div>
 
 [Bootstrap](https://www.npmjs.com/package/bootstrap) 有豐富的 Sass 變數、mixins、網格系統、元件、JS 插件，Bootstrap 5 與先前版本最大的不同，除了將 jQuery 從相依項目中移除，也新增 Utilities API（基於 Sass Maps 生成 Utilities Class），可以更簡易的管理或擴充樣式，不需手刻太多 CSS 即可完成多元、複雜的畫面。
@@ -88,10 +91,10 @@ npm install sass
 ```
 assets/
 |—— scss/
-    |—— app.scss
-    |—— _color.scss
-    |—— _variables.scss
-    |—— _style.scss
+  |—— app.scss
+  |—— _color.scss
+  |—— _variables.scss
+  |—— _style.scss
 ```
 
 **自訂、擴充、調整 utilities：**
@@ -101,15 +104,15 @@ assets/
 ```scss
 // assets/scss/utilities.scss
 $utilities: map-merge(
-    $utilities,
-    (
-        "cursor": (
-            property: cursor,
-            class: cursor,
-            responsive: true,
-            values: auto pointer grab
-        )
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab
     )
+  )
 );
 ```
 
@@ -120,14 +123,14 @@ $utilities: map-merge(
 ```jsx
 // nuxt.config.js
 export default defineNuxtConfig({
-    css: [
-        '@/assets/scss/app.scss'
-    ],
-    postcss: { // CSS 屬性加上瀏覽器相容性前綴
-        plugins: {
-            autoprefixer: true
-        }
+  css: [
+    '@/assets/scss/app.scss'
+  ],
+  postcss: { // CSS 屬性加上瀏覽器相容性前綴
+    plugins: {
+        autoprefixer: true
     }
+  }
 })
 ```
 
@@ -137,7 +140,7 @@ Nuxt 專案已內建 postcss，加上 `autoprefixer: true` 會自動為屬性加
 
 ```scss
 .container {
-    display: flex;
+  display: flex;
 }
 ```
 
@@ -145,9 +148,9 @@ Nuxt 專案已內建 postcss，加上 `autoprefixer: true` 會自動為屬性加
 
 ```scss
 .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 ```
 {% endcolorquote %}
@@ -161,18 +164,18 @@ Nuxt 專案已內建 postcss，加上 `autoprefixer: true` 會自動為屬性加
 ```jsx
 // nuxt.config.js
 export default defineNuxtConfig({
-    vite: {
-        css: {
-            preprocessorOptions: {
-                scss: {
-                    additionalData: `
-                        @import "@/assets/scss/_color.scss";
-                        @import "@/assets/scss/_variables.scss";
-                    `
-                }
-            }
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @import "@/assets/scss/_color.scss";
+            @import "@/assets/scss/_variables.scss";
+          `
         }
+      }
     }
+  }
 });
 ```
 
@@ -187,14 +190,14 @@ $secondary: #E4A79D;
 ```jsx
 // pages/hello.vue
 <template>
-    <div>
-        <h1>Hello World</h1>
-    </div>
+  <div>
+    <h1>Hello World</h1>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 h1 {
-    color: $primary;
+  color: $primary;
 }
 </style>
 ```
@@ -204,7 +207,7 @@ h1 {
 
 ```scss
 :deep(h3) {
-    color: $primary;
+  color: $primary;
 }
 ```
 {% endcolorquote %}
@@ -229,14 +232,14 @@ import * as bootstrap from 'bootstrap';
 const { Modal, Collapse } = bootstrap;
 
 export default defineNuxtPlugin(_nuxtApp => {
-    return {
-        provide: {
-            bootstrap: {
-                modal: element => new Modal(element),
-                collapse: element => new Collapse(element)
-            }
-        }
-    };
+  return {
+    provide: {
+      bootstrap: {
+        modal: element => new Modal(element),
+        collapse: element => new Collapse(element)
+      }
+    }
+  };
 });
 ```
 
@@ -245,24 +248,26 @@ export default defineNuxtPlugin(_nuxtApp => {
 ```jsx
 // pages/about.vue
 <template>
-    <div>
-        <div class="modal fade" tabindex="-1" ref="modalRef">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        ...
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" data-bs-dismiss="modal">close</button>
-                    </div>
-                </div>
-            </div>
+  <div>
+    <div class="modal fade" tabindex="-1" ref="modalRef">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            ...
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-bs-dismiss="modal">close</button>
+          </div>
         </div>
-        <button type="button" class="btn btn-success" @click="showModal">點我看 Modal</button>
+      </div>
     </div>
+    <button type="button" class="btn btn-success" @click="showModal">
+      點我看 Modal
+    </button>
+  </div>
 </template>
 
 <script setup>
@@ -270,16 +275,16 @@ const { $bootstrap } = useNuxtApp();
 const modalRef = ref(null);
 let modal;
 const showModal = () => {
-    modal.show();
+  modal.show();
 };
 
 onMounted(() => {
-    modal = $bootstrap.modal(modalRef.value);
+  modal = $bootstrap.modal(modalRef.value);
 });
 
 onBeforeUnmount(() => {
-    // 加上 dispose，避免切換頁面時或是 HMR 看到殘留畫面
-    modal.dispose();
+  // 加上 dispose，避免切換頁面時或是 HMR 看到殘留畫面
+  modal.dispose();
 });
 </script>
 ```
@@ -293,22 +298,22 @@ onBeforeUnmount(() => {
 ```jsx
 // pages/hello.vue
 <template>
-    <div>
-        <h1>hello</h1>
-        <h2>world</h2>
-        <button @click="theme.color = 'red'">change color</button>
-    </div>
+  <div>
+    <h1>hello</h1>
+    <h2>world</h2>
+    <button @click="theme.color = 'red'">change color</button>
+  </div>
 </template>
 
 <script setup>
 const theme = ref({
-    color: 'green'
+  color: 'green'
 });
 </script>
 
 <style lang="scss" scoped>
 h1, h2 {
-    color: v-bind('theme.color');
+  color: v-bind('theme.color');
 }
 </style>
 ```

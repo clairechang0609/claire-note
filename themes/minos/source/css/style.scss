@@ -1,7 +1,7 @@
 $family-serif: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
 // $family-raleway: 'Raleway', 'Noto Sans TC', sans-serif;
 $family-open: 'Open Sans', 'Noto Sans TC', sans-serif;
-$family-code: 'Source Code Pro', monospace;
+$family-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospacemonospace;
 $border-color: #dbdbdb;
 $primary: #1b6655;
 $primary-light: #1ea08e;
@@ -213,6 +213,7 @@ a.tag.article-tag {
     }
 
     blockquote {
+        margin: 20px 0;
         &.colorquote {
             position: relative;
 
@@ -523,9 +524,10 @@ a.tag.article-tag {
 }
 
 code, pre {
-    font-size: 0.85rem;
+    // font-size: 0.85rem;
     font-family: $family-code;
     line-height: 1.5;
+    font-weight: inherit;
 }
 
 figure.highlight {

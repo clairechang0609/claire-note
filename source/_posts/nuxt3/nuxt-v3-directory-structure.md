@@ -7,12 +7,15 @@ description: Nuxt3 提供了完整的目錄定義規則，協助配置許多功�
 image: https://imgur.com/bvebnUt.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 Nuxt3 定義了完整的目錄規則，讓我們可以輕鬆配置功能，專注在開發上
 
 透過 `npx nuxi@latest init <project-name>` 安裝專案後，可以看到如下的預設目錄
 
 <div style="display: flex; justify-content: left; margin: 30px 0;">
-    <img style="width: 100%; max-width: 300px;" src="https://imgur.com/bvebnUt.png">
+  <img style="width: 100%; max-width: 300px;" src="https://imgur.com/bvebnUt.png">
 </div>
 
 看起來分類似乎有點不齊全，接下來跟著[官方文件](https://nuxt.com/docs/guide/directory-structure/nuxt)一起建立完整的專案目錄

@@ -7,6 +7,9 @@ description: 說明 Nuxt3 專案如何安裝 Stylelint CSS 程式碼檢查工具
 image: https://imgur.com/JBaER3w.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 <div style="display: flex; justify-content: center; margin: 30px 0;">
   <img style="width: 100%; max-width: 600px;" src="https://imgur.com/JBaER3w.png">
 </div>

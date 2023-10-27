@@ -7,6 +7,9 @@ description: 前一篇說明了在 Nuxt3 搭配 Pinia 狀態管理工具全域�
 image: https://imgur.com/n21QxOI.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 [前一篇](https://clairechang.tw/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/) 說明了在 Nuxt3 搭配 [Pinia](https://pinia.vuejs.org/) 狀態管理工具全域共享狀態，本篇將介紹 `pinia-plugin-persistedstate` 套件，用來將 Store 狀態儲存於瀏覽器中，避免狀態被還原
 
 <!-- more -->
@@ -37,10 +40,10 @@ npm install -D @pinia-plugin-persistedstate/nuxt
 ```jsx
 // nuxt.config.js
 export default defineNuxtConfig({
-    modules: [
-        '@pinia/nuxt',
-        '@pinia-plugin-persistedstate/nuxt'
-    ]
+  modules: [
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt'
+  ]
 })
 ```
 
@@ -50,25 +53,25 @@ export default defineNuxtConfig({
 
 ### **Option Store**
 
-將 persist 參數設定為 true
+將 persist 參數設定為 `true`
 
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main', {
-    state: () => ({
-        counter: 0
-    }),
-    getters: {
-        doubleCounter() {
-            return this.counter * 2;
-        }
-    },
-    actions: {
-        increment() {
-            this.counter++;
-        }
-    },
-    persist: true
+  state: () => ({
+    counter: 0
+  }),
+  getters: {
+    doubleCounter() {
+      return this.counter * 2;
+    }
+  },
+  actions: {
+    increment() {
+      this.counter++;
+    }
+  },
+  persist: true
 });
 ```
 
@@ -79,23 +82,23 @@ defineStore 傳入參數 `{ persist: true }`
 ```jsx
 // store/index.js
 export const useMainStore = defineStore(
-    'main',
-    () => {
-        const counter = ref(0);
-        const doubleCounter = computed(() => counter.value * 2);
-        const increment = () => {
-            counter.value++;
-        };
-        
-        return {
-            counter,
-            doubleCounter,
-            increment
-        };
-    },
-    {
-        persist: true
-    }
+  'main',
+  () => {
+    const counter = ref(0);
+    const doubleCounter = computed(() => counter.value * 2);
+    const increment = () => {
+      counter.value++;
+    };
+    
+    return {
+      counter,
+      doubleCounter,
+      increment
+    };
+  },
+  {
+    persist: true
+  }
 );
 ```
 
@@ -121,21 +124,21 @@ export const useMainStore = defineStore(
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main',
-    () => {
-        // ...
-    }, 
-    {
-        persist: {
-            key: 'my-custom-key'
-        }
+  () => {
+    // ...
+  }, 
+  {
+    persist: {
+      key: 'my-custom-key'
     }
+  }
 );
 ```
 
 在儲存庫可以看到調整後的 key 值
 
 <div style="display: flex; justify-content: center; margin: 20px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/UJZhUuP.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/UJZhUuP.png">
 </div>
 
 ### **storage**
@@ -149,14 +152,14 @@ export const useMainStore = defineStore('main',
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main',
-    () => {
-        // ...
-    }, 
-    {
-        persist: {
-            storage: persistedState.localStorage
-        }
+  () => {
+    // ...
+  }, 
+  {
+    persist: {
+      storage: persistedState.localStorage
     }
+  }
 );
 ```
 
@@ -165,9 +168,9 @@ export const useMainStore = defineStore('main',
 
 ```jsx
 {
-    persist: {
-        storage: process.client ? localStorage : null
-    }
+  persist: {
+    storage: process.client ? localStorage : null
+  }
 }
 ```
 {% endcolorquote %}
@@ -179,16 +182,16 @@ export const useMainStore = defineStore('main',
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main',
-    () => {
-        // ...
-    }, 
-    {
-        persist: {
-            storage: persistedState.cookiesWithOptions({
-                sameSite: 'strict'
-            })
-        }
+  () => {
+    // ...
+  }, 
+  {
+    persist: {
+      storage: persistedState.cookiesWithOptions({
+        sameSite: 'strict'
+      })
     }
+  }
 );
 ```
 
@@ -203,25 +206,25 @@ export const useMainStore = defineStore('main',
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main',
-    () => {
-        const counter = ref(0);
-        const user = ref({
-            name: 'Daniel',
-            age: 18
-        });
-    }, 
-    {
-        persist: {
-            paths: [
-                'user.name'
-            ]
-        }
+  () => {
+    const counter = ref(0);
+    const user = ref({
+      name: 'Daniel',
+      age: 18
+    });
+  }, 
+  {
+    persist: {
+      paths: [
+        'user.name'
+      ]
     }
+  }
 );
 ```
 
 <div style="display: flex; justify-content: center; margin: 20px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/DeOsgt8.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/DeOsgt8.png">
 </div>
 
 ### **serializer**
@@ -236,17 +239,17 @@ export const useMainStore = defineStore('main',
 import { parse, stringify } from 'zipson';
 
 export const useMainStore = defineStore('main',
-    () => {
-        // ...
-    }, 
-    {
-        persist: {
-            serializer: {
-                serialize: stringify,
-                deserialize: parse
-            }
-        }
+  () => {
+    // ...
+  }, 
+  {
+    persist: {
+      serializer: {
+        serialize: stringify,
+        deserialize: parse
+      }
     }
+  }
 );
 ```
 
@@ -267,16 +270,16 @@ export const useMainStore = defineStore('main',
 ```jsx
 // nuxt.config.js
 export default defineNuxtConfig({
-    modules: [
-        '@pinia/nuxt',
-        '@pinia-plugin-persistedstate/nuxt'
-    ],
-    piniaPersistedstate: {
-        storage: 'cookie',
-        cookieOptions: {
-            sameSite: 'strict'
-        }
+  modules: [
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt'
+  ],
+  piniaPersistedstate: {
+    storage: 'cookie',
+    cookieOptions: {
+      sameSite: 'strict'
     }
+  }
 })
 ```
 

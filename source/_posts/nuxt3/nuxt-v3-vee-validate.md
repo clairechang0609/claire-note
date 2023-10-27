@@ -7,8 +7,11 @@ description: 本篇說明 Nuxt3 專案如何使用 VeeValidate 客製表單驗�
 image: https://imgur.com/n3NS3CQ.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 550px;" src="https://imgur.com/n3NS3CQ.png">
+  <img style="width: 100%; max-width: 550px;" src="https://imgur.com/n3NS3CQ.png">
 </div>
 
 {% colorquote info %}
@@ -38,21 +41,21 @@ npm i @vee-validate/nuxt
 ```jsx
 // nuxt.config.ts
 export default defineNuxtConfig({
-    // ...
-    modules: [
-        '@vee-validate/nuxt',
-    ],
-    veeValidate: {
-        // 啟用 auto imports
-        autoImports: true,
-        // 更換 components 名稱
-        componentNames: {
-        Form: 'VeeForm',
-        Field: 'VeeField',
-        FieldArray: 'VeeFieldArray',
-        ErrorMessage: 'VeeErrorMessage',
-        }
+  // ...
+  modules: [
+    '@vee-validate/nuxt',
+  ],
+  veeValidate: {
+    // 啟用 auto imports
+    autoImports: true,
+    // 更換 components 名稱
+    componentNames: {
+      Form: 'VeeForm',
+      Field: 'VeeField',
+      FieldArray: 'VeeFieldArray',
+      ErrorMessage: 'VeeErrorMessage',
     }
+  }
 });
 ```
 
@@ -77,7 +80,7 @@ import allRules from '@vee-validate/rules';
 
 // 迴圈依序加入規則
 Object.keys(allRules).forEach(rule => {
-    defineRule(rule, allRules[rule]);
+  defineRule(rule, allRules[rule]);
 });
 
 // 必須定義，用來封裝 plugin
@@ -104,7 +107,7 @@ import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 
 // 配置訊息
 configure({
-    generateMessage: localize({ zh_TW: zhTW })
+  generateMessage: localize({ zh_TW: zhTW })
 });
 
 setLocale('zh_TW');
@@ -123,24 +126,24 @@ export default defineNuxtPlugin(_nuxtApp => {});
 
 ```jsx
 <template>
-    <VeeForm @submit="submit">
-        <VeeField name="email" type="email" rules="required|email" />
-        <VeeErrorMessage name="email" />
-        <VeeField name="password" type="password" :rules="checkPassword" />
-        <VeeErrorMessage name="password" />
-        <button type="submit">submit</button>
-    </VeeForm>
+  <VeeForm @submit="submit">
+    <VeeField name="email" type="email" rules="required|email" />
+    <VeeErrorMessage name="email" />
+    <VeeField name="password" type="password" :rules="checkPassword" />
+    <VeeErrorMessage name="password" />
+    <button type="submit">submit</button>
+  </VeeForm>
 </template>
 
 <script setup>
 const checkPassword = value => {
-    if (...) {
-        return false;
-    }
-    return true;
+  if (...) {
+    return false;
+  }
+  return true;
 }
 const submit = value => {
-    console.log('submit', value);
+  console.log('submit', value);
 };
 </script>
 ```
@@ -151,8 +154,8 @@ const submit = value => {
 
 ```jsx
 <VeeForm @submit="submit" v-slot="{ meta }">
-    ...
-    <button type="submit" :disabled="!meta.valid">submit</button>
+  ...
+  <button type="submit" :disabled="!meta.valid">submit</button>
 </VeeForm>
 ```
 
@@ -162,23 +165,23 @@ const submit = value => {
 
 ```jsx
 <template>
-    <VeeForm @submit="submit" v-slot="{ isSubmitting }">
-        ...
-        <button type="submit" :disabled="isSubmitting">
-            <span class="spinner" v-show="isSubmitting"></span>
-            submit
-        </button>
-    </VeeForm>
+  <VeeForm @submit="submit" v-slot="{ isSubmitting }">
+    ...
+    <button type="submit" :disabled="isSubmitting">
+      <span class="spinner" v-show="isSubmitting"></span>
+      submit
+    </button>
+  </VeeForm>
 </template>
 
 <script setup>
 const submit = value => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            console.log('sumbit', value);
-            resolve();
-        }, 2000);
-    });
+  return new Promise(resolve => {
+    setTimeout(() => {
+      console.log('sumbit', value);
+      resolve();
+    }, 2000);
+  });
 };
 </script>
 ```
@@ -189,19 +192,19 @@ const submit = value => {
 
 ```jsx
 <template>
-    <VeeForm @submit="submit" :validation-schema="schema">
-        <VeeField name="email" type="email" />
-        <VeeErrorMessage name="email" />
-        <VeeField name="password" type="password" />
-        <VeeErrorMessage name="password" />
-        <button type="submit">submit</button>
-    </VeeForm>
+  <VeeForm @submit="submit" :validation-schema="schema">
+    <VeeField name="email" type="email" />
+    <VeeErrorMessage name="email" />
+    <VeeField name="password" type="password" />
+    <VeeErrorMessage name="password" />
+    <button type="submit">submit</button>
+  </VeeForm>
 </template>
 
 <script setup>
 const schema = {
-    email: 'required|email',
-    password: 'required|min:8'
+  email: 'required|email',
+  password: 'required|min:8'
 };
 </script>
 ```
@@ -212,24 +215,24 @@ const schema = {
 
 ```jsx
 <template>
-    <VeeForm @submit="submit" ref="veeForm">
-        <VeeField name="email" type="email" />
-        <VeeErrorMessage name="email" />
-        <VeeField name="password" type="password" />
-        <VeeErrorMessage name="password" />
-        <button type="submit">submit</button>
-    </VeeForm>
+  <VeeForm @submit="submit" ref="veeForm">
+    <VeeField name="email" type="email" />
+    <VeeErrorMessage name="email" />
+    <VeeField name="password" type="password" />
+    <VeeErrorMessage name="password" />
+    <button type="submit">submit</button>
+  </VeeForm>
 </template>
 
 <script setup>
 const veeForm = ref(null);
 
 onMounted(() => {
-    const form = {
-        email: 'test@myweb.com',
-        password: '12344321'
-    };
-    veeForm.value.setValues(form);
+  const form = {
+    email: 'test@myweb.com',
+    password: '12344321'
+  };
+  veeForm.value.setValues(form);
 });
 </script>
 ```
@@ -238,18 +241,18 @@ onMounted(() => {
 
 ```jsx
 <template>
-    <VeeForm @submit="submit" ref="veeForm">
-        <VeeField name="email" type="email" />
-        <VeeErrorMessage name="email" />
-        <button type="submit">submit</button>
-    </VeeForm>
+  <VeeForm @submit="submit" ref="veeForm">
+    <VeeField name="email" type="email" />
+    <VeeErrorMessage name="email" />
+    <button type="submit">submit</button>
+  </VeeForm>
 </template>
 
 <script setup>
 const veeForm = ref(null);
 
 onMounted(() => {
-    veeForm.value.setFieldValue('email', 'test@myweb.com');
+  veeForm.value.setFieldValue('email', 'test@myweb.com');
 });
 </script>
 ```
@@ -268,7 +271,7 @@ onMounted(() => {
 import { configure } from 'vee-validate';
 
 configure({
-    validateOnInput: true
+  validateOnInput: true
 });
 
 export default defineNuxtPlugin(_nuxtApp => {});
@@ -286,8 +289,8 @@ export default defineNuxtPlugin(_nuxtApp => {});
 
 ```jsx
 <VeeForm @submit="submit" v-slot="{ resetForm }">
-    ...
-    <button type="buttom" @click="resetForm">clear</button>
+  ...
+  <button type="buttom" @click="resetForm">clear</button>
 </VeeForm>
 ```
 
@@ -295,16 +298,16 @@ export default defineNuxtPlugin(_nuxtApp => {});
 
 ```jsx
 <VeeField v-slot="{ field }" name="gender" type="radio" value="male">
-    <label>
-        <input type="radio" name="gender" v-bind="field" value="male" />
-        male
-    </label>
+  <label>
+    <input type="radio" name="gender" v-bind="field" value="male" />
+    male
+  </label>
 </VeeField>
 <VeeField v-slot="{ field }" name="gender" type="radio" value="female">
-    <label>
-        <input type="radio" name="gender" v-bind="field" value="female" />
-        female
-    </label>
+  <label>
+    <input type="radio" name="gender" v-bind="field" value="female" />
+    female
+  </label>
 </VeeField>
 ```
 

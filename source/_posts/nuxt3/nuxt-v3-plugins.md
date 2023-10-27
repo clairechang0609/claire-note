@@ -7,6 +7,9 @@ description: 本篇說明 Nuxt3 Plugins 目錄功能，包含擴充插件、搭�
 image: https://imgur.com/5VRbaV1.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 Plugins 目錄協助我們在 Nuxt 擴充套件功能。前端開發常會搭配 **第三方套件（package）**使用，如表單驗證、圖片輪播、提示訊息等，這些套件通常已經被開發者設計好並經過測試，可以直接安裝使用，節省專案開發時間。
 
 <!-- more -->

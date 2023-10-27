@@ -7,6 +7,9 @@ description: Nuxt3 搭配了新的 Nitro 伺服器引擎，讓我們能輕鬆在
 image: https://imgur.com/9hA9lOg.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 Nuxt3 搭配了新的伺服器引擎 [Nitro](https://nitro.unjs.io/)，讓我們能輕鬆在 Nuxt 專內建立 Server API。Nitro 的優點包含跨平台支援 Node.js 與瀏覽器、支援 HMR、自動生成 API 路由等，讓 Nuxt 具備全端功能，接下來一起進行實作吧。
 
 ## **建立 API**
@@ -21,9 +24,9 @@ Nuxt3 搭配了新的伺服器引擎 [Nitro](https://nitro.unjs.io/)，讓我們
 ```
 server/
 |—— api/
-|———— hello.js
+  |—— hello.js
 |—— routes/
-|———— hello.js
+  |—— hello.js
 ```
 
 放置於 `/server/api` 下的檔案，依據檔案名稱產生 `/api` 前綴路徑（`/api/hello`），如果不想加上 `/api` 前綴，將檔案放置於 `/server/routes` 即可
@@ -42,7 +45,7 @@ export default defineEventHandler(() => 'Hello World!');
 接著在瀏覽器開啟頁面 `http://localhost:3000/api/hello`
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/LtH9Hcq.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/LtH9Hcq.png">
 </div>
 
 ---
@@ -54,22 +57,22 @@ Server API 預設請求方法為 `get`，如果要調整其他方法 `post`、`p
 ```
 server/
 |—— api/
-|———— user.post.js
-|———— user.delete.js
+  |—— user.post.js
+  |—— user.delete.js
 ```
 
 **範例：**新增 `/api/user` API，並使用 `post` 方法
 
 {% colorquote info %}
-Nitro 使用 [unjs/h3](https://github.com/unjs/h3) 建立 Server API，`readBody()` 為 [unjs/h3](https://github.com/unjs/h3) 提供的 utilites，用來取得 request body，其他 utilites 可以參考 [官方文件](https://github.com/unjs/h3#utilities)
+Nitro 搭配 [unjs/h3](https://github.com/unjs/h3) 來建立 Server API，`readBody()` 為 [unjs/h3](https://github.com/unjs/h3) 提供的 utilites，用來取得 request body，其他 utilites 可以參考 [官方文件](https://github.com/unjs/h3#utilities)
 {% endcolorquote %}
 
 
 ```jsx
 // server/api/user.post.js
 export default defineEventHandler(async event => {
-    const body = await readBody(event);
-    return { ...body };
+  const body = await readBody(event);
+  return { ...body };
 });
 ```
 
@@ -78,19 +81,19 @@ export default defineEventHandler(async event => {
 ```jsx
 // pages/index.vue
 <template>
-    <div>
-        <div>name: {{ user.name }}</div>
-        <div>age: {{ user.age }}</div>
-    </div>
+  <div>
+    <div>name: {{ user.name }}</div>
+    <div>age: {{ user.age }}</div>
+  </div>
 </template>
 
 <script setup>
 const { data: user } = useFetch('/api/user', {
-    method: 'post',
-    body: {
-        name: 'Daniel',
-        age: 18
-    }
+  method: 'post',
+  body: {
+    name: 'Daniel',
+    age: 18
+  }
 });
 </script>
 ```
@@ -98,7 +101,7 @@ const { data: user } = useFetch('/api/user', {
 畫面如下：
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/8SHH2TG.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/8SHH2TG.png">
 </div>
 
 ---
@@ -112,8 +115,8 @@ const { data: user } = useFetch('/api/user', {
 ```
 server/
 |—— api/
-|———— hello.js
-|———— [...].js
+  |—— hello.js
+  |—— [...].js
 ```
 
 透過 `createError()` 方法來處理錯誤
@@ -121,10 +124,10 @@ server/
 ```jsx
 // server/api/[...].js
 export default defineEventHandler(() => {
-    throw createError({
-        statusCode: 404,
-        statusMessage: 'API Path Not Found'
-    })
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'API Path Not Found'
+  })
 });
 ```
 
@@ -133,10 +136,10 @@ export default defineEventHandler(() => {
 ```jsx
 // pages/index.vue
 <template>
-    <div>
-        error:
-        <pre>{{ error.data }}</pre>
-    </div>
+  <div>
+    error:
+    <pre>{{ error.data }}</pre>
+  </div>
 </template>
 
 <script setup>
@@ -147,40 +150,44 @@ const { error } = useFetch('/api/nothing');
 顯示錯誤訊息如下
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/fnF0enq.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/fnF0enq.png">
 </div>
 
 ---
 
 ## **實作 API 請求**
 
-以下範例搭配靜態資料說明，不會實際整合 database
+以下範例搭配靜態資料串接
 
-### **1. 建立靜態資料**
+{% colorquote info %}
+Nuxt3 整合 MongoDB 請參考 [這篇文章](https://clairechang.tw/2023/09/22/nuxt3/nuxt-v3-mongodb-integration/)
+{% endcolorquote %}
+
+### **Step1：建立靜態資料**
 
 首先在 `public/users.json` 建立資料（範例資料來源：[jsonplaceholder](https://jsonplaceholder.typicode.com/)）
 
 ```json
 // public/users.json
 [
-    {
-        "id": 1,
-        "name": "Leanne Graham",
-        "username": "Bret",
-        "email": "Sincere@april.biz",
-        "phone": "1-770-736-8031"
-    },
-    {
-        "id": 2,
-        "name": "Ervin Howell",
-        "username": "Antonette",
-        "email": "Shanna@melissa.tv",
-        "phone": "010-692-6593"
-    }
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "phone": "1-770-736-8031"
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "phone": "010-692-6593"
+  }
 ]
 ```
 
-### **2. 建立 API**
+### **Step2：建立 API**
 
 新增 `server/api/user/[id].js`
 
@@ -192,12 +199,12 @@ const { error } = useFetch('/api/nothing');
 import users from '@/public/users.json';
 
 export default defineEventHandler(event => {
-    const id = getRouterParam(event, 'id');
-    return users.find(user => user.id === parseInt(id)) || {};
+  const id = getRouterParam(event, 'id');
+  return users.find(user => user.id === parseInt(id)) || {};
 });
 ```
 
-### **3. 發出請求**
+### **Step3：發出請求**
 
 新增 `pages/user/[id].vue`
 
@@ -208,23 +215,23 @@ export default defineEventHandler(event => {
 ```jsx
 // pages/user/[id].vue
 <template>
-    <div>
-        <div>name: {{ user.name }}</div>
-        <div>email: {{ user.email }}</div>
-        <div>phone: {{ user.phone }}</div>
-    </div>
+  <div>
+    <div>name: {{ user.name }}</div>
+    <div>email: {{ user.email }}</div>
+    <div>phone: {{ user.phone }}</div>
+  </div>
 </template>
 
 <script setup>
-    const route = useRoute();
-    const { data: user } = useFetch(`/api/user/${route.params.id}`);
+  const route = useRoute();
+  const { data: user } = useFetch(`/api/user/${route.params.id}`);
 </script>
 ```
 
 接下來在瀏覽器輸入 `http://localhost:3000/user/1`
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/9hA9lOg.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/9hA9lOg.png">
 </div>
 
 ---

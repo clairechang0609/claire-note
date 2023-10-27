@@ -7,6 +7,9 @@ description: Nuxt3 Composables 與 Utils 目錄，協助我們自訂共用方法
 image: https://imgur.com/5VRbaV1.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 定義在 `composables` 以及 `utils` 資料夾的檔案 Nuxt 都會自動引入（auto-imports），兩者都是用來定義複用邏輯的函式，不過使用情境有點不同，接下來分別說明。
 
 ## **Composables & Utils 使用時機比較**

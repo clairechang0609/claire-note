@@ -7,19 +7,22 @@ description: Nuxt.js 提供了預設的進度條效果，在路徑切換時顯�
 image: https://imgur.com/9QmKCKF.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 600px;" src="https://imgur.com/9QmKCKF.png">
+  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/9QmKCKF.png">
 </div>
 
-Nuxt.js 提供了預設的進度條效果，在路徑切換時顯示。如果想要調整觸發時機或樣式，也可以透過自訂共用元件來達成。
+Nuxt3 提供了預設進度條元件 `<NuxtLoadingIndicator>`，在路徑切換時顯示。也可以自訂共用元件來調整觸發時機或樣式。
 
 <!-- more -->
 
-## **路由切換 Loading 效果（Page Navigation）**
+## **路由切換（Page Navigation）Loading**
 
 ### **方法一：<NuxtLoadingIndicator>**
 
-Nuxt3 內建 Component，在 **頁面切換時觸發**
+Nuxt3 內建元件，在**頁面切換時觸發**
 
 **使用方式：**
 
@@ -35,10 +38,10 @@ Nuxt3 內建 Component，在 **頁面切換時觸發**
 ```jsx
 // app.vue
 <template>
-    <div>
-        <NuxtLoadingIndicator :throttle="0" />
-        <NuxtPage />
-    </div>
+  <div>
+    <NuxtLoadingIndicator :throttle="0" />
+    <NuxtPage />
+  </div>
 </template>
 ```
 
@@ -51,36 +54,36 @@ Nuxt3 內建 Component，在 **頁面切換時觸發**
 建立 Loading 元件，使用參數 `isLoading` 判斷是否顯示 Loading Indicator，接著透過 Nuxt [app runtime hooks](https://nuxt.com/docs/api/advanced/hooks#app-hooks-runtime) 建立攔截器，這裡使用 `page:start` 以及 `page:finish`
 
 ```jsx
-// components/LoadingIndicator.vue
+// components/CustomLoadingIndicator.vue
 <template>
-    <div class="loading-indicator" :class="{ 'show': isLoading }">
-        Loading...
-    </div>
+  <div class="loading-indicator" :class="{ 'show': isLoading }">
+    Loading...
+  </div>
 </template>
 
 <script setup>
-    const nuxtApp = useNuxtApp();
-    const isLoading = ref(false);
+  const nuxtApp = useNuxtApp();
+  const isLoading = ref(false);
 
-    nuxtApp.hook('page:start', () => {
-        isLoading.value = true;
-    });
+  nuxtApp.hook('page:start', () => {
+    isLoading.value = true;
+  });
 
-    nuxtApp.hook('page:finish', () => {
-        setTimeout(() => {
-            isLoading.value = false;
-        }, 200);
-    });
+  nuxtApp.hook('page:finish', () => {
+    setTimeout(() => {
+      isLoading.value = false;
+    }, 200);
+  });
 </script>
 
 <style lang="scss" scoped>
 .loading-indicator {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    &.show {
-        opacity: 1;
-        transition: opacity 0.2s ease-in-out;
-    }
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  &.show {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
 }
 </style>
 ```
@@ -90,41 +93,41 @@ Nuxt3 內建 Component，在 **頁面切換時觸發**
 ```jsx
 // app.vue
 <template>
-    <div>
-        <LoadingIndicator />
-        <NuxtPage />
-    </div>
+  <div>
+    <CustomLoadingIndicator />
+    <NuxtPage />
+  </div>
 </template>
 ```
 
 效果如下：
 
 <video controls width="100%">
-    <source src="https://imgur.com/mvcCSLb.mp4" type="video/mp4" />
+  <source src="https://imgur.com/mvcCSLb.mp4" type="video/mp4" />
 </video>
 
 ---
 
-## **資料請求 Loading 效果（Data Fetching）**
+## **資料請求（Data Fetching）Loading**
+
+使用 `useFetch` 或 `useAsyncData` Composables，參數 `pending` 為布林值，顯示資料是否還在請求狀態，用來判斷是否顯示 Loading Indicator
 
 {% colorquote info %}
-需先具備 Nuxt3 data fetching 相關觀念，可以參考 [這篇文章](https://clairechang.tw/2023/07/19/nuxt3/nuxt-v3-data-fetching/)
+Nuxt3 `useFetch` 相關知識，可以參考 [這篇文章](https://clairechang.tw/2023/07/19/nuxt3/nuxt-v3-data-fetching/)
 {% endcolorquote %}
-
-使用 `useFetch` 或 `useAsyncData` Composables，搭配回傳參數 `pending` 判斷是否顯示 Loading Indicator
 
 ```jsx
 // pages/about.vue
 <template>
-    <div class="m-4">
-        <div v-if="pending">
-            Loading ...
-        </div>
-        <div v-else>
-            user: <pre>{{ data }}<pre>
-            <button type="button" @click="refresh()">refresh</button>
-        </div>
+  <div>
+    <div v-if="pending">
+      Loading ...
     </div>
+    <div v-else>
+      user: <pre>{{ data }}<pre>
+      <button type="button" @click="refresh()">refresh</button>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -135,7 +138,7 @@ const { data, pending, refresh } = useFetch('/api/about');
 效果如下：
 
 <video controls width="100%">
-    <source src="https://imgur.com/HyOhm0t.mp4" type="video/mp4" />
+  <source src="https://imgur.com/HyOhm0t.mp4" type="video/mp4" />
 </video>
 
 ---

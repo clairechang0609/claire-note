@@ -7,10 +7,13 @@ description: 本篇說明如何在 Nuxt3 專案自訂錯誤頁面，以及如何
 image: https://imgur.com/He7uasf.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 Nuxt 3 提供大量內建功能，包括預設錯誤頁面，可以在隱藏資料夾 `.nuxt/dev/index.mjs` 看到，我們也可以自訂錯誤頁面，Nuxt 預設錯誤畫面如下：
 
 <div style="display: flex; justify-content: center; margin: 30px 0; border: 1px solid rgb(200, 200, 200);">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/He7uasf.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/He7uasf.png">
 </div>
 
 <!-- more -->
@@ -33,25 +36,25 @@ Nuxt 3 提供大量內建功能，包括預設錯誤頁面，可以在隱藏資�
 ```jsx
 // error.vue
 <template>
-    <div>
-        <h2>{{ error.statusCode }}</h2>
-        <p>{{ error.message }}</p>
-        <NuxtLink to="/">回首頁</NuxtLink>
-    </div>
+  <div>
+    <h2>{{ error.statusCode }}</h2>
+    <p>{{ error.message }}</p>
+    <NuxtLink to="/">回首頁</NuxtLink>
+  </div>
 </template>
 
 <script setup>
 const props = defineProps({
-    error: {
-        type: Object,
-        required: true
-    }
+  error: {
+    type: Object,
+    required: true
+  }
 });
 </script>
 ```
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/bTPCoaK.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/bTPCoaK.png">
 </div>
 
 ---
@@ -92,7 +95,7 @@ const props = defineProps({
 const route = useRoute();
 const { data } = await useFetch('/api/user/${route.params.id}');
 if (!data.value) {
-    throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true });
 }
 </script>
 ```
@@ -110,7 +113,7 @@ if (!data.value) {
 const route = useRoute();
 const { data } = await useFetch('/api/user/${route.params.id}');
 if (!data.value) {
-    throw showError({ statusCode: 404, statusMessage: 'Page Not Found' });
+  throw showError({ statusCode: 404, statusMessage: 'Page Not Found' });
 }
 </script>
 ```
@@ -122,19 +125,19 @@ if (!data.value) {
 ```jsx
 // error.vue
 <template>
-    <div>
-        <h2>{{ error.statusCode }}</h2>
-        <p>{{ error.message }}</p>
-        <button @click="handleError">回首頁</button>
-    </div>
+  <div>
+    <h2>{{ error.statusCode }}</h2>
+    <p>{{ error.message }}</p>
+    <button @click="handleError">回首頁</button>
+  </div>
 </template>
 
 <script setup>
 const props = defineProps({
-    error: {
-        type: Object,
-        required: true
-    }
+  error: {
+    type: Object,
+    required: true
+  }
 });
 
 const handleError = () => clearError({ redirect: '/' });

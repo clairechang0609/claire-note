@@ -7,6 +7,9 @@ description: CKEditor 是一套歷史悠久且功能完整、輕量的富文本�
 image: https://imgur.com/M9DJSpE.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 > **CKEditor 版本：v39.0.0**
 >
 
@@ -28,7 +31,11 @@ CKEditor 是一套歷史悠久且功能完整、輕量的富文本編輯器（ri
 **2. 自行配置功能**
 
 {% colorquote info %}
-**注意：**CKEditor 需在 `ssr: false` 條件下才能運作，否則會拋 `self is not defined` 錯誤
+**注意：** CKEditor 只能在 client 端運作，否則會拋 `self is not defined` 錯誤
+**提供兩個解法：**
+1. 設定為 `ssr: false`，關閉 server 端渲染
+2. 將 CKEditor 元件包在自訂元件內，檔名加上 `.client` 後綴，限制元件在 client 端運作
+EX：`components/TheCkeditor.client.vue`
 {% endcolorquote %}
 
 ## **1. 使用預先定義的組合**
@@ -48,8 +55,8 @@ CKEditor 是一套歷史悠久且功能完整、輕量的富文本編輯器（ri
 ### **套件安裝**
 
 ```bash
-npm install --save \ 
-  @ckeditor/ckeditor5-vue \ 
+npm install --save \
+  @ckeditor/ckeditor5-vue \
   @ckeditor/ckeditor5-build-classic
 ```
 
@@ -62,9 +69,14 @@ npm install --save \
 - **config：**定義設定檔
 
 ```jsx
+// components/TheCkeditor.client.vue
 <template>
   <div>
-    <ckeditor :editor="ClassicEditor" v-model="editorData" :config="editorConfig"></ckeditor>
+    <ckeditor
+      :editor="ClassicEditor"
+      v-model="editorData"
+      :config="editorConfig">
+    </ckeditor>
   </div>
 </template>
 
@@ -138,6 +150,7 @@ npm install --save \
 ### **nuxt.config 配置**
 
 ```jsx
+// nuxt.config.js
 import ckeditor5 from '@ckeditor/vite-plugin-ckeditor5';
 
 export default defineNuxtConfig({
@@ -161,9 +174,14 @@ export default defineNuxtConfig({
   - **toolbar：**配置工具列，可以加插入分隔符號 `|`
 
 ```jsx
+// components/TheCkeditor.client.vue
 <template>
   <div>
-    <ckeditor :editor="ClassicEditor" v-model="editorData" :config="editorConfig"></ckeditor>
+    <ckeditor
+      :editor="ClassicEditor"
+      v-model="editorData"
+      :config="editorConfig">
+    </ckeditor>
   </div>
 </template>
 

@@ -7,8 +7,11 @@ description: 簡單以圖示說明 SPA、MPA、CSR 與 SSR，Nuxt.js 與 Vue.js 
 image: https://imgur.com/sCQuKXt.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 <div style="display: flex; justify-content: center; margin: 0;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/EyMJEAV.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/EyMJEAV.png">
 </div>
 
 提到 Nuxt.js，必須先從 Vue.js 說起，Vue.js 為專注在視圖層（View）的 Javascript 框架，為 SPA（Single Page Application）單頁應用程式，搜尋引擎爬蟲未能抓取到渲染後的 HTML 內容，因此 SEO（Search Engine Optimization）表現趨近於零。
@@ -20,16 +23,16 @@ image: https://imgur.com/sCQuKXt.png
 ## **SPA / CSR vs MPA / SSR**
 
 <div class="column-wrap" style="margin: 30px 0">
-    <div>
-        <div style="display: flex; justify-content: left;">
-            <img style="width: 100%; max-width: 100%;" src="https://imgur.com/sCQuKXt.png">
-        </div>
+  <div>
+    <div style="display: flex; justify-content: left;">
+      <img style="width: 100%; max-width: 100%;" src="https://imgur.com/sCQuKXt.png">
     </div>
-    <div>
-        <div style="display: flex; justify-content: left;">
-            <img style="width: 100%; max-width: 100%;" src="https://imgur.com/BqLpa1p.png">
-        </div>
+  </div>
+  <div>
+    <div style="display: flex; justify-content: left;">
+      <img style="width: 100%; max-width: 100%;" src="https://imgur.com/BqLpa1p.png">
     </div>
+  </div>
 </div>
 
 ### **SPA（Single Page Application）單頁式應用**
@@ -55,7 +58,7 @@ image: https://imgur.com/sCQuKXt.png
 通用渲染，**Nuxt.js 使用的渲染模式**，同時支援 SSR 與 CSR 技術，初次進到頁面時採用 SSR 模式，在伺服器中產生完整 HTML 內容，回傳給瀏覽器端。後續動態切換頁面時，則採用 CSR 模式，結合了 SSR 與 SPA 的優點，除了使用者體驗佳，同時保有良好的 SEO 表現。
 
 <div style="display: flex; justify-content: center; margin: 30px 0 10px;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/KuL0KPL.png">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/KuL0KPL.png">
 </div>
 
 <small>圖片參考：[Nuxt 官網](https://nuxt.com/docs/guide/concepts/rendering#universal-rendering)</small>

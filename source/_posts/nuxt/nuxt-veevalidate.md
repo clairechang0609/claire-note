@@ -10,7 +10,7 @@ image: https://i.imgur.com/Skb7Wnb.png
 >
 
 <div style="display: flex; justify-content: center; margin: 20px 0;">
-    <img style="width: 100%; max-width: 550px;" src="https://i.imgur.com/Skb7Wnb.png">
+  <img style="width: 100%; max-width: 550px;" src="https://i.imgur.com/Skb7Wnb.png">
 </div>
 
 [vee-validate](https://vee-validate.logaretm.com/v3/) 是使用於 Vue.js 的輕量表單驗證套件（參考 php 框架 laravel 表單驗證所開發），僅需在表單上加入簡易語法就能進行驗證，執行：`npm i vee-validate@3.4.14`
@@ -24,9 +24,9 @@ Vue.js v2.x 需搭配 vee-validate v3.x
 ```jsx
 // nuxt.config.js
 export default {
-    plugins: [
-        { src: '@/plugins/vee-validate.js', mode: 'client' }
-    ]
+  plugins: [
+    { src: '@/plugins/vee-validate.js', mode: 'client' }
+  ]
 }
 ```
 
@@ -73,15 +73,15 @@ localize('zh_TW', tw);
 
 ```jsx
 localize('zh_TW', {
-    ...tw,
-    messages: {
-        required: '{_field_} 必填'
-    },
-    fields: {
-        email: {
-            required: '郵件 必填'
-        }
+  ...tw,
+  messages: {
+    required: '{_field_} 必填'
+  },
+  fields: {
+    email: {
+      required: '郵件 必填'
     }
+  }
 });
 ```
 
@@ -129,16 +129,16 @@ import * as VeeValidate from 'vee-validate';
 import * as rules from 'vee-validate/dist/rules';
 
 Object.keys(rules).forEach(rule => {
-    VeeValidate.extend(rule, rules[rule]);
+  VeeValidate.extend(rule, rules[rule]);
 });
 VeeValidate.localize('zh_TW', tw);
 
 VeeValidate.configure({
-    mode: 'eager',
-    classes: {
-        valid: 'is-valid',
-        invalid: 'is-invalid'
-    }
+  mode: 'eager',
+  classes: {
+    valid: 'is-valid',
+    invalid: 'is-invalid'
+  }
 });
 
 Vue.component('ValidationObserver', VeeValidate.ValidationObserver);
@@ -147,7 +147,7 @@ Vue.component('ValidationProvider', VeeValidate.ValidationProvider);
 
 接下來就可以在各頁面、元件使用表單驗證功能囉：
 
-### ****Validation Provider：****驗證單一表單內容（input）
+### **Validation Provider：驗證單一表單內容（input）**
 
 **1. v-slot：**取得元件回傳的內容
 **2. rules：**規則選擇，多個規則可以使用 '|' 分隔
@@ -155,12 +155,12 @@ Vue.component('ValidationProvider', VeeValidate.ValidationProvider);
 
 ```html
 <ValidationProvider rules="required|email" name="E-mail" v-slot="{ errors, classes }">
-    <input type="email" placeholder="請輸入信箱" v-model="email" :class="classes" />
-    <small>{{ errors[0] }}</small>
+  <input type="email" placeholder="請輸入信箱" v-model="email" :class="classes" />
+  <small>{{ errors[0] }}</small>
 </ValidationProvider>
 ```
 
-### ****Validation Observer：****驗證完整表單
+### **Validation Observer：驗證完整表單**
 
 **方法一：**使用 ****`v-slot="{ invalid }"` ，驗證不通過 disabled 按鈕（`type="submit"`），`submitForm()` 為自訂方法
 
@@ -189,41 +189,41 @@ Vue.component('ValidationProvider', VeeValidate.ValidationProvider);
 ```jsx
 // pages/contact-us.vue
 <template>
-    <client-only>
-        <ValidationObserver v-slot="{ handleSubmit }" ref="observer">
-            <form @submit.prevent="handleSubmit(submitForm)">
-                // 姓名
-                <label for="name">姓名</label>
-                <ValidationProvider rules="required" name="姓名" v-slot="{ errors, classes }">
-                    <input type="text" v-model="name" :class="classes" />
-                    <small>{{ errors[0] }}</small>
-                </ValidationProvider>
-                // email
-                <label for="email">E-mail</label>
-                <ValidationProvider rules="required|email" name="E-mail" v-slot="{ errors, classes }">
-                    <input type="email" v-model="email" :class="classes" />
-                    <small>{{ errors[0] }}</small>
-                </ValidationProvider>
-                <button type="submit">送出表單</button>
-            </form>
-        </ValidationObserver>
-    </client-only>
+  <client-only>
+    <ValidationObserver v-slot="{ handleSubmit }" ref="observer">
+      <form @submit.prevent="handleSubmit(submitForm)">
+        // 姓名
+        <label for="name">姓名</label>
+        <ValidationProvider rules="required" name="姓名" v-slot="{ errors, classes }">
+          <input type="text" v-model="name" :class="classes" />
+          <small>{{ errors[0] }}</small>
+        </ValidationProvider>
+        // email
+        <label for="email">E-mail</label>
+        <ValidationProvider rules="required|email" name="E-mail" v-slot="{ errors, classes }">
+          <input type="email" v-model="email" :class="classes" />
+          <small>{{ errors[0] }}</small>
+        </ValidationProvider>
+        <button type="submit">送出表單</button>
+      </form>
+    </ValidationObserver>
+  </client-only>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                name: '',
-                email: ''
-            }
-        },
-        methods: {
-            submitForm() {
-                ...
-            }
-        }
+  export default {
+    data() {
+      return {
+        name: '',
+        email: ''
+      }
+    },
+    methods: {
+      submitForm() {
+        // ...
+      }
     }
+  }
 </script>
 ```
 
@@ -244,5 +244,4 @@ Vue.component('ValidationProvider', VeeValidate.ValidationProvider);
 參考文章：
 
 [https://medium.com/@yusufznl/how-to-validate-forms-in-nuxt-with-vee-validate-eef45508c3d4](https://medium.com/@yusufznl/how-to-validate-forms-in-nuxt-with-vee-validate-eef45508c3d4)
-
 [https://vee-validate.logaretm.com/v3/](https://vee-validate.logaretm.com/v3/)

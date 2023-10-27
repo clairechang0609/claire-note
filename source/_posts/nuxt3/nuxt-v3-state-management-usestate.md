@@ -7,13 +7,16 @@ description: 本篇說明如何在 Nuxt3 專案搭配 useState Composable，實�
 image: https://imgur.com/pdTkxrx.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 <div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 100%; max-width: 600px;" src="https://imgur.com/pdTkxrx.png">
+  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/pdTkxrx.png">
 </div>
 
 專案開發過程中常會有狀態共享的需求。父子元件間資料傳遞可以使用 Props 和 $emit，或是 Provide 和 Inject（[參考文章](https://clairechang.tw/2023/01/13/vue/vue-communications/)），先前在 Nuxt2 介紹了 VueX 管理工具搭配 vuex-persistedstate 保存狀態（[參考文章](https://clairechang.tw/2022/11/22/nuxt/nuxt-vuex-store/)），接下來說明如何在 Nuxt3 利用更便利高效的方式管理共享狀態。
 
-狀態管理分為三篇說明，本篇將介紹 **useState**：
+狀態管理預計分為以下三篇說明，**本篇將介紹** `useState`：
 
 **1. useState：**Nuxt Composable
 **2. Pinia：**Vue.js 狀態管理工具 [連結](https://clairechang.tw/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/)
@@ -31,9 +34,9 @@ useState 是 Nuxt3 提供的 Composable，適合用來建立響應式、伺服�
 
 ```jsx
 <template>
-    <div>
-        {{ count }}
-    </div>
+  <div>
+    {{ count }}
+  </div>
 </template>
 
 <script setup>
@@ -60,9 +63,9 @@ useState<T>(key: string, init?: () => T | Ref<T>): Ref<T>
 ```jsx
 // pages/index.vue
 <template>
-    <div>
-        {{ counter }}
-    </div>
+  <div>
+    {{ counter }}
+  </div>
 </template>
 
 <script setup>
@@ -75,11 +78,11 @@ const counter = useState('counter', () => Math.round(Math.random() * 1000));
 ```jsx
 // pages/count.vue
 <template>
-    <div>
-        {{ counter }}
-        <button @click="counter++">+</button>
-        <button @click="counter--">-</button>
-    </div>
+  <div>
+    {{ counter }}
+    <button @click="counter++">+</button>
+    <button @click="counter--">-</button>
+  </div>
 </template>
 
 <script setup>
@@ -107,11 +110,11 @@ export const useCounter = () => useState('counter', () => Math.round(Math.random
 ```jsx
 // pages/count.vue
 <template>
-    <div>
-        {{ counter }}
-        <button @click="counter++">+</button>
-        <button @click="counter--">-</button>
-    </div>
+  <div>
+    {{ counter }}
+    <button @click="counter++">+</button>
+    <button @click="counter--">-</button>
+  </div>
 </template>
 
 <script setup>
@@ -126,16 +129,16 @@ const counter = useCounter();
 ```jsx
 // pages/index.vue
 <template>
-    <div>
-        {{ counter }}
-        <button @click="clearCounter()">clear</button>
-    </div>
+  <div>
+    {{ counter }}
+    <button @click="clearCounter()">clear</button>
+  </div>
 </template>
 
 <script setup>
 const counter = useCounter();
 const clearCounter = () => {
-    clearNuxtState('counter');
+  clearNuxtState('counter');
 };
 </script>
 ```

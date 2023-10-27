@@ -7,13 +7,16 @@ description: 本篇說明如何在 Nuxt3 專案搭配 Pinia 狀態管理工具�
 image: https://imgur.com/n21QxOI.png
 ---
 
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+>
+
 <div style="display: flex; justify-content: center; margin: 0;">
-    <img style="width: 100%; max-width: 500px;" src="https://imgur.com/n21QxOI.png">
+  <img style="width: 100%; max-width: 500px;" src="https://imgur.com/n21QxOI.png">
 </div>
 
 專案開發過程中常會有狀態共享的需求。父子元件間資料傳遞可以使用 Props 和 $emit，或是 Provide 和 Inject（[參考文章](https://clairechang.tw/2023/01/13/vue/vue-communications/)），先前在 Nuxt2 介紹了 VueX 管理工具搭配 vuex-persistedstate 保存狀態（[參考文章](https://clairechang.tw/2022/11/22/nuxt/nuxt-vuex-store/)），接下來說明如何在 Nuxt3 利用更便利高效的方式管理共享狀態。
 
-狀態管理分為三篇說明，本篇將介紹 **Pinia**：
+狀態管理預計分為以下三篇說明，**本篇將介紹 Pinia**：
 
 **1. useState：**Nuxt Composable [連結](https://clairechang.tw/2023/08/14/nuxt3/nuxt-v3-state-management-usestate/)
 **2. Pinia：**Vue.js 狀態管理工具
@@ -57,7 +60,7 @@ npm install pinia @pinia/nuxt
 ```json
 // package.json
 "overrides": {
-    "vue": "latest"
+  "vue": "latest"
 }
 ```
 {% endcolorquote %}
@@ -71,14 +74,14 @@ npm install pinia @pinia/nuxt
 ```jsx
 // nuxt.config.js
 export default defineNuxtConfig({
-    modules: [
-        '@pinia/nuxt'
-    ],
-    pinia: { // 想要各別引入可以移除這段
-        autoImports: [
-            'defineStore'
-        ]
-    }
+  modules: [
+    '@pinia/nuxt'
+  ],
+  pinia: { // 想要各別引入可以移除這段
+    autoImports: [
+      'defineStore'
+    ]
+  }
 })
 ```
 
@@ -99,19 +102,19 @@ export default defineNuxtConfig({
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main', {
-    state: () => ({
-        counter: 0
-    }),
-    getters: {
-        doubleCounter() {
-            return this.counter * 2;
-        }
-    },
-    actions: {
-        increment() {
-            this.counter++
-        }
+  state: () => ({
+    counter: 0
+  }),
+  getters: {
+    doubleCounter() {
+      return this.counter * 2;
     }
+  },
+  actions: {
+    increment() {
+      this.counter++
+    }
+  }
 })
 ```
 
@@ -126,17 +129,17 @@ export const useMainStore = defineStore('main', {
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main', () => {
-    const counter = ref(0);
-    const doubleCounter = computed(() => counter.value * 2)
-    const increment = () => {
-        counter.value++
-    }
+  const counter = ref(0);
+  const doubleCounter = computed(() => counter.value * 2)
+  const increment = () => {
+    counter.value++
+  }
 
-    return {
-        counter,
-        doubleCounter,
-        increment
-    }
+  return {
+    counter,
+    doubleCounter,
+    increment
+  }
 })
 ```
 
@@ -147,11 +150,11 @@ export const useMainStore = defineStore('main', () => {
 ```jsx
 // pages/count.vue
 <template>
-    <div>
-        {{ mainStore.counter }}
-        {{ mainStore.doubleCounter }}
-        <button @click="mainStore.increment()">increment</button>
-    </div>
+  <div>
+    {{ mainStore.counter }}
+    {{ mainStore.doubleCounter }}
+    <button @click="mainStore.increment()">increment</button>
+  </div>
 </template>
 
 <script setup>
@@ -167,11 +170,11 @@ const mainStore = useMainStore();
 import { useMainStore } from '@/store';
 
 export default defineNuxtPlugin(({ $pinia }) => {
-    return {
-        provide: {
-            store: useMainStore($pinia)
-        }
-    };
+  return {
+    provide: {
+      store: useMainStore($pinia)
+    }
+  };
 });
 ```
 
@@ -180,11 +183,11 @@ export default defineNuxtPlugin(({ $pinia }) => {
 ```jsx
 // pages/count.vue
 <template>
-    <div>
-        {{ $store.counter }}
-        {{ $store.doubleCounter }}
-        <button @click="$store.increment()">increment</button>
-    </div>
+  <div>
+    {{ $store.counter }}
+    {{ $store.doubleCounter }}
+    <button @click="$store.increment()">increment</button>
+  </div>
 </template>
 
 <script setup>
@@ -203,16 +206,16 @@ const { $store } = useNuxtApp();
 ```jsx
 // pages/index.vue
 <template>
-    <div>
-        {{ $store.counter }}
-        <button @click="reset()">reset</button>
-    </div>
+  <div>
+    {{ $store.counter }}
+    <button @click="reset()">reset</button>
+  </div>
 </template>
 
 <script setup>
 const { $store } = useNuxtApp();
 const reset = () => {
-	$store.$reset();
+  $store.$reset();
 };
 </script>
 ```
@@ -224,16 +227,16 @@ const reset = () => {
 ```jsx
 // store/index.js
 export const useMainStore = defineStore('main', () => {
-    const counter = ref(0);
+  const counter = ref(0);
 
-    const reset = () => {
-        counter.value = 0;
-    }
+  const reset = () => {
+    counter.value = 0;
+  }
 
-    return {
-        counter,
-        reset
-    }
+  return {
+    counter,
+    reset
+  }
 })
 ```
 
