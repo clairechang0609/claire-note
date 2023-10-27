@@ -171,6 +171,61 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/05/02/webrtc/webrtc-video-chat/" itemprop="url">WebRTC 學習筆記 (2) 實作一對一視訊聊天室</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/WebRTC/">WebRTC</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-05-02</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><p><a href="https://clairechang.tw/2023/04/25/webrtc/webrtc-intro/">上一篇</a> 說明了完成聊天室必備的基礎觀念，接著就來進行實作吧！</p>
+<h2 id="視訊情境"><a href="#視訊情境" class="headerlink" title="視訊情境"></a><strong>視訊情境</strong></h2><p>裝置 A 開啟了一個聊天室，接著裝置 B 連接該聊天室進行視訊聊天</p>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+    <img style="width: 100%; max-width: 600px;" src="https://i.imgur.com/1l46aJb.png">
+</div>
+
+<p><small>圖片參考：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity#the_entire_exchange_in_a_complicated_diagram">MDN</a><br></small></p>
+<h3 id="流程解析（搭配-STUN-協定）"><a href="#流程解析（搭配-STUN-協定）" class="headerlink" title="流程解析（搭配 STUN 協定）"></a><strong>流程解析（搭配 STUN 協定）</strong></h3><ol>
+<li><span style="font-weight: 500; color: rgb(91, 155, 213)">裝置 A 透過 STUN server 取得本地私有 IP 以及公有 IP</span></li>
+<li><span style="font-weight: 500; color: rgb(237, 125, 49)">裝置 B 透過 STUN server 取得本地私有 IP 以及公有 IP</span></li>
+<li><span style="font-weight: 500; color: rgb(91, 155, 213)">裝置 A 發送 offer SDP，並設定為本地 SDP</span></li>
+<li><span style="font-weight: 500; color: rgb(91, 155, 213)">裝置 B 收到 offer SDP，並設定為遠端 SDP</span></li>
+<li><span style="font-weight: 500; color: rgb(237, 125, 49)">裝置 B 發送 answer SDP，並設定為本地 SDP</span></li>
+<li><span style="font-weight: 500; color: rgb(237, 125, 49)">裝置 A 收到 answer SDP，並設定為遠端 SDP</span></li>
+<li><span style="font-weight: 500; color: rgb(91, 155, 213)">裝置 A 傳送 ICE 候選位址</span></li>
+<li><span style="font-weight: 500; color: rgb(91, 155, 213)">裝置 B 寫入裝置 A ICE 候選位址</span></li>
+<li><span style="font-weight: 500; color: rgb(237, 125, 49)">裝置 B 傳送 ICE 候選位址</span></li>
+<li><span style="font-weight: 500; color: rgb(237, 125, 49)">裝置 A 寫入裝置 B ICE 候選位址</span></li>
+<li><span style="font-weight: 500; color: rgb(112, 173, 71)">P2P 連線建立，進行即時媒體串流（音訊、視訊）</span></li>
+</ol></body></html>
+        <p class="article-more-link">
+            <a href="/2023/05/02/webrtc/webrtc-video-chat/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+</article>
+
+
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/04/25/webrtc/webrtc-intro/" itemprop="url">WebRTC 學習筆記 (1) 基本觀念與流程</a>
         
     </h1>
@@ -531,46 +586,6 @@
 </ol></body></html>
         <p class="article-more-link">
             <a href="/2023/03/21/typescript/ts-about-types/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/03/06/javascript/js-class/" itemprop="url">Javascript ES6 Class 與建構函式</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-03-06</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 0 0 20px;">
-    <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/1S4nH3i.png">
-</div>
-
-<h2 id="繼承與原型鏈"><a href="#繼承與原型鏈" class="headerlink" title="繼承與原型鏈"></a><strong>繼承與原型鏈</strong></h2><p>在 <code>class</code> 出現前，通常使用<strong>建構函式</strong>（<code>Constructor</code>）建立<strong>原型</strong>（<code>Prototype</code>）。原型並非實體（可以將其理解成藍圖），必須透過 <code>new</code> 運算子實體化，繼承該原型。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/03/06/javascript/js-class/#more">閱讀更多</a>
         </p>
     
     </div>

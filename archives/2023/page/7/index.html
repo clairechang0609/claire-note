@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>分類: Nuxt3 - Claire&#39;s Notes</title>
+<title>文章: 2023 - Claire&#39;s Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -13,7 +13,7 @@
     <meta name="description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Claire&#39;s Notes">
-<meta property="og:url" content="https://clairechang.tw/categories/Nuxt3/index.html">
+<meta property="og:url" content="https://clairechang.tw/archives/2023/page/7/index.html">
 <meta property="og:site_name" content="Claire&#39;s Notes">
 <meta property="og:description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
 <meta property="og:locale" content="zh_TW">
@@ -165,477 +165,41 @@
         </div>
     </div>
 </nav>
-    <section class="section section-heading">
+    <section class="section">
     <div class="container">
-        <div class="content">
-            <h5><i class="far fa-folder"></i>Nuxt3</h5>
+    
+    
+        <div class="archive content">
+            <h4 class="title is-4" id="2023">2023</h4>
+            <div class="articles">
+            
+                <div class="article content>">
+                    <time class="is-text-small" datetime="2023-01-09T16:00:00.000Z" itemprop="datePublished">
+                        01-10</time>
+                    <h6 class="title is-6"><a href="/2023/01/10/vue/vue-recursive-component/">Vue.js Recursive Component 遞迴元件實作巢狀選單</a></h6>
+                </div>
+            
+            </div>
         </div>
-    </div>
-</section>
-<section class="section">
-    <div class="container">
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/10/27/nuxt3/nuxt-v3-devtools/" itemprop="url">Nuxt.js 3.x Nuxt DevTools 提升開發者體驗</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-10-27</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/pgm8UJg.png">
-</div>
-
-<h2 id="為什麼需要-Nuxt-DevTools？"><a href="#為什麼需要-Nuxt-DevTools？" class="headerlink" title="為什麼需要 Nuxt DevTools？"></a><strong>為什麼需要 Nuxt DevTools？</strong></h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://devtools.nuxt.com/">Nuxt DevTools</a> 是 Nuxt 團隊推出的視覺化開發工具，用來協助我們快速了解 Nuxt 專案的內容，近一步提升開發者體驗（DX，Developer Experience）。</p>
-<blockquote class="colorquote info"><p>關於開發者體驗（DX）介紹，這裡推薦一篇<a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/@chiunhau/%E5%B7%A5%E7%A8%8B%E5%B8%AB%E5%BF%83%E4%B8%AD%E6%9C%80%E8%BB%9F%E7%9A%84%E4%B8%80%E5%A1%8A-%E8%AB%87%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC%E8%80%85%E9%AB%94%E9%A9%97-developer-experience-96e0cfacb316">文章</a></p>
-</blockquote>
-
-<p>Nuxt3 提供許多內建功能，例如：</p>
-<ul>
-<li>預設使用 Vite 打包工具，支援 hot module replacement（HMR）</li>
-<li>引入伺服器引擎 Nitro，讓我們可以將應用程式部署到 Vercel、Netlify、Cloudflare 等託管服務</li>
-<li>許多內建功能，像是支援 TypeScript、各種組合式函式、SEO 搜尋引擎優化輔助函式等</li>
-<li>auto-imports 自動引入功能</li>
-<li>依據檔案結構自動生成路由與 API 路徑</li>
-<li>提供許多模組，讓開發者可以快速整合所需的功能，不需另外進行配置</li>
-</ul>
-<p>這些功能是 DX 最直接具體的實踐，雖然能讓我們能輕鬆建立 Nuxt3 專案，但也會面臨<strong>「資訊透明度不足」</strong>的問題。抽象化設計是一把雙面刃，在化繁為簡、避免重工的同時，也會增加額外的學習負擔與除錯困難。</p>
-<p>Nuxt DevTools 便是為了解決此問題而設計的視覺化工具，能夠提升 Nuxt 框架和應用程式的透明度、找到效能瓶頸，以及協助我們管理應用和配置。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/10/27/nuxt3/nuxt-v3-devtools/#more">閱讀更多</a>
-        </p>
-    
-    </div>
     
     
-</article>
-
-
-
-
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/10/08/nuxt3/nuxt-v3-deploy-to-firebase/" itemprop="url">Nuxt.js 3.x Universal（SSR）專案部署到 Firebase</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-10-08</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>專案開發完成後，終於到最後一步<strong>「部署」</strong>，本篇將說明 Universal 專案部署到 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://firebase.google.com/">Firebase</a>。Universal 渲染模式需要伺服器才能運作，因此會搭配 Firebase Cloud Functions（Serverless）來協助處理 SSR 的部分。</p>
-<blockquote class="colorquote info"><p>Universal Rendering 相關說明可以參考 <a href="https://clairechang.tw/2023/08/22/nuxt3/nuxt-vs-vue/#Universal-Rendering">這篇文章</a></p>
-</blockquote>
-
-<p><strong>實作分為以下步驟：</strong></p>
-<ul>
-<li>申請 Firebase Project</li>
-<li>透過 CLI 部署至 Firebase</li>
-</ul></body></html>
-        <p class="article-more-link">
-            <a href="/2023/10/08/nuxt3/nuxt-v3-deploy-to-firebase/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/10/03/nuxt3/nuxt-v3-static-site-generation/" itemprop="url">Nuxt.js 3.x 將靜態網站部署到 GitHub Pages</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-10-03</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>專案開發完成後，終於到最後一步<strong>「部署」</strong>，本篇使用靜態網站生成（SSG），搭配 GitHub Pages 託管靜態網頁內容。</p>
-<h3 id="Static-Site-Generation（SSG）靜態網站生成"><a href="#Static-Site-Generation（SSG）靜態網站生成" class="headerlink" title="Static Site Generation（SSG）靜態網站生成"></a><strong>Static Site Generation（SSG）靜態網站生成</strong></h3><p>在編譯時產生靜態 HTML 頁面。靜態部署適合內容固定、不需資料庫、不含伺服器端動態渲染的網站（例如公司形象網站或是個人部落格），雖然不像 Universal Rendering 一樣彈性，不過靜態網站很適合搭配 CDN 緩存。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/10/03/nuxt3/nuxt-v3-static-site-generation/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/22/nuxt3/nuxt-v3-mongodb-integration/" itemprop="url">Nuxt.js 3.x Server API 整合 MongoDB 實作，邁向全端第一步</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-09-22</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<div style="display: flex; justify-content: center; margin: 30px 0;">
-  <img style="width: 100%; max-width: 500px;" src="https://imgur.com/qhirT5r.png">
-</div>
-
-<p>Nuxt3 搭配了新的伺服器引擎 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nitro.unjs.io/">Nitro</a>，讓我們能輕鬆建立 Server API，並在 Nuxt3 專案內使用。Nitro 的優點包含跨平台支援 Node.js 與瀏覽器、支援 HMR、自動生成 API 路由等。</p>
-<p>實務上 API 開發常會搭配資料庫連接，本篇將說明如何結合 MongoDB，實作後端 API 開發與前端串接，讓我們的 Nuxt 專案具備全端功能。</p>
-<blockquote class="colorquote info"><p>本文重點在 Nuxt 與 MongoDB 整合，需先具備以下知識：</p>
-<ul>
-<li>Nuxt Server API，可以參考 <a href="https://clairechang.tw/2023/09/04/nuxt3/nuxt-v3-server/">這篇文章</a></li>
-<li>Nuxt <code>$fetch</code> 方法，可以參考&nbsp;<a href="https://clairechang.tw/2023/07/19/nuxt3/nuxt-v3-data-fetching/">這篇文章</a></li>
-<li>MongoDB 應用（本文僅簡單說明）</li>
-</ul>
-</blockquote></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/22/nuxt3/nuxt-v3-mongodb-integration/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/18/nuxt3/nuxt-v3-sitemap/" itemprop="url">Nuxt.js 3.x 替網站增加 Sitemap 網站地圖</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-09-18</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Sitemap 是一種用來提供網站資訊的檔案，記錄網站內的網頁、圖片等，主要功用為<strong>協助搜尋引擎快速了解我們的網頁</strong>。</p>
-<p>新網站上線後，雖然搜尋引擎爬蟲會自動讀取網站內容並收錄，不過當網站規模較大、架構較複雜、彼此間連結性較低，可能需要花較長的時間才能完整收錄，透過 Sitemap，直接告訴搜尋引擎網頁資訊，能有效加快網頁收錄的速度。</p>
-<p>接下來說明如何在 Nuxt3 專案內加入 Sitemap 網站地圖：</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/18/nuxt3/nuxt-v3-sitemap/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/" itemprop="url">Nuxt.js 3.x Assets vs Public 目錄－靜態資源管理</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-09-12</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Nuxt3 提供兩個資料夾 <code>assets/</code> 以及 <code>public/</code>，用來管理靜態資源，像是圖片、CSS 樣式、字體、icon 等，接下來說明兩個目錄適合存放的檔案類型與使用方式</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/11/nuxt3/nuxt-v3-components/" itemprop="url">Nuxt.js 3.x Components 目錄－建立共用元件</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-09-11</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Components 目錄用來定義 Vue 共用元件，元件的特性為將部分模板、程式碼進行封裝，讓我們可以重複使用。在 Components 建立的檔案，Nuxt 會自動引入（auto-import），接著在整個專案 pages / components / layouts 都能搭配使用</p>
-<h2 id="建立元件"><a href="#建立元件" class="headerlink" title="建立元件"></a><strong>建立元件</strong></h2><figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">components/<br>|—— TheHeader.vue<br>|—— TheFooter.vue<br></code></pre></td></tr></tbody></table></figure></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/11/nuxt3/nuxt-v3-components/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/07/nuxt3/nuxt-v3-error-page/" itemprop="url">Nuxt.js 3.x 自訂 Error Page 與錯誤處理</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-09-07</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Nuxt 3 提供大量內建功能，包括預設錯誤頁面，可以在隱藏資料夾 <code>.nuxt/dev/index.mjs</code> 看到，我們也可以自訂錯誤頁面，Nuxt 預設錯誤畫面如下：</p>
-<div style="display: flex; justify-content: center; margin: 30px 0; border: 1px solid rgb(200, 200, 200);">
-  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/He7uasf.png">
-</div></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/07/nuxt3/nuxt-v3-error-page/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/05/nuxt3/nuxt-v3-middleware/" itemprop="url">Nuxt.js 3.x Middleware 目錄－監聽路由變化</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-09-05</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Middleware 為 Nuxt 內的&nbsp;<strong>路由守衛（Navigation Guards）</strong>，相當於 Vue Router 內的 beforeEach callback，協助我們在進到頁面前進行事件處理（例如權限檢查）</p>
-<h3 id="Middleware-觸發時機："><a href="#Middleware-觸發時機：" class="headerlink" title="Middleware 觸發時機："></a><strong>Middleware 觸發時機：</strong></h3><ul>
-<li><strong>頁面初始化：</strong>Server Side 跟 Client Side 同時觸發（觸發兩次）</li>
-<li><strong>頁面切換：</strong>Client Side 觸發</li>
-</ul>
-<h3 id="Middleware-定義方式："><a href="#Middleware-定義方式：" class="headerlink" title="Middleware 定義方式："></a><strong>Middleware 定義方式：</strong></h3><ul>
-<li><strong>具名：</strong>在&nbsp;<code>middleware/</code>&nbsp;定義，並在需要的頁面引入</li>
-<li><strong>全域：</strong>同具名的定義方式，不過檔名需加上&nbsp;<code>.global</code>&nbsp;後綴，在所有頁面切換時自動執行</li>
-<li><strong>匿名：</strong>直接在單一元件檔內定義</li>
-</ul></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/05/nuxt3/nuxt-v3-middleware/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/04/nuxt3/nuxt-v3-server/" itemprop="url">Nuxt.js 3.x Server 目錄－建立 API</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-09-04</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Nuxt3 搭配了新的伺服器引擎 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nitro.unjs.io/">Nitro</a>，讓我們能輕鬆在 Nuxt 專內建立 Server API。Nitro 的優點包含跨平台支援 Node.js 與瀏覽器、支援 HMR、自動生成 API 路由等，讓 Nuxt 具備全端功能，接下來一起進行實作吧。</p>
-<h2 id="建立-API"><a href="#建立-API" class="headerlink" title="建立 API"></a><strong>建立 API</strong></h2><ul>
-<li>在 <code>server/</code> 目錄建立 API，Nuxt 會依據資料夾結構自動生成 API 路徑</li>
-<li>使用 <code>defineEventHandler()</code> 建立事件處理器</li>
-</ul></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/04/nuxt3/nuxt-v3-server/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-    
-        
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-    <div class="pagination-previous is-invisible is-hidden-mobile">
-        <a href="/categories/Nuxt3/page/0/">上一頁</a>
+    <div class="pagination-previous">
+        <a href="/archives/2023/page/6/">上一頁</a>
     </div>
-    <div class="pagination-next">
-        <a href="/categories/Nuxt3/page/2/">下一頁</a>
+    <div class="pagination-next is-invisible is-hidden-mobile">
+        <a href="/archives/2023/page/8/">下一頁</a>
     </div>
     <ul class="pagination-list is-hidden-mobile">
         
-        <li><a class="pagination-link is-current" href="/categories/Nuxt3/">1</a></li>
+        <li><a class="pagination-link" href="/archives/2023/">1</a></li>
         
-        <li><a class="pagination-link" href="/categories/Nuxt3/page/2/">2</a></li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/categories/Nuxt3/page/3/">3</a></li>
+        <li><a class="pagination-link" href="/archives/2023/page/6/">6</a></li>
+        
+        <li><a class="pagination-link is-current" href="/archives/2023/page/7/">7</a></li>
         
     </ul>
 </nav>
