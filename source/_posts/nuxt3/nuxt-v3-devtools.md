@@ -234,13 +234,25 @@ The editor process exited with an error: spawn code ENOENT.
 
 協助我們監控瀏覽器端與伺服器端每個 hook 花費時間、註冊了多少監聽器，以及被調用的次數，有助於找出效能瓶頸
 
+<div style="display: flex; justify-content: left; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/KgCHNuF.png">
+</div>
+
 ## **Virtual Files**
 
 Nuxt 提供了一套虛擬文件系統（VFS，Virtual File System），根據我們的目錄結構自動生成虛擬檔案。透過 devtools，不需進到 `.nuxt` 資料夾，即可查看相關檔案，對於進階 debug 很有幫助
 
+<div style="display: flex; justify-content: left; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/6uRgqR1.png">
+</div>
+
 ## **Inspect**
 
 整合 [vite-plugin-inspect](https://github.com/antfu/vite-plugin-inspect) 套件，讓我們可以檢視各插件或檔案透過 Vite 編譯、轉譯的過程，對於找出潛在風險很有幫助
+
+<div style="display: flex; justify-content: left; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/JFFoW7U.png">
+</div>
 
 ---
 
