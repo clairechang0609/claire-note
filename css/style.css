@@ -663,8 +663,8 @@ strong {
   position: fixed;
   width: calc((100% - 900px) / 2);
   padding-left: 0.5rem;
-  right: 1rem;
-  top: 70px; }
+  top: 70px;
+  right: 1rem; }
   @media screen and (max-width: 1079px) {
     .vertical-ad {
       display: none; } }
