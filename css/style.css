@@ -658,3 +658,13 @@ strong {
           width: 0;
           height: 40px;
           order: 2; } }
+
+.vertical-ad {
+  position: fixed;
+  width: calc((100% - 900px) / 2);
+  padding: 1rem;
+  right: 1rem;
+  top: 60px; }
+  @media screen and (max-width: 1079px) {
+    .vertical-ad {
+      display: none; } }
