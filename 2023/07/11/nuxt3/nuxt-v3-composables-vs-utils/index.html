@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://imgur.com/5VRbaV1.png">
 <meta property="article:published_time" content="2023-07-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-25T13:33:48.062Z">
+<meta property="article:modified_time" content="2023-11-13T13:04:55.410Z">
 <meta property="article:author" content="Claire Chang">
 <meta property="article:tag" content="nuxt3">
 <meta name="twitter:card" content="summary">
@@ -199,8 +199,8 @@
 </blockquote>
 <p>定義在 <code>composables</code> 以及 <code>utils</code> 資料夾的檔案 Nuxt 都會自動引入（auto-imports），兩者都是用來定義複用邏輯的函式，不過使用情境有點不同，接下來分別說明。</p>
 <h2 id="Composables-amp-Utils-使用時機比較"><a href="#Composables-amp-Utils-使用時機比較" class="headerlink" title="Composables &amp; Utils 使用時機比較"></a><strong>Composables &amp; Utils 使用時機比較</strong></h2><ul>
-<li><code>composibles/</code>：<br>組合式函式，利用 Composition API 來封裝和複用 <strong>有狀態邏輯（Stateful Logic）</strong>的函式，取代 Options API <code>mixins/</code> 的功能。我們可以將不同的邏輯抽象成單獨的 composable，並組合在 setup 函式中</li>
-<li><code>utils/</code>：<br>與 composibles 做語意上的區隔，用來定義 <strong>無狀態邏輯（Stateless Logic）</strong>的函式</li>
+<li><code>composables/</code>：<br>組合式函式，利用 Composition API 來封裝和複用 <strong>有狀態邏輯（Stateful Logic）</strong>的函式，取代 Options API <code>mixins/</code> 的功能。我們可以將不同的邏輯抽象成單獨的 composable，並組合在 setup 函式中</li>
+<li><code>utils/</code>：<br>與 composables 做語意上的區隔，用來定義 <strong>無狀態邏輯（Stateless Logic）</strong>的函式</li>
 </ul>
 <blockquote class="colorquote info"><p><strong>狀態邏輯說明：</strong></p>
 <ul>
@@ -216,10 +216,10 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
-        <html><head></head><body><h2 id="Composables"><a href="#Composables" class="headerlink" title="Composables"></a><strong>Composables</strong></h2><h4 id="Options-API-Mixins-amp-Composition-API-Composables"><a href="#Options-API-Mixins-amp-Composition-API-Composables" class="headerlink" title="Options API Mixins &amp; Composition API Composables"></a><strong>Options API Mixins &amp; Composition API Composables</strong></h4><p>Nuxt3 的 Composition API <code>composibles/</code> 與 Nuxt2 的 Options API <code>mixins/</code> 比較：</p>
+        <html><head></head><body><h2 id="Composables"><a href="#Composables" class="headerlink" title="Composables"></a><strong>Composables</strong></h2><h4 id="Options-API-Mixins-amp-Composition-API-Composables"><a href="#Options-API-Mixins-amp-Composition-API-Composables" class="headerlink" title="Options API Mixins &amp; Composition API Composables"></a><strong>Options API Mixins &amp; Composition API Composables</strong></h4><p>Nuxt3 的 Composition API <code>composables/</code> 與 Nuxt2 的 Options API <code>mixins/</code> 比較：</p>
 <ul>
 <li><code>mixins/</code>：<br>當專案邏輯越來越複雜，使用多個 <code>mixins</code> 時，容易發生不易找到參數、方法來源，或是命名衝突的問題，且 Options API 是依照 <strong>「生命週期與性質」</strong> 拆分程式碼，結構上來說可讀性較低</li>
-<li><code>composibles/</code>：<br>Composition API 是依據 <strong>「邏輯功能」</strong> 拆分程式碼，可讀性較高，且不易造成命名衝突，適用於高複雜邏輯和多功能開發</li>
+<li><code>composables/</code>：<br>Composition API 是依據 <strong>「邏輯功能」</strong> 拆分程式碼，可讀性較高，且不易造成命名衝突，適用於高複雜邏輯和多功能開發</li>
 </ul>
 <div class="column-wrap">
   <div style="display: flex; justify-content: left; margin: 20px 0;">

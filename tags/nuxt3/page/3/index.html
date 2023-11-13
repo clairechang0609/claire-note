@@ -445,8 +445,8 @@
 </blockquote>
 <p>定義在 <code>composables</code> 以及 <code>utils</code> 資料夾的檔案 Nuxt 都會自動引入（auto-imports），兩者都是用來定義複用邏輯的函式，不過使用情境有點不同，接下來分別說明。</p>
 <h2 id="Composables-amp-Utils-使用時機比較"><a href="#Composables-amp-Utils-使用時機比較" class="headerlink" title="Composables &amp; Utils 使用時機比較"></a><strong>Composables &amp; Utils 使用時機比較</strong></h2><ul>
-<li><code>composibles/</code>：<br>組合式函式，利用 Composition API 來封裝和複用 <strong>有狀態邏輯（Stateful Logic）</strong>的函式，取代 Options API <code>mixins/</code> 的功能。我們可以將不同的邏輯抽象成單獨的 composable，並組合在 setup 函式中</li>
-<li><code>utils/</code>：<br>與 composibles 做語意上的區隔，用來定義 <strong>無狀態邏輯（Stateless Logic）</strong>的函式</li>
+<li><code>composables/</code>：<br>組合式函式，利用 Composition API 來封裝和複用 <strong>有狀態邏輯（Stateful Logic）</strong>的函式，取代 Options API <code>mixins/</code> 的功能。我們可以將不同的邏輯抽象成單獨的 composable，並組合在 setup 函式中</li>
+<li><code>utils/</code>：<br>與 composables 做語意上的區隔，用來定義 <strong>無狀態邏輯（Stateless Logic）</strong>的函式</li>
 </ul>
 <blockquote class="colorquote info"><p><strong>狀態邏輯說明：</strong></p>
 <ul>
