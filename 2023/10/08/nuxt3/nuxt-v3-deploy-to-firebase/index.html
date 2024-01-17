@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/r80Hush.png">
 <meta property="article:published_time" content="2023-10-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-13T14:01:20.427Z">
+<meta property="article:modified_time" content="2024-01-17T13:13:41.297Z">
 <meta property="article:author" content="Claire Chang">
 <meta property="article:tag" content="nuxt3">
 <meta property="article:tag" content="firebase">
@@ -225,20 +225,15 @@
   <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/mCT0VbR.png">
 </div>
 
-<p>到此步 Firebase 專案就建立完成，Cloud Function 名稱為 「server」</p>
-<div style="display: flex; justify-content: center; margin: 30px 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/A2qIFu6.png">
-</div>
-
-<p>先記著專案 ID，後面部署會使用到</p>
+<p>到此步 Firebase 專案就建立完成，先記著專案 ID，後面部署會使用到</p>
 <div style="display: flex; justify-content: center; margin: 30px 0;">
   <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/wR8QFZ7.png">
 </div>
 
 <hr>
 <h2 id="透過-CLI-部署至-Firebase"><a href="#透過-CLI-部署至-Firebase" class="headerlink" title="透過 CLI 部署至 Firebase"></a><strong>透過 CLI 部署至 Firebase</strong></h2><p>接著回到我們的 Nuxt App</p>
-<h3 id="STEP1：安裝-CLI"><a href="#STEP1：安裝-CLI" class="headerlink" title="STEP1：安裝 CLI"></a><strong>STEP1：安裝 CLI</strong></h3><p>首先在全域環境安裝 Firebase CLI（Command-Line Interface）指令列工具</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">npx install -g firebase-tools<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="STEP1：安裝-CLI"><a href="#STEP1：安裝-CLI" class="headerlink" title="STEP1：安裝 CLI"></a><strong>STEP1：安裝 CLI</strong></h3><p>首先安裝 Firebase CLI（Command-Line Interface）指令列工具</p>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">npm install firebase-tools<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="STEP2：登入-Firebase"><a href="#STEP2：登入-Firebase" class="headerlink" title="STEP2：登入 Firebase"></a><strong>STEP2：登入 Firebase</strong></h3><p>接著透過指令登入 Firebase</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">firebase login<br></code></pre></td></tr></tbody></table></figure>
@@ -276,7 +271,7 @@
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineNuxtConfig</span>({<br>  <span class="hljs-attr">nitro</span>: {<br>    <span class="hljs-attr">preset</span>: <span class="hljs-string">'firebase'</span>,<br>    <span class="hljs-attr">firebase</span>: {<br>      <span class="hljs-attr">gen</span>: <span class="hljs-number">2</span><br>    }<br>  }<br>});<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="STEP5：配置-firebase-json-與-firebaserc"><a href="#STEP5：配置-firebase-json-與-firebaserc" class="headerlink" title="STEP5：配置 firebase.json 與 .firebaserc"></a><strong>STEP5：配置 <code>firebase.json</code> 與 <code>.firebaserc</code></strong></h3><h4 id="firebaserc"><a href="#firebaserc" class="headerlink" title="firebaserc"></a><strong><code>firebaserc</code></strong></h4><p>如果前面步驟運作順利，預期 <code>.firebaserc</code> 會綁定 Firebase 專案 ID 如下，不需異動</p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// .firebaserc</span><br>{<br>  <span class="hljs-string">"projects"</span>: {<br>    <span class="hljs-string">"default"</span>: <span class="hljs-string">"nuxt3-firebase-ca4cb"</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// .firebaserc</span><br>{<br>  <span class="hljs-string">"projects"</span>: {<br>    <span class="hljs-string">"default"</span>: <span class="hljs-string">"&lt;your_project_id&gt;"</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h4 id="firebase-json"><a href="#firebase-json" class="headerlink" title="firebase.json"></a><strong><code>firebase.json</code></strong></h4><p>需手動調整，這個步驟很重要，會影響專案編譯結果</p>
 <p><strong>functions（Cloud Functions）</strong></p>
@@ -290,7 +285,10 @@
 <li><code>rewrites</code>：改寫 URL 規則，所有的 URL 請求都會由名為「server」的 Cloud Functions 處理，也就是由伺服器端處理所有請求（SSR）</li>
 <li><code>predeploy</code>：部署前預先執行的指令。這一段的設定為：進到編譯後的 <code>.output/server</code> 資料夾，刪除 <code>node_modules</code> 並重新安裝，否則在執行部署時會發生找不到 <code>firebase-functions</code> 套件的錯誤</li>
 </ul>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// firebase.json</span><br>{<br>  <span class="hljs-string">"functions"</span>: {<br>    <span class="hljs-string">"source"</span>: <span class="hljs-string">".output/server"</span>,<br>    <span class="hljs-string">"runtime"</span>: <span class="hljs-string">"nodejs18"</span><br>  },<br>  <span class="hljs-string">"hosting"</span>: {<br>    <span class="hljs-string">"public"</span>: <span class="hljs-string">".output/public"</span>,<br>    <span class="hljs-string">"cleanUrls"</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-string">"rewrites"</span>: [ {<br>      <span class="hljs-string">"source"</span>: <span class="hljs-string">"**"</span>,<br>      <span class="hljs-string">"function"</span>: <span class="hljs-string">"server"</span><br>    }],<br>    <span class="hljs-string">"predeploy"</span>: [<br>      <span class="hljs-string">"cd .output/server &amp;&amp; rm -rf node_modules &amp;&amp; npm install"</span><br>    ]<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+<blockquote class="colorquote info"><p>注意：<code>rm -rf node_modules</code>&nbsp;是 macOS 跟 Linux 的指令，Windows 須調整為&nbsp;<code>rmdir /s /q node_modules</code></p>
+</blockquote>
+
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// firebase.json</span><br>{<br>  <span class="hljs-string">"functions"</span>: {<br>    <span class="hljs-string">"source"</span>: <span class="hljs-string">".output/server"</span>,<br>    <span class="hljs-string">"runtime"</span>: <span class="hljs-string">"nodejs18"</span><br>  },<br>  <span class="hljs-string">"hosting"</span>: {<br>    <span class="hljs-string">"site"</span>: <span class="hljs-string">"&lt;your_project_id&gt;"</span>,<br>    <span class="hljs-string">"public"</span>: <span class="hljs-string">".output/public"</span>,<br>    <span class="hljs-string">"cleanUrls"</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-string">"rewrites"</span>: [ {<br>      <span class="hljs-string">"source"</span>: <span class="hljs-string">"**"</span>,<br>      <span class="hljs-string">"function"</span>: <span class="hljs-string">"server"</span><br>    }],<br>    <span class="hljs-string">"predeploy"</span>: [<br>      <span class="hljs-string">"cd .output/server &amp;&amp; rm -rf node_modules &amp;&amp; npm install"</span><br>    ]<br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="STEP6：編譯與部署"><a href="#STEP6：編譯與部署" class="headerlink" title="STEP6：編譯與部署"></a><strong>STEP6：編譯與部署</strong></h3><p>首先將專案打包</p>
 <figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">npm run build<br></code></pre></td></tr></tbody></table></figure>
@@ -305,6 +303,14 @@
 <div style="display: flex; justify-content: center; margin: 30px 0;">
   <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/9HyX6sU.png">
 </div>
+
+<p>在 Firebase 專案可以看到 Cloud Function 名稱預設為「server」</p>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/A2qIFu6.png">
+</div>
+
+<blockquote class="colorquote info"><p>如果發生 funciton 部署失敗問題，可以在 <code>nuxt.config</code> 設定 <code>serverFunctionName</code> 如下</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineNuxtConfig</span>({<br>  <span class="hljs-attr">nitro</span>: {<br>    <span class="hljs-attr">preset</span>: <span class="hljs-string">'firebase'</span>,<br>    <span class="hljs-attr">firebase</span>: {<br>      <span class="hljs-attr">gen</span>: <span class="hljs-number">2</span>,<br>      <span class="hljs-attr">serverFunctionName</span>: <span class="hljs-string">'server'</span><br>    }<br>  }<br>})<br></code></pre></td></tr></tbody></table></figure></blockquote>
 
 <p>打開 Hosting URL，可以看到我們的網站，也可以透過 Firebase 儀表板來查看發布紀錄與用量</p>
 <div style="display: flex; justify-content: center; margin: 30px 0;">
@@ -413,7 +419,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow">
-                &copy; 2023
+                &copy; 2024
                 Claire Chang&nbsp;
                 All rights reserved.
                 <br>
