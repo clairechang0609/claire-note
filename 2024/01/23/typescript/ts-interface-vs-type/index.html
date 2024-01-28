@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>CSS Grid Layout Module 格線佈局 (2) Masonry 瀑布流應用 - Claire&#39;s Notes</title>
+<title>TypeScript 學習筆記：Interface V.S. Type - Claire&#39;s Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,21 +10,20 @@
 
 
 
-    <meta name="description" content="本篇介紹如何使用 Grid 格線系統製作瀑布流版面，瀑布流是一種網頁佈局的設計方式，特點是將內容項目垂直排列，並根據可用的空間進行自適應調整，形成像瀑布一樣的流動效果">
+    <meta name="description" content="說明 TypeScript Interface 與 Type 用途，並比較兩者使用時機">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS Grid Layout Module 格線佈局 (2) Masonry 瀑布流應用">
-<meta property="og:url" content="https://clairechang.tw/2023/05/23/css/css-grid-masonry/index.html">
+<meta property="og:title" content="TypeScript 學習筆記：Interface V.S. Type">
+<meta property="og:url" content="https://clairechang.tw/2024/01/23/typescript/ts-interface-vs-type/index.html">
 <meta property="og:site_name" content="Claire&#39;s Notes">
-<meta property="og:description" content="本篇介紹如何使用 Grid 格線系統製作瀑布流版面，瀑布流是一種網頁佈局的設計方式，特點是將內容項目垂直排列，並根據可用的空間進行自適應調整，形成像瀑布一樣的流動效果">
+<meta property="og:description" content="說明 TypeScript Interface 與 Type 用途，並比較兩者使用時機">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/XdKc6zc.png">
-<meta property="article:published_time" content="2023-05-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-13T13:06:50.437Z">
+<meta property="og:image" content="https://imgur.com/JBaER3w.png">
+<meta property="article:published_time" content="2024-01-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-28T15:35:24.785Z">
 <meta property="article:author" content="Claire Chang">
-<meta property="article:tag" content="css">
-<meta property="article:tag" content="masonry">
+<meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/XdKc6zc.png">
+<meta name="twitter:image" content="https://imgur.com/JBaER3w.png">
 
 
 
@@ -176,33 +175,30 @@
     <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            CSS Grid Layout Module 格線佈局 (2) Masonry 瀑布流應用
+            TypeScript 學習筆記：Interface V.S. Type
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         
             <span class="column is-narrow article-category">
                 <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/CSS/">CSS</a>
+                <a class="article-category-link" href="/categories/Typescript/">Typescript</a>
             </span>
             <span class="column is-narrow">｜</span>
         
         <span class="column is-narrow">
             
-                <span>2023-05-23</span>
+                <span>2024-01-23</span>
             
         </span>
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 600px; max-width: 100%;" src="https://i.imgur.com/XdKc6zc.png">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/xOL2ava.png">
 </div>
 
-<p><a href="https://clairechang.tw/2023/05/19/css/css-grid-layout/">上一篇文章</a> 介紹了 CSS Grid，接下來運用網格系統來實作瀑布流版面。</p>
-<p>瀑布流（Waterfall Flow）是一種網頁佈局的設計方式。瀑布流的特點是將內容項目垂直排列，並根據可用的空間進行自適應調整，形成像瀑布一樣的流動效果 。</p>
-<p>瀑布流佈局中，每個元素的寬度通常是固定的，但高度會根據內容的大小變化。這樣可以使元素在垂直方向上緊密堆疊，填滿可用空間。當一列的空間被填滿後，下一個元素會自動排列到空間較少的列中，達到均衡的排版。</p>
-<p>透過 CSS Grid 或 Flexbox 可以達成瀑布流佈局的效果，本篇會使用 CSS Grid 搭配 JavaScript 來完成實作。</p></body></html>
+<p><code>Interface</code> 和 <code>Type</code> 是用來定義型別的兩種語法，那麼兩者又有什麼區別呢？</p></body></html>
         <div class="ad-wrap">
             <small class="ad-label">廣告</small>
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
@@ -211,57 +207,65 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
-        <html><head></head><body><blockquote class="colorquote info"><p>本篇作法無法達成轉場效果，如果想讓畫面轉換更加流暢，可以參考 <a href="https://clairechang.tw/2022/12/23/nuxt/nuxt-masonry/">這篇文章</a>（masonry-layout 套件運用）</p>
-</blockquote>
-
-<h2 id="概念解析"><a href="#概念解析" class="headerlink" title="概念解析"></a><strong>概念解析</strong></h2><p><strong>利用 CSS Grid 格線系統來達成瀑布流的效果：</strong></p>
+        <html><head></head><body><h2 id="Interface-介面"><a href="#Interface-介面" class="headerlink" title="Interface 介面"></a><strong>Interface 介面</strong></h2><hr>
 <ul>
-<li><code>grid-auto-rows</code> 設定列高</li>
-<li><code>grid-gap</code> 建立網格間距</li>
-<li>利用 Javascript 取得元素的高度，並計算 <code>grid-row-end</code> 屬性</li>
-<li>利用網格系統，每個元素會去找到空間使用最少的列，並排列在其後</li>
+<li>主要用於定義 <strong>「物件型別」</strong></li>
+<li>不能直接宣告基本型別、元組、列舉與聯合型別</li>
+<li>可以重複宣告，支援擴展與合併</li>
 </ul>
-<p>格線的結構如下圖：</p>
-<div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 600px; max-width: 100%;" src="https://i.imgur.com/yA4pjX4.png">
-</div>
+<h3 id="擴展（Extends）"><a href="#擴展（Extends）" class="headerlink" title="擴展（Extends）"></a><strong>擴展（Extends）</strong></h3><p>假設我們定義了一個 <code>Person</code> 介面</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Person</span> {<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a><strong>HTML</strong></h2><ul>
-<li>外層容器 <code>.container</code></li>
-<li>內層元素 <code>.item</code></li>
+<p>接著定義一個新介面，並透過 <code>extends</code> 擴充 <code>Person</code></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">User</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Person</span> {<br>  <span class="hljs-attr">id</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">createdAt</span>: <span class="hljs-built_in">string</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>使用 <code>User</code> 介面的資料，就必須包含 <code>name</code>、<code>age</code>、<code>id</code>、<code>createdAt</code> 參數</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">const</span> <span class="hljs-attr">user</span>: <span class="hljs-title class_">User</span> = {<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">'Daniel'</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-number">18</span>,<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">123</span>,<br>  <span class="hljs-attr">createdAt</span>: <span class="hljs-string">'2024-01-22'</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="合併（Merging）"><a href="#合併（Merging）" class="headerlink" title="合併（Merging）"></a><strong>合併（Merging）</strong></h3><p>介面可以被重複宣告，以下範例最後結果會是兩者合併</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Vehicle</span> {<br>  <span class="hljs-attr">id</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">brand</span>: <span class="hljs-built_in">string</span>;<br>}<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Vehicle</span> {<br>  <span class="hljs-attr">color</span>: <span class="hljs-built_in">string</span>;<br>  <span class="hljs-attr">isElectric</span>: <span class="hljs-built_in">boolean</span>;<br>}<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">car</span>: <span class="hljs-title class_">Vehicle</span> {<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">123</span>,<br>  <span class="hljs-attr">brand</span>: <span class="hljs-string">'audi'</span>,<br>  <span class="hljs-attr">color</span>: <span class="hljs-string">'white'</span>;<br>  <span class="hljs-attr">isElectric</span>: <span class="hljs-literal">false</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="Type-Aliases-型別別名"><a href="#Type-Aliases-型別別名" class="headerlink" title="Type Aliases 型別別名"></a><strong>Type Aliases 型別別名</strong></h2><hr>
+<ul>
+<li>用來賦予型別一個新的名稱</li>
+<li>可以直接宣告基本型別、元組、列舉、聯合型別、物件以及複雜型別</li>
+<li>不可以重複宣告，不支援擴展，但可以透過 <code>&amp;</code> 交集來組合型別</li>
 </ul>
-<figure class="highlight html hljs"><table><tbody><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>1.<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptatibus hic laborum ea maiores, harum nobis. Placeat numquam ad laboriosam esse est porro, cum deserunt velit libero beatae quam necessitatibus. Iste sapiente commodi est labore amet quae rerum magni! Alias eum molestias sint nostrum optio ipsam quia delectus sunt. Rerum<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>2.<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus dolore natus ea<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><br>    ...<br>        <br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>16.<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><br>            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi itaque veniam at labore consequuntur dicta adipisci ut laudantium deserunt<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
-
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a><strong>CSS</strong></h2><h3 id="外層容器"><a href="#外層容器" class="headerlink" title="外層容器"></a><strong>外層容器</strong></h3><ul>
-<li><code>auto-fill</code>：搭配 <code>repeat(count, value)</code> 函式使用，根據可用空間填滿欄或列</li>
-<li><code>minmax(min-value, max-value)</code>：指定範圍最小與最大值，自動調整欄或列的尺寸</li>
+<h3 id="宣告型別別名"><a href="#宣告型別別名" class="headerlink" title="宣告型別別名"></a>宣告<strong>型別別名</strong></h3><ul>
+<li><p><strong>基本型別</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Num</span> = <span class="hljs-built_in">number</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">num</span>: <span class="hljs-title class_">Num</span> = <span class="hljs-number">123</span>;<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>元組</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Arr</span> = [ <span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span> ];<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">arr</span>: <span class="hljs-title class_">Arr</span> = [ <span class="hljs-string">'Daniel'</span>, <span class="hljs-number">18</span> ];<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>聯合型別</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">UserId</span> = <span class="hljs-built_in">number</span> | <span class="hljs-built_in">string</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">userId</span>: <span class="hljs-title class_">UserId</span> = <span class="hljs-number">123</span>;<br>userId = <span class="hljs-string">'123'</span>;<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>列舉</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">ColorChart</span> {<br>  <span class="hljs-title class_">Red</span> = <span class="hljs-string">'red'</span>,<br>  <span class="hljs-title class_">Blue</span> = <span class="hljs-string">'blue'</span>,<br>  <span class="hljs-title class_">Green</span> = <span class="hljs-string">'green'</span><br>}<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Color</span> = <span class="hljs-title class_">ColorChart</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">color</span>: <span class="hljs-title class_">Color</span> = <span class="hljs-title class_">ColorChart</span>.<span class="hljs-property">Red</span>;<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>物件</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Obj</span> = {<br>  <span class="hljs-attr">id</span>: <span class="hljs-built_in">number</span>,<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span><br>}<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">obj</span>: <span class="hljs-title class_">Obj</span> = {<br>  <span class="hljs-attr">id</span>: <span class="hljs-number">111</span>,<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">'Daniel'</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>Mapped Types</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Person</span> = {<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>,<br>  <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span>,<br>  <span class="hljs-attr">address</span>: <span class="hljs-built_in">string</span><br>};<br><br><span class="hljs-comment">// 將 Person 型別中各屬性調整為可選</span><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">PartialPerson</span> = {<br>  [K <span class="hljs-keyword">in</span> keyof <span class="hljs-title class_">Person</span>]?: <span class="hljs-title class_">Person</span>[K];<br>};<br></code></pre></td></tr></tbody></table></figure></li>
 </ul>
-<figure class="highlight scss hljs"><table><tbody><tr><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> {<br>    <span class="hljs-attribute">display</span>: grid;<br>    <span class="hljs-attribute">grid-gap</span>: <span class="hljs-number">1rem</span>;<br>    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(auto-fill, <span class="hljs-built_in">minmax</span>(<span class="hljs-number">250px</span>, <span class="hljs-number">1</span>fr));<br>    <span class="hljs-attribute">grid-auto-rows</span>: <span class="hljs-number">1rem</span>;<br>}<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="交集（Intersection）與聯集（Union）"><a href="#交集（Intersection）與聯集（Union）" class="headerlink" title="交集（Intersection）與聯集（Union）"></a><strong>交集（Intersection）與聯集（Union）</strong></h3><p>透過交集（<code>&amp;</code>）或聯集（<code>|</code>）來組合型別</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">DataA</span> = {<br>  <span class="hljs-attr">a</span>: <span class="hljs-built_in">number</span><br>};<br><span class="hljs-keyword">type</span> <span class="hljs-title class_">DataB</span> = {<br>  <span class="hljs-attr">b</span>: <span class="hljs-built_in">string</span><br>};<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Combined</span> = <span class="hljs-title class_">DataA</span> &amp; <span class="hljs-title class_">DataB</span>; <span class="hljs-comment">// Intersection</span><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Either</span> = <span class="hljs-title class_">DataA</span> | <span class="hljs-title class_">DataB</span>; <span class="hljs-comment">// Union</span><br></code></pre></td></tr></tbody></table></figure>
 
-<h3 id="內層元素"><a href="#內層元素" class="headerlink" title="內層元素"></a><strong>內層元素</strong></h3><ul>
-<li><code>grid-row-end</code>：透過 Javascript 動態計算</li>
+<h3 id="不能重複宣告"><a href="#不能重複宣告" class="headerlink" title="不能重複宣告"></a><strong>不能重複宣告</strong></h3><p>重複宣告會拋錯</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Vehicle</span> = {<br>  <span class="hljs-attr">id</span>: <span class="hljs-built_in">number</span>,<br>  <span class="hljs-attr">brand</span>: <span class="hljs-built_in">string</span><br>}<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Vehicle</span> = { <span class="hljs-comment">// Duplicate identifier 'Vehicle'</span><br>  <span class="hljs-attr">color</span>: <span class="hljs-built_in">string</span>,<br>  <span class="hljs-attr">isElectric</span>: <span class="hljs-built_in">boolean</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="Interface-amp-Type-使用時機"><a href="#Interface-amp-Type-使用時機" class="headerlink" title="Interface &amp; Type 使用時機"></a><strong>Interface &amp; Type 使用時機</strong></h2><hr>
+<ul>
+<li><code>Type</code> 可以直接定義原始型別、元組、列舉、聯合型別、函式、物件等</li>
+<li><code>Interface</code> 只能定義物件</li>
+<li>物件並且可以被擴充，使用 <code>Interface</code> 可讀性較高，<code>extends</code> 語意上也較直觀</li>
+<li>開發第三方套件，型別定義使用 <code>Interface</code>，使用者能彈性的擴充屬性</li>
 </ul>
-<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a><strong>Javascript</strong></h2><ul>
-<li>rowHeight：取得 <code>grid-auto-rows</code> 值</li>
-<li>rowGap：取得 <code>grid-row-gap</code> 值</li>
-<li>透過 <code>getBoundingClientRect().height</code> 取得元素的高度</li>
-<li>利用以上值計算元素 <code>grid-row-end: span &lt;number&gt;</code>：<number> 表示所佔列數，根據起始位置往後推算</number></li>
-<li>監聽螢幕 resize 事件，重新計算元素高度</li>
-</ul>
-<blockquote class="colorquote info"><p><strong>getBoundingClientRect().height vs offsetHeight：</strong><br>getBoundingClientRect().height 取得的是相對於螢幕視窗的可視高（渲染後的結果），而 offsetHeight 取得的是元素完整高，getBoundingClientRect().height 會受到 <code>transform</code> 影響，例如元素設定高度 100px 以及 <code>transform: scale(0.5);</code>，getBoundingClientRect().height 得到 50，而 offsetHeight 得到的是 100</p>
-</blockquote>
-
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> grid = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">".container"</span>);<br><span class="hljs-keyword">const</span> style = <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">getComputedStyle</span>(grid);<br><span class="hljs-keyword">const</span> allItems = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">".item"</span>);<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">resizeGridItem</span> = (<span class="hljs-params">item</span>) =&gt; {<br>    rowHeight = <span class="hljs-built_in">parseInt</span>(style.<span class="hljs-title function_">getPropertyValue</span>(<span class="hljs-string">"grid-auto-rows"</span>));<br>    rowGap = <span class="hljs-built_in">parseInt</span>(style.<span class="hljs-title function_">getPropertyValue</span>(<span class="hljs-string">"grid-row-gap"</span>));<br>    rowSpan = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">ceil</span>((item.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">".content"</span>).<span class="hljs-title function_">getBoundingClientRect</span>().<span class="hljs-property">height</span> + rowGap) / (rowHeight + rowGap));<br>    item.<span class="hljs-property">style</span>.<span class="hljs-property">gridRowEnd</span> = <span class="hljs-string">`span <span class="hljs-subst">${rowSpan}</span>`</span>;<br>}<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">resizeAllGridItems</span> = (<span class="hljs-params"></span>) =&gt; {<br>    allItems.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">ele</span> =&gt;</span> {<br>        <span class="hljs-title function_">resizeGridItem</span>(ele);<br>    });<br>}<br><br><span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = <span class="hljs-title function_">resizeAllGridItems</span>();<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">"resize"</span>, resizeAllGridItems);<br></code></pre></td></tr></tbody></table></figure>
-
-<h2 id="範例程式碼"><a href="#範例程式碼" class="headerlink" title="範例程式碼"></a><strong>範例程式碼</strong></h2><iframe height="470" style="width: 100%;" scrolling="no" title="CSS Grid Layout Masonry" src="https://codepen.io/claire-chang-the-bashful/embed/zYmyZjB?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a target="_blank" rel="external nofollow noopener noreferrer" href="https://codepen.io/claire-chang-the-bashful/pen/zYmyZjB">
-  CSS Grid Layout Masonry</a> by Claire Chang (<a target="_blank" rel="external nofollow noopener noreferrer" href="https://codepen.io/claire-chang-the-bashful">@claire-chang-the-bashful</a>)
-  on <a target="_blank" rel="external nofollow noopener noreferrer" href="https://codepen.io">CodePen</a>.
-</iframe>
-
 <hr>
-<p>參考文章：</p>
-<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/">https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb">https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb</a></p></body></html>
+<p>參考資源：</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://hackmd.io/@hexschool/rJiN4vCup">https://hackmd.io/@hexschool/rJiN4vCup</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript">https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.logrocket.com/types-vs-interfaces-typescript/">https://blog.logrocket.com/types-vs-interfaces-typescript/</a></p></body></html>
         <div class="ad-wrap">
             <small class="ad-label">廣告</small>
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
@@ -293,22 +297,18 @@
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/css/">#css</a></span>
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/masonry/">#masonry</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/typescript/">#typescript</a></span>
     
     </div>
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
-            <a href="/2023/05/19/css/css-grid-layout/">CSS Grid Layout Module 格線佈局 (1) 完整介紹與範例</a>
+            <a href="/2023/10/27/nuxt3/nuxt-v3-devtools/">Nuxt.js 3.x Nuxt DevTools 提升開發者體驗</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/2023/05/24/css/css-grid-responsive-table/">CSS Grid Layout Module 格線佈局 (3) Responsive Table 響應式表格應用</a>
             
         </span>
     </div>

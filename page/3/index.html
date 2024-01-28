@@ -171,6 +171,52 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/08/14/nuxt3/nuxt-v3-state-management-usestate/" itemprop="url">Nuxt.js 3.x 狀態管理 State Management (1)－useState</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-08-14</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10331341">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/pdTkxrx.png">
+</div>
+
+<p>專案開發過程中常會有狀態共享的需求。父子元件間資料傳遞可以使用 Props 和 $emit，或是 Provide 和 Inject（<a href="https://clairechang.tw/2023/01/13/vue/vue-communications/">參考文章</a>），先前在 Nuxt2 介紹了 VueX 管理工具搭配 vuex-persistedstate 保存狀態（<a href="https://clairechang.tw/2022/11/22/nuxt/nuxt-vuex-store/">參考文章</a>），接下來說明如何在 Nuxt3 利用更便利高效的方式管理共享狀態。</p>
+<p>狀態管理預計分為以下三篇說明，<strong>本篇將介紹</strong> <code>useState</code>：</p>
+<p><strong>1. useState：</strong>Nuxt Composable<br><strong>2. Pinia：</strong>Vue.js 狀態管理工具 <a href="https://clairechang.tw/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/">連結</a><br><strong>3. pinia-plugin-persistedstate：</strong>維持 Store 狀態 <a href="https://clairechang.tw/2023/08/16/nuxt3/nuxt-v3-state-management-persistedstate/">連結</a></p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/08/14/nuxt3/nuxt-v3-state-management-usestate/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/08/08/nuxt3/nuxt-v3-ckeditor5/" itemprop="url">Nuxt.js 3.x 套件應用－CKEditor 5 文字編輯器（搭配 Vite 開發）</a>
         
     </h1>
@@ -585,53 +631,6 @@
 </ul></body></html>
         <p class="article-more-link">
             <a href="/2023/06/30/nuxt3/nuxt-v3-typescript-and-eslint/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/06/28/web/github-pages-with-custom-domain/" itemprop="url">GitHub Pages 自訂域名與 HTTPS 設定（GoDaddy + Cloudflare）</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Web/">Web</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-06-28</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 0 0 30px;">
-    <img style="width: 100%; max-width: 100%;" src="https://imgur.com/4nmO3WX.png">
-</div>
-
-<p>2022 年底開始在 GitHub 經營了個人部落格，使用免費域名一段時間後，覺得 SEO（搜尋引擎優化）的成效不如預期，因此決定購買自己的網域，來提升部落格的專業度和可信度。</p>
-<p>以下介紹：</p>
-<p><strong>Step 1、購買網域名稱：</strong>使用 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://tw.godaddy.com/">GoDaddy</a></p>
-<p><strong>Step 2、DNS 網域託管：</strong>使用 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cloudflare.com/zh-tw/">Cloudflare</a></p>
-<p><strong>Step 3、Cloudflare DNS 設定</strong></p>
-<p><strong>Step 4、GitHub 設定網域</strong></p>
-<p><strong>Step 5、替網站加上 Https、設定 SSL 加密</strong></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/06/28/web/github-pages-with-custom-domain/#more">閱讀更多</a>
         </p>
     
     </div>

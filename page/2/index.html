@@ -171,6 +171,50 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/09/04/nuxt3/nuxt-v3-server/" itemprop="url">Nuxt.js 3.x Server 目錄－建立 API</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-09-04</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10327264">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<p>Nuxt3 搭配了新的伺服器引擎 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nitro.unjs.io/">Nitro</a>，讓我們能輕鬆在 Nuxt 專內建立 Server API。Nitro 的優點包含跨平台支援 Node.js 與瀏覽器、支援 HMR、自動生成 API 路由等，讓 Nuxt 具備全端功能，接下來一起進行實作吧。</p>
+<h2 id="建立-API"><a href="#建立-API" class="headerlink" title="建立 API"></a><strong>建立 API</strong></h2><ul>
+<li>在 <code>server/</code> 目錄建立 API，Nuxt 會依據資料夾結構自動生成 API 路徑</li>
+<li>使用 <code>defineEventHandler()</code> 建立事件處理器</li>
+</ul></body></html>
+        <p class="article-more-link">
+            <a href="/2023/09/04/nuxt3/nuxt-v3-server/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/09/01/nuxt3/nuxt-v3-layouts/" itemprop="url">Nuxt.js 3.x Layouts 目錄－自訂模板</a>
         
     </h1>
@@ -559,52 +603,6 @@
 <p><strong>1. useState：</strong>Nuxt Composable <a href="https://clairechang.tw/2023/08/14/nuxt3/nuxt-v3-state-management-usestate/">連結</a><br><strong>2. Pinia：</strong>Vue.js 狀態管理工具<br><strong>3. pinia-plugin-persistedstate：</strong>維持 Store 狀態 <a href="https://clairechang.tw/2023/08/16/nuxt3/nuxt-v3-state-management-persistedstate/">連結</a></p></body></html>
         <p class="article-more-link">
             <a href="/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/14/nuxt3/nuxt-v3-state-management-usestate/" itemprop="url">Nuxt.js 3.x 狀態管理 State Management (1)－useState</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-08-14</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10331341">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<div style="display: flex; justify-content: center; margin: 30px 0;">
-  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/pdTkxrx.png">
-</div>
-
-<p>專案開發過程中常會有狀態共享的需求。父子元件間資料傳遞可以使用 Props 和 $emit，或是 Provide 和 Inject（<a href="https://clairechang.tw/2023/01/13/vue/vue-communications/">參考文章</a>），先前在 Nuxt2 介紹了 VueX 管理工具搭配 vuex-persistedstate 保存狀態（<a href="https://clairechang.tw/2022/11/22/nuxt/nuxt-vuex-store/">參考文章</a>），接下來說明如何在 Nuxt3 利用更便利高效的方式管理共享狀態。</p>
-<p>狀態管理預計分為以下三篇說明，<strong>本篇將介紹</strong> <code>useState</code>：</p>
-<p><strong>1. useState：</strong>Nuxt Composable<br><strong>2. Pinia：</strong>Vue.js 狀態管理工具 <a href="https://clairechang.tw/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/">連結</a><br><strong>3. pinia-plugin-persistedstate：</strong>維持 Store 狀態 <a href="https://clairechang.tw/2023/08/16/nuxt3/nuxt-v3-state-management-persistedstate/">連結</a></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/14/nuxt3/nuxt-v3-state-management-usestate/#more">閱讀更多</a>
         </p>
     
     </div>
