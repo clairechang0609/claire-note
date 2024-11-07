@@ -171,6 +171,47 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/03/22/typescript/ts-advance/" itemprop="url">TypeScript 學習筆記：進階應用</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Typescript/">Typescript</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-03-22</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><h3 id="Type-Inference-型別推論"><a href="#Type-Inference-型別推論" class="headerlink" title="Type Inference 型別推論"></a><strong>Type Inference 型別推論</strong></h3><p>如果沒有明確的指定型別，TypeScript 會依照<strong>『型別推論』</strong>的規則推斷出型別</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 自動判定 string 型別</span><br><span class="hljs-keyword">let</span> num = <span class="hljs-string">'hello'</span>;<br>num = <span class="hljs-number">777</span>;<br><span class="hljs-comment">// Type 'number' is not assignable to type 'string'.</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>如果定義的時候沒有賦值，會被推斷為 any 型別</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 自動判定 any 型別</span><br><span class="hljs-keyword">let</span> something;<br>something = <span class="hljs-number">777</span>;<br>something = <span class="hljs-string">'777'</span>;<br></code></pre></td></tr></tbody></table></figure></body></html>
+        <p class="article-more-link">
+            <a href="/2023/03/22/typescript/ts-advance/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/03/21/typescript/ts-about-types/" itemprop="url">TypeScript 學習筆記：基本介紹與型別</a>
         
     </h1>
@@ -535,50 +576,6 @@
 <p>Lazy Loading 是常見的圖片優化技巧，在使用大量圖片的網站尤其適用，可以提升網頁載入速度，節省流量的浪費，Google Lighthouse 也顯示此為有效提升評分的方式，言下之意會影響到 Google 搜索排名，本文介紹如何搭配套件 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/aFarkas/lazysizes">lazysizes</a> 使用。</p></body></html>
         <p class="article-more-link">
             <a href="/2023/02/02/nuxt/nuxt-lazy-loading/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/01/16/vue/vue-custom-directives/" itemprop="url">Vue.js Custom Directives 自訂指令</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Vue/">Vue</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-01-16</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p><strong>版本：Vue 3.2.x</strong></p>
-</blockquote>
-<p>除了 Vue 內建的系列指令，像是 <code>v-model</code>, <code>v-for</code>, <code>v-show</code> 等，我們也可以使用 Vue directives 自訂指令，將 DOM 元素和元件進行動態綁定，並對其進行操作，提高程式碼的可複用性</p>
-<h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a><strong>結構</strong></h2><ol>
-<li>呼叫 <code>v-自訂名稱</code> 指令來綁定 DOM 元素</li>
-<li>透過類似元件的生命週期鉤子（Lifecycle Hooks）來定義指令（EX：mounted, updated…），並觸發更新</li>
-</ol></body></html>
-        <p class="article-more-link">
-            <a href="/2023/01/16/vue/vue-custom-directives/#more">閱讀更多</a>
         </p>
     
     </div>

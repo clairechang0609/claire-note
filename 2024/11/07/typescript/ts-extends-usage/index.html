@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>文章 - Claire&#39;s Notes</title>
+<title>TypeScript extends 的三種用法 - Claire&#39;s Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -11,13 +11,16 @@
 
 
     <meta name="description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Claire&#39;s Notes">
-<meta property="og:url" content="https://clairechang.tw/archives/page/7/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript extends 的三種用法">
+<meta property="og:url" content="https://clairechang.tw/2024/11/07/typescript/ts-extends-usage/index.html">
 <meta property="og:site_name" content="Claire&#39;s Notes">
 <meta property="og:description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2024-11-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-07T16:23:57.183Z">
 <meta property="article:author" content="Claire Chang">
+<meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
 
 
@@ -167,107 +170,187 @@
 </nav>
     <section class="section">
     <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            TypeScript extends 的三種用法
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/Typescript/">Typescript</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2024-11-07</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-    
-        <div class="archive content">
-            <h4 class="title is-4" id="2023">2023</h4>
-            <div class="articles">
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-01-15T16:00:00.000Z" itemprop="datePublished">
-                        01-16</time>
-                    <h6 class="title is-6"><a href="/2023/01/16/vue/vue-custom-directives/">Vue.js Custom Directives 自訂指令</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-01-12T16:00:00.000Z" itemprop="datePublished">
-                        01-13</time>
-                    <h6 class="title is-6"><a href="/2023/01/13/vue/vue-communications/">Vue.js Props, $emit, Provide, Inject 父子元件資料傳遞</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-01-09T16:00:00.000Z" itemprop="datePublished">
-                        01-10</time>
-                    <h6 class="title is-6"><a href="/2023/01/10/vue/vue-recursive-component/">Vue.js Recursive Component 遞迴元件實作巢狀選單</a></h6>
-                </div>
-            
-            </div>
+        <html><head></head><body><p>TypeScript <code>extends</code> 有三種用法，語義和應用場景上有所不同，因此筆記起來讓自己參考使用。</p>
+<h3 id="Extends-用法"><a href="#Extends-用法" class="headerlink" title="Extends 用法"></a><strong>Extends 用法</strong></h3><ul>
+<li><strong>介面繼承</strong></li>
+<li><strong>泛型約束</strong></li>
+<li><strong>條件判斷</strong></li>
+</ul></body></html>
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <html><head></head><body><hr>
+<h2 id="介面繼承"><a href="#介面繼承" class="headerlink" title="介面繼承"></a><strong>介面繼承</strong></h2><p><strong>用法：</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> B <span class="hljs-keyword">extends</span> A<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在介面繼承中，<code>extends</code> 用於建立<strong>子介面繼承父介面</strong>的關係，讓子介面自動擁有父介面的屬性和方法。這是用來組織結構的機制，使得子介面能夠在基礎之上擴展屬性。</p>
+<p><strong>範例：</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Role</span> {<br>  <span class="hljs-attr">id</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>}<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Admin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Role</span> {<br>  <span class="hljs-attr">permissions</span>: <span class="hljs-built_in">string</span>[];<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在這裡，<code>Admin</code> 繼承了 <code>Role</code>，並且另外增加 <code>permissions</code> 屬性。這種 <code>extends</code> 用法建立了一個結構性的繼承關係，僅適用於介面和類別之間的繼承。</p>
+<h2 id="泛型約束"><a href="#泛型約束" class="headerlink" title="泛型約束"></a><strong>泛型約束</strong></h2><p><strong>用法：</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx">T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">SomeType</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>在泛型的型別參數中，<code>extends</code> 用來限制泛型參數的型別範圍，確保泛型符合特定型別或結構。</p>
+<p><strong>範例：</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">function</span> printRole&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Role</span>&gt;(<span class="hljs-attr">role</span>: T): <span class="hljs-built_in">void</span> {<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(role.<span class="hljs-property">name</span>);<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在這裡，<code>T extends Role</code> 限制 <code>T</code> 必須符合 <code>Role</code> 的結構，這樣 <code>T</code> 才能被 <code>printRole</code> 函式使用。這種 <code>extends</code> 用法用於<strong>型別約束</strong>，並非建立繼承或子介面，只是限制了泛型的使用範圍。</p>
+<h2 id="條件判斷（Conditional-Types）"><a href="#條件判斷（Conditional-Types）" class="headerlink" title="條件判斷（Conditional Types）"></a><strong>條件判斷（Conditional Types）</strong></h2><p><strong>用法：</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx">T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">SomeType</span> ? <span class="hljs-title class_">TrueType</span> : <span class="hljs-title class_">FalseType</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>extends</code> 用來進行條件判斷時，類似於三元運算符 (<code>? :</code>) 用法。這樣可以根據型別是否符合某種結構來決定應用哪個型別。</p>
+<p><strong>範例：</strong></p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ExtractPromiseType</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Promise</span>&lt;infer U&gt; ? U : T;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>在這裡，<code>T extends Promise&lt;infer U&gt; ? U : T</code> 是一個條件型別，判斷 <code>T</code> 是否是 <code>Promise&lt;U&gt;</code>。如果是，則回傳 <code>U</code>；否則，回傳 <code>T</code> 本身。這個 <code>extends</code> 是用於型別判斷，而不是用來建立繼承或約束型別。</p>
+<p>要注意的是，TypeScript 型別不存在 <code>if / else</code> 以及 <code>switch</code> 判斷，因此只能多層的使用型別判斷。例如，判斷 HTTP 方法類型：</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">HttpMethod</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-string">"GET"</span><br>  ? <span class="hljs-string">"GET"</span><br>  : T <span class="hljs-keyword">extends</span> <span class="hljs-string">"POST"</span><br>  ? <span class="hljs-string">"POST"</span><br>  : T <span class="hljs-keyword">extends</span> <span class="hljs-string">"PUT"</span><br>  ? <span class="hljs-string">"PUT"</span><br>  : T <span class="hljs-keyword">extends</span> <span class="hljs-string">"DELETE"</span><br>  ? <span class="hljs-string">"DELETE"</span><br>  : <span class="hljs-string">"unknown"</span>;<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="比較表"><a href="#比較表" class="headerlink" title="比較表"></a><strong>比較表</strong></h3><table>
+<thead>
+<tr>
+<th>用法</th>
+<th>說明</th>
+<th>作用對象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>介面繼承</strong></td>
+<td>建立子介面繼承父介面的屬性和方法</td>
+<td>介面與介面、類別與介面</td>
+</tr>
+<tr>
+<td><strong>泛型約束</strong></td>
+<td>限制泛型的型別範圍，使泛型符合某結構</td>
+<td>泛型參數</td>
+</tr>
+<tr>
+<td><strong>條件判斷</strong></td>
+<td>用來判斷型別結構，根據條件決定回傳的型別</td>
+<td>任意型別（泛型判斷等）</td>
+</tr>
+</tbody></table>
+<hr>
+<p>參考資源：</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://chentsulin.medium.com/typescript-infer-%E7%9A%84%E5%BC%B7%E5%A4%A7%E5%8A%9F%E7%94%A8-9b43c4eac6fb">https://chentsulin.medium.com/typescript-infer-的強大功用-9b43c4eac6fb</a></p></body></html>
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     
-        <div class="archive content">
-            <h4 class="title is-4" id="2022">2022</h4>
-            <div class="articles">
+    </div>
+    
+        <div>
+            <script type="text/javascript">
+                document.write(
+                "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/claire060900874511/button?referrer=" +
+                encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+            </script>
+        <div>
+    
+    
+    
+    <div class="sharebox">
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=638b091d4b058f001938c857&amp;product=sop" async="async"></script>
+
+    </div>
+    
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/typescript/">#typescript</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-12-28T16:00:00.000Z" itemprop="datePublished">
-                        12-29</time>
-                    <h6 class="title is-6"><a href="/2022/12/29/nuxt/nuxt-loading/">Nuxt.js 自訂頁面 Loading 效果</a></h6>
-                </div>
+            <a href="/2024/01/23/typescript/ts-interface-vs-type/">TypeScript 學習筆記：Interface V.S. Type</a>
             
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-12-22T16:00:00.000Z" itemprop="datePublished">
-                        12-23</time>
-                    <h6 class="title is-6"><a href="/2022/12/23/nuxt/nuxt-masonry/">Nuxt.js 套件應用：Masonry 打造瀑布流版面</a></h6>
-                </div>
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-12-21T16:00:00.000Z" itemprop="datePublished">
-                        12-22</time>
-                    <h6 class="title is-6"><a href="/2022/12/22/nuxt/nuxt-bootstrap5/">Nuxt.js 套件應用：Bootstrap 5 搭配 SCSS 打造網頁 UI</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-12-17T16:00:00.000Z" itemprop="datePublished">
-                        12-18</time>
-                    <h6 class="title is-6"><a href="/2022/12/18/nuxt/nuxt-redirect/">Nuxt.js 實作 301 轉址（301 Redirect）</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-12-16T16:00:00.000Z" itemprop="datePublished">
-                        12-17</time>
-                    <h6 class="title is-6"><a href="/2022/12/17/nuxt/nuxt-veevalidate/">Nuxt.js 套件應用：VeeValidate 表單驗證</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-12-14T16:00:00.000Z" itemprop="datePublished">
-                        12-15</time>
-                    <h6 class="title is-6"><a href="/2022/12/15/nuxt/nuxt-sitemap/">Nuxt.js 替網站增加 sitemap 網站地圖</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2022-12-13T16:00:00.000Z" itemprop="datePublished">
-                        12-14</time>
-                    <h6 class="title is-6"><a href="/2022/12/14/nuxt/nuxt-ga-and-gtm/">Nuxt.js 設定 GA &amp; GTM</a></h6>
-                </div>
-            
-            </div>
+        </span>
+    </div>
+    
+</div></div></article>
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    <!-- 
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div> -->
+    <style>
+        .utterances{max-width: 100%;}
+    </style>
+    <script src="https://utteranc.es/client.js" repo="clairechang0609/hexo-board" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+    </script>
+</div>
+    
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     
-    
-    
-<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-    <div class="pagination-previous">
-        <a href="/archives/page/6/">上一頁</a>
+
     </div>
-    <div class="pagination-next">
-        <a href="/archives/page/8/">下一頁</a>
-    </div>
-    <ul class="pagination-list is-hidden-mobile">
-        
-        <li><a class="pagination-link" href="/archives/">1</a></li>
-        
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        
-        <li><a class="pagination-link" href="/archives/page/6/">6</a></li>
-        
-        <li><a class="pagination-link is-current" href="/archives/page/7/">7</a></li>
-        
-        <li><a class="pagination-link" href="/archives/page/8/">8</a></li>
-        
-    </ul>
-</nav>
     
-    </div>
+        <div class="vertical-ad">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <!-- 直式廣告 -->
+            <ins class="adsbygoogle" style="display:inline-block; width:100%; height:400px;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="7146536898" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    
 </section>
     <footer class="footer">
     <div class="container">

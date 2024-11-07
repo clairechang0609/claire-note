@@ -171,6 +171,48 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/05/10/webrtc/webrtc-group-chat/" itemprop="url">WebRTC 學習筆記 (4) 實作多方視訊聊天室</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-category-link" href="/categories/WebRTC/">WebRTC</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            
+                <span>2023-05-10</span>
+            
+        </span>
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><div style="display: flex; justify-content: center; margin: 30px 0;">
+    <img style="width: 100%; max-width: 500px;" src="https://i.imgur.com/GqA532q.png">
+</div>
+
+<p>本篇是視訊聊天室的進階版本，必須先掌握 <a href="https://clairechang.tw/2023/05/02/webrtc/webrtc-video-chat/">一對一視訊聊天室</a> 介紹的相關知識，才能更快理解本篇的實作內容～</p>
+<h2 id="視訊情境"><a href="#視訊情境" class="headerlink" title="視訊情境"></a><strong>視訊情境</strong></h2><p>多個裝置 A、B、C …… 想要進行多方視訊聊天，可以隨時進入聊天室，不需要特定的順序</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/05/10/webrtc/webrtc-group-chat/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/05/03/webrtc/media-stream-record-and-download/" itemprop="url">WebRTC 學習筆記 (3) 錄製／下載影音串流</a>
         
     </h1>
@@ -555,47 +597,6 @@
 <h3 id="Record-lt-Keys-Type-gt"><a href="#Record-lt-Keys-Type-gt" class="headerlink" title="Record<Keys, Type>"></a><strong>Record&lt;Keys, Type&gt;</strong></h3><figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">CatInfo</span> {<br>    <span class="hljs-attr">age</span>: <span class="hljs-built_in">number</span>;<br>    <span class="hljs-attr">breed</span>: <span class="hljs-built_in">string</span>;<br>}<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">CatName</span> = <span class="hljs-string">'miffy'</span> | <span class="hljs-string">'boris'</span> | <span class="hljs-string">'mordred'</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-attr">cats</span>: <span class="hljs-title class_">Record</span>&lt;<span class="hljs-title class_">CatName</span>, <span class="hljs-title class_">CatInfo</span>&gt; = {<br>    <span class="hljs-attr">miffy</span>: { <span class="hljs-attr">age</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">breed</span>: <span class="hljs-string">'Persian'</span> },<br>    <span class="hljs-attr">boris</span>: { <span class="hljs-attr">age</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">breed</span>: <span class="hljs-string">'Maine Coon'</span> },<br>    <span class="hljs-attr">mordred</span>: { <span class="hljs-attr">age</span>: <span class="hljs-number">16</span>, <span class="hljs-attr">breed</span>: <span class="hljs-string">'British Shorthair'</span> }<br>}<br></code></pre></td></tr></tbody></table></figure></body></html>
         <p class="article-more-link">
             <a href="/2023/03/23/typescript/ts-utility-types/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/03/22/typescript/ts-advance/" itemprop="url">TypeScript 學習筆記：進階應用</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-category-link" href="/categories/Typescript/">Typescript</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            
-                <span>2023-03-22</span>
-            
-        </span>
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><h3 id="Type-Inference-型別推論"><a href="#Type-Inference-型別推論" class="headerlink" title="Type Inference 型別推論"></a><strong>Type Inference 型別推論</strong></h3><p>如果沒有明確的指定型別，TypeScript 會依照<strong>『型別推論』</strong>的規則推斷出型別</p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 自動判定 string 型別</span><br><span class="hljs-keyword">let</span> num = <span class="hljs-string">'hello'</span>;<br>num = <span class="hljs-number">777</span>;<br><span class="hljs-comment">// Type 'number' is not assignable to type 'string'.</span><br></code></pre></td></tr></tbody></table></figure>
-
-<p>如果定義的時候沒有賦值，會被推斷為 any 型別</p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 自動判定 any 型別</span><br><span class="hljs-keyword">let</span> something;<br>something = <span class="hljs-number">777</span>;<br>something = <span class="hljs-string">'777'</span>;<br></code></pre></td></tr></tbody></table></figure></body></html>
-        <p class="article-more-link">
-            <a href="/2023/03/22/typescript/ts-advance/#more">閱讀更多</a>
         </p>
     
     </div>
