@@ -18,7 +18,7 @@
 <meta property="og:description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-11-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-11-07T16:23:57.183Z">
+<meta property="article:modified_time" content="2024-11-11T15:10:01.118Z">
 <meta property="article:author" content="Claire Chang">
 <meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
@@ -206,33 +206,39 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>
-        <html><head></head><body><hr>
-<h2 id="介面繼承"><a href="#介面繼承" class="headerlink" title="介面繼承"></a><strong>介面繼承</strong></h2><p><strong>用法：</strong></p>
+        <html><head></head><body><h2 id="介面繼承"><a href="#介面繼承" class="headerlink" title="介面繼承"></a><strong>介面繼承</strong></h2><p><strong>用法：</strong></p>
 <figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> B <span class="hljs-keyword">extends</span> A<br></code></pre></td></tr></tbody></table></figure>
 
 <p>在介面繼承中，<code>extends</code> 用於建立<strong>子介面繼承父介面</strong>的關係，讓子介面自動擁有父介面的屬性和方法。這是用來組織結構的機制，使得子介面能夠在基礎之上擴展屬性。</p>
 <p><strong>範例：</strong></p>
+<p><code>Admin</code> 繼承了 <code>Role</code>，並且另外增加 <code>permissions</code> 屬性。這種 <code>extends</code> 用法建立了一個結構性的繼承關係，僅適用於介面和類別之間的繼承。</p>
 <figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Role</span> {<br>  <span class="hljs-attr">id</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;<br>}<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Admin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Role</span> {<br>  <span class="hljs-attr">permissions</span>: <span class="hljs-built_in">string</span>[];<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p>在這裡，<code>Admin</code> 繼承了 <code>Role</code>，並且另外增加 <code>permissions</code> 屬性。這種 <code>extends</code> 用法建立了一個結構性的繼承關係，僅適用於介面和類別之間的繼承。</p>
+<hr>
 <h2 id="泛型約束"><a href="#泛型約束" class="headerlink" title="泛型約束"></a><strong>泛型約束</strong></h2><p><strong>用法：</strong></p>
 <figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx">T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">SomeType</span><br></code></pre></td></tr></tbody></table></figure>
 
 <p>在泛型的型別參數中，<code>extends</code> 用來限制泛型參數的型別範圍，確保泛型符合特定型別或結構。</p>
 <p><strong>範例：</strong></p>
+<p>在這裡，<code>T extends Role</code> 限制 <code>T</code> 必須符合 <code>Role</code> 的結構，這樣 <code>T</code> 才能被 <code>printRole</code> 函式使用。這種 <code>extends</code> 用法用於<strong>型別約束</strong>，並非建立繼承或子介面，只是限制了泛型的使用範圍。</p>
 <figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">function</span> printRole&lt;T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Role</span>&gt;(<span class="hljs-attr">role</span>: T): <span class="hljs-built_in">void</span> {<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(role.<span class="hljs-property">name</span>);<br>}<br></code></pre></td></tr></tbody></table></figure>
 
-<p>在這裡，<code>T extends Role</code> 限制 <code>T</code> 必須符合 <code>Role</code> 的結構，這樣 <code>T</code> 才能被 <code>printRole</code> 函式使用。這種 <code>extends</code> 用法用於<strong>型別約束</strong>，並非建立繼承或子介面，只是限制了泛型的使用範圍。</p>
+<hr>
 <h2 id="條件判斷（Conditional-Types）"><a href="#條件判斷（Conditional-Types）" class="headerlink" title="條件判斷（Conditional Types）"></a><strong>條件判斷（Conditional Types）</strong></h2><p><strong>用法：</strong></p>
 <figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx">T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">SomeType</span> ? <span class="hljs-title class_">TrueType</span> : <span class="hljs-title class_">FalseType</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p><code>extends</code> 用來進行條件判斷時，類似於三元運算符 (<code>? :</code>) 用法。這樣可以根據型別是否符合某種結構來決定應用哪個型別。</p>
+<p>這個 <code>extends</code> 表達式用於條件型別判斷，而不是用來建立繼承或約束型別。<code>extends</code> 用來進行條件判斷時，類似於三元運算符 (<code>? :</code>) 用法。這樣可以根據型別 <code>T</code> 是否符合 <code>SomeType</code> 的結構來決定回傳 <code>TrueType</code> 還是 <code>FalseType</code>。</p>
 <p><strong>範例：</strong></p>
-<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ExtractPromiseType</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Promise</span>&lt;infer U&gt; ? U : T;<br></code></pre></td></tr></tbody></table></figure>
+<p>以下範例，<code>T extends U ? never : T</code> 用來排除聯合型別 <code>T</code> 中的指定型別 <code>U</code>。TypeScript 的條件型別會對聯合型別的每個成員單獨應用條件，並將結果<strong>合併</strong>為一個新的聯合型別。</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Exclude</span>&lt;T, U&gt; = T <span class="hljs-keyword">extends</span> U ? <span class="hljs-built_in">never</span> : T;<br><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Result1</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-string">'a'</span> | <span class="hljs-string">'b'</span> | <span class="hljs-string">'c'</span>, <span class="hljs-string">'a'</span>&gt;; <span class="hljs-comment">// "b" | "c"</span><br><span class="hljs-keyword">type</span> <span class="hljs-title class_">Result2</span> = <span class="hljs-title class_">Exclude</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span> | <span class="hljs-built_in">boolean</span>, <span class="hljs-built_in">boolean</span>&gt;; <span class="hljs-comment">// string | number</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>在這裡，<code>T extends Promise&lt;infer U&gt; ? U : T</code> 是一個條件型別，判斷 <code>T</code> 是否是 <code>Promise&lt;U&gt;</code>。如果是，則回傳 <code>U</code>；否則，回傳 <code>T</code> 本身。這個 <code>extends</code> 是用於型別判斷，而不是用來建立繼承或約束型別。</p>
-<p>要注意的是，TypeScript 型別不存在 <code>if / else</code> 以及 <code>switch</code> 判斷，因此只能多層的使用型別判斷。例如，判斷 HTTP 方法類型：</p>
+<p>要注意的是，TypeScript 型別系統中並沒有 <code>if</code> / <code>else</code> 以及 <code>switch</code> 判斷，因此只能透過多層的條件型別來進行判斷。例如，判斷 HTTP 方法類型：</p>
 <figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">HttpMethod</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-string">"GET"</span><br>  ? <span class="hljs-string">"GET"</span><br>  : T <span class="hljs-keyword">extends</span> <span class="hljs-string">"POST"</span><br>  ? <span class="hljs-string">"POST"</span><br>  : T <span class="hljs-keyword">extends</span> <span class="hljs-string">"PUT"</span><br>  ? <span class="hljs-string">"PUT"</span><br>  : T <span class="hljs-keyword">extends</span> <span class="hljs-string">"DELETE"</span><br>  ? <span class="hljs-string">"DELETE"</span><br>  : <span class="hljs-string">"unknown"</span>;<br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="延伸：infer-在條件判斷中的型別推斷"><a href="#延伸：infer-在條件判斷中的型別推斷" class="headerlink" title="延伸：infer 在條件判斷中的型別推斷"></a><strong>延伸：infer 在條件判斷中的型別推斷</strong></h3><p>在符合條件的情況下，使用 <code>infer</code> 來進行型別推斷，提取型別使用。</p>
+<p><strong>範例：</strong></p>
+<p>以下條件型別判斷 <code>T</code> 是否是 <code>Promise&lt;U&gt;</code>。如果是，則回傳推斷出來的型別 <code>U</code>；否則，回傳 <code>T</code> 本身。</p>
+<figure class="highlight tsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">type</span> <span class="hljs-title class_">ExtractPromiseType</span>&lt;T&gt; = T <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Promise</span>&lt;infer U&gt; ? U : T;<br></code></pre></td></tr></tbody></table></figure>
 
 <hr>
 <h3 id="比較表"><a href="#比較表" class="headerlink" title="比較表"></a><strong>比較表</strong></h3><table>
@@ -246,17 +252,17 @@
 <tbody><tr>
 <td><strong>介面繼承</strong></td>
 <td>建立子介面繼承父介面的屬性和方法</td>
-<td>介面與介面、類別與介面</td>
+<td>介面繼承介面</td>
 </tr>
 <tr>
 <td><strong>泛型約束</strong></td>
 <td>限制泛型的型別範圍，使泛型符合某結構</td>
-<td>泛型參數</td>
+<td>泛型參數的型別限制</td>
 </tr>
 <tr>
 <td><strong>條件判斷</strong></td>
-<td>用來判斷型別結構，根據條件決定回傳的型別</td>
-<td>任意型別（泛型判斷等）</td>
+<td>判斷型別結構，並根據條件決定回傳的型別</td>
+<td>泛型參數的型別判斷</td>
 </tr>
 </tbody></table>
 <hr>
