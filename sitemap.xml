@@ -838,6 +838,13 @@
   </url>
   
   <url>
+    <loc>https://clairechang.tw/tags/typescript/</loc>
+    <lastmod>2024-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://clairechang.tw/tags/nuxt3/</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -866,27 +873,6 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/tags/nuxt/</loc>
-    <lastmod>2024-12-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/typescript/</loc>
-    <lastmod>2024-12-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://clairechang.tw/tags/vue3/</loc>
-    <lastmod>2024-12-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://clairechang.tw/tags/dns/</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -895,6 +881,13 @@
   
   <url>
     <loc>https://clairechang.tw/tags/github/</loc>
+    <lastmod>2024-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/tags/vue3/</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -938,13 +931,6 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/Nuxt3/</loc>
-    <lastmod>2024-12-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://clairechang.tw/categories/Typescript/</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -952,7 +938,7 @@
   </url>
   
   <url>
-    <loc>https://clairechang.tw/categories/Vue/</loc>
+    <loc>https://clairechang.tw/categories/Nuxt3/</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -960,6 +946,13 @@
   
   <url>
     <loc>https://clairechang.tw/categories/Web/</loc>
+    <lastmod>2024-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://clairechang.tw/categories/Vue/</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

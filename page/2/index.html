@@ -527,7 +527,7 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2023/08/22/nuxt3/nuxt-vs-vue/" itemprop="url">Nuxt.js vs Vue.js，淺談 SPA 與 SSR</a>
+            <a href="/2023/08/22/nuxt3/nuxt-vs-vue/" itemprop="url">Nuxt 與 Vue 比較，說明 SSR 基本概念</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
@@ -548,18 +548,25 @@
         </span>
 
         
+            <span class="column is-narrow">｜</span>
+            <span class="column is-narrow">
+                <i class="fas fa-sync-alt"></i>
+                <span class="article-item">
+                    2024-12-09
+                </span>
+            </span>
+        
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/users/20130500/ironman/6236">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<div style="display: flex; justify-content: center; margin: 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/EyMJEAV.png">
+        <html><head></head><body><div style="width: 100%; max-width: 600px; margin: 50px auto;">
+  <img style="width: 100%; max-width: 100%;" src="/images/nuxt3/nuxt-vs-vue/nuxt-vue.svg">
+  <small>source: Nuxt.js and Vue.js</small>
 </div>
 
-<p>提到 Nuxt.js，必須先從 Vue.js 說起，Vue.js 為專注在視圖層（View）的 Javascript 框架，為 SPA（Single Page Application）單頁應用程式，搜尋引擎爬蟲未能抓取到渲染後的 HTML 內容，因此 SEO（Search Engine Optimization）表現趨近於零。</p>
-<p>而 Nuxt.js 是基於 Vue.js 的框架，為通用渲染模式（Universal Rendering），結合了 SSR（Server Side Render）及 CSR（Client Side Render），搜尋引擎爬蟲可以取得 HTML 內容，大幅提升 SEO 表現。</p></body></html>
+<p>了解 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/">Nuxt.js</a> 之前，需先從 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://vuejs.org/">Vue.js</a> 說起。Vue.js 是一個專注於視圖層的 JavaScript 框架，用於建立單頁應用程式（SPA，Single Page Application）。在 SPA 架構中，使用者首次訪問網站時會下載一個 HTML 文件和所有的 JavaScript 資源，之後的頁面切換和更新都是透過 JavaScript 動態完成，這樣的設計可以減少頁面重新載入的次數，進而提升使用者體驗。</p>
+<p>不過，SPA 架構也存在一個主要缺點：搜尋引擎爬蟲只會讀取 HTML，不會執行 JavaScript。因此，可能會導致動態產生的內容無法被正確索引，影響網站在搜尋引擎上的表現。</p>
+<p>Nuxt.js 是基於 Vue.js 的框架，預設使用通用渲染模式（Universal Rendering），結合了伺服器端渲染（SSR，Server-Side Rendering）和客戶端渲染（CSR，Client-Side Rendering）的優點。透過在伺服器端生成完整的 HTML 內容並回傳給瀏覽器，讓搜尋引擎爬蟲可以取得較完整的 HTML 內容，以改善 SPA 架構下 SEO 成效不佳的問題。</p></body></html>
         <p class="article-more-link">
             <a href="/2023/08/22/nuxt3/nuxt-vs-vue/#more">閱讀更多</a>
         </p>
