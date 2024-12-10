@@ -204,14 +204,20 @@
 </blockquote>
 <p>Nuxt 最大的特點就是 Server Side Render，因此他有獨立的<a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxtjs.org/docs/concepts/nuxt-lifecycle#lifecycle">生命週期</a>，來看一下官方提供的圖片：</p>
 <p><img src="https://i.imgur.com/W4ZLvrJ.png"></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><h1 id="nuxtServerInit"><a href="#nuxtServerInit" class="headerlink" title="nuxtServerInit"></a><strong>nuxtServerInit</strong></h1><p>只在 Nuxt 環境初始化時觸發，當我們想將 server 端資料提前傳給 client 端，可以使用此方法，要注意只能寫在 <strong>VueX</strong> <strong>store/index.js  actions</strong></p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// store/index.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">state</span> = (<span class="hljs-params"></span>) =&gt; ({<br>    <span class="hljs-attr">userInfo</span>: {}<br>});<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mutations = {<br>    <span class="hljs-title function_">setUserInfo</span>(<span class="hljs-params">state, value</span>) {<br>        state.<span class="hljs-property">userInfo</span> = value;<br>    }<br>};<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> actions = {<br>    <span class="hljs-title function_">nuxtServerInit</span>(<span class="hljs-params">{ commit }, { req }</span>) {<br>        <span class="hljs-comment">// req.session.user = { name: 'claire' }</span><br>        <span class="hljs-title function_">commit</span>(<span class="hljs-string">'setUserInfo'</span>, req.<span class="hljs-property">session</span>.<span class="hljs-property">user</span>);<br>    }<br>};<br></code></pre></td></tr></tbody></table></figure>
 
@@ -309,14 +315,20 @@
 <p>參考文章：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://stackoverflow.com/questions/60411436/nuxtjs-page-is-created-twice">https://stackoverflow.com/questions/60411436/nuxtjs-page-is-created-twice</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://happy9990929.github.io/2021/09/10/vue-nuxt-lifecycle-hooks/">https://happy9990929.github.io/2021/09/10/vue-nuxt-lifecycle-hooks/</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

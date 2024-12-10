@@ -207,14 +207,20 @@
 <p>本篇雖未涉及 WebRTC API 的應用，但 WebRTC 實作上常會搭配影音錄製與下載功能，因此將此篇文章歸類為系列文之一</p>
 </blockquote>
 <h2 id="錄製影音串流"><a href="#錄製影音串流" class="headerlink" title="錄製影音串流"></a><strong>錄製影音串流</strong></h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API">MediaStream Recording API</a> <code>MediaRecorder(stream)</code> 可用於在瀏覽器中捕捉媒體串流並將其錄製為影音檔，通常會搭配 MediaDevices API <code>getUserMedia()</code> Promise 函式取得媒體串流</p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">createStream</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {<br>    <span class="hljs-keyword">const</span> constraints = { <span class="hljs-attr">audio</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">video</span>: <span class="hljs-literal">true</span> };<br>    <span class="hljs-comment">// 取得裝置的影音串流</span><br>    <span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> navigator.<span class="hljs-property">mediaDevices</span>.<span class="hljs-title function_">getUserMedia</span>(constraints);<br>    <span class="hljs-keyword">return</span> stream;<br>};<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">startRecord</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {<br>    <span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">await</span> <span class="hljs-title function_">createStream</span>();<br>    <span class="hljs-keyword">const</span> options = {<br>        <span class="hljs-attr">audioBitsPerSecond</span>: <span class="hljs-number">128000</span>,<br>        <span class="hljs-attr">videoBitsPerSecond</span>: <span class="hljs-number">2500000</span>,<br>        <span class="hljs-attr">mimeType</span>: <span class="hljs-string">'video/webm'</span><br>    };<br>    <span class="hljs-comment">// 建立 MediaRecorder 物件</span><br>    <span class="hljs-keyword">const</span> recorder = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MediaRecorder</span>(stream, options);<br>    <span class="hljs-comment">// 開始錄製</span><br>    recorder.<span class="hljs-title function_">start</span>();<br>};<br><br><span class="hljs-title function_">startRecord</span>(); <br></code></pre></td></tr></tbody></table></figure>
 
 <p>呼叫 <code>MediaRecorder.start()</code> 時，如果沒有傳入參數，會在停止錄製時才回傳一個 Blob 檔，如果希望能拆分 chuck 檔案，可以在 <code>start(timeslice)</code> 代入時間參數：</p>
@@ -252,14 +258,20 @@
 <p>參考資源：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API">https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/@kf99916/html5-%E7%A5%9E%E5%A5%87%E7%9A%84-object-url-%E4%B8%8D%E7%94%A8%E5%BE%8C%E7%AB%AF-%E5%89%8D%E7%AB%AF%E4%BE%BF%E8%83%BD%E7%94%A2%E7%94%9F%E7%8D%B2%E5%8F%96%E6%8C%87%E5%AE%9A%E7%89%A9%E4%BB%B6%E7%9A%84%E7%B6%B2%E5%9D%80-6df283d58505">https://medium.com/@kf99916/html5-神奇的-object-url-不用後端-前端便能產生獲取指定物件的網址-6df283d58505</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

@@ -210,14 +210,20 @@
 <p>Nuxt3 提供了全域可使用的內建函式庫 <code>$fetch</code> 以及 composables <code>useFetch</code>、<code>useAsyncData</code>，不需要在另外安裝套件，三個方法依據時機搭配使用，可以確保整體兼容性與快取效能，且能避免重複請求的問題</p>
 <blockquote class="colorquote info"><p>Nuxt2 的 <code>asyncData</code> 以及 <code>fetch</code> 方法，在 Nuxt3 調整為 <code>useAsyncData</code> 與 <code>useFetch</code></p>
 </blockquote></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><h2 id="fetch"><a href="#fetch" class="headerlink" title="$fetch"></a><strong>$fetch</strong></h2><p>Nuxt3 使用 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/unjs/ofetch">ofetch</a> 建立全域使用 <code>$fetch</code> 方法，適合用來處理 <strong>透過使用者互動觸發的 API 請求</strong></p>
 <blockquote class="colorquote info"><p><code>$fetch</code> 不適合直接定義在 setup function，會導致 API 請求兩次：伺服器端跟用戶端各一次，因為 <code>$fetch</code> 不會將狀態從伺服器端傳輸到用戶端，如果要在 setup function 定義，官方建議使用 <code>useFetch</code> 或是 <code>useAsyncData</code> + <code>$fetch</code></p>
 </blockquote>
@@ -299,14 +305,20 @@
 <hr>
 <p>參考資源：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/comsystoreply/nuxt-3-usefetch-reactive-vue-at-its-best-14729f6f5be7">https://medium.com/comsystoreply/nuxt-3-usefetch-reactive-vue-at-its-best-14729f6f5be7</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10298741">https://ithelp.ithome.com.tw/articles/10298741</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

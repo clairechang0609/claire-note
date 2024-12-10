@@ -209,14 +209,20 @@
 <h1 id="Props-amp-emit"><a href="#Props-amp-emit" class="headerlink" title="Props &amp; $emit"></a><strong>Props &amp; $emit</strong></h1><p>父子元件間溝通的重要管道，因每個元件的作用範圍皆應獨立，因此不應在子元件內直接修改父元件的資料，否則會難以除錯，造成維護上困難。</p>
 <p>假設頁面層級如下</p>
 <figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">Root.vue<br>    |—— Child.vue<br></code></pre></td></tr></tbody></table></figure></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a><strong>Props</strong></h2><p><strong>父層傳遞到子層</strong></p>
 <p>透過 <code>v-bind:父元件參數名稱="子元件參數名稱"</code>，將資料傳遞到子元件</p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// views/Root.vue</span><br>&lt;template&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">:message</span>=<span class="hljs-string">"messageToChild"</span> /&gt;</span></span><br>&lt;/template&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-attr">name</span>: <span class="hljs-string">'Root'</span>,</span></span><br><span class="language-javascript"><span class="language-xml">    <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) {</span></span><br><span class="language-javascript"><span class="language-xml">        <span class="hljs-keyword">return</span> {</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-attr">messageToChild</span>: <span class="hljs-string">'早安您好'</span></span></span><br><span class="language-javascript"><span class="language-xml">        }</span></span><br><span class="language-javascript"><span class="language-xml">    }</span></span><br><span class="language-javascript"><span class="language-xml">}</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></tbody></table></figure>
@@ -289,14 +295,20 @@
 <p>參考文章：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://book.vue.tw/CH2/2-2-communications.html">https://book.vue.tw/CH2/2-2-communications.html</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://vuejs.org/guide/components/provide-inject.html">https://vuejs.org/guide/components/provide-inject.html</a></p></header></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

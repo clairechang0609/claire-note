@@ -205,14 +205,20 @@
 
 <p>本篇是視訊聊天室的進階版本，必須先掌握 <a href="https://clairechang.tw/2023/05/02/webrtc/webrtc-video-chat/">一對一視訊聊天室</a> 介紹的相關知識，才能更快理解本篇的實作內容～</p>
 <h2 id="視訊情境"><a href="#視訊情境" class="headerlink" title="視訊情境"></a><strong>視訊情境</strong></h2><p>多個裝置 A、B、C …… 想要進行多方視訊聊天，可以隨時進入聊天室，不需要特定的順序</p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><h2 id="流程解析"><a href="#流程解析" class="headerlink" title="流程解析"></a><strong>流程解析</strong></h2><p>多方視訊可以透過 <code>RTCPeerConnection()</code> 建立多個連線來達成。跟一對一的連線類似，<strong>多方視訊中的每個 P2P 連線 發送端（Offer）與 接收端（Answer）都需要分別建立一個 <code>RTCPeerConnection()</code> 物件，每個物件分別管理一個連線，並透過 Signaling Server 交換 ICE 和 SDP 以建立連線。</strong></p>
 <p>連線建立後，每個裝置可以將自己的影像和聲音傳送到其他裝置的 <code>RTCPeerConnection()</code> 中，以達成多方視訊的效果。此外，也可以透過使用媒體伺服器（如 SFU 或 MCU）來進一步優化多方視訊的效能和品質。</p>
 <p>在一對一視訊情境，有明確的發送端與接收端，以 A、B 為例：</p>
@@ -362,14 +368,20 @@
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/muaz-khan/RTCMultiConnection/blob/master/dist/RTCMultiConnection.js">https://github.com/muaz-khan/RTCMultiConnection/blob/master/dist/RTCMultiConnection.js</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://iter01.com/489722.html">https://iter01.com/489722.html</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://socket.io/docs/v3/rooms/">https://socket.io/docs/v3/rooms/</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

@@ -209,14 +209,20 @@
 
 <p>在 Vue.js 專案，我們可以直接在 <code>index.html</code> <code>&lt;head&gt;</code> 設定全站共用的 meta tags，那在 Nuxt 又該怎麼設定呢？</p>
 <p>Nuxt.js 藉由 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://vue-meta.nuxtjs.org/api/#link">vue-meta</a> 來更新應用內的 head 設定跟 meta 屬性，使用 <code>create-nuxt-app</code> 建構專案會自動安裝，我們可以在頁面定義不同的內容，幫助搜尋引擎爬蟲掌握頁面內容，提升 SEO。</p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><h3 id="全域配置"><a href="#全域配置" class="headerlink" title="全域配置"></a><strong>全域配置</strong></h3><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {<br>    <span class="hljs-attr">head</span>: {<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">'my website title'</span>,<br>        <span class="hljs-attr">meta</span>: [<br>            { <span class="hljs-attr">charset</span>: <span class="hljs-string">'utf-8'</span> },<br>            { <span class="hljs-attr">name</span>: <span class="hljs-string">'viewport'</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">'width=device-width, initial-scale=1'</span> },<br>            {<br>                <span class="hljs-attr">hid</span>: <span class="hljs-string">'description'</span>,<br>                <span class="hljs-attr">name</span>: <span class="hljs-string">'description'</span>,<br>                <span class="hljs-attr">content</span>: <span class="hljs-string">'my website description'</span><br>            },<br>            {<br>                <span class="hljs-attr">hid</span>: <span class="hljs-string">'og:title'</span>,<br>                <span class="hljs-attr">property</span>: <span class="hljs-string">'og:title'</span>,<br>                <span class="hljs-attr">content</span>: <span class="hljs-string">'my website title'</span><br>            }<br>        ],<br>        <span class="hljs-attr">link</span>: [<br>            { <span class="hljs-attr">rel</span>: <span class="hljs-string">'icon'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'image/x-icon'</span>, <span class="hljs-attr">href</span>: <span class="hljs-string">'/favicon.ico'</span> }<br>        ]<br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>我們可以看到 head 自動渲染：</p>
@@ -234,14 +240,20 @@
 <hr>
 <p>參考文章：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxtjs.org/docs/features/meta-tags-seo/">https://nuxtjs.org/docs/features/meta-tags-seo/</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

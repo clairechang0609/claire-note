@@ -208,14 +208,20 @@
 </div>
 
 <p>Axios 是一套相當便利的 Promise Base Ajax 套件，而 Nuxt 又有 Axios 整合套件 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://axios.nuxtjs.org/">@nuxtjs/axios</a>，此篇範例會使用到 Async、Await，如果對於 Promise 尚不熟悉，可以參考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.casper.tw/development/2020/02/16/all-new-promise/">Promise 介紹文章</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><p>那們我們就來替專案加上 axios 吧！首先執行 <code>npm install @nuxtjs/axios</code></p>
 <p>接著在 nuxt.config.js 進行配置（<a target="_blank" rel="external nofollow noopener noreferrer" href="https://axios.nuxtjs.org/options">參數選項</a>）：</p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br>exportdefault {<br>    <span class="hljs-attr">modules</span>: [ <span class="hljs-string">'@nuxtjs/axios'</span> ],<br>    <span class="hljs-attr">axios</span>: {<br>        <span class="hljs-attr">baseUrl</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">SERVER_URL</span>,<br>        <span class="hljs-attr">browserBaseURL</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">BASE_URL</span>,<br>        <span class="hljs-attr">credentials</span>: <span class="hljs-literal">true</span><br>    }<br>}<br></code></pre></td></tr></tbody></table></figure>
@@ -271,14 +277,20 @@
 <p>參考文章：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10208852">https://ithelp.ithome.com.tw/articles/10208852</a></p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://mavrickmaster.medium.com/custom-error-pages-with-nuxt-js-3c70e6c51aff">https://mavrickmaster.medium.com/custom-error-pages-with-nuxt-js-3c70e6c51aff</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

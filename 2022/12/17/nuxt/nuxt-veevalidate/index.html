@@ -213,14 +213,20 @@
 
 <p>新增 plugins/vee-validate.js，在 nuxt.config.js 配置</p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {<br>  <span class="hljs-attr">plugins</span>: [<br>    { <span class="hljs-attr">src</span>: <span class="hljs-string">'@/plugins/vee-validate.js'</span>, <span class="hljs-attr">mode</span>: <span class="hljs-string">'client'</span> }<br>  ]<br>}<br></code></pre></td></tr></tbody></table></figure></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><p>移動到 plugins/vee-validate.js 註冊全域表單驗證元件，步驟如下：</p>
 <h3 id="1-規則引入"><a href="#1-規則引入" class="headerlink" title="1. 規則引入"></a><strong>1. 規則引入</strong></h3><p><strong>引入部分規則：</strong></p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> { extend } <span class="hljs-keyword">from</span> <span class="hljs-string">'vee-validate'</span>;<br><span class="hljs-keyword">import</span> { required, email } <span class="hljs-keyword">from</span> <span class="hljs-string">"vee-validate/dist/rules"</span>;<br><br><span class="hljs-title function_">extend</span>(<span class="hljs-string">'email'</span>, email);<br><span class="hljs-title function_">extend</span>(<span class="hljs-string">'required'</span>, {<br>  ...required,<br>  <span class="hljs-attr">message</span>: <span class="hljs-string">'欄位必填'</span><br>});<br></code></pre></td></tr></tbody></table></figure>
@@ -275,14 +281,20 @@
 <hr>
 <p>參考文章：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/@yusufznl/how-to-validate-forms-in-nuxt-with-vee-validate-eef45508c3d4">https://medium.com/@yusufznl/how-to-validate-forms-in-nuxt-with-vee-validate-eef45508c3d4</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://vee-validate.logaretm.com/v3/">https://vee-validate.logaretm.com/v3/</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     

@@ -209,14 +209,20 @@
 <p>專案開發過程中常會有狀態共享的需求。父子元件間資料傳遞可以使用 Props 和 $emit，或是 Provide 和 Inject（<a href="https://clairechang.tw/2023/01/13/vue/vue-communications/">參考文章</a>），先前在 Nuxt2 介紹了 VueX 管理工具搭配 vuex-persistedstate 保存狀態（<a href="https://clairechang.tw/2022/11/22/nuxt/nuxt-vuex-store/">參考文章</a>），接下來說明如何在 Nuxt3 利用更便利高效的方式管理共享狀態。</p>
 <p>狀態管理預計分為以下三篇說明，<strong>本篇將介紹</strong> <code>useState</code>：</p>
 <p><strong>1. useState：</strong>Nuxt Composable<br><strong>2. Pinia：</strong>Vue.js 狀態管理工具 <a href="https://clairechang.tw/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/">連結</a><br><strong>3. pinia-plugin-persistedstate：</strong>維持 Store 狀態 <a href="https://clairechang.tw/2023/08/16/nuxt3/nuxt-v3-state-management-persistedstate/">連結</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
         <html><head></head><body><h1 id="useState"><a href="#useState" class="headerlink" title="useState"></a><strong>useState</strong></h1><p>useState 是 Nuxt3 提供的 Composable，適合用來建立響應式、伺服器端友善（SSR-friendly）的共享狀態</p>
 <blockquote class="colorquote info"><p>會特別提到 SSR-friendly，要先理解 Nuxt <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/docs/guide/concepts/rendering#universal-rendering">Universal 渲染模式</a>（server-side ＋ client-side），由伺服器端預先載入 HTML，並傳給瀏覽器，接著由瀏覽器載入完整的 Javascript 並執行，至此網頁才具有互動性。<br>因此，若在頁面上定義響應式動態資料如下：</p>
 <figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    {{ count }}</span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">const</span> count = <span class="hljs-title function_">ref</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">1000</span>));</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></tbody></table></figure>
@@ -253,14 +259,20 @@
 <hr>
 <p>參考資源：</p>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/docs/getting-started/state-management">https://nuxt.com/docs/getting-started/state-management</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10302323">https://ithelp.ithome.com.tw/articles/10302323</a></p></body></html>
-        <div class="ad-wrap">
+        <!-- <div class="ad-wrap">
             <small class="ad-label">廣告</small>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </div> -->
     
     </div>
     
