@@ -267,7 +267,7 @@
 
 <hr>
 <h2 id="Nuxt-js：Universal-Rendering（SSR-CSR）"><a href="#Nuxt-js：Universal-Rendering（SSR-CSR）" class="headerlink" title="Nuxt.js：Universal Rendering（SSR + CSR）"></a><strong>Nuxt.js：Universal Rendering（SSR + CSR）</strong></h2><p>Nuxt 預設渲染模式，結合了伺服器端渲染（SSR）和客戶端渲染（CSR）的優點。當使用者首次進入頁面時，使用 SSR，在伺服器端生成完整的 HTML 內容並回傳給瀏覽器；後續動態切換頁面時則使用 CSR。這種方式結合了 SSR 和 SPA 的優點，不僅提供了良好的 SEO 表現，還能維持動態互動體驗。</p>
-<h3 id="Universal-Rendering-的網頁載入流程"><a href="#Universal-Rendering-的網頁載入流程" class="headerlink" title="Universal Rendering 的網頁載入流程"></a><strong>Universal Rendering</strong> 的網頁載入流程</h3><p><strong>Step1：伺服器端渲染</strong></p>
+<h3 id="Universal-Rendering-的網頁載入流程"><a href="#Universal-Rendering-的網頁載入流程" class="headerlink" title="Universal Rendering 的網頁載入流程"></a><strong>Universal Rendering 的網頁載入流程</strong></h3><p><strong>Step1：伺服器端渲染</strong></p>
 <p>當瀏覽器請求 URL 時，伺服器端執行 JavaScript（Vue.js）程式碼，將 Vue 元件轉換成一個完整渲染的 HTML 頁面，包含必要的樣式，類似於傳統的 SSR 應用程式。</p>
 <p><strong>Step2：客戶端（瀏覽器）載入 HTML 頁面</strong></p>
 <p>瀏覽器接收並載入伺服器傳回的 HTML 頁面，因此在初次載入時，使用者即可看到完整的頁面模板。</p>
