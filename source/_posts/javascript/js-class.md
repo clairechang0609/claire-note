@@ -8,7 +8,7 @@ image: https://i.imgur.com/1S4nH3i.png
 ---
 
 <div style="display: flex; justify-content: center; margin: 0 0 20px;">
-    <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/1S4nH3i.png">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/1S4nH3i.png">
 </div>
 
 ## **繼承與原型鏈**
@@ -27,9 +27,9 @@ new operator（運算子）：產生一個新的空白物件，連結原先
 ```jsx
 // 建構函式（藍圖）
 function Chipmunk(name, color, size) {
-    this.name = name;
-    this.color = color;
-    this.noseSize = size;
+  this.name = name;
+  this.color = color;
+  this.noseSize = size;
 };
 
 const Chip = new Chipmunk('Chip', 'brown', 'small');
@@ -40,7 +40,7 @@ const Dale = new Chipmunk('Dale', 'yellow', 'large');
 
 ```jsx
 Chipmunk.prototype.climb = function() {
-    console.log(`${this.name} is climbing the tree`);
+  console.log(`${this.name} is climbing the tree`);
 };
 ```
 
@@ -54,7 +54,7 @@ console.log(Dale);
 ```
 
 <div style="display: flex; justify-content: left; margin: 20px 0;">
-    <img style="width: 100%; max-width: 600px;" src="https://i.imgur.com/puujd6y.png">
+  <img style="width: 100%; max-width: 600px;" src="https://i.imgur.com/puujd6y.png">
 </div>
 
 ```jsx
@@ -63,12 +63,12 @@ Dale.climb(); // output: Dale is climbing the tree
 ```
 
 {% colorquote info %}
-將共用方法掛在在原型上，方法只會被定義一次，只需要一個記憶體空間，減少效能的消耗與浪費
+將共用方法掛在原型上，方法只會被定義一次，只需要一個記憶體空間，減少效能的消耗與浪費
 {% endcolorquote %}
 
 ### **多層繼承**
 
-假設我們希望在狗科前面再加上**動物界原型**，結構如下：
+假設我們希望在花栗鼠建構式前面再加上**動物界原型**，結構如下：
 
 **動物界原型 → 花栗鼠建構函式 → 實體化建構式**
 
@@ -76,11 +76,11 @@ Dale.climb(); // output: Dale is climbing the tree
 
 ```jsx
 function Animal(family) {
-    this.kingdom = 'animals';
-    this.family = family;
+  this.kingdom = 'animals';
+  this.family = family;
 };
 Animal.prototype.eat = function() {
-    console.log(`${this.name} is eating something`);
+  console.log(`${this.name} is eating something`);
 };
 ```
 
@@ -91,10 +91,10 @@ Animal.prototype.eat = function() {
 
 ```jsx
 function Chipmunk(name, color, size) {
-    Animal.call(this, 'squirrel');
-    this.name = name;
-    this.color = color;
-    this.noseSize = size;
+  Animal.call(this, 'squirrel');
+  this.name = name;
+  this.color = color;
+  this.noseSize = size;
 };
 Chipmunk.prototype = Object.create(Animal.prototype);
 Chipmunk.prototype.constructor = Chipmunk;
@@ -117,7 +117,7 @@ console.log(Chip);
 ```
 
 <div style="display: flex; justify-content: left; margin: 20px 0;">
-    <img style="width: 100%; max-width: 800px;" src="https://i.imgur.com/DNHEaUr.png">
+  <img style="width: 100%; max-width: 800px;" src="https://i.imgur.com/DNHEaUr.png">
 </div>
 
 **以上寫法有幾個缺點：**
@@ -132,14 +132,14 @@ console.log(Chip);
 
 ```jsx
 class Chipmunk {
-    constructor(name, color, size) {
-        this.name = name;
-        this.color = color;
-        this.noseSize = size;
-    }
-    climb() {
-        console.log(`${this.name} is climbing the tree`);
-    }
+  constructor(name, color, size) {
+    this.name = name;
+    this.color = color;
+    this.noseSize = size;
+  }
+  climb() {
+    console.log(`${this.name} is climbing the tree`);
+  }
 }
 
 const Chip = new Chipmunk('Chip', 'brown', 'small');
@@ -158,13 +158,13 @@ const Dale = new Chipmunk('Dale', 'yellow', 'large');
 
 ```jsx
 class Animal {
-    constructor(family) {
-        this.kingdom = 'animals';
-        this.family = family;
-    }
-    eat() {
-        console.log(`${this.name} is eating something`);
-    }
+  constructor(family) {
+    this.kingdom = 'animals';
+    this.family = family;
+  }
+  eat() {
+    console.log(`${this.name} is eating something`);
+  }
 }
 ```
 
@@ -174,15 +174,15 @@ class Animal {
 
 ```jsx
 class Chipmunk extends Animal {
-    constructor(name, color, size) {
-        super('squirrel');
-        this.name = name;
-        this.color = color;
-        this.noseSize = size;
-    }
-    climb() {
-        console.log(`${this.name} is climbing the tree`);
-    }
+  constructor(name, color, size) {
+    super('squirrel');
+    this.name = name;
+    this.color = color;
+    this.noseSize = size;
+  }
+  climb() {
+    console.log(`${this.name} is climbing the tree`);
+  }
 }
 ```
 
@@ -199,15 +199,15 @@ const Dale = new Chipmunk('Dale', 'yellow', 'large');
 
 ```jsx
 class Chipmunk {
-    #tree = 'oak'; // 私有變數
-    constructor(name, color, size) {
-        this.name = name;
-        this.color = color;
-        this.noseSize = size;
-    }
-    climb() {
-        console.log(`${this.name} is climbing the ${this.#tree}`);
-    }
+  #tree = 'oak'; // 私有變數
+  constructor(name, color, size) {
+    this.name = name;
+    this.color = color;
+    this.noseSize = size;
+  }
+  climb() {
+    console.log(`${this.name} is climbing the ${this.#tree}`);
+  }
 }
 const Chip = new Chipmunk('Chip', 'brown', 'small');
 
@@ -219,16 +219,16 @@ Chip.climb(); // output: Chip is climbing the oak
 
 ```jsx
 class Chipmunk {
-    realAge = 0;
-    constructor() {
-        // ...
-    }
-    set age(val) {
-        this.realAge = val;
-    }
-    get age() {
-        return this.realAge * 30;
-    }
+  realAge = 0;
+  constructor() {
+    // ...
+  }
+  set age(val) {
+    this.realAge = val;
+  }
+  get age() {
+    return this.realAge * 30;
+  }
 }
 const Chip = new Chipmunk('Chip', 'brown', 'small');
 Chip.age = 1;
@@ -242,12 +242,12 @@ console.log(Chip.age); // output: 30
 
 ```jsx
 class Chipmunk {
-    constructor() {
-        // ...
-    }
-    static caculateAge(age, minus) {
-        return age * minus;
-    }
+  constructor() {
+    // ...
+  }
+  static caculateAge(age, minus) {
+    return age * minus;
+  }
 }
 const Chip = new Chipmunk('Chip', 'brown', 'small');
 

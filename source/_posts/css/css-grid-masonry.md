@@ -101,7 +101,7 @@ image: https://i.imgur.com/XdKc6zc.png
 
 {% colorquote info %}
 **getBoundingClientRect().height vs offsetHeight：**
-getBoundingClientRect().height 取得的是相對於螢幕視窗的可視高（渲染後的結果），而 ****offsetHeight 取得的是元素完整高，getBoundingClientRect().height 會受到 `transform` 影響，例如元素設定高度 100px 以及 `transform: scale(0.5);`，getBoundingClientRect().height 得到 50，而 offsetHeight 得到的是 100
+getBoundingClientRect().height 取得的是相對於螢幕視窗的可視高（渲染後的結果），而 offsetHeight 取得的是元素完整高，getBoundingClientRect().height 會受到 `transform` 影響，例如元素設定高度 100px 以及 `transform: scale(0.5);`，getBoundingClientRect().height 得到 50，而 offsetHeight 得到的是 100
 {% endcolorquote %}
 
 ```jsx

@@ -7,7 +7,7 @@ description: CKEditor 是一套歷史悠久且功能完整、輕量的富文本�
 image: https://imgur.com/M9DJSpE.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10334588)
 >
 
 > **CKEditor 版本：v39.0.0**
@@ -34,8 +34,7 @@ CKEditor 是一套歷史悠久且功能完整、輕量的富文本編輯器（ri
 **注意：** CKEditor 只能在 client 端運作，否則會拋 `self is not defined` 錯誤
 **提供兩個解法：**
 1. 設定為 `ssr: false`，關閉 server 端渲染
-2. 將 CKEditor 元件包在自訂元件內，檔名加上 `.client` 後綴，限制元件在 client 端運作
-EX：`components/TheCkeditor.client.vue`
+2. 將 CKEditor 元件包在自訂元件內，檔名加上 `.client` 後綴，限制元件在 client 端運作。EX：`components/TheCkeditor.client.vue`
 {% endcolorquote %}
 
 ## **1. 使用預先定義的組合**

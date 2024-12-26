@@ -364,7 +364,7 @@ Nuxt3 搭配新的伺服器引擎 Nitro，讓我們可以在 server 端定義內
 
 ## **utils**
 
-定義在 `utils/` 內的檔案 Nuxt3 會自動引入，官方文件提到 `utils/` 資料夾的拆分主要是為了跟 `composibles/` 做區隔，前面有提到 `composibles/` 利用 Composition API 來封裝和複用 **有狀態邏輯（Stateful Logic）**，而 `utils/` 則用來定義 **無狀態邏輯（Stateless Logic）**
+定義在 `utils/` 內的檔案 Nuxt3 會自動引入，官方文件提到 `utils/` 資料夾的拆分主要是為了跟 `composables/` 做區隔，前面有提到 `composables/` 利用 Composition API 來封裝和複用 **有狀態邏輯（Stateful Logic）**，而 `utils/` 則用來定義 **無狀態邏輯（Stateless Logic）**
 
 以 `utils/toThousands.js` 為例（將數字帶入千分號）
 

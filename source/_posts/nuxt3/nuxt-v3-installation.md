@@ -1,6 +1,7 @@
 ---
 title: Nuxt.js 3.x 專案架設
 date: 2023-06-17
+# update: 2024-11-08
 tags: [ nuxt3 ]
 category: Nuxt3
 description: 本篇文章說明如何快速架設 Nuxt3 專案，以及要注意的細節

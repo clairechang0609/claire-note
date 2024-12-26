@@ -162,7 +162,7 @@ Vue.component('ValidationProvider', VeeValidate.ValidationProvider);
 
 ### **Validation Observer：驗證完整表單**
 
-**方法一：**使用 ****`v-slot="{ invalid }"` ，驗證不通過 disabled 按鈕（`type="submit"`），`submitForm()` 為自訂方法
+**方法一：**使用 `v-slot="{ invalid }"` ，驗證不通過 disabled 按鈕（`type="submit"`），`submitForm()` 為自訂方法
 
 ```html
 <validation-observer v-slot="{ invalid }">

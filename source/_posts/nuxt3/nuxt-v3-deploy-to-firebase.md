@@ -7,7 +7,7 @@ description: 本篇將說明 Nuxt3 Universal 專案部署到 Firebase。 Univers
 image: https://i.imgur.com/r80Hush.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10336541)
 >
 
 專案開發完成後，終於到最後一步**「部署」**，本篇將說明 Universal 專案部署到 [Firebase](https://firebase.google.com/)。Universal 渲染模式需要伺服器才能運作，因此會搭配 Firebase Cloud Functions（Serverless）來協助處理 SSR 的部分。
@@ -37,13 +37,7 @@ Universal Rendering 相關說明可以參考 [這篇文章](https://clairechang.
   <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/mCT0VbR.png">
 </div>
 
-到此步 Firebase 專案就建立完成，Cloud Function 名稱為 「server」
-
-<div style="display: flex; justify-content: center; margin: 30px 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/A2qIFu6.png">
-</div>
-
-先記著專案 ID，後面部署會使用到
+到此步 Firebase 專案就建立完成，先記著專案 ID，後面部署會使用到
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
   <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/wR8QFZ7.png">
@@ -57,10 +51,10 @@ Universal Rendering 相關說明可以參考 [這篇文章](https://clairechang.
 
 ### **STEP1：安裝 CLI**
 
-首先在全域環境安裝 Firebase CLI（Command-Line Interface）指令列工具
+首先安裝 Firebase CLI（Command-Line Interface）指令列工具
 
 ```bash
-npx install -g firebase-tools
+npm install firebase-tools
 ```
 
 ### **STEP2：登入 Firebase**
@@ -132,7 +126,7 @@ export default defineNuxtConfig({
 // .firebaserc
 {
   "projects": {
-    "default": "nuxt3-firebase-ca4cb"
+    "default": "<your_project_id>"
   }
 }
 ```
@@ -152,6 +146,10 @@ export default defineNuxtConfig({
 - `rewrites`：改寫 URL 規則，所有的 URL 請求都會由名為「server」的 Cloud Functions 處理，也就是由伺服器端處理所有請求（SSR）
 - `predeploy`：部署前預先執行的指令。這一段的設定為：進到編譯後的 `.output/server` 資料夾，刪除 `node_modules` 並重新安裝，否則在執行部署時會發生找不到 `firebase-functions` 套件的錯誤
 
+{% colorquote info %}
+注意：`rm -rf node_modules` 是 macOS 跟 Linux 的指令，Windows 須調整為 `rmdir /s /q node_modules`
+{% endcolorquote %}
+
 ```jsx
 // firebase.json
 {
@@ -160,6 +158,7 @@ export default defineNuxtConfig({
     "runtime": "nodejs18"
   },
   "hosting": {
+    "site": "<your_project_id>",
     "public": ".output/public",
     "cleanUrls": true,
     "rewrites": [ {
@@ -203,6 +202,29 @@ firebase deploy
 <div style="display: flex; justify-content: center; margin: 30px 0;">
   <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/9HyX6sU.png">
 </div>
+
+在 Firebase 專案可以看到 Cloud Function 名稱預設為「server」
+
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/A2qIFu6.png">
+</div>
+
+{% colorquote info %}
+如果發生 funciton 部署失敗問題，可以在 `nuxt.config` 設定 `serverFunctionName` 如下
+
+```jsx
+// nuxt.config.js
+export default defineNuxtConfig({
+  nitro: {
+    preset: 'firebase',
+    firebase: {
+      gen: 2,
+      serverFunctionName: 'server'
+    }
+  }
+})
+```
+{% endcolorquote %}
 
 打開 Hosting URL，可以看到我們的網站，也可以透過 Firebase 儀表板來查看發布紀錄與用量
 

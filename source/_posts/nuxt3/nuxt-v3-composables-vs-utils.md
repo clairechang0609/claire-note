@@ -7,17 +7,17 @@ description: Nuxt3 Composables 與 Utils 目錄，協助我們自訂共用方法
 image: https://imgur.com/5VRbaV1.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10323220)
 >
 
 定義在 `composables` 以及 `utils` 資料夾的檔案 Nuxt 都會自動引入（auto-imports），兩者都是用來定義複用邏輯的函式，不過使用情境有點不同，接下來分別說明。
 
 ## **Composables & Utils 使用時機比較**
 
-- `composibles/`：
+- `composables/`：
 組合式函式，利用 Composition API 來封裝和複用 **有狀態邏輯（Stateful Logic）**的函式，取代 Options API `mixins/` 的功能。我們可以將不同的邏輯抽象成單獨的 composable，並組合在 setup 函式中
 - `utils/`：
-與 composibles 做語意上的區隔，用來定義 **無狀態邏輯（Stateless Logic）**的函式
+與 composables 做語意上的區隔，用來定義 **無狀態邏輯（Stateless Logic）**的函式
 
 {% colorquote info %}
 **狀態邏輯說明：**
@@ -34,11 +34,11 @@ image: https://imgur.com/5VRbaV1.png
 
 #### **Options API Mixins & Composition API Composables**
 
-Nuxt3 的 Composition API `composibles/` 與 Nuxt2 的 Options API `mixins/` 比較：
+Nuxt3 的 Composition API `composables/` 與 Nuxt2 的 Options API `mixins/` 比較：
 
 - `mixins/`：
 當專案邏輯越來越複雜，使用多個 `mixins` 時，容易發生不易找到參數、方法來源，或是命名衝突的問題，且 Options API 是依照 **「生命週期與性質」** 拆分程式碼，結構上來說可讀性較低
-- `composibles/`：
+- `composables/`：
 Composition API 是依據 **「邏輯功能」** 拆分程式碼，可讀性較高，且不易造成命名衝突，適用於高複雜邏輯和多功能開發
 
 <div class="column-wrap">

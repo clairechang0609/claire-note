@@ -7,7 +7,7 @@ description: 在 Nuxt 專案中，我們可以自由選擇 CSS 預處理器、CS
 image: https://imgur.com/FHpABZ8.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10330532)
 >
 
 > **Bootstrap 版本：v5.3.1

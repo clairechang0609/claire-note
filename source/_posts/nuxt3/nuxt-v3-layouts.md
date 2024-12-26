@@ -7,7 +7,7 @@ description: Nuxt Layouts 資料夾協助定義共用模板，將重複使用的
 image: https://imgur.com/JgSJYA4.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10322294)
 >
 
 Layouts 資料夾協助我們定義共用模板，將重複使用的版面提取到模板內全域共用，看起來跟 Components 有點像，那麼 Layouts 跟 Components 怎麼區分？**可以將 Layouts 視為包覆在頁面外層的包裹元件**，用來定義 Header、Sidebar、Footer 等共用版面或是元件

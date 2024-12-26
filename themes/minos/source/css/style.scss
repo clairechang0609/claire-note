@@ -105,7 +105,7 @@ a.tag.article-tag {
             }
         }
 
-        .article-category-link {
+        .article-item {
             margin: 0 0.3rem;
         }
     }
@@ -335,7 +335,7 @@ a.tag.article-tag {
 }
 
 .sharebox {
-    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .comments {
@@ -876,5 +876,16 @@ strong {
                 order: 2;
             }
         }
+    }
+}
+
+.vertical-ad {
+    position: fixed;
+    width: calc((100% - 900px) / 2);
+    padding-left: 0.5rem;
+    top: 70px;
+    right: 1rem;
+    @media screen and (max-width: 1200px) {
+        display: none;
     }
 }

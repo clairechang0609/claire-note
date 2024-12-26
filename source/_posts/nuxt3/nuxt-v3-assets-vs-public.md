@@ -7,7 +7,7 @@ description: Nuxt3 提供兩個資料夾 assets 以及 public，用來管理靜�
 image: https://imgur.com/5VRbaV1.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10325656)
 >
 
 Nuxt3 提供兩個資料夾 `assets/` 以及 `public/`，用來管理靜態資源，像是圖片、CSS 樣式、字體、icon 等，接下來說明兩個目錄適合存放的檔案類型與使用方式

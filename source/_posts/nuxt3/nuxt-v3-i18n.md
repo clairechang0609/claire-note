@@ -7,7 +7,7 @@ description: 多國語系讓我們的網站邁向國際市場，本篇將說明�
 image: https://imgur.com/l0zKfkP.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10333224)
 >
 
 > **@nuxtjs/i18n 版本：v8.0.0-rc.3**

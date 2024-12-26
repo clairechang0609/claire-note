@@ -7,7 +7,7 @@ description: Sitemap 是一種用來提供網站資訊的檔案，記錄網站�
 image: https://imgur.com/IkD2tfF.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10333501)
 >
 
 Sitemap 是一種用來提供網站資訊的檔案，記錄網站內的網頁、圖片等，主要功用為**協助搜尋引擎快速了解我們的網頁**。

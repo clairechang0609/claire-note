@@ -1,13 +1,14 @@
 ---
 title: Nuxt.js 3.x Stylelint SCSS 程式碼檢查與自動排版
 date: 2023-08-04
+update:
 tags: [ nuxt3 ]
 category: Nuxt3
 description: 說明 Nuxt3 專案如何安裝 Stylelint CSS 程式碼檢查工具，並執行自動排版
 image: https://imgur.com/JBaER3w.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10319292)
 >
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">
@@ -44,7 +45,7 @@ ESLint JavaScript 程式碼檢查工具參考 [這篇文章](https://clairechang
 
 - **stylelint：**實際執行 CSS 程式碼檢查的工具
 - **stylelint-config-standard-vue：**stylelint 規則配置，用於檢查文件中 `<style>` 區塊的 CSS
-- **stylelint-config-standard-scss：**stylelint 規則配置，基於 `stylelint-config-standard` ****的擴充，用於檢查 SCSS 程式碼
+- **stylelint-config-standard-scss：**stylelint 規則配置，基於 `stylelint-config-standard` 的擴充，用於檢查 SCSS 程式碼
 - **stylelint-order：**stylelint 插件，規範 CSS 屬性的排序順序
 - **postcss、postcss-scss、postcss-html：**擴展 CSS 和 SCSS 的**後處理器**工具
 

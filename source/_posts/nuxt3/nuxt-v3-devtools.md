@@ -150,7 +150,7 @@ The editor process exited with an error: spawn code ENOENT.
 
 **自動引入函式分為三類：**
 
-- **User composables：**專案內自訂的函式，像是 Composibles 組合式函式或是 Utils 輔助函式
+- **User composables：**專案內自訂的函式，像是 Composables 組合式函式或是 Utils 輔助函式
 - **Build-in composables：**Nuxt 內建函式，像是 `useNuxtApp()`、`navigateTo()`
 - **Composables from libraries：**第三方套件或是模組提供的函式，像是 `@pinia/nuxt` 模組的 `defineStore()`
 
@@ -232,26 +232,30 @@ The editor process exited with an error: spawn code ENOENT.
 
 ## **Hooks**
 
-協助我們監控瀏覽器端與伺服器端每個 hook 花費時間、註冊了多少監聽器，以及被調用的次數，有助於找出效能瓶頸
+協助我們監控瀏覽器端與伺服器端每個 Lifecycle Hook 花費的時間、註冊了多少監聽器，以及被調用的次數，有助於找出效能瓶頸
+
+{% colorquote info %}
+Lifecycle Hooks 參考 [官方文件](https://nuxt.com/docs/api/advanced/hooks)
+{% endcolorquote %}
 
 <div style="display: flex; justify-content: left; margin: 30px 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/KgCHNuF.png">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/EUL41BG.png">
 </div>
 
 ## **Virtual Files**
 
-Nuxt 提供了一套虛擬文件系統（VFS，Virtual File System），根據我們的目錄結構自動生成虛擬檔案。透過 devtools，不需進到 `.nuxt` 資料夾，即可查看相關檔案，對於進階 debug 很有幫助
+Nuxt 提供了一套虛擬文件系統（VFS，Virtual File System），根據我們的目錄結構自動生成虛擬檔案。透過 devtools，不需進到 `.nuxt` 資料夾，即可查看相關檔案，對於進階 debug 有很大的幫助
 
 <div style="display: flex; justify-content: left; margin: 30px 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/6uRgqR1.png">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/ur0dukx.png">
 </div>
 
 ## **Inspect**
 
-整合 [vite-plugin-inspect](https://github.com/antfu/vite-plugin-inspect) 套件，讓我們可以檢視各插件或檔案透過 Vite 編譯、轉譯的過程，對於找出潛在風險很有幫助
+整合 [vite-plugin-inspect](https://github.com/antfu/vite-plugin-inspect) 套件，讓我們可以檢視各插件或檔案透過 Vite 編譯、轉譯的過程，協助找出潛在風險
 
 <div style="display: flex; justify-content: left; margin: 30px 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/JFFoW7U.png">
+  <img style="width: 100%; max-width: 100%;" src="https://i.imgur.com/kCTwexU.png">
 </div>
 
 ---

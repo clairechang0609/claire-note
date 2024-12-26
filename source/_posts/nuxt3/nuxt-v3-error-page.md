@@ -7,7 +7,7 @@ description: 本篇說明如何在 Nuxt3 專案自訂錯誤頁面，以及如何
 image: https://imgur.com/He7uasf.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10335367)
 >
 
 Nuxt 3 提供大量內建功能，包括預設錯誤頁面，可以在隱藏資料夾 `.nuxt/dev/index.mjs` 看到，我們也可以自訂錯誤頁面，Nuxt 預設錯誤畫面如下：

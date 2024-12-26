@@ -7,7 +7,7 @@ description: Nuxt3 搭配了新的 Nitro 伺服器引擎，讓我們能輕鬆在
 image: https://imgur.com/9hA9lOg.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10327264)
 >
 
 Nuxt3 搭配了新的伺服器引擎 [Nitro](https://nitro.unjs.io/)，讓我們能輕鬆在 Nuxt 專內建立 Server API。Nitro 的優點包含跨平台支援 Node.js 與瀏覽器、支援 HMR、自動生成 API 路由等，讓 Nuxt 具備全端功能，接下來一起進行實作吧。

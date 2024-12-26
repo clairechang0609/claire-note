@@ -7,7 +7,7 @@ description: 本篇說明如何在 Nuxt3 應用程式中動態控制 <head> 標�
 image: https://imgur.com/1uJRpte.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10329217)
 >
 
 <div style="display: flex; justify-content: center; margin: 0;">

@@ -3,22 +3,22 @@ title: Javascript Debounce & Throttle 提升網頁效能
 date: 2023-02-04 12:00
 tags: [ javascript ]
 category: Javascript
-description: debounce 與 throttle 為 javascript 中常用的技術，用來防止 scroll, resize 等事件處理器在短時間內被頻繁觸發，綁定的函示重複執行，造成網頁不斷重新運算進而影響效能，本篇將分別說明兩者的操作方式
+description: debounce 與 throttle 為 javascript 中常用的技術，用來防止 scroll、resize 等事件處理器在短時間內被頻繁觸發，綁定的函示重複執行，造成網頁不斷重新運算進而影響效能，本篇將分別說明兩者的操作方式
 image: https://imgur.com/scEMEZM.png
 ---
 
 <div style="display: flex; justify-content: center; margin: 0 0 30px;">
-    <img style="width: 100%; max-width: 700px;" src="https://imgur.com/scEMEZM.png">
+  <img style="width: 100%; max-width: 700px;" src="https://imgur.com/scEMEZM.png">
 </div>
 
-`debounce` 與 `throttle` 用來防止 scroll, resize 等事件處理器在短時間內被頻繁觸發，綁定的函示重複執行，造成網頁不斷重新運算進而影響效能，作法就是控制函式觸發的次數或頻率，以下分別說明兩者的操作方式。
+`debounce` 與 `throttle` 用來防止 scroll、resize 等事件處理器在短時間內被頻繁觸發，綁定的函示重複執行，造成網頁不斷重新運算進而影響效能，作法就是控制函式觸發的次數或頻率，以下分別說明兩者的操作方式。
 
 ## **Debounce**
 
 概念是加入一個倒數計時器，連續觸發時會一直重新倒數，直到計時器歸零，才執行函式。
 
 {% colorquote %}
-**簡單舉例**：
+**舉例**：
 就像是便利商店的自動門，當一段時間內頻繁有客人進來，自動門會持續開著，直到大家都進入後，等待幾秒才關上。
 {% endcolorquote %}
 
@@ -26,13 +26,13 @@ image: https://imgur.com/scEMEZM.png
 
 ```jsx
 function debounce(func, delay = 1000) {
-    let timer = null;
-    return function(...args) {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            func.apply(this, args);
-        }, delay)
-    }
+  let timer = null;
+  return function(...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  }
 }
 ```
 
@@ -58,7 +58,7 @@ const content = document.getElementById('content');
 input.addEventListener('input', debounce(updateContent));
 
 function updateContent(e) {
-    content.textContent = e.target.value;
+  content.textContent = e.target.value;
 }
 ```
 
@@ -75,7 +75,7 @@ function updateContent(e) {
 節流器，目的是減少事件執行的次數，事件連續觸發時製造間隔來控制運行次數。
 
 {% colorquote %}
-**簡單舉例**：
+**舉例**：
 像是等紅綠燈，在固定的時間才會轉成綠燈，如果錯過了，必須等待一段時間，直到下次綠燈才能通過。
 {% endcolorquote %}
 
@@ -87,20 +87,20 @@ function updateContent(e) {
 
 ```jsx
 function throttle(func, timeout = 1000) {
-    let isClose = false;
-    let timer = null;
-    return function(...args) {
-        if (isClose) {
-            return;
-        }
-        func.apply(this, args); // 第一次執行不進入 settimeout() 計算
-        isClose = true;
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            func.apply(this, args);
-            isClose = false;
-        }, timeout)
+  let isClose = false;
+  let timer = null;
+  return function(...args) {
+    if (isClose) {
+      return;
     }
+    func.apply(this, args); // 第一次執行不進入 settimeout() 計算
+    isClose = true;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+      isClose = false;
+    }, timeout);
+  }
 }
 ```
 
@@ -108,19 +108,19 @@ function throttle(func, timeout = 1000) {
 
 ```jsx
 function throttle(func, timeout = 1000) {
-    let isClose = false;
-    let timer = null;
-    return function(...args) {
-        if (isClose) {
-            return;
-        }
-        isClose = true;
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-        func.apply(this, args); // 第一次執行進入 settimeout() 計算
-            isClose = false;
-        }, timeout);
+  let isClose = false;
+  let timer = null;
+  return function(...args) {
+    if (isClose) {
+      return;
     }
+    isClose = true;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args); // 第一次執行進入 settimeout() 計算
+      isClose = false;
+    }, timeout);
+  }
 }
 ```
 
@@ -138,9 +138,9 @@ const content = document.getElementById('content');
 window.addEventListener('scroll', throttle(handleScroll));
 
 function handleScroll() {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        content.innerHTML += '<li> ... </li>';
-    }
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    content.innerHTML += '<li> ... </li>';
+  }
 }
 ```
 

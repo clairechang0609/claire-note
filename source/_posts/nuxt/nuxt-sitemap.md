@@ -33,7 +33,7 @@ export default {
 
 #### **sitemap 選項說明：**
 
-- **path：**設定 sitemap 名稱，預設為 ****`/sitemap.xml`
+- **path：**設定 sitemap 名稱，預設為 `/sitemap.xml`
 - **hostname**：網站 domain
 - **cacheTime：**sitemap 更新的頻率（預設為 `1000 * 60 * 15` 15 分鐘）
 - **gzip：**是否生成壓縮檔，預設 `false`

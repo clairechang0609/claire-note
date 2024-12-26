@@ -7,7 +7,7 @@ description: Middleware 為 Nuxt 內的路由守衛（Navigation Guards），相
 image: https://imgur.com/5VRbaV1.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10324879)
 >
 
 Middleware 為 Nuxt 內的 **路由守衛（Navigation Guards）**，相當於 Vue Router 內的 beforeEach callback，協助我們在進到頁面前進行事件處理（例如權限檢查）

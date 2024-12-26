@@ -7,7 +7,7 @@ description: 本篇說明如何在 Nuxt3 專案搭配 Pinia 狀態管理工具�
 image: https://imgur.com/n21QxOI.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10331991)
 >
 
 <div style="display: flex; justify-content: center; margin: 0;">

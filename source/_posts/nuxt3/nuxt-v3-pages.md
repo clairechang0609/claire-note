@@ -7,7 +7,7 @@ description: Nuxt 提供基於 Pages 的路由設定，當我們在 Pages 資料
 image: https://imgur.com/5VRbaV1.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10320355)
 >
 
 Pages 資料夾用來新增頁面，當我們在 Pages 資料夾建立檔案，Nuxt 會根據資料夾以及檔案結構自動生成基於 [Vue Router](https://router.vuejs.org/) 的路由，讓我們能更有效率的開發和管理

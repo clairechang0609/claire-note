@@ -7,7 +7,7 @@ description: Components 目錄用來定義 Vue 共用元件，元件的特性為
 image: https://imgur.com/5VRbaV1.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10321336)
 >
 
 Components 目錄用來定義 Vue 共用元件，元件的特性為將部分模板、程式碼進行封裝，讓我們可以重複使用。在 Components 建立的檔案，Nuxt 會自動引入（auto-import），接著在整個專案 pages / components / layouts 都能搭配使用

@@ -7,7 +7,7 @@ description: Nuxt.js 提供了預設的進度條效果，在路徑切換時顯�
 image: https://imgur.com/9QmKCKF.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10329897)
 >
 
 <div style="display: flex; justify-content: center; margin: 30px 0;">

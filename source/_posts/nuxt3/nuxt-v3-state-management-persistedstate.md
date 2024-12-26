@@ -7,7 +7,7 @@ description: 前一篇說明了在 Nuxt3 搭配 Pinia 狀態管理工具全域�
 image: https://imgur.com/n21QxOI.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10332698)
 >
 
 [前一篇](https://clairechang.tw/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/) 說明了在 Nuxt3 搭配 [Pinia](https://pinia.vuejs.org/) 狀態管理工具全域共享狀態，本篇將介紹 `pinia-plugin-persistedstate` 套件，用來將 Store 狀態儲存於瀏覽器中，避免狀態被還原

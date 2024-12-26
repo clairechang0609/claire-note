@@ -7,7 +7,7 @@ description: 本篇將說明 Nuxt3 專案搭配靜態網站生成（SSG），部
 image: https://i.imgur.com/r80Hush.png
 ---
 
-> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/users/20130500/ironman/6236)
+> 本篇文章同步發表於 2023 iThome 鐵人賽：[Nuxt.js 3.x 筆記－打造 SSR 專案](https://ithelp.ithome.com.tw/articles/10335369)
 >
 
 專案開發完成後，終於到最後一步**「部署」**，本篇使用靜態網站生成（SSG），搭配 GitHub Pages 託管靜態網頁內容。
