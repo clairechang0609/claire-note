@@ -178,6 +178,60 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/09/05/nuxt3/nuxt-v3-middleware/" itemprop="url">Nuxt.js 3.x Middleware 目錄－監聽路由變化</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2023-09-05</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10324879">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<p>Middleware 為 Nuxt 內的&nbsp;<strong>路由守衛（Navigation Guards）</strong>，相當於 Vue Router 內的 beforeEach callback，協助我們在進到頁面前進行事件處理（例如權限檢查）</p>
+<h3 id="Middleware-觸發時機："><a href="#Middleware-觸發時機：" class="headerlink" title="Middleware 觸發時機："></a><strong>Middleware 觸發時機：</strong></h3><ul>
+<li><strong>頁面初始化：</strong>Server Side 跟 Client Side 同時觸發（觸發兩次）</li>
+<li><strong>頁面切換：</strong>Client Side 觸發</li>
+</ul>
+<h3 id="Middleware-定義方式："><a href="#Middleware-定義方式：" class="headerlink" title="Middleware 定義方式："></a><strong>Middleware 定義方式：</strong></h3><ul>
+<li><strong>具名：</strong>在&nbsp;<code>middleware/</code>&nbsp;定義，並在需要的頁面引入</li>
+<li><strong>全域：</strong>同具名的定義方式，不過檔名需加上&nbsp;<code>.global</code>&nbsp;後綴，在所有頁面切換時自動執行</li>
+<li><strong>匿名：</strong>直接在單一元件檔內定義</li>
+</ul></body></html>
+        <p class="article-more-link">
+            <a href="/2023/09/05/nuxt3/nuxt-v3-middleware/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/09/04/nuxt3/nuxt-v3-server/" itemprop="url">Nuxt.js 3.x Server 目錄－建立 API</a>
         
     </h1>
@@ -628,57 +682,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/" itemprop="url">Nuxt.js 3.x 狀態管理 State Management (2)－Pinia</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-08-15</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10331991">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<div style="display: flex; justify-content: center; margin: 0;">
-  <img style="width: 100%; max-width: 500px;" src="https://imgur.com/n21QxOI.png">
-</div>
-
-<p>專案開發過程中常會有狀態共享的需求。父子元件間資料傳遞可以使用 Props 和 $emit，或是 Provide 和 Inject（<a href="https://clairechang.tw/2023/01/13/vue/vue-communications/">參考文章</a>），先前在 Nuxt2 介紹了 VueX 管理工具搭配 vuex-persistedstate 保存狀態（<a href="https://clairechang.tw/2022/11/22/nuxt/nuxt-vuex-store/">參考文章</a>），接下來說明如何在 Nuxt3 利用更便利高效的方式管理共享狀態。</p>
-<p>狀態管理預計分為以下三篇說明，<strong>本篇將介紹 Pinia</strong>：</p>
-<p><strong>1. useState：</strong>Nuxt Composable <a href="https://clairechang.tw/2023/08/14/nuxt3/nuxt-v3-state-management-usestate/">連結</a><br><strong>2. Pinia：</strong>Vue.js 狀態管理工具<br><strong>3. pinia-plugin-persistedstate：</strong>維持 Store 狀態 <a href="https://clairechang.tw/2023/08/16/nuxt3/nuxt-v3-state-management-persistedstate/">連結</a></p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/15/nuxt3/nuxt-v3-state-management-pinia/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -707,7 +710,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow">
-                &copy; 2024
+                &copy; 2025
                 Claire Chang&nbsp;
                 All rights reserved.
                 <br>

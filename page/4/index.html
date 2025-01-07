@@ -171,6 +171,51 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/07/10/nuxt3/nuxt-v3-plugins/" itemprop="url">Nuxt.js 3.x Plugins 目錄－擴充插件＋自訂指令</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2023-07-10</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10324028">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<p>Plugins 目錄協助我們在 Nuxt 擴充套件功能。前端開發常會搭配 <strong>第三方套件（package）</strong>使用，如表單驗證、圖片輪播、提示訊息等，這些套件通常已經被開發者設計好並經過測試，可以直接安裝使用，節省專案開發時間。</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/10/nuxt3/nuxt-v3-plugins/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/07/nuxt3/nuxt-v3-directory-structure/" itemprop="url">Nuxt.js 3.x 目錄結構 Directory Structure</a>
         
     </h1>
@@ -629,71 +674,6 @@
 
 
     
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/05/19/css/css-grid-layout/" itemprop="url">CSS Grid Layout Module 格線佈局 (1) 完整介紹與範例</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/CSS/">CSS</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-05-19</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><p>CSS Grid 佈局系統能夠幫助我們輕鬆控制網格中元素位置和大小，跟 Flex 比較：</p>
-<ul>
-<li><strong>Flex：</strong>一維佈局系統，主要用於單行或是單列的對齊跟排列</li>
-<li><strong>Grid：</strong>二維網格系統，提供更豐富靈活的佈局控制，同時操控「欄（column）」跟「列（row）」，適合用於複雜度高的網頁版型</li>
-</ul>
-<h2 id="常用屬性"><a href="#常用屬性" class="headerlink" title="常用屬性"></a><strong>常用屬性</strong></h2><h3 id="外層容器"><a href="#外層容器" class="headerlink" title="外層容器"></a><strong>外層容器</strong></h3><ul>
-<li><code>display</code>：定義容器類型（<code>grid</code> / <code>inline-grid</code> / <code>subgrid</code>）</li>
-<li><code>grid-template-columns</code>：定義網格欄的大小和數量</li>
-<li><code>grid-template-rows</code>：定義網格列的大小和數量</li>
-<li><code>grid-gap</code> / <code>grid-column-gap</code> / <code>grid-row-gap</code>：設定網格間的間距</li>
-<li><code>grid-template-areas</code>：定義網格空間位置，由單個或數個字串組成，搭配 <code>grid-area</code> 使用</li>
-<li><code>justify-items</code> / <code>align-items</code> / <code>place-items</code>：定義所有元素的對齊方式，同 flex 用法</li>
-</ul>
-<h3 id="內層元素"><a href="#內層元素" class="headerlink" title="內層元素"></a><strong>內層元素</strong></h3><ul>
-<li><code>grid-column</code> / <code>grid-column-start</code> / <code>grid-column-end</code>：控制元素在網格中所佔欄空間位置</li>
-<li><code>grid-row</code> / <code>grid-row-start</code> / <code>grid-row-end</code>：控制元素在網格中所佔列空間位置</li>
-<li><code>grid-area</code>：定義元素空間名稱，搭配 <code>grid-template-areas</code> 使用</li>
-<li><code>justify-self</code> / <code>align-self</code> / <code>place-self</code>：定義單一元素的對齊方式，同 flex 用法</li>
-</ul>
-<h3 id="元素自動佈局"><a href="#元素自動佈局" class="headerlink" title="元素自動佈局"></a><strong>元素自動佈局</strong></h3><ul>
-<li><code>grid-auto-columns</code>：定義預設欄的大小</li>
-<li><code>grid-auto-rows</code>：定義預設列的大小</li>
-<li><code>grid-auto-flow</code>：控制自動佈局的方向和順序</li>
-</ul></body></html>
-        <p class="article-more-link">
-            <a href="/2023/05/19/css/css-grid-layout/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
     
         
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
@@ -717,7 +697,7 @@
         
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         
-        <li><a class="pagination-link" href="/page/8/">8</a></li>
+        <li><a class="pagination-link" href="/page/9/">9</a></li>
         
     </ul>
 </nav>
@@ -728,7 +708,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow">
-                &copy; 2024
+                &copy; 2025
                 Claire Chang&nbsp;
                 All rights reserved.
                 <br>
