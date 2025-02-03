@@ -171,6 +171,61 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/07/11/nuxt3/nuxt-v3-composables-vs-utils/" itemprop="url">Nuxt.js 3.x Composables vs Utils 目錄－自訂共用方法</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2023-07-11</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10323220">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<p>定義在 <code>composables</code> 以及 <code>utils</code> 資料夾的檔案 Nuxt 都會自動引入（auto-imports），兩者都是用來定義複用邏輯的函式，不過使用情境有點不同，接下來分別說明。</p>
+<h2 id="Composables-amp-Utils-使用時機比較"><a href="#Composables-amp-Utils-使用時機比較" class="headerlink" title="Composables &amp; Utils 使用時機比較"></a><strong>Composables &amp; Utils 使用時機比較</strong></h2><ul>
+<li><code>composables/</code>：<br>組合式函式，利用 Composition API 來封裝和複用 <strong>有狀態邏輯（Stateful Logic）</strong>的函式，取代 Options API <code>mixins/</code> 的功能。我們可以將不同的邏輯抽象成單獨的 composable，並組合在 setup 函式中</li>
+<li><code>utils/</code>：<br>與 composables 做語意上的區隔，用來定義 <strong>無狀態邏輯（Stateless Logic）</strong>的函式</li>
+</ul>
+<blockquote class="colorquote info"><p><strong>狀態邏輯說明：</strong></p>
+<ul>
+<li><strong>無狀態邏輯函式：</strong><br>例如計算兩個數字相加的函式。當輸入值後，經過函式運算返回值，不會受其他狀態影響。無論何時輸入相同的值，都可以得到相同結果，大部分封裝共用方法屬於此類</li>
+<li><strong>有狀態邏輯函式：</strong><br>例如計數器函式，函式會控制變數。觸發函式時，狀態就會改變，每次觸發的結果不會相同</li>
+</ul>
+</blockquote></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/11/nuxt3/nuxt-v3-composables-vs-utils/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/10/nuxt3/nuxt-v3-plugins/" itemprop="url">Nuxt.js 3.x Plugins 目錄－擴充插件＋自訂指令</a>
         
     </h1>
@@ -613,55 +668,6 @@
 <p>本篇介紹第二個做法，這麼做可以降低程式碼的複雜度，提升程式碼可重用性，專案維護性也較高。</p></body></html>
         <p class="article-more-link">
             <a href="/2023/05/24/css/css-grid-responsive-table/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/05/23/css/css-grid-masonry/" itemprop="url">CSS Grid Layout Module 格線佈局 (2) Masonry 瀑布流應用</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/CSS/">CSS</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-05-23</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 600px; max-width: 100%;" src="https://i.imgur.com/XdKc6zc.png">
-</div>
-
-<p><a href="https://clairechang.tw/2023/05/19/css/css-grid-layout/">上一篇文章</a> 介紹了 CSS Grid，接下來運用網格系統來實作瀑布流版面。</p>
-<p>瀑布流（Waterfall Flow）是一種網頁佈局的設計方式。瀑布流的特點是將內容項目垂直排列，並根據可用的空間進行自適應調整，形成像瀑布一樣的流動效果 。</p>
-<p>瀑布流佈局中，每個元素的寬度通常是固定的，但高度會根據內容的大小變化。這樣可以使元素在垂直方向上緊密堆疊，填滿可用空間。當一列的空間被填滿後，下一個元素會自動排列到空間較少的列中，達到均衡的排版。</p>
-<p>透過 CSS Grid 或 Flexbox 可以達成瀑布流佈局的效果，本篇會使用 CSS Grid 搭配 JavaScript 來完成實作。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/05/23/css/css-grid-masonry/#more">閱讀更多</a>
         </p>
     
     </div>

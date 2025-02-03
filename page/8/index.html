@@ -171,6 +171,60 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2022/12/17/nuxt/nuxt-veevalidate/" itemprop="url">Nuxt.js 套件應用：VeeValidate 表單驗證</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt/">Nuxt</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2022-12-17</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p><strong>版本：nuxt 2.15.8</strong></p>
+</blockquote>
+<div style="display: flex; justify-content: center; margin: 20px 0;">
+  <img style="width: 100%; max-width: 550px;" src="https://i.imgur.com/Skb7Wnb.png">
+</div>
+
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://vee-validate.logaretm.com/v3/">vee-validate</a> 是使用於 Vue.js 的輕量表單驗證套件（參考 php 框架 laravel 表單驗證所開發），僅需在表單上加入簡易語法就能進行驗證，執行：<code>npm i vee-validate@3.4.14</code></p>
+<blockquote class="colorquote info"><p>Vue.js v2.x 需搭配 vee-validate v3.x</p>
+</blockquote>
+
+<p>新增 plugins/vee-validate.js，在 nuxt.config.js 配置</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// nuxt.config.js</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {<br>  <span class="hljs-attr">plugins</span>: [<br>    { <span class="hljs-attr">src</span>: <span class="hljs-string">'@/plugins/vee-validate.js'</span>, <span class="hljs-attr">mode</span>: <span class="hljs-string">'client'</span> }<br>  ]<br>}<br></code></pre></td></tr></tbody></table></figure></body></html>
+        <p class="article-more-link">
+            <a href="/2022/12/17/nuxt/nuxt-veevalidate/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2022/12/15/nuxt/nuxt-sitemap/" itemprop="url">Nuxt.js 替網站增加 sitemap 網站地圖</a>
         
     </h1>
@@ -595,57 +649,6 @@
 <p>接下來介紹一下一些常用的設定：</p></body></html>
         <p class="article-more-link">
             <a href="/2022/11/19/nuxt/nuxt-config-setting/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2022/11/17/nuxt/nuxt-catalog/" itemprop="url">Nuxt.js 目錄結構</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt/">Nuxt</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2022-11-17</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p><strong>版本：nuxt 2.15.8</strong></p>
-</blockquote>
-<p>使用 create-nuxt-app 安裝完成後，可以看到以下的資料夾結構：</p>
-<div style="display: flex; justify-content: left; margin: 20px 0;">
-    <img style="width: 100%; max-width: 350px;" src="https://i.imgur.com/jPvQ66l.png">
-</div>
-
-<p><strong>assets, layouts, middleware, mixins, plugins</strong> 以上資料夾在當前版本是需要手動建置的，</p>
-<p>依照順序介紹各資料夾功能：</p></body></html>
-        <p class="article-more-link">
-            <a href="/2022/11/17/nuxt/nuxt-catalog/#more">閱讀更多</a>
         </p>
     
     </div>

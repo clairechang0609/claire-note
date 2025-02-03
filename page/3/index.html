@@ -171,6 +171,51 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/08/18/nuxt3/nuxt-v3-pages/" itemprop="url">Nuxt.js 3.x Pages 目錄－自動生成路由</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2023-08-18</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10320355">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<p>Pages 資料夾用來新增頁面，當我們在 Pages 資料夾建立檔案，Nuxt 會根據資料夾以及檔案結構自動生成基於 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://router.vuejs.org/">Vue Router</a> 的路由，讓我們能更有效率的開發和管理</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/08/18/nuxt3/nuxt-v3-pages/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/08/16/nuxt3/nuxt-v3-swiper/" itemprop="url">Nuxt.js 3.x 套件應用－Swiper 製作輪播動畫</a>
         
     </h1>
@@ -623,61 +668,6 @@
 </blockquote></body></html>
         <p class="article-more-link">
             <a href="/2023/07/19/nuxt3/nuxt-v3-data-fetching/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/07/11/nuxt3/nuxt-v3-composables-vs-utils/" itemprop="url">Nuxt.js 3.x Composables vs Utils 目錄－自訂共用方法</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-07-11</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10323220">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>定義在 <code>composables</code> 以及 <code>utils</code> 資料夾的檔案 Nuxt 都會自動引入（auto-imports），兩者都是用來定義複用邏輯的函式，不過使用情境有點不同，接下來分別說明。</p>
-<h2 id="Composables-amp-Utils-使用時機比較"><a href="#Composables-amp-Utils-使用時機比較" class="headerlink" title="Composables &amp; Utils 使用時機比較"></a><strong>Composables &amp; Utils 使用時機比較</strong></h2><ul>
-<li><code>composables/</code>：<br>組合式函式，利用 Composition API 來封裝和複用 <strong>有狀態邏輯（Stateful Logic）</strong>的函式，取代 Options API <code>mixins/</code> 的功能。我們可以將不同的邏輯抽象成單獨的 composable，並組合在 setup 函式中</li>
-<li><code>utils/</code>：<br>與 composables 做語意上的區隔，用來定義 <strong>無狀態邏輯（Stateless Logic）</strong>的函式</li>
-</ul>
-<blockquote class="colorquote info"><p><strong>狀態邏輯說明：</strong></p>
-<ul>
-<li><strong>無狀態邏輯函式：</strong><br>例如計算兩個數字相加的函式。當輸入值後，經過函式運算返回值，不會受其他狀態影響。無論何時輸入相同的值，都可以得到相同結果，大部分封裝共用方法屬於此類</li>
-<li><strong>有狀態邏輯函式：</strong><br>例如計數器函式，函式會控制變數。觸發函式時，狀態就會改變，每次觸發的結果不會相同</li>
-</ul>
-</blockquote></body></html>
-        <p class="article-more-link">
-            <a href="/2023/07/11/nuxt3/nuxt-v3-composables-vs-utils/#more">閱讀更多</a>
         </p>
     
     </div>

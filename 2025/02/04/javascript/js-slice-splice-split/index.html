@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>Claire&#39;s Notes</title>
+<title>一次搞懂 JavaScript 的 slice、splice、split - Claire&#39;s Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,15 +10,20 @@
 
 
 
-    <meta name="description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Claire&#39;s Notes">
-<meta property="og:url" content="https://clairechang.tw/page/2/index.html">
+    <meta name="description" content="這篇文章說明並比較 JavaScript 中常見的三個方法—slice、splice、split，並解析主要用法及實際應用範例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次搞懂 JavaScript 的 slice、splice、split">
+<meta property="og:url" content="https://clairechang.tw/2025/02/04/javascript/js-slice-splice-split/index.html">
 <meta property="og:site_name" content="Claire&#39;s Notes">
-<meta property="og:description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
+<meta property="og:description" content="這篇文章說明並比較 JavaScript 中常見的三個方法—slice、splice、split，並解析主要用法及實際應用範例">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://clairechang.tw/images/js/slice-splice-split/all.png">
+<meta property="article:published_time" content="2025-02-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-03T16:00:00.000Z">
 <meta property="article:author" content="Claire Chang">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://clairechang.tw/images/js/slice-splice-split/all.png">
 
 
 
@@ -167,18 +172,17 @@
 </nav>
     <section class="section">
     <div class="container">
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
+    <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            <a href="/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/" itemprop="url">Nuxt.js 3.x Assets vs Public 目錄－靜態資源管理</a>
+            一次搞懂 JavaScript 的 slice、splice、split
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         
             <span class="column is-narrow article-category">
                 <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+                <a class="article-item" href="/categories/Javascript/">Javascript</a>
             </span>
             <span class="column is-narrow">｜</span>
         
@@ -186,7 +190,7 @@
             <i class="far fa-clock"></i>
             <span class="article-item">
                 
-                    <span>2023-09-12</span>
+                    <span>2025-02-04</span>
                 
             </span>
         </span>
@@ -195,509 +199,245 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10325656">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+        <html><head></head><body><div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px;">
+  <img style="width: 600px; max-width: 100%;" src="/images/js/slice-splice-split/all.png">
+</div>
+
+<p>即便使用 JS 開發好幾年，偶爾在使用常用函式時還是要 google 一下（還好意思說），因此筆記起來協助我的石頭腦袋！</p></body></html>
+        <!-- <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div> -->
+        <html><head></head><body><h2 id="slice"><a href="#slice" class="headerlink" title="slice"></a><strong>slice</strong></h2><div style="margin-top: 20px; margin-bottom: 20px;">
+  <img style="width: 100%; max-width: 100%;" src="/images/js/slice-splice-split/slice.png">
+</div>
+
+<blockquote>
+<p>陣列方法</p>
 </blockquote>
-<p>Nuxt3 提供兩個資料夾 <code>assets/</code> 以及 <code>public/</code>，用來管理靜態資源，像是圖片、CSS 樣式、字體、icon 等，接下來說明兩個目錄適合存放的檔案類型與使用方式</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/11/nuxt3/nuxt-v3-components/" itemprop="url">Nuxt.js 3.x Components 目錄－建立共用元件</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-09-11</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10321336">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Components 目錄用來定義 Vue 共用元件，元件的特性為將部分模板、程式碼進行封裝，讓我們可以重複使用。在 Components 建立的檔案，Nuxt 會自動引入（auto-import），接著在整個專案 pages / components / layouts 都能搭配使用</p>
-<h2 id="建立元件"><a href="#建立元件" class="headerlink" title="建立元件"></a><strong>建立元件</strong></h2><figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">components/<br>|—— TheHeader.vue<br>|—— TheFooter.vue<br></code></pre></td></tr></tbody></table></figure></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/11/nuxt3/nuxt-v3-components/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/07/nuxt3/nuxt-v3-error-page/" itemprop="url">Nuxt.js 3.x 自訂 Error Page 與錯誤處理</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-09-07</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10335367">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Nuxt 3 提供大量內建功能，包括預設錯誤頁面，可以在隱藏資料夾 <code>.nuxt/dev/index.mjs</code> 看到，我們也可以自訂錯誤頁面，Nuxt 預設錯誤畫面如下：</p>
-<div style="display: flex; justify-content: center; margin: 30px 0; border: 1px solid rgb(200, 200, 200);">
-  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/He7uasf.png">
-</div></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/07/nuxt3/nuxt-v3-error-page/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/05/nuxt3/nuxt-v3-middleware/" itemprop="url">Nuxt.js 3.x Middleware 目錄－監聽路由變化</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-09-05</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10324879">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Middleware 為 Nuxt 內的&nbsp;<strong>路由守衛（Navigation Guards）</strong>，相當於 Vue Router 內的 beforeEach callback，協助我們在進到頁面前進行事件處理（例如權限檢查）</p>
-<h3 id="Middleware-觸發時機："><a href="#Middleware-觸發時機：" class="headerlink" title="Middleware 觸發時機："></a><strong>Middleware 觸發時機：</strong></h3><ul>
-<li><strong>頁面初始化：</strong>Server Side 跟 Client Side 同時觸發（觸發兩次）</li>
-<li><strong>頁面切換：</strong>Client Side 觸發</li>
+<ul>
+<li>取得原陣列的部分區間</li>
+<li>回傳一個新的陣列，為原陣列 <code>start</code>（包含）到 <code>end</code>（不含）的淺拷貝</li>
+<li>原陣列不會被修改</li>
 </ul>
-<h3 id="Middleware-定義方式："><a href="#Middleware-定義方式：" class="headerlink" title="Middleware 定義方式："></a><strong>Middleware 定義方式：</strong></h3><ul>
-<li><strong>具名：</strong>在&nbsp;<code>middleware/</code>&nbsp;定義，並在需要的頁面引入</li>
-<li><strong>全域：</strong>同具名的定義方式，不過檔名需加上&nbsp;<code>.global</code>&nbsp;後綴，在所有頁面切換時自動執行</li>
-<li><strong>匿名：</strong>直接在單一元件檔內定義</li>
-</ul></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/05/nuxt3/nuxt-v3-middleware/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
+<p><strong>語法：</strong></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">arr.<span class="hljs-title function_">slice</span>([start[, end]])<br></code></pre></td></tr></tbody></table></figure>
 
+<p><strong>參數：</strong></p>
+<ul>
+<li><code>start</code>：起始索引（選填），未填則取得整個陣列淺拷貝</li>
+<li><code>end</code>：結束索引（選填），未填則取得從 <code>start</code> 開始的陣列淺拷貝</li>
+</ul>
+<p><strong>範例：</strong></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><br><span class="hljs-keyword">const</span> selectedSnacks1 = snacks.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>);<br><span class="hljs-keyword">const</span> selectedSnacks2 = snacks.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>);<br><span class="hljs-keyword">const</span> selectedSnacks3 = snacks.<span class="hljs-title function_">slice</span>();<br><span class="hljs-keyword">const</span> selectedSnacks4 = snacks.<span class="hljs-title function_">slice</span>(-<span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks1); <span class="hljs-comment">// ['egg roll', 'apple pie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks2); <span class="hljs-comment">// ['egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks3); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks4); <span class="hljs-comment">// ['haribo']</span><br></code></pre></td></tr></tbody></table></figure>
 
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/04/nuxt3/nuxt-v3-server/" itemprop="url">Nuxt.js 3.x Server 目錄－建立 API</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-09-04</span>
-                
-            </span>
-        </span>
+<hr>
+<h2 id="splice"><a href="#splice" class="headerlink" title="splice"></a><strong>splice</strong></h2><div style="margin-top: 20px; margin-bottom: 20px;">
+  <img style="width: 100%; max-width: 100%;" src="/images/js/slice-splice-split/splice.png">
+</div>
 
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10327264">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Nuxt3 搭配了新的伺服器引擎 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nitro.unjs.io/">Nitro</a>，讓我們能輕鬆在 Nuxt 專內建立 Server API。Nitro 的優點包含跨平台支援 Node.js 與瀏覽器、支援 HMR、自動生成 API 路由等，讓 Nuxt 具備全端功能，接下來一起進行實作吧。</p>
-<h2 id="建立-API"><a href="#建立-API" class="headerlink" title="建立 API"></a><strong>建立 API</strong></h2><ul>
-<li>在 <code>server/</code> 目錄建立 API，Nuxt 會依據資料夾結構自動生成 API 路徑</li>
-<li>使用 <code>defineEventHandler()</code> 建立事件處理器</li>
-</ul></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/04/nuxt3/nuxt-v3-server/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/09/01/nuxt3/nuxt-v3-layouts/" itemprop="url">Nuxt.js 3.x Layouts 目錄－自訂模板</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-09-01</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10322294">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<p>Layouts 資料夾協助我們定義共用模板，將重複使用的版面提取到模板內全域共用，看起來跟 Components 有點像，那麼 Layouts 跟 Components 怎麼區分？<strong>可以將 Layouts 視為包覆在頁面外層的包裹元件</strong>，用來定義 Header、Sidebar、Footer 等共用版面或是元件</p>
-<blockquote class="colorquote info"><p>官方文件提到，如果整個專案只有一個模板，建議直接在&nbsp;<code>app.vue</code>&nbsp;定義即可</p>
-</blockquote></body></html>
-        <p class="article-more-link">
-            <a href="/2023/09/01/nuxt3/nuxt-v3-layouts/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/29/nuxt3/nuxt-v3-i18n/" itemprop="url">Nuxt.js 3.x 導入 I18n 實作多國語系</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-08-29</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10333224">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
 <blockquote>
-<p><strong>@nuxtjs/i18n 版本：v8.0.0-rc.3</strong></p>
+<p>陣列方法</p>
 </blockquote>
-<div style="display: flex; justify-content: center; margin: 30px 0;">
-  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/l0zKfkP.png">
+<ul>
+<li>對陣列刪除或加入新的元素</li>
+<li>回傳一個被刪除的元素組成的陣列</li>
+<li>原陣列會被修改</li>
+</ul>
+<p><strong>語法：</strong></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">arr.<span class="hljs-title function_">splice</span>(start[, deleteCount[, item1[, item2[, ...]]]])<br></code></pre></td></tr></tbody></table></figure>
+
+<p><strong>參數：</strong></p>
+<ul>
+<li><code>start</code>：起始索引（必填）</li>
+<li><code>deleteCount</code>：刪除的數量（選填），未填則移除從 <code>start</code> 開始的所有元素</li>
+<li><code>item1、item2、…</code>：要加入陣列的元素（從 <code>start</code> 開始加入）（選填）</li>
+</ul>
+<p><strong>範例：</strong></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks1 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks1 = snacks1.<span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'cream cake'</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks1); <span class="hljs-comment">// ['cookie', 'chocolate', 'cream cake']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks1); <span class="hljs-comment">// ['egg roll', 'apple pie', 'haribo']</span><br><br><span class="hljs-keyword">const</span> snacks2 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks2 = snacks2.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks2); <span class="hljs-comment">// ['cookie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks2); <span class="hljs-comment">// ['chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><br><span class="hljs-keyword">const</span> snacks3 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks3 = snacks3.<span class="hljs-title function_">splice</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks3); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks3); <span class="hljs-comment">// ['haribo']</span><br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="split"><a href="#split" class="headerlink" title="split"></a><strong>split</strong></h2><div style="margin-top: 20px; margin-bottom: 20px;">
+  <img style="width: 100%; max-width: 100%;" src="/images/js/slice-splice-split/split.png">
 </div>
 
-<p>多國語系讓我們的網站邁向國際市場，本篇將說明如何搭配 Nuxt3 整合模組 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://v8.i18n.nuxtjs.org/">@nuxtjs/i18n</a> 進行開發</p>
-<h3 id="nuxtjs-x2F-i18n-簡介"><a href="#nuxtjs-x2F-i18n-簡介" class="headerlink" title="@nuxtjs/i18n 簡介"></a><strong>@nuxtjs/i18n 簡介</strong></h3><ul>
-<li>整合 Vue I18n</li>
-<li>自動產生路由</li>
-<li>SEO 搜尋引擎最佳化</li>
-<li>Lazy Loading 延遲載入</li>
-<li>自動偵測語言並切換</li>
-<li>多國語言支援不同域名</li>
-</ul></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/29/nuxt3/nuxt-v3-i18n/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/25/nuxt3/nuxt-v3-styling/" itemprop="url">Nuxt.js 3.x 搭配 CSS Framework－以 Bootstrap 5 為例</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-08-25</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10330532">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
 <blockquote>
-<p><strong>Bootstrap 版本：v5.3.1<br>Sass 版本：v1.63.6</strong></p>
+<p>字串方法</p>
 </blockquote>
-<p>在 Nuxt 專案中，我們可以自由選擇 CSS 預處理器、CSS 框架或是 UI Library 來定義樣式。在 CSS 框架百家爭鳴的時代，這幾年熱門的 Tailwind CSS、基於 Vue.js 開發的 Quasar、或是搭配 Vue3 開發的 Element Plus 都能快速上手，協助我們打造精美的網站。</p>
-<p>由於工作上較常使用 Bootstrap 協作，本篇將以 <strong>Bootstrap 5 搭配 SCSS</strong> 進行說明。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/25/nuxt3/nuxt-v3-styling/#more">閱讀更多</a>
-        </p>
+<ul>
+<li>將字串切割為一組陣列，包含數個字串片段</li>
+<li>回傳一個字串切割後的陣列</li>
+<li>原字串不會被修改</li>
+</ul>
+<p><strong>語法：</strong></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">str.<span class="hljs-title function_">split</span>(separator[, limit])<br></code></pre></td></tr></tbody></table></figure>
+
+<p><strong>參數：</strong></p>
+<ul>
+<li><code>separator</code>：分隔符號（必填），可以為字串或是正則</li>
+<li><code>limit</code>：限制擷取的最大數量（選填），未填則取得所有切割後的字串</li>
+</ul>
+<p><strong>範例：</strong></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks = <span class="hljs-string">'cookie, chocolate, egg roll, apple pie, haribo'</span>;<br><br><span class="hljs-keyword">const</span> snacksArr1 = snacks.<span class="hljs-title function_">split</span>(<span class="hljs-string">', '</span>);<br><span class="hljs-keyword">const</span> snacksArr2 = snacks.<span class="hljs-title function_">split</span>(<span class="hljs-string">', '</span>, <span class="hljs-number">3</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacksArr1); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacksArr2); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll']</span><br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a><strong>總結</strong></h3><p>最後用一張表格彙整，比較三者差異：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>對象</th>
+<th>用途</th>
+<th>回傳值</th>
+<th>是否影響原資料</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>slice</td>
+<td>Array</td>
+<td>取得原陣列的部分區間</td>
+<td>新陣列</td>
+<td><span style="color:rgb(224, 58, 46);">⨉ 不會</span></td>
+</tr>
+<tr>
+<td>splice</td>
+<td>Array</td>
+<td>對陣列刪除或加入新的元素</td>
+<td>刪除的項目</td>
+<td><span style="color:rgb(23, 161, 85);">○ 會</span></td>
+</tr>
+<tr>
+<td>split</td>
+<td>String</td>
+<td>將字串切割為一組陣列</td>
+<td>新陣列</td>
+<td><span style="color: rgb(224, 58, 46);">⨉ 不會</span></td>
+</tr>
+</tbody></table></body></html>
+        <!-- <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div> -->
+    
+    </div>
+    
+        <div>
+            <script type="text/javascript">
+                document.write(
+                "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/claire060900874511/button?referrer=" +
+                encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+            </script>
+        <div>
+    
+    
+    
+    <div class="sharebox">
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=638b091d4b058f001938c857&amp;product=sop" async="async"></script>
+
+    </div>
+    
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/javascript/">#javascript</a></span>
     
     </div>
     
     
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/24/nuxt3/nuxt-v3-loading/" itemprop="url">Nuxt.js 3.x 自訂 Loading 效果</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-08-24</span>
-                
-            </span>
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+            
+            <a href="/2025/01/07/nuxt3/nuxt-module-author/">成為 Nuxt Module 作者：模組開發到私有套件發佈的步驟解析</a>
+            
         </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><blockquote>
-<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10329897">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
-</blockquote>
-<div style="display: flex; justify-content: center; margin: 30px 0;">
-  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/9QmKCKF.png">
-</div>
-
-<p>Nuxt3 提供了預設進度條元件 <code>&lt;NuxtLoadingIndicator&gt;</code>，在路徑切換時顯示。也可以自訂共用元件來調整觸發時機或樣式。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/24/nuxt3/nuxt-v3-loading/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/22/nuxt3/nuxt-vs-vue/" itemprop="url">Nuxt 與 Vue 比較，說明 SSR 基本概念</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-08-22</span>
-                
-            </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
         </span>
-
-        
-            <span class="column is-narrow">｜</span>
-            <span class="column is-narrow">
-                <i class="fas fa-sync-alt"></i>
-                <span class="article-item">
-                    2024-12-09
-                </span>
-            </span>
-        
     </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <html><head></head><body><div style="width: 100%; max-width: 600px; margin: 50px auto;">
-  <img style="width: 100%; max-width: 100%;" src="/images/nuxt3/nuxt-vs-vue/nuxt-vue.svg">
-  <small>source: Nuxt.js and Vue.js</small>
+</div></div></article>
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    <!-- 
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div> -->
+    <style>
+        .utterances{max-width: 100%;}
+    </style>
+    <script src="https://utteranc.es/client.js" repo="clairechang0609/hexo-board" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+    </script>
 </div>
+    
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    
 
-<p>了解 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/">Nuxt.js</a> 之前，需先從 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://vuejs.org/">Vue.js</a> 說起。Vue.js 是一個專注於視圖層的 JavaScript 框架，用於建立單頁應用程式（SPA，Single Page Application）。在 SPA 架構中，使用者首次訪問網站時會下載一個 HTML 文件和所有的 JavaScript 資源，之後的頁面切換和更新都是透過 JavaScript 動態完成，這樣的設計可以減少頁面重新載入的次數，進而提升使用者體驗。</p>
-<p>不過，SPA 架構也存在一個主要缺點：搜尋引擎爬蟲只會讀取 HTML，不會執行 JavaScript。因此，可能會導致動態產生的內容無法被正確索引，影響網站在搜尋引擎上的表現。</p>
-<p>Nuxt.js 是基於 Vue.js 的框架，預設使用通用渲染模式（Universal Rendering），結合了伺服器端渲染（SSR，Server-Side Rendering）和客戶端渲染（CSR，Client-Side Rendering）的優點。透過在伺服器端生成完整的 HTML 內容並回傳給瀏覽器，讓搜尋引擎爬蟲可以取得較完整的 HTML 內容，以改善 SPA 架構下 SEO 成效不佳的問題。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/22/nuxt3/nuxt-vs-vue/#more">閱讀更多</a>
-        </p>
-    
     </div>
-    
-    
-    
-    
-    
-</article>
+    <!-- 
+        <div class="vertical-ad">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script> -->
+            <!-- 直式廣告 -->
+            <!-- <ins class="adsbygoogle"
+                style="display:inline-block; width:100%; height:400px;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="7146536898"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+     -->
 
-
     
+        <div class="vertical-ad">
+            <a target="_blank" href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw" rel="external nofollow noopener noreferrer" style="display: flex; flex-direction: column; align-items: center; padding: 1rem;">
+                <img style="width: 100%; max-width: 200px; margin-bottom: 0.5rem;" src="/images/nuxt3/book.jpg" alt="Nuxt3 入門－打造 SSR 專案">
+                <small style="text-align: center; color: darkcyan;">
+                    <small style="background-color: darkcyan; color: white; padding: 1px 1rem; border-radius: 20px; display: inline-block; margin-bottom: 0.5rem;">新書上市</small><br>
+                    Nuxt3 入門：打造 SSR 專案
+                </small>
+            </a>
+        </div>
     
-        
-<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-    <div class="pagination-previous">
-        <a href="/">上一頁</a>
-    </div>
-    <div class="pagination-next">
-        <a href="/page/3/">下一頁</a>
-    </div>
-    <ul class="pagination-list is-hidden-mobile">
-        
-        <li><a class="pagination-link" href="/">1</a></li>
-        
-        <li><a class="pagination-link is-current" href="/page/2/">2</a></li>
-        
-        <li><a class="pagination-link" href="/page/3/">3</a></li>
-        
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        
-        <li><a class="pagination-link" href="/page/9/">9</a></li>
-        
-    </ul>
-</nav>
-    
-    </div>
 </section>
+
     <footer class="footer">
     <div class="container">
         <div class="columns content">
