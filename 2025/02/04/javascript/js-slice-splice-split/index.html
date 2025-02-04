@@ -200,7 +200,7 @@
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
         <html><head></head><body><div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px;">
-  <img style="width: 600px; max-width: 100%;" src="/images/js/slice-splice-split/all.png">
+  <img style="width: 100%; max-width: 100%;" src="/images/js/slice-splice-split/all.png">
 </div>
 
 <p>即便使用 JS 開發好幾年，偶爾在使用常用函式時還是要 google 一下（還好意思說），因此筆記起來協助我的石頭腦袋！</p></body></html>
@@ -222,73 +222,58 @@
   <img style="width: 100%; max-width: 100%;" src="/images/js/slice-splice-split/slice.png">
 </div>
 
-<blockquote>
-<p>陣列方法</p>
-</blockquote>
 <ul>
+<li><strong>陣列方法</strong></li>
 <li>取得原陣列的部分區間</li>
 <li>回傳一個新的陣列，為原陣列 <code>start</code>（包含）到 <code>end</code>（不含）的淺拷貝</li>
 <li>原陣列不會被修改</li>
 </ul>
-<p><strong>語法：</strong></p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">arr.<span class="hljs-title function_">slice</span>([start[, end]])<br></code></pre></td></tr></tbody></table></figure>
+<h5 id="語法"><a href="#語法" class="headerlink" title="語法"></a><strong>語法</strong></h5><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">arr.<span class="hljs-title function_">slice</span>([start[, end]])<br></code></pre></td></tr></tbody></table></figure>
 
-<p><strong>參數：</strong></p>
-<ul>
+<h5 id="參數"><a href="#參數" class="headerlink" title="參數"></a><strong>參數</strong></h5><ul>
 <li><code>start</code>：起始索引（選填），未填則取得整個陣列淺拷貝</li>
 <li><code>end</code>：結束索引（選填），未填則取得從 <code>start</code> 開始的陣列淺拷貝</li>
 </ul>
-<p><strong>範例：</strong></p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><br><span class="hljs-keyword">const</span> selectedSnacks1 = snacks.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>);<br><span class="hljs-keyword">const</span> selectedSnacks2 = snacks.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>);<br><span class="hljs-keyword">const</span> selectedSnacks3 = snacks.<span class="hljs-title function_">slice</span>();<br><span class="hljs-keyword">const</span> selectedSnacks4 = snacks.<span class="hljs-title function_">slice</span>(-<span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks1); <span class="hljs-comment">// ['egg roll', 'apple pie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks2); <span class="hljs-comment">// ['egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks3); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks4); <span class="hljs-comment">// ['haribo']</span><br></code></pre></td></tr></tbody></table></figure>
+<h5 id="範例"><a href="#範例" class="headerlink" title="範例"></a><strong>範例</strong></h5><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><br><span class="hljs-keyword">const</span> selectedSnacks1 = snacks.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>);<br><span class="hljs-keyword">const</span> selectedSnacks2 = snacks.<span class="hljs-title function_">slice</span>(<span class="hljs-number">2</span>);<br><span class="hljs-keyword">const</span> selectedSnacks3 = snacks.<span class="hljs-title function_">slice</span>();<br><span class="hljs-keyword">const</span> selectedSnacks4 = snacks.<span class="hljs-title function_">slice</span>(-<span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks1); <span class="hljs-comment">// ['egg roll', 'apple pie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks2); <span class="hljs-comment">// ['egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks3); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(selectedSnacks4); <span class="hljs-comment">// ['haribo']</span><br></code></pre></td></tr></tbody></table></figure>
 
 <hr>
 <h2 id="splice"><a href="#splice" class="headerlink" title="splice"></a><strong>splice</strong></h2><div style="margin-top: 20px; margin-bottom: 20px;">
   <img style="width: 100%; max-width: 100%;" src="/images/js/slice-splice-split/splice.png">
 </div>
 
-<blockquote>
-<p>陣列方法</p>
-</blockquote>
 <ul>
+<li><strong>陣列方法</strong></li>
 <li>對陣列刪除或加入新的元素</li>
 <li>回傳一個被刪除的元素組成的陣列</li>
 <li>原陣列會被修改</li>
 </ul>
-<p><strong>語法：</strong></p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">arr.<span class="hljs-title function_">splice</span>(start[, deleteCount[, item1[, item2[, ...]]]])<br></code></pre></td></tr></tbody></table></figure>
+<h5 id="語法-1"><a href="#語法-1" class="headerlink" title="語法"></a><strong>語法</strong></h5><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">arr.<span class="hljs-title function_">splice</span>(start[, deleteCount[, item1[, item2[, ...]]]])<br></code></pre></td></tr></tbody></table></figure>
 
-<p><strong>參數：</strong></p>
-<ul>
+<h5 id="參數-1"><a href="#參數-1" class="headerlink" title="參數"></a><strong>參數</strong></h5><ul>
 <li><code>start</code>：起始索引（必填）</li>
 <li><code>deleteCount</code>：刪除的數量（選填），未填則移除從 <code>start</code> 開始的所有元素</li>
 <li><code>item1、item2、…</code>：要加入陣列的元素（從 <code>start</code> 開始加入）（選填）</li>
 </ul>
-<p><strong>範例：</strong></p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks1 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks1 = snacks1.<span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'cream cake'</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks1); <span class="hljs-comment">// ['cookie', 'chocolate', 'cream cake']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks1); <span class="hljs-comment">// ['egg roll', 'apple pie', 'haribo']</span><br><br><span class="hljs-keyword">const</span> snacks2 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks2 = snacks2.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks2); <span class="hljs-comment">// ['cookie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks2); <span class="hljs-comment">// ['chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><br><span class="hljs-keyword">const</span> snacks3 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks3 = snacks3.<span class="hljs-title function_">splice</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks3); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks3); <span class="hljs-comment">// ['haribo']</span><br></code></pre></td></tr></tbody></table></figure>
+<h5 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a><strong>範例</strong></h5><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks1 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks1 = snacks1.<span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'cream cake'</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks1); <span class="hljs-comment">// ['cookie', 'chocolate', 'cream cake']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks1); <span class="hljs-comment">// ['egg roll', 'apple pie', 'haribo']</span><br><br><span class="hljs-keyword">const</span> snacks2 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks2 = snacks2.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks2); <span class="hljs-comment">// ['cookie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks2); <span class="hljs-comment">// ['chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><br><span class="hljs-keyword">const</span> snacks3 = [<span class="hljs-string">'cookie'</span>, <span class="hljs-string">'chocolate'</span>, <span class="hljs-string">'egg roll'</span>, <span class="hljs-string">'apple pie'</span>, <span class="hljs-string">'haribo'</span>];<br><span class="hljs-keyword">const</span> deletedSnacks3 = snacks3.<span class="hljs-title function_">splice</span>(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacks3); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(deletedSnacks3); <span class="hljs-comment">// ['haribo']</span><br></code></pre></td></tr></tbody></table></figure>
 
 <hr>
 <h2 id="split"><a href="#split" class="headerlink" title="split"></a><strong>split</strong></h2><div style="margin-top: 20px; margin-bottom: 20px;">
   <img style="width: 100%; max-width: 100%;" src="/images/js/slice-splice-split/split.png">
 </div>
 
-<blockquote>
-<p>字串方法</p>
-</blockquote>
 <ul>
+<li><strong>字串方法</strong></li>
 <li>將字串切割為一組陣列，包含數個字串片段</li>
 <li>回傳一個字串切割後的陣列</li>
 <li>原字串不會被修改</li>
 </ul>
-<p><strong>語法：</strong></p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">str.<span class="hljs-title function_">split</span>(separator[, limit])<br></code></pre></td></tr></tbody></table></figure>
+<h5 id="語法-2"><a href="#語法-2" class="headerlink" title="語法"></a><strong>語法</strong></h5><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">str.<span class="hljs-title function_">split</span>(separator[, limit])<br></code></pre></td></tr></tbody></table></figure>
 
-<p><strong>參數：</strong></p>
-<ul>
+<h5 id="參數-2"><a href="#參數-2" class="headerlink" title="參數"></a><strong>參數</strong></h5><ul>
 <li><code>separator</code>：分隔符號（必填），可以為字串或是正則</li>
 <li><code>limit</code>：限制擷取的最大數量（選填），未填則取得所有切割後的字串</li>
 </ul>
-<p><strong>範例：</strong></p>
-<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks = <span class="hljs-string">'cookie, chocolate, egg roll, apple pie, haribo'</span>;<br><br><span class="hljs-keyword">const</span> snacksArr1 = snacks.<span class="hljs-title function_">split</span>(<span class="hljs-string">', '</span>);<br><span class="hljs-keyword">const</span> snacksArr2 = snacks.<span class="hljs-title function_">split</span>(<span class="hljs-string">', '</span>, <span class="hljs-number">3</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacksArr1); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacksArr2); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll']</span><br></code></pre></td></tr></tbody></table></figure>
+<h5 id="範例-2"><a href="#範例-2" class="headerlink" title="範例"></a><strong>範例</strong></h5><figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> snacks = <span class="hljs-string">'cookie, chocolate, egg roll, apple pie, haribo'</span>;<br><br><span class="hljs-keyword">const</span> snacksArr1 = snacks.<span class="hljs-title function_">split</span>(<span class="hljs-string">', '</span>);<br><span class="hljs-keyword">const</span> snacksArr2 = snacks.<span class="hljs-title function_">split</span>(<span class="hljs-string">', '</span>, <span class="hljs-number">3</span>);<br><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacksArr1); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll', 'apple pie', 'haribo']</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(snacksArr2); <span class="hljs-comment">// ['cookie', 'chocolate', 'egg roll']</span><br></code></pre></td></tr></tbody></table></figure>
 
 <hr>
 <h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a><strong>總結</strong></h3><p>最後用一張表格彙整，比較三者差異：</p>
