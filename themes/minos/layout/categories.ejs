@@ -1,0 +1,58 @@
+<% 
+    const categories = (page._categories || page.categories).sort(
+        (a, b) => a - b)
+%>
+
+<section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5><i class="far fa-folder"></i><%= __('common.categories') %></h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="columns is-variable is-1 is-multiline is-mobile">
+            <% (page._categories || page.categories).forEach(category => {%>
+            <span class="column is-narrow">
+                <a class="tag is-light article-tag" href="<%= url_for(category.path) %>"><%= category.name %>&nbsp;(<%= category.posts.length%>)</a>
+            </span>
+            <% }) %>
+        </div>
+
+        <div>
+            <% categories.forEach(category => { %>
+                <div class="archive content">
+                    <h4 class="title btn hide is-4">
+                        <%= category.name %>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1rem" viewBox="0 0 448 512"><path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/></svg>
+                    </h4>
+                    <div class="articles hide">
+                        <% const posts = category.posts.sort('date', -1); %>
+                        <% posts.forEach(post => { %>
+                            <div class="article content flexbox">
+                                <time class="is-text-small monospace mr1" datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
+                                    <%= format_date_full(post.date) %></time>
+                                <h6 class="title is-6"><a href="<%= url_for(post.link ? post.link : post.path) %>"><%= post.title %></a></h6>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+</section>
