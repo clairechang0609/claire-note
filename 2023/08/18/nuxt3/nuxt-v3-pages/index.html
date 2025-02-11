@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Nuxt.js 3.x Pages 目錄－自動生成路由 - Claire&#39;s Notes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+
+
+    <meta name="description" content="Nuxt 提供基於 Pages 的路由設定，當我們在 Pages 資料夾建立檔案，Nuxt 會根據資料夾以及檔案結構自動生成基於 Vue Router 的路由，讓我們能更有效率的開發和管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt.js 3.x Pages 目錄－自動生成路由">
+<meta property="og:url" content="https://clairechang.tw/2023/08/18/nuxt3/nuxt-v3-pages/index.html">
+<meta property="og:site_name" content="Claire&#39;s Notes">
+<meta property="og:description" content="Nuxt 提供基於 Pages 的路由設定，當我們在 Pages 資料夾建立檔案，Nuxt 會根據資料夾以及檔案結構自動生成基於 Vue Router 的路由，讓我們能更有效率的開發和管理">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://imgur.com/5VRbaV1.png">
+<meta property="article:published_time" content="2023-08-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-17T16:00:00.000Z">
+<meta property="article:author" content="Claire Chang">
+<meta property="article:tag" content="nuxt3">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgur.com/5VRbaV1.png">
+
+
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/stackoverflow-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DCNTXCLVWT"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DCNTXCLVWT');
+</script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "i5mty254i4");
+</script>
+
+<!-- 廣告封鎖復原 -->
+<script async src="https://fundingchoicesmessages.google.com/i/pub-9074862371923542?ers=1" nonce="jtdZQHsB653ZA4GWok8ifw"></script><script nonce="jtdZQHsB653ZA4GWok8ifw">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+
+<!-- 錯誤保護措施訊息 -->
+<script>(function(){'use strict';function aa(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}var ba="function"==typeof Object.defineProperties?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};
+    function ea(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");}var fa=ea(this);function ha(a,b){if(b)a:{var c=fa;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];if(!(e in c))break a;c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&null!=b&&ba(c,a,{configurable:!0,writable:!0,value:b})}}
+    var ia="function"==typeof Object.create?Object.create:function(a){function b(){}b.prototype=a;return new b},l;if("function"==typeof Object.setPrototypeOf)l=Object.setPrototypeOf;else{var m;a:{var ja={a:!0},ka={};try{ka.__proto__=ja;m=ka.a;break a}catch(a){}m=!1}l=m?function(a,b){a.__proto__=b;if(a.__proto__!==b)throw new TypeError(a+" is not extensible");return a}:null}var la=l;
+    function n(a,b){a.prototype=ia(b.prototype);a.prototype.constructor=a;if(la)la(a,b);else for(var c in b)if("prototype"!=c)if(Object.defineProperties){var d=Object.getOwnPropertyDescriptor(b,c);d&&Object.defineProperty(a,c,d)}else a[c]=b[c];a.A=b.prototype}function ma(){for(var a=Number(this),b=[],c=a;c<arguments.length;c++)b[c-a]=arguments[c];return b}
+    var na="function"==typeof Object.assign?Object.assign:function(a,b){for(var c=1;c<arguments.length;c++){var d=arguments[c];if(d)for(var e in d)Object.prototype.hasOwnProperty.call(d,e)&&(a[e]=d[e])}return a};ha("Object.assign",function(a){return a||na});/*
+    
+     Copyright The Closure Library Authors.
+     SPDX-License-Identifier: Apache-2.0
+    */
+    var p=this||self;function q(a){return a};var t,u;a:{for(var oa=["CLOSURE_FLAGS"],v=p,x=0;x<oa.length;x++)if(v=v[oa[x]],null==v){u=null;break a}u=v}var pa=u&&u[610401301];t=null!=pa?pa:!1;var z,qa=p.navigator;z=qa?qa.userAgentData||null:null;function A(a){return t?z?z.brands.some(function(b){return(b=b.brand)&&-1!=b.indexOf(a)}):!1:!1}function B(a){var b;a:{if(b=p.navigator)if(b=b.userAgent)break a;b=""}return-1!=b.indexOf(a)};function C(){return t?!!z&&0<z.brands.length:!1}function D(){return C()?A("Chromium"):(B("Chrome")||B("CriOS"))&&!(C()?0:B("Edge"))||B("Silk")};var ra=C()?!1:B("Trident")||B("MSIE");!B("Android")||D();D();B("Safari")&&(D()||(C()?0:B("Coast"))||(C()?0:B("Opera"))||(C()?0:B("Edge"))||(C()?A("Microsoft Edge"):B("Edg/"))||C()&&A("Opera"));var sa={},E=null;var ta="undefined"!==typeof Uint8Array,ua=!ra&&"function"===typeof btoa;var F="function"===typeof Symbol&&"symbol"===typeof Symbol()?Symbol():void 0,G=F?function(a,b){a[F]|=b}:function(a,b){void 0!==a.g?a.g|=b:Object.defineProperties(a,{g:{value:b,configurable:!0,writable:!0,enumerable:!1}})};function va(a){var b=H(a);1!==(b&1)&&(Object.isFrozen(a)&&(a=Array.prototype.slice.call(a)),I(a,b|1))}
+    var H=F?function(a){return a[F]|0}:function(a){return a.g|0},J=F?function(a){return a[F]}:function(a){return a.g},I=F?function(a,b){a[F]=b}:function(a,b){void 0!==a.g?a.g=b:Object.defineProperties(a,{g:{value:b,configurable:!0,writable:!0,enumerable:!1}})};function wa(){var a=[];G(a,1);return a}function xa(a,b){I(b,(a|0)&-99)}function K(a,b){I(b,(a|34)&-73)}function L(a){a=a>>11&1023;return 0===a?536870912:a};var M={};function N(a){return null!==a&&"object"===typeof a&&!Array.isArray(a)&&a.constructor===Object}var O,ya=[];I(ya,39);O=Object.freeze(ya);var P;function Q(a,b){P=b;a=new a(b);P=void 0;return a}
+    function R(a,b,c){null==a&&(a=P);P=void 0;if(null==a){var d=96;c?(a=[c],d|=512):a=[];b&&(d=d&-2095105|(b&1023)<<11)}else{if(!Array.isArray(a))throw Error();d=H(a);if(d&64)return a;d|=64;if(c&&(d|=512,c!==a[0]))throw Error();a:{c=a;var e=c.length;if(e){var f=e-1,g=c[f];if(N(g)){d|=256;b=(d>>9&1)-1;e=f-b;1024<=e&&(za(c,b,g),e=1023);d=d&-2095105|(e&1023)<<11;break a}}b&&(g=(d>>9&1)-1,b=Math.max(b,e-g),1024<b&&(za(c,g,{}),d|=256,b=1023),d=d&-2095105|(b&1023)<<11)}}I(a,d);return a}
+    function za(a,b,c){for(var d=1023+b,e=a.length,f=d;f<e;f++){var g=a[f];null!=g&&g!==c&&(c[f-b]=g)}a.length=d+1;a[d]=c};function Aa(a){switch(typeof a){case "number":return isFinite(a)?a:String(a);case "boolean":return a?1:0;case "object":if(a&&!Array.isArray(a)&&ta&&null!=a&&a instanceof Uint8Array){if(ua){for(var b="",c=0,d=a.length-10240;c<d;)b+=String.fromCharCode.apply(null,a.subarray(c,c+=10240));b+=String.fromCharCode.apply(null,c?a.subarray(c):a);a=btoa(b)}else{void 0===b&&(b=0);if(!E){E={};c="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");d=["+/=","+/","-_=","-_.","-_"];for(var e=
+    0;5>e;e++){var f=c.concat(d[e].split(""));sa[e]=f;for(var g=0;g<f.length;g++){var h=f[g];void 0===E[h]&&(E[h]=g)}}}b=sa[b];c=Array(Math.floor(a.length/3));d=b[64]||"";for(e=f=0;f<a.length-2;f+=3){var k=a[f],w=a[f+1];h=a[f+2];g=b[k>>2];k=b[(k&3)<<4|w>>4];w=b[(w&15)<<2|h>>6];h=b[h&63];c[e++]=g+k+w+h}g=0;h=d;switch(a.length-f){case 2:g=a[f+1],h=b[(g&15)<<2]||d;case 1:a=a[f],c[e]=b[a>>2]+b[(a&3)<<4|g>>4]+h+d}a=c.join("")}return a}}return a};function Ba(a,b,c){a=Array.prototype.slice.call(a);var d=a.length,e=b&256?a[d-1]:void 0;d+=e?-1:0;for(b=b&512?1:0;b<d;b++)a[b]=c(a[b]);if(e){b=a[b]={};for(var f in e)Object.prototype.hasOwnProperty.call(e,f)&&(b[f]=c(e[f]))}return a}function Da(a,b,c,d,e,f){if(null!=a){if(Array.isArray(a))a=e&&0==a.length&&H(a)&1?void 0:f&&H(a)&2?a:Ea(a,b,c,void 0!==d,e,f);else if(N(a)){var g={},h;for(h in a)Object.prototype.hasOwnProperty.call(a,h)&&(g[h]=Da(a[h],b,c,d,e,f));a=g}else a=b(a,d);return a}}
+    function Ea(a,b,c,d,e,f){var g=d||c?H(a):0;d=d?!!(g&32):void 0;a=Array.prototype.slice.call(a);for(var h=0;h<a.length;h++)a[h]=Da(a[h],b,c,d,e,f);c&&c(g,a);return a}function Fa(a){return a.s===M?a.toJSON():Aa(a)};function Ga(a,b,c){c=void 0===c?K:c;if(null!=a){if(ta&&a instanceof Uint8Array)return b?a:new Uint8Array(a);if(Array.isArray(a)){var d=H(a);if(d&2)return a;if(b&&!(d&64)&&(d&32||0===d))return I(a,d|34),a;a=Ea(a,Ga,d&4?K:c,!0,!1,!0);b=H(a);b&4&&b&2&&Object.freeze(a);return a}a.s===M&&(b=a.h,c=J(b),a=c&2?a:Q(a.constructor,Ha(b,c,!0)));return a}}function Ha(a,b,c){var d=c||b&2?K:xa,e=!!(b&32);a=Ba(a,b,function(f){return Ga(f,e,d)});G(a,32|(c?2:0));return a};function Ia(a,b){a=a.h;return Ja(a,J(a),b)}function Ja(a,b,c,d){if(-1===c)return null;if(c>=L(b)){if(b&256)return a[a.length-1][c]}else{var e=a.length;if(d&&b&256&&(d=a[e-1][c],null!=d))return d;b=c+((b>>9&1)-1);if(b<e)return a[b]}}function Ka(a,b,c,d,e){var f=L(b);if(c>=f||e){e=b;if(b&256)f=a[a.length-1];else{if(null==d)return;f=a[f+((b>>9&1)-1)]={};e|=256}f[c]=d;e&=-1025;e!==b&&I(a,e)}else a[c+((b>>9&1)-1)]=d,b&256&&(d=a[a.length-1],c in d&&delete d[c]),b&1024&&I(a,b&-1025)}
+    function La(a,b){var c=Ma;var d=void 0===d?!1:d;var e=a.h;var f=J(e),g=Ja(e,f,b,d);var h=!1;if(null==g||"object"!==typeof g||(h=Array.isArray(g))||g.s!==M)if(h){var k=h=H(g);0===k&&(k|=f&32);k|=f&2;k!==h&&I(g,k);c=new c(g)}else c=void 0;else c=g;c!==g&&null!=c&&Ka(e,f,b,c,d);e=c;if(null==e)return e;a=a.h;f=J(a);f&2||(g=e,c=g.h,h=J(c),g=h&2?Q(g.constructor,Ha(c,h,!1)):g,g!==e&&(e=g,Ka(a,f,b,e,d)));return e}function Na(a,b){a=Ia(a,b);return null==a||"string"===typeof a?a:void 0}
+    function Oa(a,b){a=Ia(a,b);return null!=a?a:0}function S(a,b){a=Na(a,b);return null!=a?a:""};function T(a,b,c){this.h=R(a,b,c)}T.prototype.toJSON=function(){var a=Ea(this.h,Fa,void 0,void 0,!1,!1);return Pa(this,a,!0)};T.prototype.s=M;T.prototype.toString=function(){return Pa(this,this.h,!1).toString()};
+    function Pa(a,b,c){var d=a.constructor.v,e=L(J(c?a.h:b)),f=!1;if(d){if(!c){b=Array.prototype.slice.call(b);var g;if(b.length&&N(g=b[b.length-1]))for(f=0;f<d.length;f++)if(d[f]>=e){Object.assign(b[b.length-1]={},g);break}f=!0}e=b;c=!c;g=J(a.h);a=L(g);g=(g>>9&1)-1;for(var h,k,w=0;w<d.length;w++)if(k=d[w],k<a){k+=g;var r=e[k];null==r?e[k]=c?O:wa():c&&r!==O&&va(r)}else h||(r=void 0,e.length&&N(r=e[e.length-1])?h=r:e.push(h={})),r=h[k],null==h[k]?h[k]=c?O:wa():c&&r!==O&&va(r)}d=b.length;if(!d)return b;
+    var Ca;if(N(h=b[d-1])){a:{var y=h;e={};c=!1;for(var ca in y)Object.prototype.hasOwnProperty.call(y,ca)&&(a=y[ca],Array.isArray(a)&&a!=a&&(c=!0),null!=a?e[ca]=a:c=!0);if(c){for(var rb in e){y=e;break a}y=null}}y!=h&&(Ca=!0);d--}for(;0<d;d--){h=b[d-1];if(null!=h)break;var cb=!0}if(!Ca&&!cb)return b;var da;f?da=b:da=Array.prototype.slice.call(b,0,d);b=da;f&&(b.length=d);y&&b.push(y);return b};function Qa(a){return function(b){if(null==b||""==b)b=new a;else{b=JSON.parse(b);if(!Array.isArray(b))throw Error(void 0);G(b,32);b=Q(a,b)}return b}};function Ra(a){this.h=R(a)}n(Ra,T);var Sa=Qa(Ra);var U;function V(a){this.g=a}V.prototype.toString=function(){return this.g+""};var Ta={};function Ua(){return Math.floor(2147483648*Math.random()).toString(36)+Math.abs(Math.floor(2147483648*Math.random())^Date.now()).toString(36)};function Va(a,b){b=String(b);"application/xhtml+xml"===a.contentType&&(b=b.toLowerCase());return a.createElement(b)}function Wa(a){this.g=a||p.document||document}Wa.prototype.appendChild=function(a,b){a.appendChild(b)};/*
+    
+     SPDX-License-Identifier: Apache-2.0
+    */
+    function Xa(a,b){a.src=b instanceof V&&b.constructor===V?b.g:"type_error:TrustedResourceUrl";var c,d;(c=(b=null==(d=(c=(a.ownerDocument&&a.ownerDocument.defaultView||window).document).querySelector)?void 0:d.call(c,"script[nonce]"))?b.nonce||b.getAttribute("nonce")||"":"")&&a.setAttribute("nonce",c)};function Ya(a){a=void 0===a?document:a;return a.createElement("script")};function Za(a,b,c,d,e,f){try{var g=a.g,h=Ya(g);h.async=!0;Xa(h,b);g.head.appendChild(h);h.addEventListener("load",function(){e();d&&g.head.removeChild(h)});h.addEventListener("error",function(){0<c?Za(a,b,c-1,d,e,f):(d&&g.head.removeChild(h),f())})}catch(k){f()}};var $a=p.atob("aHR0cHM6Ly93d3cuZ3N0YXRpYy5jb20vaW1hZ2VzL2ljb25zL21hdGVyaWFsL3N5c3RlbS8xeC93YXJuaW5nX2FtYmVyXzI0ZHAucG5n"),ab=p.atob("WW91IGFyZSBzZWVpbmcgdGhpcyBtZXNzYWdlIGJlY2F1c2UgYWQgb3Igc2NyaXB0IGJsb2NraW5nIHNvZnR3YXJlIGlzIGludGVyZmVyaW5nIHdpdGggdGhpcyBwYWdlLg=="),bb=p.atob("RGlzYWJsZSBhbnkgYWQgb3Igc2NyaXB0IGJsb2NraW5nIHNvZnR3YXJlLCB0aGVuIHJlbG9hZCB0aGlzIHBhZ2Uu");function db(a,b,c){this.i=a;this.l=new Wa(this.i);this.g=null;this.j=[];this.m=!1;this.u=b;this.o=c}
+    function eb(a){if(a.i.body&&!a.m){var b=function(){fb(a);p.setTimeout(function(){return gb(a,3)},50)};Za(a.l,a.u,2,!0,function(){p[a.o]||b()},b);a.m=!0}}
+    function fb(a){for(var b=W(1,5),c=0;c<b;c++){var d=X(a);a.i.body.appendChild(d);a.j.push(d)}b=X(a);b.style.bottom="0";b.style.left="0";b.style.position="fixed";b.style.width=W(100,110).toString()+"%";b.style.zIndex=W(2147483544,2147483644).toString();b.style["background-color"]=hb(249,259,242,252,219,229);b.style["box-shadow"]="0 0 12px #888";b.style.color=hb(0,10,0,10,0,10);b.style.display="flex";b.style["justify-content"]="center";b.style["font-family"]="Roboto, Arial";c=X(a);c.style.width=W(80,
+    85).toString()+"%";c.style.maxWidth=W(750,775).toString()+"px";c.style.margin="24px";c.style.display="flex";c.style["align-items"]="flex-start";c.style["justify-content"]="center";d=Va(a.l.g,"IMG");d.className=Ua();d.src=$a;d.alt="Warning icon";d.style.height="24px";d.style.width="24px";d.style["padding-right"]="16px";var e=X(a),f=X(a);f.style["font-weight"]="bold";f.textContent=ab;var g=X(a);g.textContent=bb;Y(a,e,f);Y(a,e,g);Y(a,c,d);Y(a,c,e);Y(a,b,c);a.g=b;a.i.body.appendChild(a.g);b=W(1,5);for(c=
+    0;c<b;c++)d=X(a),a.i.body.appendChild(d),a.j.push(d)}function Y(a,b,c){for(var d=W(1,5),e=0;e<d;e++){var f=X(a);b.appendChild(f)}b.appendChild(c);c=W(1,5);for(d=0;d<c;d++)e=X(a),b.appendChild(e)}function W(a,b){return Math.floor(a+Math.random()*(b-a))}function hb(a,b,c,d,e,f){return"rgb("+W(Math.max(a,0),Math.min(b,255)).toString()+","+W(Math.max(c,0),Math.min(d,255)).toString()+","+W(Math.max(e,0),Math.min(f,255)).toString()+")"}function X(a){a=Va(a.l.g,"DIV");a.className=Ua();return a}
+    function gb(a,b){0>=b||null!=a.g&&0!=a.g.offsetHeight&&0!=a.g.offsetWidth||(ib(a),fb(a),p.setTimeout(function(){return gb(a,b-1)},50))}
+    function ib(a){var b=a.j;var c="undefined"!=typeof Symbol&&Symbol.iterator&&b[Symbol.iterator];if(c)b=c.call(b);else if("number"==typeof b.length)b={next:aa(b)};else throw Error(String(b)+" is not an iterable or ArrayLike");for(c=b.next();!c.done;c=b.next())(c=c.value)&&c.parentNode&&c.parentNode.removeChild(c);a.j=[];(b=a.g)&&b.parentNode&&b.parentNode.removeChild(b);a.g=null};function jb(a,b,c,d,e){function f(k){document.body?g(document.body):0<k?p.setTimeout(function(){f(k-1)},e):b()}function g(k){k.appendChild(h);p.setTimeout(function(){h?(0!==h.offsetHeight&&0!==h.offsetWidth?b():a(),h.parentNode&&h.parentNode.removeChild(h)):a()},d)}var h=kb(c);f(3)}function kb(a){var b=document.createElement("div");b.className=a;b.style.width="1px";b.style.height="1px";b.style.position="absolute";b.style.left="-10000px";b.style.top="-10000px";b.style.zIndex="-10000";return b};function Ma(a){this.h=R(a)}n(Ma,T);function lb(a){this.h=R(a)}n(lb,T);var mb=Qa(lb);function nb(a){a=Na(a,4)||"";if(void 0===U){var b=null;var c=p.trustedTypes;if(c&&c.createPolicy){try{b=c.createPolicy("goog#html",{createHTML:q,createScript:q,createScriptURL:q})}catch(d){p.console&&p.console.error(d.message)}U=b}else U=b}a=(b=U)?b.createScriptURL(a):a;return new V(a,Ta)};function ob(a,b){this.m=a;this.o=new Wa(a.document);this.g=b;this.j=S(this.g,1);this.u=nb(La(this.g,2));this.i=!1;b=nb(La(this.g,13));this.l=new db(a.document,b,S(this.g,12))}ob.prototype.start=function(){pb(this)};
+    function pb(a){qb(a);Za(a.o,a.u,3,!1,function(){a:{var b=a.j;var c=p.btoa(b);if(c=p[c]){try{var d=Sa(p.atob(c))}catch(e){b=!1;break a}b=b===Na(d,1)}else b=!1}b?Z(a,S(a.g,14)):(Z(a,S(a.g,8)),eb(a.l))},function(){jb(function(){Z(a,S(a.g,7));eb(a.l)},function(){return Z(a,S(a.g,6))},S(a.g,9),Oa(a.g,10),Oa(a.g,11))})}function Z(a,b){a.i||(a.i=!0,a=new a.m.XMLHttpRequest,a.open("GET",b,!0),a.send())}function qb(a){var b=p.btoa(a.j);a.m[b]&&Z(a,S(a.g,5))};(function(a,b){p[a]=function(){var c=ma.apply(0,arguments);p[a]=function(){};b.apply(null,c)}})("__h82AlnkH6D91__",function(a){"function"===typeof window.atob&&(new ob(window,mb(window.atob(a)))).start()});}).call(this);
+    
+    window.__h82AlnkH6D91__("WyJwdWItOTA3NDg2MjM3MTkyMzU0MiIsW251bGwsbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9iL3B1Yi05MDc0ODYyMzcxOTIzNTQyIl0sbnVsbCxudWxsLCJodHRwczovL2Z1bmRpbmdjaG9pY2VzbWVzc2FnZXMuZ29vZ2xlLmNvbS9lbC9BR1NLV3hVU1dMYVJPMDJOUFJSVmNpdHVTS0ViRDJBaVpORkpranFyNXd2emY4SzhvZEVPSXc1d05CZmVYSFZWYkx2MVV5WW5YenZzSFVKd2xKdFJ3bG03S3BwTHl3XHUwMDNkXHUwMDNkP3RlXHUwMDNkVE9LRU5fRVhQT1NFRCIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFhVOGl6SnFnWVRFMTRQdEFYeTZrbWNQYmdFczNRWWFDMjVKR0pkV195NWpMRmcwOVE1cmV0SkVMblNmM2lpYXVZTUxUbHBia1A2TnY2MHVkZFFIN1cxV3dcdTAwM2RcdTAwM2Q/YWJcdTAwM2QxXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFZXNV8xNFlnUklKcXJkRXFBa1hXRllmS1Nad3hMODBkRFF3b3dHYWdwX0VaQUtmbERDUTdvN0lTSDh2Y3Y3YWhSdUh0dmJkZTVTaGhJUVZ3X2pIZXhESXdcdTAwM2RcdTAwM2Q/YWJcdTAwM2QyXHUwMDI2c2JmXHUwMDNkMSIsImh0dHBzOi8vZnVuZGluZ2Nob2ljZXNtZXNzYWdlcy5nb29nbGUuY29tL2VsL0FHU0tXeFc5cjdaOXl5bVUxNGE4Wkw1bTNjSnJMV2xqallwQURNX0I1WDZSanBBa2ZMSUhJQ21uRWlGX2E1X1lTNC1YdTBBOU92d3dOc3JxVzJJQnBuVDJIMm5NbndcdTAwM2RcdTAwM2Q/c2JmXHUwMDNkMiIsImRpdi1ncHQtYWQiLDIwLDEwMCwiY0hWaUxUa3dOelE0TmpJek56RTVNak0xTkRJXHUwMDNkIixbbnVsbCxudWxsLG51bGwsImh0dHBzOi8vd3d3LmdzdGF0aWMuY29tLzBlbW4vZi9wL3B1Yi05MDc0ODYyMzcxOTIzNTQyLmpzP3VzcXBcdTAwM2RDQWMiXSwiaHR0cHM6Ly9mdW5kaW5nY2hvaWNlc21lc3NhZ2VzLmdvb2dsZS5jb20vZWwvQUdTS1d4VTVSdlV3QnlDWnpaWHVxQndxOV9fTGNOdnNZZS1JQkpiZjB6dDJKV1g4ajBDTTJOX2FlTDgxRFdSS2F2ZFA5M2pCMUlERFVZOC1XSjk4Z0U2TkFhWEh1UVx1MDAzZFx1MDAzZCJd");</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&family=Open+Sans:wght@400;700&family=Raleway:wght@200;400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    <img src="/images/claire-logo.svg" alt height="28">
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item " href="/archives">文章</a>
+            
+            <a class="navbar-item " href="/categories">分類</a>
+            
+            <a class="navbar-item " href="/about">關於我</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            
+            <a class="navbar-item search" title="搜尋" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+            
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/clairechang0609">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+        </div>
+    </div>
+</nav>
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Nuxt.js 3.x Pages 目錄－自動生成路由
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2023-08-18</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10320355">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<p>Pages 資料夾用來新增頁面，當我們在 Pages 資料夾建立檔案，Nuxt 會根據資料夾以及檔案結構自動生成基於 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://router.vuejs.org/">Vue Router</a> 的路由，讓我們能更有效率的開發和管理</p></body></html>
+        <!-- <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div> -->
+        <html><head></head><body><h2 id="app-vue"><a href="#app-vue" class="headerlink" title="app.vue"></a><strong>app.vue</strong></h2><p>專案進入點，Nuxt3 將&nbsp;<code>app.vue</code>&nbsp;移到目錄頁（Nuxt2 無法編輯 <code>app.vue</code>），因此也可以只用&nbsp;<code>app.vue</code>&nbsp;單一頁面來建置網站（例如單頁 Landing Page），而不定義&nbsp;<code>pages/</code>，在此情況下 Vue Router 不會被載入。</p>
+<p>如要使用&nbsp;<code>pages/</code>，<code>app.vue</code>&nbsp;需加上&nbsp;<code>&lt;NuxtPage&gt;</code>&nbsp;用於顯示頁面內容（功能同 Vue.js 的&nbsp;<code>&lt;router-view&gt;</code>）</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// app.vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">NuxtPage</span> /&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="新增-Pages"><a href="#新增-Pages" class="headerlink" title="新增 Pages"></a><strong>新增 Pages</strong></h2><p>首先建立<strong>首頁</strong> <code>pages/index.vue</code></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/index.vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Home Page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>執行 <code>npm run dev</code> 編譯後，在瀏覽器開啟 <code>http://localhost:3000</code>，可以看到 Nuxt 已經幫我們定義路由</p>
+<div style="display: flex; justify-content: center; margin: 0 0 30px;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/OHH4Tqy.png">
+</div>
+
+<p>自動產生的路由結構：</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">{<br>  <span class="hljs-string">"routes"</span>: [<br>    {<br>      <span class="hljs-string">"path"</span>: <span class="hljs-string">"/"</span>,<br>      <span class="hljs-string">"component"</span>: <span class="hljs-string">"pages/index.vue"</span><br>    }<br>  ]<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<blockquote class="colorquote info"><p><strong>注意：</strong>一個頁面只能存在一個<strong>根元素（root element）</strong>，路由才能正常在頁面間切換（html 註解也視為一個元素）<br>以下為錯誤示範：</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">&lt;template&gt;<br>  &lt;!-- 註解也視為一個元素，因此頁面無法正常渲染 --&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Home page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Home page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>兩個根元素，頁面無法正常渲染<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure></blockquote>
+
+<hr>
+<h2 id="動態路由"><a href="#動態路由" class="headerlink" title="動態路由"></a><strong>動態路由</strong></h2><p>Nuxt2 使用下底線 <code>_</code> 定義動態路由，Nuxt3 調整為使用方括號 <code>[]</code></p>
+<p><strong>範例：</strong></p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">pages/<br>|—— index.vue<br>|—— product-[category]/<br>  |—— [id].vue<br></code></pre></td></tr></tbody></table></figure>
+
+<p>透過 <code>$route</code> 或是 <code>useRoute</code> 組合函式取得路由參數，<code>useRoute</code> 內容參考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/docs/api/composables/use-route#useroute">官方文件</a></p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/product-[category]/[id].vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>{{ $route.params.category }}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ $route.params.id }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-keyword">const</span> route = <span class="hljs-title function_">useRoute</span>();</span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(route.<span class="hljs-property">params</span>.<span class="hljs-property">category</span>);</span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(route.<span class="hljs-property">params</span>.<span class="hljs-property">id</span>);</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>瀏覽器輸入頁面 <code>http://localhost:3000/product-apple/112345</code>，畫面渲染如下</p>
+<div style="display: flex; justify-content: center; margin: 0 0 30px;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/2XYhCnC.png">
+</div>
+
+<hr>
+<h2 id="Catch-all-捕捉路徑下所有路由"><a href="#Catch-all-捕捉路徑下所有路由" class="headerlink" title="Catch-all 捕捉路徑下所有路由"></a><strong>Catch-all 捕捉路徑下所有路由</strong></h2><p>透過 <code>[…slug].vue</code> 將動態路由解構，來捕捉在此路徑下未被定義的頁面</p>
+<p><strong>範例：</strong></p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">pages/<br>|—— index.vue<br>|—— [...slug].vue<br>|—— about.vue<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/[…slug].vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Page Not Found<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ $route.params.slug }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>當我們輸入未被定義的頁面 <code>/hello/world</code>，顯示 <code>[…slug].vue</code> 畫面如下</p>
+<div style="display: flex; justify-content: center; margin: 0 0 30px;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/QvLn5ZK.png">
+</div>
+
+<p>透過 <code>[…slug].vue</code>，我們可以簡單地捕捉特定路徑下不存在的頁面，全域的錯誤頁面（不只捕捉 404 錯誤），則由 <code>app.vue</code> 同層的 <code>error.vue</code> 處理</p>
+<blockquote class="colorquote info"><p><code>error.vue</code> 自訂方式可以參考 <a href="https://clairechang.tw/2023/09/07/nuxt3/nuxt-v3-error-page/">這篇文章</a></p>
+</blockquote>
+
+<hr>
+<h2 id="巢狀路由（嵌套路由）"><a href="#巢狀路由（嵌套路由）" class="headerlink" title="巢狀路由（嵌套路由）"></a><strong>巢狀路由（嵌套路由）</strong></h2><p>在頁面插入 <code>&lt;NuxtPage&gt;</code>，嵌套下一層路由</p>
+<p><strong>範例：</strong>子頁面 <code>/parent/child-a</code>、<code>/parent/child-b</code> 共享上層路由（<code>/parent</code>）畫面</p>
+<div style="display: flex; justify-content: center; margin: 0 0 30px;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/SWlD8bQ.png">
+</div>
+
+<p>檔案結構（<code>parent/</code> 資料夾與 <code>parent.vue</code> 命名必須相同）：</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">pages/<br>|—— parent/<br>  |—— child-a.vue<br>  |—— child-b.vue<br>|—— parent.vue<br></code></pre></td></tr></tbody></table></figure>
+
+<p>自動產生的路由結構：</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">{<br>  <span class="hljs-string">"routes"</span>: [<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">'/parent'</span>,<br>      <span class="hljs-attr">component</span>: <span class="hljs-string">'~/pages/parent.vue'</span>,<br>      <span class="hljs-attr">name</span>: <span class="hljs-string">'parent'</span>,<br>      <span class="hljs-attr">children</span>: [<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">'child'</span>,<br>          <span class="hljs-attr">component</span>: <span class="hljs-string">'~/pages/parent/child-a.vue'</span>,<br>          <span class="hljs-attr">name</span>: <span class="hljs-string">'parent-child-a'</span><br>        },<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">'child'</span>,<br>          <span class="hljs-attr">component</span>: <span class="hljs-string">'~/pages/parent/child-b.vue'</span>,<br>          <span class="hljs-attr">name</span>: <span class="hljs-string">'parent-child-b'</span><br>        }<br>      ]<br>    }<br>  ]<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p><code>parent.vue</code> 必須加上 <code>&lt;NuxtPage&gt;</code>，用來嵌套子頁面內容</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/parent.vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    // 共用 Sidebar</span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sidebar"</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">NuxtLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/parent/child-a"</span>&gt;</span>child-a<span class="hljs-tag">&lt;/<span class="hljs-name">NuxtLink</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">NuxtLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/parent/child-b"</span>&gt;</span>child-b<span class="hljs-tag">&lt;/<span class="hljs-name">NuxtLink</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    // 用來顯示子頁面內容</span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">NuxtPage</span> /&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>如果父層路由 <code>/parent</code> 有自己的獨立畫面，在 <code>parent/</code> 資料夾新增 <code>index.vue</code>（也會共享 <code>parent.vue</code> 畫面）</p>
+<figure class="highlight plaintext hljs"><table><tbody><tr><td class="code"><pre><code class="hljs plaintext">pages/<br>|—— parent/<br>  |—— ...<br>  |—— index.vue<br>|—— parent.vue<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/parent/index.vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Parent Content<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<div style="display: flex; justify-content: center; margin: 0 0 30px;">
+  <img style="width: 100%; max-width: 100%;" src="https://imgur.com/0xczdWI.png">
+</div>
+
+<p>若希望使用者進入 <code>/parent</code> 路由時導向到 <code>/parent/child-a</code>，可以在 <code>/parent/index.vue</code> 透過 <code>navigateTo()</code> 輔助函式設定自動導向</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// pages/parent/index.vue</span><br>&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Parent Content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml"><span class="hljs-title function_">navigateTo</span>(<span class="hljs-string">'/parent/child-a'</span>, , { <span class="hljs-attr">redirectCode</span>: <span class="hljs-number">301</span> });</span></span><br><span class="language-javascript"><span class="language-xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="NuxtLink-路由連結"><a href="#NuxtLink-路由連結" class="headerlink" title="NuxtLink 路由連結"></a><strong>NuxtLink 路由連結</strong></h2><p>透過 <code>&lt;NuxtLink&gt;</code> 元件進行頁面導航，Nuxt3 的 <code>&lt;NuxtLink&gt;</code> 整合了 Vue Router <code>&lt;RouterLink&gt;</code> 跟 HTML <code>&lt;a&gt;</code> 標籤，能夠智能判斷內部或外部連結，並加以優化（加入預設屬性）</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    // 內部連結</span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">NuxtLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/hello"</span>&gt;</span>Internal<span class="hljs-tag">&lt;/<span class="hljs-name">NuxtLink</span>&gt;</span></span><br><span class="language-xml">    // 外部連結</span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">NuxtLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"https://mywebsite.com"</span>&gt;</span>External<span class="hljs-tag">&lt;/<span class="hljs-name">NuxtLink</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>編譯後結果，外部連結自動加上 <code>rel</code> 屬性</p>
+<figure class="highlight html hljs"><table><tbody><tr><td class="code"><pre><code class="hljs html">// 內部連結<br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hello"</span>&gt;</span>Internal<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>// 外部連結<br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://mywebsite.com"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"noopener noreferrer"</span>&gt;</span>External<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>也可以透過 <code>props</code> 自定義屬性，屬性選項參考 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/docs/api/components/nuxt-link#props">官方文件</a></p>
+<p><strong>範例：</strong></p>
+<ul>
+<li><code>target="_blank"</code>：另開新分頁</li>
+<li><code>external="false"</code>：設定為內部連結</li>
+<li><code>no-rel</code>：將 <code>rel</code> 屬性移除</li>
+</ul>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx">&lt;template&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">NuxtLink</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"https://mywebsite.com"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">external</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">no-rel</span>&gt;</span></span><br><span class="language-xml">      External</span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">NuxtLink</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>&lt;/template&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p>參考資源：</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/docs/guide/directory-structure/pages">https://nuxt.com/docs/guide/directory-structure/pages</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/docs/getting-started/routing">https://nuxt.com/docs/getting-started/routing</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/unalai/%E8%AA%8D%E8%AD%98-vue-router-%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1-nested-routes-8168f5395941">https://medium.com/unalai/認識-vue-router-嵌套路由-nested-routes-8168f5395941</a></p></body></html>
+        <!-- <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div> -->
+    
+    </div>
+    
+        <div>
+            <script type="text/javascript">
+                document.write(
+                "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/claire060900874511/button?referrer=" +
+                encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+            </script>
+        <div>
+    
+    
+    
+    <div class="sharebox">
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=638b091d4b058f001938c857&amp;product=sop" async="async"></script>
+
+    </div>
+    
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/nuxt3/">#nuxt3</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2023/08/16/nuxt3/nuxt-v3-swiper/">Nuxt.js 3.x 套件應用－Swiper 製作輪播動畫</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2023/08/22/nuxt3/nuxt-vs-vue/">Nuxt 與 Vue 比較，說明 SSR 基本概念</a>
+            
+        </span>
+    </div>
+    
+</div></div></article>
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    <!-- 
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div> -->
+    <style>
+        .utterances{max-width: 100%;}
+    </style>
+    <script src="https://utteranc.es/client.js" repo="clairechang0609/hexo-board" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+    </script>
+</div>
+    
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    
+
+    </div>
+    <!-- 
+        <div class="vertical-ad">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script> -->
+            <!-- 直式廣告 -->
+            <!-- <ins class="adsbygoogle"
+                style="display:inline-block; width:100%; height:400px;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="7146536898"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+     -->
+
+    
+        <div class="vertical-ad">
+            <a target="_blank" href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw" rel="external nofollow noopener noreferrer" style="display: flex; flex-direction: column; align-items: center; padding: 1rem;">
+                <img style="width: 100%; max-width: 200px; margin-bottom: 0.5rem;" src="/images/nuxt3/book.jpg" alt="Nuxt3 入門－打造 SSR 專案">
+                <small style="text-align: center; color: darkcyan;">
+                    <small style="background-color: darkcyan; color: white; padding: 1px 1rem; border-radius: 20px; display: inline-block; margin-bottom: 0.5rem;">新書上市</small><br>
+                    Nuxt3 入門：打造 SSR 專案
+                </small>
+            </a>
+        </div>
+    
+</section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow">
+                &copy; 2025
+                Claire Chang&nbsp;
+                All rights reserved.
+                <br>
+                Powered by Hexo.
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            <!-- 
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/clairechang0609">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+             -->
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="external nofollow noopener noreferrer" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("zh-TW");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="站內搜尋">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+    
+</body>
+</html>
