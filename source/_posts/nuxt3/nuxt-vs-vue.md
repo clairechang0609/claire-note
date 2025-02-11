@@ -5,7 +5,7 @@ updated_at: 2024-12-09
 tags: [ nuxt3 ]
 category: [ Nuxt3 ]
 description: Nuxt.js 是基於 Vue.js 的框架，預設使用通用渲染模式（Universal Rendering），結合了伺服器端渲染（SSR，Server-Side Rendering）和客戶端渲染（CSR，Client-Side Rendering）的優點。
-image: /images/nuxt3/nuxt-vs-vue//nuxt-vue.svg
+image: /images/nuxt3/nuxt-vs-vue/nuxt-vue.svg
 
 ---
 
@@ -99,8 +99,8 @@ Hydration 步驟完成後，網頁即具備完整的互動性。
 
 ---
 
-<div style="margin-top: 20px; margin-bottom: 0;">
-  <img style="width: 100%; max-width: 200px;" src="/images/nuxt3/book.jpg">
-</div>
-
-● 更多內容歡迎參考我的書：[Nuxt3 入門－打造 SSR 專案](https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw)
+<div style="display: inline-flex; flex-direction: column; align-items: center; margin-top: 20px;">
+<img style="display: inline-block; width: 100%; max-width: 200px;" src="/images/nuxt3/book.jpg">
+<a href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw" style="color: #1b6655; text-align: center;">
+⭒ 新書上架，更多內容歡迎參考 ⭒<br />
+<strong>Nuxt3 入門－打造 SSR 專案</strong>

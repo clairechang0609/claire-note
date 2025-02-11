@@ -1,5 +1,5 @@
 ---
-title: Nuxt.js 3.x Nuxt DevTools 提升開發者體驗
+title: Nuxt3 DevTools 提升開發者體驗
 date: 2023-10-27
 tags: [ nuxt3 ]
 category: Nuxt3
