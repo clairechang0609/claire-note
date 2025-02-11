@@ -6,7 +6,7 @@
 title: Claire's Notes
 subtitle: 程式學習筆記
 description: 分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！
-keywords: 
+keywords:
 author: Claire Chang
 language: zh-tw
 timezone: ''
@@ -106,7 +106,7 @@ theme: minos
 deploy:
   type: git
   repository: https://github.com/clairechang0609/clairechang0609.github.io.git
-  branch: master
+  branch: gh-pages
 
 
 # 啟動搜尋
