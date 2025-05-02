@@ -1,5 +1,5 @@
 # Website's icon url.
-favicon: /favicon.png
+favicon: /images/favicon.png
 
 # Open Graph metadata (https://hexo.io/docs/helpers.html#open-graph)
 open_graph:
@@ -13,24 +13,25 @@ open_graph:
 # It can either be an url to an image or a string if the following option is set.
 # logo:
 #   text: <logo string>
-logo:
-  text: claire's blog
+logo: /images/claire-logo.svg
+  # text: claire's notes
 
 article:
   # Show word count and estimated reading time.
   readtime: true
   # Code highlight theme, please see https://highlightjs.org/static/demo/
-  highlight: atom-one-light
+  # highlight: atom-one-dark
+  highlight: stackoverflow-light
   # Date format: relative | full | relative_full | full_relative
-  date_format: relative
+  date_format: full
 
 # Navigation bar menu links.
 menu:
-  Archives: /archives
-  Lifestyle: /categories/LifeStyle
-  Music: /categories/Music
-  Technology: /categories/Technology
-  About: /about
+  文章: /archives
+  分類: /categories
+  # Music: /categories/Music
+  # Technology: /categories/Technology
+  關於我: /about
 
 # Search plugin settings.
 search:
@@ -42,12 +43,12 @@ toc: false
 # Share plugin settings.
 share:
   type: sharethis
-  install_url:
+  install_url: https://platform-api.sharethis.com/js/sharethis.js#property=638b091d4b058f001938c857&product=sop
 
 # Comment plugin settings.
-comment:
-  type: disqus
-  shortname:
+# comment:
+#   type: utterances
+#   shortname: claire-chang-blog
 
 # Other plugins and their settings.
 plugins:
@@ -65,8 +66,8 @@ plugins:
 navbar_links:
   GitHub:
     icon: fab fa-github
-    url: https://github.com/ppoffice/hexo-theme-minos
+    url: https://github.com/clairechang0609
 
 # Links at the bottom of the page.
 footer_links:
-  GitHub: https://github.com/ppoffice/hexo-theme-minos
+  GitHub: https://github.com/clairechang0609
