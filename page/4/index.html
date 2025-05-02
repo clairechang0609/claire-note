@@ -171,6 +171,58 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/07/19/nuxt3/nuxt-v3-data-fetching/" itemprop="url">Nuxt.js 3.x Data fetching 串接 API－$fetch、useAsyncData、useFetch</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2023-07-19</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10326498">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<div style="display: flex; justify-content: center; margin: 30px 0;">
+  <img style="width: 100%; max-width: 600px;" src="https://imgur.com/7NRJ78I.png">
+</div>
+
+<p>先前在 Nuxt2 介紹如何使用 <code>axios</code> 取得 API 資料（<a href="https://clairechang.tw/2022/11/21/nuxt/nuxt-axios/">文章連結</a>）</p>
+<p>Nuxt3 提供了全域可使用的內建函式庫 <code>$fetch</code> 以及 composables <code>useFetch</code>、<code>useAsyncData</code>，不需要在另外安裝套件，三個方法依據時機搭配使用，可以確保整體兼容性與快取效能，且能避免重複請求的問題</p>
+<blockquote class="colorquote info"><p>Nuxt2 的 <code>asyncData</code> 以及 <code>fetch</code> 方法，在 Nuxt3 調整為 <code>useAsyncData</code> 與 <code>useFetch</code></p>
+</blockquote></body></html>
+        <p class="article-more-link">
+            <a href="/2023/07/19/nuxt3/nuxt-v3-data-fetching/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/07/11/nuxt3/nuxt-v3-composables-vs-utils/" itemprop="url">Nuxt.js 3.x Composables vs Utils 目錄－自訂共用方法</a>
         
     </h1>
@@ -616,58 +668,6 @@
 <p>因自己在工作上大量運用到相關技巧，因此將內容筆記起來，方便未來需要時複習使用。</p></body></html>
         <p class="article-more-link">
             <a href="/2023/05/25/javascript/js-array-methods/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/05/24/css/css-grid-responsive-table/" itemprop="url">CSS Grid Layout Module 格線佈局 (3) Responsive Table 響應式表格應用</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/CSS/">CSS</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-05-24</span>
-                
-            </span>
-        </span>
-
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="display: flex; justify-content: center; margin: 30px 0;">
-    <img style="width: 700px; max-width: 100%;" src="https://i.imgur.com/7zNxpBR.png">
-</div>
-
-<p>在響應式網頁設計中，常需要處理不同裝置間版面的切換，以表格為例：在桌機上用表格呈現內容，而在行動裝置上使用卡片式版面，這樣的設計優化能夠提升使用者在不同裝置上的瀏覽體驗。</p>
-<p>為了達成這種優化，有以下幾種做法：</p>
-<ol>
-<li>製作兩個版面，利用斷點來進行版面切換</li>
-<li>製作一個共用版面，搭配 CSS Grid Layout 進行設計，在手機版時調整 <code>&lt;table&gt;</code> 的屬性，達成卡片的視覺效果</li>
-</ol>
-<p>本篇介紹第二個做法，這麼做可以降低程式碼的複雜度，提升程式碼可重用性，專案維護性也較高。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/05/24/css/css-grid-responsive-table/#more">閱讀更多</a>
         </p>
     
     </div>

@@ -171,6 +171,53 @@
         <article class="article content gallery" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
+            <a href="/2023/09/18/nuxt3/nuxt-v3-sitemap/" itemprop="url">Nuxt.js 3.x 替網站增加 Sitemap 網站地圖</a>
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2023-09-18</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><blockquote>
+<p>本篇文章同步發表於 2023 iThome 鐵人賽：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://ithelp.ithome.com.tw/articles/10333501">Nuxt.js 3.x 筆記－打造 SSR 專案</a></p>
+</blockquote>
+<p>Sitemap 是一種用來提供網站資訊的檔案，記錄網站內的網頁、圖片等，主要功用為<strong>協助搜尋引擎快速了解我們的網頁</strong>。</p>
+<p>新網站上線後，雖然搜尋引擎爬蟲會自動讀取網站內容並收錄，不過當網站規模較大、架構較複雜、彼此間連結性較低，可能需要花較長的時間才能完整收錄，透過 Sitemap，直接告訴搜尋引擎網頁資訊，能有效加快網頁收錄的速度。</p>
+<p>接下來說明如何在 Nuxt3 專案內加入 Sitemap 網站地圖：</p></body></html>
+        <p class="article-more-link">
+            <a href="/2023/09/18/nuxt3/nuxt-v3-sitemap/#more">閱讀更多</a>
+        </p>
+    
+    </div>
+    
+    
+    
+    
+    
+</article>
+
+
+    
+        <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
             <a href="/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/" itemprop="url">Nuxt.js 3.x Assets vs Public 目錄－靜態資源管理</a>
         
     </h1>
@@ -603,63 +650,6 @@
 <p>Nuxt3 提供了預設進度條元件 <code>&lt;NuxtLoadingIndicator&gt;</code>，在路徑切換時顯示。也可以自訂共用元件來調整觸發時機或樣式。</p></body></html>
         <p class="article-more-link">
             <a href="/2023/08/24/nuxt3/nuxt-v3-loading/#more">閱讀更多</a>
-        </p>
-    
-    </div>
-    
-    
-    
-    
-    
-</article>
-
-
-    
-        <article class="article content gallery" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2023/08/22/nuxt3/nuxt-vs-vue/" itemprop="url">Nuxt 與 Vue 比較，說明 SSR 基本概念</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        
-            <span class="column is-narrow article-category">
-                <i class="far fa-folder"></i>
-                <a class="article-item" href="/categories/Nuxt3/">Nuxt3</a>
-            </span>
-            <span class="column is-narrow">｜</span>
-        
-        <span class="column is-narrow">
-            <i class="far fa-clock"></i>
-            <span class="article-item">
-                
-                    <span>2023-08-22</span>
-                
-            </span>
-        </span>
-
-        
-            <span class="column is-narrow">｜</span>
-            <span class="column is-narrow">
-                <i class="fas fa-sync-alt"></i>
-                <span class="article-item">
-                    2024-12-09
-                </span>
-            </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <html><head></head><body><div style="width: 100%; max-width: 600px; margin: 50px auto;">
-  <img style="width: 100%; max-width: 100%;" src="/images/nuxt3/nuxt-vs-vue/nuxt-vue.svg">
-  <small>source: Nuxt.js and Vue.js</small>
-</div>
-
-<p>了解 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://nuxt.com/">Nuxt.js</a> 之前，需先從 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://vuejs.org/">Vue.js</a> 說起。Vue.js 是一個專注於視圖層的 JavaScript 框架，用於建立單頁應用程式（SPA，Single Page Application）。在 SPA 架構中，使用者首次訪問網站時會下載一個 HTML 文件和所有的 JavaScript 資源，之後的頁面切換和更新都是透過 JavaScript 動態完成，這樣的設計可以減少頁面重新載入的次數，進而提升使用者體驗。</p>
-<p>不過，SPA 架構也存在一個主要缺點：搜尋引擎爬蟲只會讀取 HTML，不會執行 JavaScript。因此，可能會導致動態產生的內容無法被正確索引，影響網站在搜尋引擎上的表現。</p>
-<p>Nuxt.js 是基於 Vue.js 的框架，預設使用通用渲染模式（Universal Rendering），結合了伺服器端渲染（SSR，Server-Side Rendering）和客戶端渲染（CSR，Client-Side Rendering）的優點。透過在伺服器端生成完整的 HTML 內容並回傳給瀏覽器，讓搜尋引擎爬蟲可以取得較完整的 HTML 內容，以改善 SPA 架構下 SEO 成效不佳的問題。</p></body></html>
-        <p class="article-more-link">
-            <a href="/2023/08/22/nuxt3/nuxt-vs-vue/#more">閱讀更多</a>
         </p>
     
     </div>

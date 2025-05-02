@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head>
     <meta charset="utf-8">
-<title>文章 - Claire&#39;s Notes</title>
+<title>JavaScript 執行機制與核心概念 - Claire&#39;s Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -10,15 +10,20 @@
 
 
 
-    <meta name="description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Claire&#39;s Notes">
-<meta property="og:url" content="https://clairechang.tw/archives/page/2/index.html">
+    <meta name="description" content="為了更紮實地掌握 JavaScript 的本質，整理了直譯式特性、語法作用域、單執行緒模型，到執行環境（Execution Context）、執行堆疊（Call Stack）、事件迴圈（Event Loop）與程式提升（Hoisting）等核心概念。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 執行機制與核心概念">
+<meta property="og:url" content="https://clairechang.tw/2025/04/29/javascript/js-core-concepts/index.html">
 <meta property="og:site_name" content="Claire&#39;s Notes">
-<meta property="og:description" content="分享程式學習筆記，記錄在開發時使用到的程式技術，或是曾經踩過的坑，主要以前端開發為主。每個碰過的問題，都是幫助自己進步的經驗！">
+<meta property="og:description" content="為了更紮實地掌握 JavaScript 的本質，整理了直譯式特性、語法作用域、單執行緒模型，到執行環境（Execution Context）、執行堆疊（Call Stack）、事件迴圈（Event Loop）與程式提升（Hoisting）等核心概念。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://clairechang.tw/images/js/core-concepts/call-stack.gif">
+<meta property="article:published_time" content="2025-04-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-28T16:00:00.000Z">
 <meta property="article:author" content="Claire Chang">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://clairechang.tw/images/js/core-concepts/call-stack.gif">
 
 
 
@@ -167,101 +172,260 @@
 </nav>
     <section class="section">
     <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            JavaScript 執行機制與核心概念
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        
+            <span class="column is-narrow article-category">
+                <i class="far fa-folder"></i>
+                <a class="article-item" href="/categories/Javascript/">Javascript</a>
+            </span>
+            <span class="column is-narrow">｜</span>
+        
+        <span class="column is-narrow">
+            <i class="far fa-clock"></i>
+            <span class="article-item">
+                
+                    <span>2025-04-29</span>
+                
+            </span>
+        </span>
+
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <html><head></head><body><div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px;">
+  <img style="width: 100%; max-width: 100%;" src="/images/js/core-concepts/event-loop.png">
+</div>
+
+<p>從事前端開發幾年了，卻一直對 JavaScript 和瀏覽器的底層機制理解得不夠深入。這篇整理了執行機制與核心概念，希望補齊這塊知識，讓自己在開發、效能優化與問題分析時，能有更清晰的理解與判斷基礎。</p></body></html>
+        <!-- <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div> -->
+        <html><head></head><body><hr>
+<h3 id="直譯式語言（Interpreted-Language）"><a href="#直譯式語言（Interpreted-Language）" class="headerlink" title="直譯式語言（Interpreted Language）"></a><strong>直譯式語言（Interpreted Language）</strong></h3><p>JavaScript 為直譯式語言，透過直譯器來產生並執行程式碼。不管是直譯式語言還是編譯式語言，都須將撰寫的高階語言，轉換成電腦能讀取的機器碼（Machine Code）（低階語言）。</p>
+<ul>
+<li><strong>編譯式語言（Compiled Language）：</strong>C / C++ / Go，開發完成後會先經過編譯程序，把原始碼編譯成機器碼，產生一支可直接執行的檔案</li>
+<li><strong>直譯式語言（Interpreted Language）：</strong>JavaScript / Python / Ruby / PHP，在執行時由直譯器協助轉譯成機器碼，過程中不會產生獨立的可執行檔案，而是必須依賴執行平台（Runtime Environment），如瀏覽器或 Node.js 才能運作</li>
+</ul>
+<p>JavaScript 在瀏覽器或 Node.js 中由 JavaScript 引擎（如 V8）即時執行解析、轉為中間碼（ByteCode）、即時編譯為機器碼並執行。</p>
+<hr>
+<h3 id="語法作用域（Lexical-Scope）"><a href="#語法作用域（Lexical-Scope）" class="headerlink" title="語法作用域（Lexical Scope）"></a><strong>語法作用域（Lexical Scope）</strong></h3><p>JavaScript 語言為語法作用域，變數的作用域在程式撰寫階段（也就是語法解析時）就已經決定，而不是在程式執行時才動態判斷。</p>
+<ul>
+<li><strong>靜態作用域：</strong>也稱為<strong>語法作用域（Lexical Scope）</strong>，在語法解析時即確定作用域</li>
+<li><strong>動態作用域：</strong>在函式調用時才決定作用域</li>
+</ul>
+<p>因為 JavaScript 採用靜態作用域，當我們在函式中存取外部變數時，會往語法上的外層尋找，而不是根據函式被呼叫的位置來決定作用範圍。</p>
+<p>在這個過程中，JavaScript 引擎會依據<strong>範圍鏈（Scope Chain）</strong>來逐層查找變數。範圍鏈是由當前執行環境與其外部環境組成的結構，確保在當前作用域找不到變數時，可以沿著外層作用域一路向上搜尋，直到全域作用域為止。</p>
+<p>以下範例，因作用域在語法解析時即確定，因此無論在什麼時候、什麼位置執行 <code>findAnimal()</code>，<code>showAnimal()</code> 函式中的 <code>animal</code> 變數結果都一樣（<code>Cat</code>）。</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">const</span> animal = <span class="hljs-string">'Cat'</span>;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">showAnimal</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(animal);<br>}<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">findAnimal</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-keyword">const</span> animal = <span class="hljs-string">'Dog'</span>;<br>  <span class="hljs-title function_">showAnimal</span>();<br>}<br><br><span class="hljs-title function_">findAnimal</span>();<br><span class="hljs-comment">// print: Cat</span><br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="單執行緒（Single-Threaded）"><a href="#單執行緒（Single-Threaded）" class="headerlink" title="單執行緒（Single Threaded）"></a><strong>單執行緒（Single Threaded）</strong></h3><p>JavaScript 為單一執行緒程式語言，意即一次只能處理一件事情。在瀏覽器中，只有一條 JS 主執行緒執行 JavaScript 程式碼，但瀏覽器本身是多執行緒，可以同時處理計時器、事件監聽等背景工作。當條件達成後，將 callback 加入事件佇列（Event Queue），等待 JavaScript 主執行緒有空時再執行。</p>
+<blockquote>
+<p>JavaScript 是單執行緒，只能靠一條主線程跑程式；而瀏覽器或 Node.js 是多執行緒，幫 JavaScript 處理非同步工作。</p>
+</blockquote>
+<hr>
+<h3 id="執行環境（Execution-Context）"><a href="#執行環境（Execution-Context）" class="headerlink" title="執行環境（Execution Context）"></a><strong>執行環境（Execution Context）</strong></h3><p>直譯式語言需依賴像瀏覽器或是 Node.js 這樣的執行平台（Runtime Enviroment）才能運作，其中包含了 JavaScript 引擎（如 V8），負責轉譯跟執行程式碼。程式碼在執行過程中，JavaScript 引擎會為每段可執行的程式碼建立執行環境（Execution Context），用來管理當前的作用域、變數與 <code>this</code>狀態。</p>
+<p>在網頁開啟時，會先產生一個全域執行環境，包含：<code>window（this）</code>。函式在宣告時，即確定作用域，不過一直到函式執行時，才會產生執行環境。若反覆執行該函式，會產生多個執行環境。</p>
+<hr>
+<h3 id="執行堆疊（Call-Stack）"><a href="#執行堆疊（Call-Stack）" class="headerlink" title="執行堆疊（Call Stack）"></a><strong>執行堆疊（Call Stack）</strong></h3><p>延續前面提到的執行環境概念，當網頁載入時，JavaScript 引擎會先建立全域執行環境。</p>
+<p>當函式被呼叫時，JavaScript 引擎會建立對應的執行環境，並放到執行環境堆疊（Call Stack）中，佔用相應的記憶體資源。函式執行結束後，該執行環境會從堆疊中移除。需要特別注意的是，執行環境的建立與函式的宣告順序無關，而是根據執行時的順序動態建立。</p>
+<p>執行堆疊的運作模式為 LIFO（Last In, First Out，後進先出），最新被呼叫的函式會優先執行，然後從堆疊中移除。</p>
+<p>若該執行環境內的變數、參數不再被其他程式引用，便會標記為可回收，等待垃圾回收機制（Garbage Collector）在適當時機釋放記憶體；若仍被其他閉包或外部物件參考，則相關資料會持續留在記憶體中。</p>
+<blockquote>
+<p>可以透過 Chrome 開發者工具的 <strong>Sources 面板</strong>，觀察執行時的 Scope（作用域）跟 Stack（堆疊）變化，幫助理解執行流程。</p>
+</blockquote>
+<div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px;">
+  <img style="width: 100%; max-width: 100%;" src="/images/js/core-concepts/call-stack.gif">
+</div>
+
+<p>以下範例，在執行 <code>greet(friend)</code> 時，執行堆疊由上到下為：</p>
+<ul>
+<li><code>greet()</code> 執行環境</li>
+<li><code>startGreeting()</code> 執行環境</li>
+<li>全域執行環境</li>
+</ul>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params">friend</span>) {<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello, <span class="hljs-subst">${friend}</span>`</span>;<br>} <br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">startGreeting</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-keyword">const</span> friend = <span class="hljs-string">'Nana'</span>;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'greeting'</span>, <span class="hljs-title function_">greet</span>(friend));<br>}<br><br><span class="hljs-title function_">startGreeting</span>();<br></code></pre></td></tr></tbody></table></figure>
+
+<p>以下範例，在執行 <code>inviteGuests()</code> 過程中，每次呼叫 <code>sendInvitation()</code>，執行堆疊變化如下：</p>
+<ol>
+<li><code>sendInvitation()</code> 執行環境</li>
+<li><code>inviteGuests()</code> 執行環境</li>
+<li>全域執行環境</li>
+</ol>
+<p><code>sendInvitation()</code> 執行完後會彈出堆疊，回到 <code>inviteGuests()</code> 繼續下一次迴圈。這個過程重複五次。</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sendInvitation</span>(<span class="hljs-params">number</span>) {<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">`Invitation sent to guest <span class="hljs-subst">${number}</span>`</span>;<br>}<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">inviteGuests</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-title function_">sendInvitation</span>(<span class="hljs-number">1</span>);<br><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt;= <span class="hljs-number">5</span>; i++) {<br>    <span class="hljs-title function_">sendInvitation</span>(i);<br>  }<br>}<br><br><span class="hljs-title function_">inviteGuests</span>();<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h3 id="事件迴圈（Event-Loop）"><a href="#事件迴圈（Event-Loop）" class="headerlink" title="事件迴圈（Event Loop）"></a><strong>事件迴圈（Event Loop）</strong></h3><p>前面提到，JavaScript 為單執行緒程式語言，一次只能處理一件事情，為了在單執行緒中支援非同步行為（如計時器、網路請求、事件監聽），瀏覽器或 Node.js 使用事件迴圈（Event Loop）機制來協調任務的執行順序。</p>
+<div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 30px;">
+  <img style="width: 100%; max-width: 100%;" src="/images/js/core-concepts/event-loop.png">
+</div>
+
+<h4 id="事件迴圈流程："><a href="#事件迴圈流程：" class="headerlink" title="事件迴圈流程："></a><strong>事件迴圈流程：</strong></h4><ol>
+<li>整個 JavaScript 主檔（如 <code>&lt;script&gt;</code> 內的程式碼）為一個 Macro Task</li>
+<li>當 Macro Task 執行時，其中所有同步程式碼會依序放入事件堆疊（Call Stack）執行。遇到非同步操作時，則交由瀏覽器背景處理，等到條件達成後將 callback 放到佇列（Macro Task Queue 或 Micro Task Queue）</li>
+<li>當前的 Macro Task 所有同步程式碼執行完畢後，JavaScript 引擎會先檢查是否有 Micro Task Queue，並依序放入事件堆疊執行，過程中如果有再產生新的 Micro Task 也會持續處理</li>
+<li>Micro Tasks 清理完成後，如果有需要會重新渲染頁面</li>
+<li>接著才會從 Macro Task Queue 取出下一個 Macro Task 執行，進入下一輪事件迴圈</li>
+</ol>
+<p><strong>佇列 Queue：</strong></p>
+<ul>
+<li><strong>Macro Task Queue（Event Queue）</strong>：當執行像 <code>setTimeout</code>、<code>setInterval</code> 等非同步操作時，callback 會在條件達成後放入 Macro Task Queue</li>
+<li><strong>Micro Task Queue（Job Queue）</strong>：當執行 <code>Promise.then()</code>、<code>Promise.catch()</code>、<code>Promise.finally()</code>、<code>MutationObserver</code> 等操作時，callback 會被放入 Micro Task Queue</li>
+</ul>
+<blockquote>
+<p>每次執行完一個 Macro Task 後，會優先處理所有的 Micro Tasks，接著才執行下一個 Macro Task</p>
+</blockquote>
+<hr>
+<h3 id="提升（Hoisting）"><a href="#提升（Hoisting）" class="headerlink" title="提升（Hoisting）"></a><strong>提升（Hoisting）</strong></h3><p>JavaScript 執行環境（Execution Context）又分為<strong>創造階段（Creation Phase）</strong>跟<strong>執行階段（Execution Phase）</strong>。在創造階段，JavaScript 引擎會將<strong>變數宣告（<code>var</code>）</strong>（初始值為 <code>undefined</code>）和<strong>函式陳述式</strong>放到記憶體空間，等到執行階段，變數才被賦予指定的值，這就是提升（Hoisting）的特性。</p>
+<blockquote>
+<p>函式陳述式會提升，函式表達式只有變數宣告提升<br>創造階段為函式優先</p>
+</blockquote>
+<p>以下範例，根據提升特性，最後印出的結果為 <code>undefined</code>。</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">callName</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Bosu</span>);<br>}<br><span class="hljs-title function_">callName</span>();<br><span class="hljs-keyword">var</span> <span class="hljs-title class_">Bosu</span> = <span class="hljs-string">'撥鼠'</span>;<br></code></pre></td></tr></tbody></table></figure>
+
+<p>將順序拆解為執行階段跟創造階段：</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 創造</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">callName</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Bosu</span>);<br>}<br><span class="hljs-keyword">var</span> <span class="hljs-title class_">Bosu</span>;<br><br><span class="hljs-comment">// 執行</span><br><span class="hljs-title function_">callName</span>();<br><span class="hljs-title class_">Bosu</span> = <span class="hljs-string">'撥鼠'</span>;<br></code></pre></td></tr></tbody></table></figure>
+
+<p><strong>暫時性死區（TDZ，Temporal Dead Zone）</strong></p>
+<p>前面提到了 <code>var</code> 宣告的情境，如果是 <code>let</code> 或 <code>const</code> 宣告，在創造階段雖然也會被提升（Hoisting），但並不會被初始化，因此在執行階段被賦值之前，會處在一個特殊狀態，稱為暫時性死區，這個時候雖然變數存在，但不能存取，會直接拋出 <code>ReferenceError</code>。</p>
+<p>將前面範例的 <code>var</code> 宣告改為 <code>let</code>，最後印出的結果為 <code>Uncaught ReferenceError: Bosu is not defined</code>。</p>
+<figure class="highlight jsx hljs"><table><tbody><tr><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">function</span> <span class="hljs-title function_">callName</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title class_">Bosu</span>);<br>}<br><span class="hljs-title function_">callName</span>();<br><span class="hljs-keyword">let</span> <span class="hljs-title class_">Bosu</span> = <span class="hljs-string">'撥鼠'</span>;<br></code></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p>參考資源：<br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.linkedin.com/pulse/javascript-under-hood-microtasks-macrotasks-eliran-elnasi/?trk=read_related_article-card_title">https://www.linkedin.com/pulse/javascript-under-hood-microtasks-macrotasks-eliran-elnasi/?trk=read_related_article-card_title</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/itsems-frontend/javascript-hoisting-589488622dd7">https://medium.com/itsems-frontend/javascript-hoisting-589488622dd7</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://medium.com/itsems-frontend/javascript-event-loop-event-queue-call-stack-74a02fed5625">https://medium.com/itsems-frontend/javascript-event-loop-event-queue-call-stack-74a02fed5625</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://courses.hexschool.com/p/javascript">https://courses.hexschool.com/p/javascript</a></p></body></html>
+        <!-- <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block; width:100%;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="8939590248"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div> -->
+    
+    </div>
+    
+        <div>
+            <script type="text/javascript">
+                document.write(
+                "<iframe scrolling='no' frameborder='0' sandbox='allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-storage-access-by-user-activation' style='height: 212px; width: 100%;' src='https://button.like.co/in/embed/claire060900874511/button?referrer=" +
+                encodeURIComponent(location.href.split("?")[0].split("#")[0]) + "'></iframe>");
+            </script>
+        <div>
     
     
-        <div class="archive content">
-            <h4 class="title is-4" id="2023">2023</h4>
-            <div class="articles">
+    
+    <div class="sharebox">
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=638b091d4b058f001938c857&amp;product=sop" async="async"></script>
+
+    </div>
+    
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/javascript/">#javascript</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
             
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-17T16:00:00.000Z" itemprop="datePublished">
-                        09-18</time>
-                    <h6 class="title is-6"><a href="/2023/09/18/nuxt3/nuxt-v3-sitemap/">Nuxt.js 3.x 替網站增加 Sitemap 網站地圖</a></h6>
-                </div>
+            <a href="/2025/02/04/javascript/js-slice-splice-split/">一次搞懂 JavaScript 的 slice、splice、split</a>
             
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-11T16:00:00.000Z" itemprop="datePublished">
-                        09-12</time>
-                    <h6 class="title is-6"><a href="/2023/09/12/nuxt3/nuxt-v3-assets-vs-public/">Nuxt.js 3.x Assets vs Public 目錄－靜態資源管理</a></h6>
-                </div>
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
             
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-10T16:00:00.000Z" itemprop="datePublished">
-                        09-11</time>
-                    <h6 class="title is-6"><a href="/2023/09/11/nuxt3/nuxt-v3-components/">Nuxt.js 3.x Components 目錄－建立共用元件</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-06T16:00:00.000Z" itemprop="datePublished">
-                        09-07</time>
-                    <h6 class="title is-6"><a href="/2023/09/07/nuxt3/nuxt-v3-error-page/">Nuxt.js 3.x 自訂 Error Page 與錯誤處理</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-04T16:00:00.000Z" itemprop="datePublished">
-                        09-05</time>
-                    <h6 class="title is-6"><a href="/2023/09/05/nuxt3/nuxt-v3-middleware/">Nuxt.js 3.x Middleware 目錄－監聽路由變化</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-09-03T16:00:00.000Z" itemprop="datePublished">
-                        09-04</time>
-                    <h6 class="title is-6"><a href="/2023/09/04/nuxt3/nuxt-v3-server/">Nuxt.js 3.x Server 目錄－建立 API</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-08-31T16:00:00.000Z" itemprop="datePublished">
-                        09-01</time>
-                    <h6 class="title is-6"><a href="/2023/09/01/nuxt3/nuxt-v3-layouts/">Nuxt.js 3.x Layouts 目錄－自訂模板</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-08-28T16:00:00.000Z" itemprop="datePublished">
-                        08-29</time>
-                    <h6 class="title is-6"><a href="/2023/08/29/nuxt3/nuxt-v3-i18n/">Nuxt.js 3.x 導入 I18n 實作多國語系</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-08-24T16:00:00.000Z" itemprop="datePublished">
-                        08-25</time>
-                    <h6 class="title is-6"><a href="/2023/08/25/nuxt3/nuxt-v3-styling/">Nuxt.js 3.x 搭配 CSS Framework－以 Bootstrap 5 為例</a></h6>
-                </div>
-            
-                <div class="article content>">
-                    <time class="is-text-small" datetime="2023-08-23T16:00:00.000Z" itemprop="datePublished">
-                        08-24</time>
-                    <h6 class="title is-6"><a href="/2023/08/24/nuxt3/nuxt-v3-loading/">Nuxt.js 3.x 自訂 Loading 效果</a></h6>
-                </div>
-            
-            </div>
+        </span>
+    </div>
+    
+</div></div></article>
+
+
+<div class="comments">
+    <h3 class="title is-4">評論</h3>
+    <!-- 
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div> -->
+    <style>
+        .utterances{max-width: 100%;}
+    </style>
+    <script src="https://utteranc.es/client.js" repo="clairechang0609/hexo-board" issue-term="title" theme="github-light" crossorigin="anonymous" async>
+    </script>
+</div>
+    
+        <div class="ad-wrap">
+            <small class="ad-label">廣告</small>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-9074862371923542" data-ad-slot="8939590248" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     
-    
-    
-<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-    <div class="pagination-previous">
-        <a href="/archives/">上一頁</a>
+
     </div>
-    <div class="pagination-next">
-        <a href="/archives/page/3/">下一頁</a>
-    </div>
-    <ul class="pagination-list is-hidden-mobile">
-        
-        <li><a class="pagination-link" href="/archives/">1</a></li>
-        
-        <li><a class="pagination-link is-current" href="/archives/page/2/">2</a></li>
-        
-        <li><a class="pagination-link" href="/archives/page/3/">3</a></li>
-        
-        <li><span class="pagination-ellipsis">&hellip;</span></li>
-        
-        <li><a class="pagination-link" href="/archives/page/9/">9</a></li>
-        
-    </ul>
-</nav>
+    <!-- 
+        <div class="vertical-ad">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9074862371923542"
+                crossorigin="anonymous"></script> -->
+            <!-- 直式廣告 -->
+            <!-- <ins class="adsbygoogle"
+                style="display:inline-block; width:100%; height:400px;"
+                data-ad-client="ca-pub-9074862371923542"
+                data-ad-slot="7146536898"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+     -->
+
     
-    </div>
+        <div class="vertical-ad">
+            <a target="_blank" href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw" rel="external nofollow noopener noreferrer" style="display: flex; flex-direction: column; align-items: center; padding: 1rem;">
+                <img style="width: 100%; max-width: 200px; margin-bottom: 0.5rem;" src="/images/nuxt3/book.jpg" alt="Nuxt3 入門－打造 SSR 專案">
+                <small style="text-align: center; color: darkcyan;">
+                    <small style="background-color: darkcyan; color: white; padding: 1px 1rem; border-radius: 20px; display: inline-block; margin-bottom: 0.5rem;">新書上市</small><br>
+                    Nuxt3 入門：打造 SSR 專案
+                </small>
+            </a>
+        </div>
+    
 </section>
+
     <footer class="footer">
     <div class="container">
         <div class="columns content">
