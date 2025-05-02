@@ -105,7 +105,7 @@ theme: minos
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/clairechang0609/clairechang0609.github.io.git
+  repository: git@github.com:clairechang0609/clairechang0609.github.io.git
   branch: gh-pages
 
 
