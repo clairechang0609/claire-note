@@ -204,6 +204,14 @@
         </span>
 
         
+            <span class="column is-narrow">｜</span>
+            <span class="column is-narrow">
+                <i class="fas fa-sync-alt"></i>
+                <span class="article-item">
+                    2025-06-28
+                </span>
+            </span>
+        
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
@@ -346,8 +354,18 @@
 <figure class="highlight json hljs"><table><tbody><tr><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">{</span><br>  <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"@claire060900/custom-button"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"version"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"1.0.0"</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">"publishConfig"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><br>    <span class="hljs-attr">"@&lt;scope&gt;:registry"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"https://gitlab.com/api/v4/projects/1234567/packages/npm/"</span><br>  <span class="hljs-punctuation">}</span><br>	...<br><span class="hljs-punctuation">}</span><br></code></pre></td></tr></tbody></table></figure>
 
 <h3 id="3-3：發布套件"><a href="#3-3：發布套件" class="headerlink" title="3-3：發布套件"></a><strong>3-3：發布套件</strong></h3><p>萬事俱備後，執行以下指令進行發布，<code>&lt;token&gt;</code> 前面申請的 Token：</p>
-<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">NPM_TOKEN=&lt;token&gt; npm publish<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash hljs"><table><tbody><tr><td class="code"><pre><code class="hljs bash">NPM_TOKEN=&lt;token&gt; npm run release<br></code></pre></td></tr></tbody></table></figure>
 
+<p><code>npm run release</code>&nbsp;會執行以下：</p>
+<ul>
+<li><code>npm run lint</code>&nbsp;進行程式碼檢核</li>
+<li><code>npm run test</code> 執行測試</li>
+<li><code>npm run prepack</code> 打包模組</li>
+<li>根據 commit 訊息自動判斷版本並更新 <code>package.json</code> 中的版本號</li>
+<li>更新 <code>CHANGELOG.md</code> 文件</li>
+<li>將模組發佈到 npm registry</li>
+<li>產生對應版本的 <code>git tag</code> 並推送到遠端儲存庫</li>
+</ul>
 <p>收到成功訊息後，回到 GitLab 專案，左側選單選擇 Deploy → Package Registry，若能看到剛才發布的套件，恭喜大功告成！</p>
 <div style="margin-top: 20px; margin-bottom: 20px;">
   <img style="width: 100%; max-width: 100%;" src="/images/nuxt3/nuxt-module-author/pic-7.png">
@@ -383,7 +401,7 @@
 <div style="display: inline-flex; flex-direction: column; align-items: center; margin-top: 20px;">
 <img style="display: inline-block; width: 100%; max-width: 200px;" src="/images/nuxt3/book.jpg">
 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw" style="color: #1b6655; text-align: center;">
-⭒ 新書上架，更多內容歡迎參考 ⭒<br>
+⭒ 更多內容歡迎參考 ⭒<br>
 <strong>Nuxt3 入門－打造 SSR 專案</strong>
 </a>
 </div></body></html>
@@ -495,7 +513,7 @@
             <a target="_blank" href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw" rel="external nofollow noopener noreferrer" style="display: flex; flex-direction: column; align-items: center; padding: 1rem;">
                 <img style="width: 100%; max-width: 200px; margin-bottom: 0.5rem;" src="/images/nuxt3/book.jpg" alt="Nuxt3 入門－打造 SSR 專案">
                 <small style="text-align: center; color: darkcyan;">
-                    <small style="background-color: darkcyan; color: white; padding: 1px 1rem; border-radius: 20px; display: inline-block; margin-bottom: 0.5rem;">新書上市</small><br>
+                    <!-- <small style="background-color: darkcyan; color: white; padding: 1px 1rem; border-radius: 20px; display: inline-block; margin-bottom: 0.5rem;">新書上市</small><br> -->
                     Nuxt3 入門：打造 SSR 專案
                 </small>
             </a>
