@@ -1,6 +1,7 @@
 ---
 title: 成為 Nuxt Module 作者：模組開發到私有套件發佈的步驟解析
 date: 2025-01-07
+updated_at: 2025-06-28
 tags: [ nuxt3 ]
 category: [ Nuxt3 ]
 description: 本篇文章針對進階開發者，逐步解析 Nuxt3 模組的設計方式，以及如何將模組封裝並發布供專案或團隊使用，豐富應用程式功能。
@@ -426,8 +427,18 @@ GitLab 專案左側選單選擇 Settings → Repository → Deploy Tokens，建�
 萬事俱備後，執行以下指令進行發布，`<token>` 前面申請的 Token：
 
 ```bash
-NPM_TOKEN=<token> npm publish
+NPM_TOKEN=<token> npm run release
 ```
+
+`npm run release` 會執行以下：
+
+- `npm run lint` 進行程式碼檢核
+- `npm run test` 執行測試
+- `npm run prepack` 打包模組
+- 根據 commit 訊息自動判斷版本並更新 `package.json` 中的版本號
+- 更新 `CHANGELOG.md` 文件
+- 將模組發佈到 npm registry
+- 產生對應版本的 `git tag` 並推送到遠端儲存庫
 
 收到成功訊息後，回到 GitLab 專案，左側選單選擇 Deploy → Package Registry，若能看到剛才發布的套件，恭喜大功告成！
 
@@ -520,7 +531,7 @@ https://notes.boshkuo.com/blog/gitlab-package-registry
 <div style="display: inline-flex; flex-direction: column; align-items: center; margin-top: 20px;">
 <img style="display: inline-block; width: 100%; max-width: 200px;" src="/images/nuxt3/book.jpg">
 <a href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw" style="color: #1b6655; text-align: center;">
-⭒ 新書上架，更多內容歡迎參考 ⭒<br />
+⭒ 更多內容歡迎參考 ⭒<br />
 <strong>Nuxt3 入門－打造 SSR 專案</strong>
 </a>
 </div>

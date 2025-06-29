@@ -33,7 +33,7 @@ comments: true
 
 <div style="display: inline-flex; flex-direction: column; align-items: center; margin-top: 20px;">
 <img style="display: inline-block; width: 100%; max-width: 200px;" src="/images/nuxt3/book.jpg">
-<a href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw"  style="color: #1b6655;">↑ 新書上架：Nuxt3 入門－打造 SSR 專案</a>
+<a href="https://www.tenlong.com.tw/products/9786267569313?list_name=r-zh_tw"  style="color: #1b6655;">↑ Nuxt3 入門－打造 SSR 專案</a>
 </div>
 </div>
 
